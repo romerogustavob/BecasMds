@@ -1,0 +1,81 @@
+{% macro formacion(formac) %}
+    <style>
+        .negrita{
+            font-weight: bold;
+        }
+        table{
+            background: #D3D3D3;
+            border-top: 1px solid #000;
+           
+        }
+        .bordediv{
+            padding-left: 10px;
+             
+        }
+        .bordehidden{
+            border-bottom: 1px solid #000; 
+            display: none;
+        }
+    </style>
+    <div class="row-fluid bordediv">
+        <table>
+            <thead>
+                <tr>
+                    <th></th><th></th><th></th>
+                    <th></th><th></th><th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(formac.institucion, 'Institución', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(formac.institucion) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(formac.nivelEducativo, 'Nivel Educativo', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(formac.nivelEducativo) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(formac.profesion, 'Profesión', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(formac.profesion) }}
+                        </div>                        
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(formac.oficio, 'Oficio', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(formac.oficio) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(formac.perfil, 'Perfil', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(formac.perfil) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(formac.descripcion, 'Descripción', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(formac.descripcion) }}
+                        </div>
+                    </td>
+                </tr>
+
+        </tbody>
+            
+        </table>
+
+        <div class="span2">
+            <a class='delete-form btn btn-mini btn-danger' href='#'><i class='icon-remove-circle'></i>Quitar Formación </a>
+        </div>
+    </div>
+{% endmacro %}
+<a href="../../../../../../../.gitignore"></a>

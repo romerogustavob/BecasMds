@@ -1,0 +1,19 @@
+beca_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BecaBundle:Default:index }
+    
+becaBundle_tipofuncion:
+    resource: "@BecaBundle/Resources/config/routing/tipofuncion.yml"
+    prefix:   /tipofuncion
+
+becaBundle_tipobeca:
+    resource: "@BecaBundle/Resources/config/routing/tipobeca.yml"
+    prefix:   /tipobeca
+
+becaBundle_beca:
+    resource: "@BecaBundle/Resources/config/routing/beca.yml"
+    prefix:   /beca
+
+becaBundle_becadobeca:
+    resource: "@BecaBundle/Resources/config/routing/becadobeca.yml"
+    prefix:   /becadobeca

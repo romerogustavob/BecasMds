@@ -1,0 +1,30 @@
+movimientosocial:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:MovimientoSocial:index" }
+
+movimientosocial_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:MovimientoSocial:show" }
+
+movimientosocial_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:MovimientoSocial:new" }
+
+movimientosocial_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:MovimientoSocial:create" }
+    requirements: { _method: post }
+
+movimientosocial_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:MovimientoSocial:edit" }
+
+movimientosocial_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:MovimientoSocial:update" }
+    requirements: { _method: post|put }
+
+movimientosocial_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:MovimientoSocial:delete" }
+    requirements: { _method: post|delete }

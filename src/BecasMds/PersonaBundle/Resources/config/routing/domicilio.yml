@@ -1,0 +1,30 @@
+domicilio:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:Domicilio:index" }
+
+domicilio_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:Domicilio:show" }
+
+domicilio_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:Domicilio:new" }
+
+domicilio_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:Domicilio:create" }
+    requirements: { _method: post }
+
+domicilio_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:Domicilio:edit" }
+
+domicilio_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:Domicilio:update" }
+    requirements: { _method: post|put }
+
+domicilio_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:Domicilio:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+perfil:
+    pattern:  /
+    defaults: { _controller: "FormacionBundle:Perfil:index" }
+
+perfil_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FormacionBundle:Perfil:show" }
+
+perfil_new:
+    pattern:  /new
+    defaults: { _controller: "FormacionBundle:Perfil:new" }
+
+perfil_create:
+    pattern:  /create
+    defaults: { _controller: "FormacionBundle:Perfil:create" }
+    requirements: { _method: post }
+
+perfil_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FormacionBundle:Perfil:edit" }
+
+perfil_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FormacionBundle:Perfil:update" }
+    requirements: { _method: post|put }
+
+perfil_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FormacionBundle:Perfil:delete" }
+    requirements: { _method: post|delete }

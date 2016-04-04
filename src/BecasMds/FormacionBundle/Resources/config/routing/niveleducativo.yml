@@ -1,0 +1,30 @@
+niveleducativo:
+    pattern:  /
+    defaults: { _controller: "FormacionBundle:NivelEducativo:index" }
+
+niveleducativo_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FormacionBundle:NivelEducativo:show" }
+
+niveleducativo_new:
+    pattern:  /new
+    defaults: { _controller: "FormacionBundle:NivelEducativo:new" }
+
+niveleducativo_create:
+    pattern:  /create
+    defaults: { _controller: "FormacionBundle:NivelEducativo:create" }
+    requirements: { _method: post }
+
+niveleducativo_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FormacionBundle:NivelEducativo:edit" }
+
+niveleducativo_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FormacionBundle:NivelEducativo:update" }
+    requirements: { _method: post|put }
+
+niveleducativo_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FormacionBundle:NivelEducativo:delete" }
+    requirements: { _method: post|delete }

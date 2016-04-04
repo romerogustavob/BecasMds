@@ -1,0 +1,30 @@
+responsable:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:Responsable:index" }
+
+responsable_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:Responsable:show" }
+
+responsable_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:Responsable:new" }
+
+responsable_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:Responsable:create" }
+    requirements: { _method: post }
+
+responsable_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:Responsable:edit" }
+
+responsable_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:Responsable:update" }
+    requirements: { _method: post|put }
+
+responsable_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:Responsable:delete" }
+    requirements: { _method: post|delete }

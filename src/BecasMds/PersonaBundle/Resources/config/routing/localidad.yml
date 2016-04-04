@@ -1,0 +1,42 @@
+localidad:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:Localidad:index" }
+
+localidad_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:Localidad:show" }
+
+localidad_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:Localidad:new" }
+
+localidad_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:Localidad:create" }
+    requirements: { _method: post }
+
+localidad_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:Localidad:edit" }
+
+localidad_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:Localidad:update" }
+    requirements: { _method: post|put }
+
+localidad_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:Localidad:delete" }
+    requirements: { _method: post|delete }
+    
+find_localidad:
+    pattern: /findlocalidad
+    defaults: { _controller: "PersonaBundle:Localidad:findLocalidadAjax" }
+    options: 
+        expose: true
+
+get_localidad:
+        pattern:        /getlocalidad/{ids}
+        defaults:       { _controller: PersonaBundle:Localidad:getLocalidadAjax }
+        options:
+            expose: true

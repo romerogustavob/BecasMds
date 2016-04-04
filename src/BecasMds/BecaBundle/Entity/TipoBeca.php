@@ -1,0 +1,170 @@
+<?php
+
+namespace BecasMds\BecaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * TipoBeca
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="BecasMds\BecaBundle\Entity\TipoBecaRepository")
+ */
+class TipoBeca
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="detalle", type="string", length=255)
+     */
+    private $detalle;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="activo", type="boolean")
+     */
+    private $activo;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Beca", mappedBy="tipoBeca")
+     */    
+    private $beca;
+
+    public function __construct() {
+        $this->beca=new ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     * @return TipoBeca
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set detalle
+     *
+     * @param string $detalle
+     * @return TipoBeca
+     */
+    public function setDetalle($detalle)
+    {
+        $this->detalle = $detalle;
+    
+        return $this;
+    }
+
+    /**
+     * Get detalle
+     *
+     * @return string 
+     */
+    public function getDetalle()
+    {
+        return $this->detalle;
+    }
+
+    /**
+     * Set activo
+     *
+     * @param boolean $activo
+     * @return TipoBeca
+     */
+    public function setActivo($activo)
+    {
+        $this->activo = $activo;
+    
+        return $this;
+    }
+
+    /**
+     * Get activo
+     *
+     * @return boolean 
+     */
+    public function getActivo()
+    {
+        return $this->activo;
+    }
+
+    /**
+     * Add beca
+     *
+     * @param \BecasMds\BecaBundle\Entity\Beca $beca
+     * @return TipoBeca
+     */
+    public function addBeca(\BecasMds\BecaBundle\Entity\Beca $beca)
+    {
+        $this->beca[] = $beca;
+    
+        return $this;
+    }
+
+    /**
+     * Remove beca
+     *
+     * @param \BecasMds\BecaBundle\Entity\Beca $beca
+     */
+    public function removeBeca(\BecasMds\BecaBundle\Entity\Beca $beca)
+    {
+        $this->beca->removeElement($beca);
+    }
+
+    /**
+     * Get beca
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBeca()
+    {
+        return $this->beca;
+    }
+    
+    public function __toString() {
+        return $this->getDescripcion();
+    }
+}

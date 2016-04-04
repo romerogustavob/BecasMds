@@ -1,0 +1,30 @@
+tipobeca:
+    pattern:  /
+    defaults: { _controller: "BecaBundle:TipoBeca:index" }
+
+tipobeca_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BecaBundle:TipoBeca:show" }
+
+tipobeca_new:
+    pattern:  /new
+    defaults: { _controller: "BecaBundle:TipoBeca:new" }
+
+tipobeca_create:
+    pattern:  /create
+    defaults: { _controller: "BecaBundle:TipoBeca:create" }
+    requirements: { _method: post }
+
+tipobeca_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BecaBundle:TipoBeca:edit" }
+
+tipobeca_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BecaBundle:TipoBeca:update" }
+    requirements: { _method: post|put }
+
+tipobeca_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BecaBundle:TipoBeca:delete" }
+    requirements: { _method: post|delete }

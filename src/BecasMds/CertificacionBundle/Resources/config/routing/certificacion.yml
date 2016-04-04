@@ -1,0 +1,30 @@
+certificacion:
+    pattern:  /
+    defaults: { _controller: "CertificacionBundle:Certificacion:index" }
+
+certificacion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CertificacionBundle:Certificacion:show" }
+
+certificacion_new:
+    pattern:  /{id}/new
+    defaults: { _controller: "CertificacionBundle:Certificacion:new" }
+
+certificacion_create:
+    pattern:  /create
+    defaults: { _controller: "CertificacionBundle:Certificacion:create" }
+    requirements: { _method: post }
+
+certificacion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CertificacionBundle:Certificacion:edit" }
+
+certificacion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CertificacionBundle:Certificacion:update" }
+    requirements: { _method: post|put }
+
+certificacion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CertificacionBundle:Certificacion:delete" }
+    requirements: { _method: post|delete }

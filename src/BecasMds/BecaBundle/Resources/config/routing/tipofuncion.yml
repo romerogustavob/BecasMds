@@ -1,0 +1,30 @@
+tipofuncion:
+    pattern:  /
+    defaults: { _controller: "BecaBundle:TipoFuncion:index" }
+
+tipofuncion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BecaBundle:TipoFuncion:show" }
+
+tipofuncion_new:
+    pattern:  /new
+    defaults: { _controller: "BecaBundle:TipoFuncion:new" }
+
+tipofuncion_create:
+    pattern:  /create
+    defaults: { _controller: "BecaBundle:TipoFuncion:create" }
+    requirements: { _method: post }
+
+tipofuncion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BecaBundle:TipoFuncion:edit" }
+
+tipofuncion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BecaBundle:TipoFuncion:update" }
+    requirements: { _method: post|put }
+
+tipofuncion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BecaBundle:TipoFuncion:delete" }
+    requirements: { _method: post|delete }

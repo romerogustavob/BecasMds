@@ -1,0 +1,41 @@
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+
+{% block title %}
+{{ parent() }} - {{ 'views.new.creation'|trans({'%entity%': 'Responsable'}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    {% if form is defined %}
+        <script src="{{ asset('bundles/genemuform/js/select2.min.js') }}"></script>
+        {{ form_javascript(form) }}
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if form is defined %}
+        <link rel="stylesheet" href="{{ asset('bundles/genemuform/css/select2.min.css') }}">
+        {{ form_stylesheet(form) }}
+    {% endif %}
+{% endblock %}
+
+{% block page %}
+
+<h2 style="color: #0044cc">{{ 'views.new.creation'|trans({'%entity%': 'Responsable'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
+
+<form class="well" action="{{ path('responsable_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+    </p>
+</form>
+
+<div>
+    <div class="float-left">
+        <a class="btn" href="{{ path('responsable') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>
+    </div>
+</div>
+{% endblock %}

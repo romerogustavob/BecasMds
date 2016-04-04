@@ -1,0 +1,43 @@
+formacion_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FormacionBundle:Default:index }
+
+formacionBundle_primario:
+    resource: "@FormacionBundle/Resources/config/routing/primario.yml"
+    prefix:   /primario
+
+formacionBundle_secundario:
+    resource: "@FormacionBundle/Resources/config/routing/secundario.yml"
+    prefix:   /secundario
+    
+formacionBundle_terciario:
+    resource: "@FormacionBundle/Resources/config/routing/terciario.yml"
+    prefix:   /terciario
+    
+formacionBundle_universidad:
+    resource: "@FormacionBundle/Resources/config/routing/universidad.yml"
+    prefix:   /universidad
+    
+formacionBundle_formacion:
+    resource: "@FormacionBundle/Resources/config/routing/formacion.yml"
+    prefix:   /formacion
+
+formacionBundle_profesion:
+    resource: "@FormacionBundle/Resources/config/routing/profesion.yml"
+    prefix:   /profesion
+
+formacionBundle_niveleducativo:
+    resource: "@FormacionBundle/Resources/config/routing/niveleducativo.yml"
+    prefix:   /niveleducativo
+
+formacionBundle_institucion:
+   resource: "@FormacionBundle/Resources/config/routing/institucion.yml"
+   prefix:   /institucion
+   
+formacionBundle_perfil:
+    resource: "@FormacionBundle/Resources/config/routing/perfil.yml"
+    prefix:   /perfil
+
+formacionBundle_oficio:
+    resource: "@FormacionBundle/Resources/config/routing/oficio.yml"
+    prefix:   /oficio

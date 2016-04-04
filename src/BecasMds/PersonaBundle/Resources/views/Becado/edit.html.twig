@@ -1,0 +1,185 @@
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+{% import "PersonaBundle:Form:macro.formacion.html.twig" as macrosFormacion %}
+{% import "PersonaBundle:Form:macro.domicilio.html.twig" as macrosDomicilio %}
+
+{% block title %}
+    {{ parent() }} -  {{ 'views.edit.edit'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}
+    
+{% endblock %}
+
+{% block page %}
+
+    <h2 style="color: #0044cc">{{ 'views.edit.edit'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
+
+    <form class="well" action="{{ path('becado_update', { 'id': entity.id  }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <input type="hidden" name="_method" value="PUT" />
+        
+        {{ form_start(edit_form) }}
+       {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
+        <div style="display: none;">
+            {{ form_row(edit_form.id) }}
+        </div>
+        <h4>Datos Personales</h4>
+        {{ form_row(edit_form.dni) }} {{ form_row(edit_form.apellidos) }} {{ form_row(edit_form.nombres) }}
+        {{ form_row(edit_form.telefono) }}{{ form_row(edit_form.email) }} 
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse">
+                            Domicilio</a>
+                    </h4>
+                </div>
+                <div id="domicilioCollapse" class="panel-collapse collapse in">
+                    <div class="panel-body">
+
+                        {{ form_errors(edit_form.domicilio) }}
+                        {% if edit_form.domicilio is not null %}
+                            {% for domicilio in edit_form.domicilio %}
+                                <div style="display: none;">
+                                    {{ form_row(domicilio.latitude) }}
+                                </div>
+                                <div style="display: none;">
+                                    {{ form_row(domicilio.longitude) }}
+                                </div>
+                                <div style="display: none;">
+                                    {{ form_row(domicilio.departamento) }}
+                                </div>
+                                {{ form_label(domicilio.localidad, 'Localidad') }}
+                                {{ form_widget(domicilio.localidad) }}
+                                {{ form_label(domicilio.barrio, 'Barrio') }}
+                                {{ form_widget(domicilio.barrio) }}
+                                {{ form_label(domicilio.calle, 'Calle') }}
+                                {{ form_widget(domicilio.calle) }}
+                                {{ form_label(domicilio.numero, 'número') }}
+                                {{ form_widget(domicilio.numero) }}
+                                {{ form_label(domicilio.dpto, 'Departamento') }}
+                                {{ form_widget(domicilio.dpto) }}
+                                {{ form_label(domicilio.piso, 'Piso') }}
+                                {{ form_widget(domicilio.piso) }}
+                                {{ form_label(domicilio.edificio, 'Edificio') }}
+                                {{ form_widget(domicilio.edificio) }}
+                                {{ form_label(domicilio.manzana, 'Manzana') }}
+                                {{ form_widget(domicilio.manzana) }}
+                                {{ form_label(domicilio.tira, 'Tira') }}
+                                {{ form_widget(domicilio.tira) }}
+                                {{ form_label(domicilio.parcela, 'Parcela') }}
+                                {{ form_widget(domicilio.parcela) }}
+                                {{ form_label(domicilio.quinta, 'Quinta') }}
+                                {{ form_widget(domicilio.quinta) }}
+                                {{ form_label(domicilio.unidadFuncional, 'UF/Casa') }}
+                                {{ form_widget(domicilio.unidadFuncional) }}
+                                {{ form_label(domicilio.referencias, 'Referencias') }}
+                                {{ form_widget(domicilio.referencias) }}
+                            {% endfor %}
+                        {% else %}
+                            <div class="row-fluid">
+                                <div data-prototype="{{ macrosDomicilio.domicilio(edit_form.domicilio.vars.prototype)|e }}" class="row-fluid domicilio">
+                                    {% for domi in edit_form.domicilio %}
+                                        {{ macrosDomicilio.domicilio(domi) }}
+                                    {% endfor %}
+                                </div>
+                                <a href='#' class='btn add-domicilio-form'>
+                                    <i class='icon-pencil'></i> Agregar Domicilio                                    
+                                </a>
+                            </div>  
+                        {% endif %}
+                    </div> 
+                </div>
+            </div>
+        </div>
+        
+ 
+        {% if edit_form.becadobeca is not null %}
+        <div >
+            <div class="float-left">
+            <a class="btn" href="{{ path('becadobeca') }}">
+                Editar Beca
+            </a>
+        </div>
+        </div>
+        {% endif %}
+        <h4>Movimiento/Afectación/Dependencia</h4>
+
+        {{ form_label(edit_form.referente, 'Mov. Social/Referente') }}
+        {{ form_widget(edit_form.referente | e) }} 
+        {{ form_label(edit_form.lugarAfectacion, 'Lugar de Afectación') }}
+        {{ form_widget(edit_form.lugarAfectacion | e) }}
+        {{ form_label(edit_form.dependencia, 'Dependencia') }}
+        {{ form_widget(edit_form.dependencia | e) }}
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse">
+                            Formación</a>
+                    </h4>
+                </div>
+                <div id="formacionCollapse" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        {{ form_errors(edit_form.formacion) }}
+                        {% if edit_form.formacion is not null %}
+                            {% for formacion in edit_form.formacion %}       
+                                {{ form_widget(formacion) }}
+                            {% endfor %}
+                        {% else %}
+                            <div class="row-fluid">
+                                {{ form_errors(edit_form.formacion) }}
+                                <div data-prototype="{{ macrosFormacion.formacion(edit_form.formacion.vars.prototype)|e }}" class="row-fluid formacion">
+                                    {% for formac in edit_form.formacion %}
+                                        {{ macrosFormacion.formacion(formac) }}
+                                    {% endfor %}
+                                </div>
+                                <a href='#' class='btn add-formacion-form'>
+                                    <i class='icon-pencil'></i> Agregar Formación
+                                </a>
+                            </div>  
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4>Otros Datos</h4>
+        {{ form_row(edit_form.presentaCertificacion) }} {{ form_row(edit_form.fechaAlta) }}
+        {{ form_row(edit_form.fechaBaja) }} {{ form_row(edit_form.activo) }}
+        
+        {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
+        <div style="display: none">
+        {{ form_widget(edit_form.formacion) }}
+        </div>
+        <div style="display: none">
+        {{ form_widget(edit_form.domicilio) }}
+        </div>
+        <div style="padding-top: 15px;"><span class="divider-vertical">
+                <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            </span></div>
+
+        {{ form_end(edit_form) }}
+    </form>
+
+    <div>
+        <div class="float-left">
+            <a class="btn" href="{{ path('becado') }}">
+                {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            </a>
+        </div>
+        <div class="float-left">
+            <form action="{{ path('becado_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle')|escape('js') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            </form>
+        </div>
+    </div>
+
+    {% block javascript %}
+        {{ parent() }}
+        {% javascripts '@PersonaBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+becadobeca:
+    pattern:  /
+    defaults: { _controller: "BecaBundle:BecadoBeca:index" }
+
+becadobeca_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BecaBundle:BecadoBeca:show" }
+
+becadobeca_new:
+    pattern:  /{id}/new
+    defaults: { _controller: "BecaBundle:BecadoBeca:new" }
+
+becadobeca_create:
+    pattern:  /create
+    defaults: { _controller: "BecaBundle:BecadoBeca:create" }
+    requirements: { _method: post }
+
+becadobeca_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BecaBundle:BecadoBeca:edit" }
+
+becadobeca_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BecaBundle:BecadoBeca:update" }
+    requirements: { _method: post|put }
+
+becadobeca_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BecaBundle:BecadoBeca:delete" }
+    requirements: { _method: post|delete }

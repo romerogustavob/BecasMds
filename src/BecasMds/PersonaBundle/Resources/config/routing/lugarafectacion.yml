@@ -1,0 +1,30 @@
+lugarafectacion:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:LugarAfectacion:index" }
+
+lugarafectacion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:LugarAfectacion:show" }
+
+lugarafectacion_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:LugarAfectacion:new" }
+
+lugarafectacion_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:LugarAfectacion:create" }
+    requirements: { _method: post }
+
+lugarafectacion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:LugarAfectacion:edit" }
+
+lugarafectacion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:LugarAfectacion:update" }
+    requirements: { _method: post|put }
+
+lugarafectacion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:LugarAfectacion:delete" }
+    requirements: { _method: post|delete }

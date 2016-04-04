@@ -1,0 +1,117 @@
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} -  {{ 'views.edit.edit'|trans({'%entity%': 'Beca'}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block page %}
+
+    <h2 style="color: #0044cc">{{ 'views.edit.edit'|trans({'%entity%': 'Beca'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
+
+    <form class="well" action="{{ path('beca_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <input type="hidden" name="_method" value="PUT" />
+        {{ form_start(edit_form) }}
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        {{ form_row(edit_form.tipoBeca) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.tipoFuncion) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.monto) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form_row(edit_form.fechaAlta) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.fechaBaja) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.activo) }}
+                    </td>
+                </tr>
+            <div class="control-group inline">
+                <tr>
+
+                    <td>
+
+                        <fieldset>
+                            <label>Porcentaje (%):</label>
+                            <input type="text" id="porcentaje" name="porcentaje" placeholder="Ej. 10" class=""/>
+                        </fieldset>
+
+                    </td>
+                    <td>
+
+                        <fieldset>
+                            <label>Monto Fijo:</label>
+                            <input type="text" id="montoFijo" name="montoFijo" placeholder="Ej. 150" class=""/>
+                        </fieldset>
+
+                    </td>
+                    <td>
+                        <input type="button" name="Incrementar" value="Incrementar monto" onclick="sumar();" class="btn btn-info">
+                    </td>
+                </tr>
+            </div>
+            <tr>
+                <td style="font-weight: bold">
+                    <span style="color:red; font-size: 8 ">*Ingrese solo una de las opciones de incremento.</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div style="margin-bottom: 30px; padding-bottom: 30px;">
+            <p>
+                <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            </p>
+        </div>
+        {{ form_end(edit_form) }}
+    </form>
+
+    <div>
+        <div class="float-left">
+            <a class="btn" href="{{ path('beca') }}">
+                {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            </a>
+        </div>
+        <div class="float-left">
+            <form action="{{ path('beca_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle')|escape('js') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            </form>
+        </div>
+    </div>
+            
+    {% block javascript %}                
+        <script type="text/javascript">
+            function sumar()
+            {
+                var porc = parseFloat(document.getElementById('porcentaje').value);
+                var montoFijo = parseFloat(document.getElementById('montoFijo').value);
+                var montoActual = parseFloat(document.getElementById('becasmds_becabundle_beca_monto').value);
+                var incrementado = parseFloat(0);
+                if (porc!=="" && porc>0) {
+                    incrementado = ((porc * montoActual) / 100) + montoActual;
+                    document.getElementById('becasmds_becabundle_beca_monto').value = incrementado;
+                    alert("El nuevo monto de la beca es: " + incrementado);
+                }
+                else if (montoFijo!=="" && montoFijo>0) {
+                    incrementado = montoFijo + montoActual;
+                    document.getElementById('becasmds_becabundle_beca_monto').value = incrementado;
+                    alert("El nuevo monto de la beca es: " + incrementado);
+                }
+                else {
+                    alert('Los valores ingresados para el incremento no son válidos')
+                }
+                    
+            }
+        </script>
+    {% endblock %}
+{% endblock %}

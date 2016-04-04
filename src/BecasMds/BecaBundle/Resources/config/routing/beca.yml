@@ -1,0 +1,34 @@
+beca:
+    pattern:  /
+    defaults: { _controller: "BecaBundle:Beca:index" }
+
+beca_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BecaBundle:Beca:show" }
+
+beca_new:
+    pattern:  /new
+    defaults: { _controller: "BecaBundle:Beca:new" }
+
+beca_create:
+    pattern:  /create
+    defaults: { _controller: "BecaBundle:Beca:create" }
+    requirements: { _method: post }
+
+beca_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BecaBundle:Beca:edit" }
+
+beca_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BecaBundle:Beca:update" }
+    requirements: { _method: post|put }
+
+beca_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BecaBundle:Beca:delete" }
+    requirements: { _method: post|delete }
+
+beca_imprimir:
+    pattern: /imprimir
+    defaults: { _controller: "BecaBundle:Beca:mypdf" }

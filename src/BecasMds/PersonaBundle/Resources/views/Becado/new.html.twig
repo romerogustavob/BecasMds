@@ -1,0 +1,149 @@
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+{% import "PersonaBundle:Form:macro.formacion.html.twig" as macrosFormacion %}
+{% import "PersonaBundle:Form:macro.domicilio.html.twig" as macrosDomicilio %}
+{% block title %}
+    {{ parent() }} - {{ 'views.new.creation'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}
+
+{% endblock %}
+
+{% block page %}
+{% block stylesheets %}
+        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/jquery.Jcrop.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/token-input-facebook.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/token-input.css') }}" rel="stylesheet" />
+        {{ form_stylesheet(form) }}
+
+    {% endblock %}
+
+    {% block javascript %}
+        {% javascripts '@PersonaBundle/Resources/public/js/addForm.js' 
+            '@PersonaBundle/Resources/public/js/agregarFormacion.js'
+            '@PersonaBundle/Resources/public/js/deleteRow.js'
+            '@PersonaBundle/Resources/public/js/agregarDomicilio.js'
+            '@PersonaBundle/Resources/public/js/select2.js'
+            '@PersonaBundle/Resources/public/js/select2Localidad.js'
+            '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'
+            '@PersonaBundle/Resources/public/js/jquery-ui.js'
+            '@PersonaBundle/Resources/public/js/jquery.Jcrop.js'
+            '@PersonaBundle/Resources/public/js/jquery.color.js'
+            '@PersonaBundle/Resources/public/js/jquery.tokeninput.js'
+        %}
+        {{ form_javascript(form) }}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+
+    <h2 style="color: #0044cc">Nuevo Becado{#{{ 'views.new.creation'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}#}</h2>
+
+    <form class="well" action="{{ path('becado_create') }}" method="post" {{ form_enctype(form) }}>
+        {# Aplicando theming al formulario alumno #}
+        {#{% form_theme form 'PersonaBundle:Form:becado.theming.html.twig' %}
+        {{ form(form) }}#}
+        {#{{ form_widget(form) }}#}
+        {{ form_start(form) }}
+
+        <h4>Datos Personales</h4>
+        {{ form_row(form.dni) }} {{ form_row(form.apellidos) }} {{ form_row(form.nombres) }}
+        {{ form_row(form.telefono) }}{{ form_row(form.email) }}
+
+        <div class="panel-group" id="accordion">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse">
+                            Domicilio</a>
+                    </h4>
+                </div>
+                <div id="domicilioCollapse" class="panel-collapse collapse in">
+                    <div class="row-fluid">
+                        {{ form_errors(form.domicilio) }}
+                        <div data-prototype="{{ macrosDomicilio.domicilio(form.domicilio.vars.prototype)|e }}" class="row-fluid domicilio">
+                            {% for domi in form.domicilio %}
+                                {{ macrosDomicilio.domicilio(domi) }}
+                            {% endfor %}
+
+                        </div>
+
+                        <a href='#' class='btn add-domicilio-form'>
+                            <i class='icon-pencil'></i> Agregar Domicilio 
+                        </a>
+
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+
+
+        {#{{ form_row(form.becadobeca) }}#} 
+        <h4>Movimiento/Afectación/Dependencia</h4>
+        {{ form_row(form.referente) }} {{ form_row(form.lugarAfectacion) }}
+        {{ form_row(form.dependencia) }} 
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse">
+                            Formación</a>
+                    </h4>
+                </div>
+                <div id="formacionCollapse" class="panel-collapse collapse in">
+                    <div class="panel-body">
+
+                        <div class="row-fluid">
+
+                            {{ form_errors(form.formacion) }}
+                            <div data-prototype="{{ macrosFormacion.formacion(form.formacion.vars.prototype)|e }}" class="row-fluid formacion">
+                                {% for formac in form.formacion %}
+                                    {{ macrosFormacion.formacion(formac) }}
+                                {% endfor %}
+                            </div>
+
+                        </div> 
+                        <a href='#' class='btn add-formacion-form'>
+                            <i class='icon-pencil'></i> Agregar Formación
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4>Otros Datos</h4>
+        {{ form_row(form.presentaCertificacion) }} {{ form_row(form.fechaAlta) }}
+        {{ form_row(form.fechaBaja) }} {{ form_row(form.activo) }}
+        {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
+        <div style="display: none">
+            {{ form_widget(form.formacion) }}
+        </div>
+        <div style="display: none">
+            {{ form_widget(form.domicilio) }}
+        </div>
+        <div style="padding-top: 15px;"><span class="divider-vertical">
+
+                <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            </span></div>   
+
+
+
+        {{ form_end(form) }}
+        
+        
+    </form>
+
+    <div>
+        <div class="float-left">
+            <a class="btn" href="{{ path('becado') }}">
+                {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            </a>
+        </div>
+    </div>
+
+    
+
+
+
+{% endblock %}

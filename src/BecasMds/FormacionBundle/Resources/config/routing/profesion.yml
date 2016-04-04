@@ -1,0 +1,30 @@
+profesion:
+    pattern:  /
+    defaults: { _controller: "FormacionBundle:Profesion:index" }
+
+profesion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FormacionBundle:Profesion:show" }
+
+profesion_new:
+    pattern:  /new
+    defaults: { _controller: "FormacionBundle:Profesion:new" }
+
+profesion_create:
+    pattern:  /create
+    defaults: { _controller: "FormacionBundle:Profesion:create" }
+    requirements: { _method: post }
+
+profesion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FormacionBundle:Profesion:edit" }
+
+profesion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FormacionBundle:Profesion:update" }
+    requirements: { _method: post|put }
+
+profesion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FormacionBundle:Profesion:delete" }
+    requirements: { _method: post|delete }

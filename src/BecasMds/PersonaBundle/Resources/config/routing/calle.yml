@@ -1,0 +1,30 @@
+calle:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:Calle:index" }
+
+calle_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:Calle:show" }
+
+calle_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:Calle:new" }
+
+calle_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:Calle:create" }
+    requirements: { _method: post }
+
+calle_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:Calle:edit" }
+
+calle_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:Calle:update" }
+    requirements: { _method: post|put }
+
+calle_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:Calle:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+dependencia:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:Dependencia:index" }
+
+dependencia_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:Dependencia:show" }
+
+dependencia_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:Dependencia:new" }
+
+dependencia_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:Dependencia:create" }
+    requirements: { _method: post }
+
+dependencia_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:Dependencia:edit" }
+
+dependencia_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:Dependencia:update" }
+    requirements: { _method: post|put }
+
+dependencia_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:Dependencia:delete" }
+    requirements: { _method: post|delete }

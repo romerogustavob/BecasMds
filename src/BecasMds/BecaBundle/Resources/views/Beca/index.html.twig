@@ -1,0 +1,159 @@
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+
+{% block title %}
+{{ parent() }} - {{ 'views.index.list'|trans({'%entity%': 'Beca'}, 'JordiLlonchCrudGeneratorBundle') }}
+
+{% endblock %}
+
+{% block page %}
+    {{ parent() }}
+<div class="row">
+ 
+    <div class="span8">
+        <h2 style="color: #0044cc">{{ 'views.index.list'|trans({'%entity%': 'Beca'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
+    </div>
+    <div class="span2">
+        {% if form_errors(filterForm) %}
+        <div class="alert alert-block alert-error fade in form-errors">
+            {{ form_errors(filterForm) }}
+        </div>
+        {% endif %}
+        &nbsp;
+    </div>
+    <div class="span2">
+        <div class="filters-right">
+            <a class="btn dropdown-toggle" data-toggle="collapse" data-target="#filters">
+                {{ 'views.index.filters'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                <span class="caret"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="span12">
+        <div id="filters" class="collapse">
+
+            <form class="well" action="{{ path('beca') }}" method="get" {{ form_enctype(filterForm) }}>
+                {{ form_start(filterForm) }}
+                
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="4">
+                               {{ form_row(filterForm.id) }} 
+                            </td>
+                        </tr>
+                    <tr>
+                        <td>
+                            {% for tipoBeca in filterForm.tipoBeca %}
+                            {{ form_row(tipoBeca.descripcion) }}
+                
+                            {% endfor %} 
+                        </td>
+                        <td>
+                            {% for tipoFuncion in filterForm.tipoFuncion %}
+                            {{ form_row(tipoFuncion.descripcion) }}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {{ form_row(filterForm.monto) }}
+                        </td>
+                        <td>
+                            {{ form_row(filterForm.activo) }}
+                        </td>
+                    </tr>               
+                    <tr>
+                        <td>
+                            {{ form_label(filterForm.fechaAlta.left_date, 'Fecha Creación Desde', { 'label_attr': {'class':'strong'} }) }}
+                            {{ form_widget(filterForm.fechaAlta.left_date) }}
+                        </td>
+                        <td>
+                            {{ form_label(filterForm.fechaAlta.right_date, 'Fecha Creación Hasta') }}
+                            {{ form_widget(filterForm.fechaAlta.right_date) }}
+                        </td>
+                        <td>
+                            {{ form_label(filterForm.fechaBaja.left_date, 'Fecha Baja Desde') }}
+                            {{ form_widget(filterForm.fechaBaja.left_date) }}
+                        </td>
+                        <td>
+                            {{ form_label(filterForm.fechaBaja.right_date, 'Fecha Baja Hasta') }}
+                            {{ form_widget(filterForm.fechaBaja.right_date) }}
+                        </td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+                <p>
+                    <button type="submit" name="filter_action" value="filter">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                    <button type="submit" name="filter_action" value="reset">{{ 'views.index.reset'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                </p>
+                 {{ form_row(filterForm._token) }}
+                {{ form_end(filterForm) }}
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="span12">
+
+    <table class="table table-striped table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tipo Beca</th>
+            <th>Tipo Función</th>
+            <th>Monto</th>
+            <th>Fechaalta</th>
+            <th>Fechabaja</th>
+            <th>Activo</th>
+            
+            <th>{{ 'views.index.actions'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('beca_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.tipoBeca }}</td>
+            <td>{{ entity.tipoFuncion }}</td>
+            <td>{{ entity.monto }}</td>
+            <td>{% if entity.fechaAlta %}{{ entity.fechaAlta|date('Y-m-d H:i:s') }} {% else %} NO REGISTRADO{% endif %}</td>
+            <td>{% if entity.fechaBaja %}{{ entity.fechaBaja|date('Y-m-d H:i:s') }} {% else %} NO REGISTRADO{% endif %}</td>
+            <td>
+                {% if entity.activo %}
+                    Sí
+                {% else %}
+                    No
+                {% endif %}
+            </td>
+            
+            <td>
+        <a class="btn btn-mini" href="{{ path('beca_show', { 'id': entity.id }) }}">
+            {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>
+        <a class="btn btn-mini" href="{{ path('beca_edit', { 'id': entity.id }) }}">
+            {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    </div>
+
+    <div class="span4">
+    {{ pagerHtml|raw }}
+    </div>
+
+        <div class="span8">
+    <a class="btn btn-primary likepaginator" href="{{ path('beca_new') }}">
+            {{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} Beca
+        </a>
+    </div>
+        <div class="span8">
+    <a class="btn btn-primary likepaginator" href="{{ path('beca_imprimir') }}">
+            imprimir
+        </a>
+    </div>
+    </div>
+  
+   
+{% endblock %}

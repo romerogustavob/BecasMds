@@ -1,0 +1,7 @@
+certificacion_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CertificacionBundle:Default:index }
+
+certificacionBundle_certificacion:
+    resource: "@CertificacionBundle/Resources/config/routing/certificacion.yml"
+    prefix:   /certificacion

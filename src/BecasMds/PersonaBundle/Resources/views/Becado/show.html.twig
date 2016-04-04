@@ -1,0 +1,273 @@
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - {{ 'views.show.show'|trans({'%entity%': 'Ficha Becado'}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block page %}
+
+    <h3 style="color: #0044cc;">Ver Ficha Becado</h3>
+
+    <form class="form-horizontal">
+        <fieldset>        
+            <div class="control-group" style="display: none;">
+                <h4>Datos Personales</h4>
+                <label class="control-label">Id</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.id }}</span>            </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Nº Doc.</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.dni }}</span>            </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Apellidos</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.apellidos }}</span>            </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Nombres</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.nombres }}</span>            </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Teléfono</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.telefono }}</span>            </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Email</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.email }}</span>            </div>
+            </div>
+            <h4>Domicilio</h4>
+            {% for domicilio in entity.domicilio %}
+                <div class="control-group">
+                    <label class="control-label">Departamento</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.departamento }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Localidad</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.localidad }}</span>            </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Barrio</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.barrio }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Calle</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.calle }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Nro.</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.numero }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Dpto.</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.dpto }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Piso</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.piso }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Edificio</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.edificio }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Manzana</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.manzana }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Tira</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.tira }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Parcela</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.parcela }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Quinta</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.quinta }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Un. Funcional</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.unidadDuncional }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Referencias</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.referencias }}</span>            </div>
+                </div>
+
+            {% endfor %}
+            <h4>Becas Asignadas</h4>
+            {% set contBeca=0 %}
+            {% for becadobeca in entity.becadobeca %}
+                {% if becadobeca.activo %}
+                    {% set contBeca=contBeca+1 %}
+                    <div class="control-group">
+                        <label class="control-label">Beca Nº {{ contBeca }}:</label>
+                        <div class="controls">                
+                            <span class="input-xlarge uneditable-input span7">                                               
+                                {{ becadobeca.beca.tipoBeca }}
+                                Tipo Función:{{ becadobeca.beca.tipoFuncion }}
+                                Monto:{{ becadobeca.beca.monto }}
+                            </span>            
+                        </div>
+                    </div> 
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">                
+                            <span class="input-xlarge">                                               
+
+                                <a class="btn btn-primary" href="{{ path('becadobeca_edit', { 'id': becadobeca.id }) }}">
+                                    Editar Beca
+                                </a>
+
+                            </span>            
+                        </div>
+                    </div> 
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">                
+                            <span class="input-xlarge">                                               
+
+                                <a class="btn btn-primary" href="{{ path('certificacion_new', { 'id': becadobeca.id }) }}">
+                                    Certificar
+                                </a>
+                                    
+                            </span>            
+                        </div>
+                    </div> 
+                {% endif %}
+            {% endfor %}
+            <h4>Movimientos/Afectación/Dependencia</h4>
+            <div class="control-group">
+                <label class="control-label">Mov. Social/Referente</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input span5">
+                        {{ entity.referente.movimientoSocial}} - Referente: 
+                        {{ entity.referente.apellidos }}, {{ entity.referente.nombres}}</span>            </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Lugar Afectación</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ entity.lugarAfectacion }}</span>            </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Dependencia</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ entity.dependencia | raw}}</span>            </div>
+            </div>
+
+            <h4>Formación</h4>
+            {% for educacion in entity.formacion %}
+                <div class="control-group">
+                    <label class="control-label">Institución</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.institucion }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Nivel Educativo</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.nivelEducativo }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Profesión</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.profesion }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Perfil</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.perfil }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Oficio</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.oficio }}</span>            </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Descripción</label>
+                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.descripcion }}</span>            </div>
+                </div>
+            {% endfor %}
+            <h4>Otros Datos</h4>
+            <div class="control-group">
+
+                <label class="control-label">Presenta certificacion</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{%if entity.presentaCertificacion %}Sí{% else %}No{% endif %}</span>            </div>
+            </div>                
+            <div class="control-group">
+                <label class="control-label">Fecha Alta</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.fechaAlta|date('Y-m-d H:i:s') }}</span>            </div>
+            </div>        
+            <div class="control-group">
+                <label class="control-label">Fecha Baja</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.fechaBaja|date('Y-m-d H:i:s') }}</span>            </div>
+            </div>    
+            <div class="control-group">
+                <label class="control-label">Activo</label>
+                <div class="controls">                <span class="input-xlarge uneditable-input">{%if entity.activo %}Sí{% else %}No{% endif %}</span>            </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <div>
+        <div class="float-left">
+            <a class="btn" href="{{ path('becado') }}">
+                {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            </a>
+        </div>
+
+        <div class="float-left">
+            <a class="btn btn-primary" href="{{ path('becado_edit', { 'id': entity.id }) }}">
+                {{ 'views.recordactions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            </a>
+        </div>
+
+        <div class="float-left">
+            <form action="{{ path('becado_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle')|escape('js') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            </form>
+        </div>
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="float-left btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Añadir Beca</button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Añadir Beca</h4>
+                    </div>
+                    <div class="modal-body">
+                        {{ render( controller('BecaBundle:BecadoBeca:new', { 'id': entity })) }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+  
+        {#<!-- Modal -->
+        <div id="editBecaModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Añadir Beca</h4>
+                    </div>
+                    <div class="modal-body">
+                        {{ render( controller('BecaBundle:BecadoBeca:edit', {'id': entity.becacadobeca.id })) }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+#}
+    </div>
+
+{% endblock %}

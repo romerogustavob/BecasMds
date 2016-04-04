@@ -1,0 +1,30 @@
+referente:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:Referente:index" }
+
+referente_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:Referente:show" }
+
+referente_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:Referente:new" }
+
+referente_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:Referente:create" }
+    requirements: { _method: post }
+
+referente_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:Referente:edit" }
+
+referente_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:Referente:update" }
+    requirements: { _method: post|put }
+
+referente_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:Referente:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,145 @@
+{% macro domicilio(domi) %}
+    <style>
+        .negrita{
+            font-weight: bold;
+        }
+        table{
+            background: #D3D3D3;
+            border-top: 1px solid #000;
+
+        }
+        .bordediv{
+            padding-left: 10px;
+
+        }
+        .bordehidden{
+            border-bottom: 1px solid #000; 
+            display: none;
+        }
+    </style>
+    <div class="row-fluid bordediv">
+        <table>
+            <thead>
+                <tr>
+                    <th></th><th></th><th></th>
+                    <th></th><th></th><th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(domi.localidad, 'Localidad', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.localidad) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(domi.barrio, 'Barrio', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.barrio) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(domi.calle, 'Calle', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.calle) }}
+                        </div>                        
+                    </td>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(domi.numero, 'Nº/Altura', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.numero) }}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="span4">
+                            {{ form_label(domi.dpto, 'Dpto.', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.dpto) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span4">
+                            {{ form_label(domi.piso, 'Piso', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.piso) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span4">
+                            {{ form_label(domi.edificio, 'Edificio', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.edificio) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span4">
+                            {{ form_label(domi.manzana, 'Manzana', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.manzana) }}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="span4">
+
+                            {{ form_label(domi.tira, 'Tira', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.tira) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span4">
+                            {{ form_label(domi.parcela, 'Parcela', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.parcela) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span4">
+                            {{ form_label(domi.quinta, 'Quinta', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.quinta) }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="span4">
+                            {{ form_label(domi.unidadFuncional, 'UF/Casa', { 'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.unidadFuncional) }}
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <div class="span7">
+                            {{ form_label(domi.referencias, 'Referencias', {'label_attr': {'class': 'negrita'}}) }}
+                            {{ form_widget(domi.referencias) }}
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
+                    <td><div class="bordehidden">
+                            {{ form_row(domi.latitude) }}
+                        </div></td>
+                    <td><div class="bordehidden">
+                            {{ form_row(domi.longitude) }}
+                        </div></td>
+                        {# <td><div class="bordehidden">
+                                         {{ form_row(domi.departamento) }}
+                                     </div>
+                         
+                         </td>#}
+                </tr>
+
+
+            </tbody>
+
+        </table>
+        <span class="select2-container select2-container--default select2-container--open" style="position: absolute; top: 1809px; left: 120.5px;"><span class="select2-dropdown select2-dropdown--above" dir="ltr" style="width: 816px;"><span class="select2-search select2-search--dropdown"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox"></span><span class="select2-results"><ul class="select2-results__options" role="tree" id="select2-l4vw-results" aria-expanded="true" aria-hidden="false"><li class="select2-results__option select2-results__option--highlighted" role="treeitem" aria-selected="true">enhancement</li><li class="select2-results__option" role="treeitem" aria-selected="false">bug</li><li class="select2-results__option" role="treeitem" aria-selected="false">duplicate</li><li class="select2-results__option" role="treeitem" aria-selected="false">invalid</li><li class="select2-results__option" role="treeitem" aria-selected="false">wontfix</li></ul></span></span></span>
+        <div class="span2">
+            <a class='delete-form btn btn-mini btn-danger' href='#'><i class='icon-remove-circle'></i>Quitar Domicilio </a>
+        </div>
+    </div>
+    
+{% endmacro %}
+<a href="../../../../../../../.gitignore"></a>

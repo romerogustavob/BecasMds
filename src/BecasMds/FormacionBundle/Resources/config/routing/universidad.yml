@@ -1,0 +1,30 @@
+universidad:
+    pattern:  /
+    defaults: { _controller: "FormacionBundle:Universidad:index" }
+
+universidad_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FormacionBundle:Universidad:show" }
+
+universidad_new:
+    pattern:  /new
+    defaults: { _controller: "FormacionBundle:Universidad:new" }
+
+universidad_create:
+    pattern:  /create
+    defaults: { _controller: "FormacionBundle:Universidad:create" }
+    requirements: { _method: post }
+
+universidad_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FormacionBundle:Universidad:edit" }
+
+universidad_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FormacionBundle:Universidad:update" }
+    requirements: { _method: post|put }
+
+universidad_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FormacionBundle:Universidad:delete" }
+    requirements: { _method: post|delete }

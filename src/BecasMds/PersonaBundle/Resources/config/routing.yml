@@ -1,0 +1,60 @@
+persona_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PersonaBundle:Default:index }
+
+personaBundle_calle:
+    resource: "@PersonaBundle/Resources/config/routing/calle.yml"
+    prefix:   /calle
+        
+personaBundle_barrio:
+    resource: "@PersonaBundle/Resources/config/routing/barrio.yml"
+    prefix:   /barrio
+    
+personaBundle_localidad:
+    resource: "@PersonaBundle/Resources/config/routing/localidad.yml"
+    prefix:   /localidad
+
+personaBundle_departamento:
+    resource: "@PersonaBundle/Resources/config/routing/departamento.yml"
+    prefix:   /departamento
+
+personaBundle_referente:
+    resource: "@PersonaBundle/Resources/config/routing/referente.yml"
+    prefix:   /referente
+       
+personaBundle_movimientosocial:
+    resource: "@PersonaBundle/Resources/config/routing/movimientosocial.yml"
+    prefix:   /movimientosocial
+    
+personaBundle_responsable:
+    resource: "@PersonaBundle/Resources/config/routing/responsable.yml"
+    prefix:   /responsable
+    
+personaBundle_dependencia:
+    resource: "@PersonaBundle/Resources/config/routing/dependencia.yml"
+    prefix:   /dependencia
+    
+personaBundle_domicilio:
+    resource: "@PersonaBundle/Resources/config/routing/domicilio.yml"
+    prefix:   /domicilio
+
+find_objects:
+        pattern: /findreferente
+        defaults: { _controller: PersonaBundle:Referente:findReferente }
+#        condition: "request.headers.get('X-Requested-With') matches '/XmlHttpRequest/i'"
+        options:
+            expose: true
+
+get_objects:
+        pattern: /getreferente/{ids}
+        defaults: { _controller: PersonaBundle:Referente:getReferente }
+        options:
+            expose: true
+
+personaBundle_becado:
+    resource: "@PersonaBundle/Resources/config/routing/becado.yml"
+    prefix:   /becado
+    
+personaBundle_lugarafectacion:
+    resource: "@PersonaBundle/Resources/config/routing/lugarafectacion.yml"
+    prefix:   /lugarafectacion

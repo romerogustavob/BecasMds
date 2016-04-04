@@ -1,0 +1,74 @@
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - {{ 'views.new.creation'|trans({'%entity%': 'Certificacion'}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block page %}
+
+    <h3 style="color: #0044cc">Nueva Certificación de: {{ entity.becadobeca }}</h3>
+
+    <form class="well" action="{{ path('certificacion_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_start(form) }}
+        <table>
+            <tbody>
+            <div class="form-row">
+                <tr>
+                    <td>
+                        <div style="display:none"
+                             {{ form_row(form.becadobeca) }}
+                    </div>
+                    {{ form_label(form.mesCertificacion, 'Mes Certificación') }}
+                    {{ form_widget(form.mesCertificacion) }}
+
+                </td>
+                <td>
+                    {{ form_label(form.monto, 'Monto Beca') }}
+                    {{ form_widget(form.monto) }}
+                </td>
+                <td>
+                    {{ form_label(form.descuentoDias, 'Días de Descuento') }}
+                    {{ form_widget(form.descuentoDias) }}
+
+                </td>
+            </tr>                
+        </div>
+        <div class="form-row">
+            <tr>
+
+                <td>
+                    {{ form_label(form.totalPagar, 'Total a Pagar') }}
+                    {{ form_widget(form.totalPagar, {'attr': {'onfocus':'totalPagar();'}}) }}
+                </td>
+                <td colspan="2" style="alignment-adjust: middle">
+                    {{ form_row(form.certificado) }}
+
+                </td>
+            </tr>
+
+        </div>
+
+        </tbody>
+    </table>
+    <div style="margin-bottom: 10px">
+        <p>
+            <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+        </p>
+    </div>
+    {{ form_end(form) }}
+</form>
+
+<div>
+    <div class="float-left">
+        <a class="btn" href="{{ path('certificacion') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>
+    </div>
+</div>
+{% block javascript %}                
+    {% javascripts '@CertificacionBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% endblock %}

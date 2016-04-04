@@ -1,0 +1,260 @@
+<?php
+
+namespace BecasMds\BecaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Beca
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="BecasMds\BecaBundle\Entity\BecaRepository")
+ */
+class Beca {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="monto", type="float")
+     */
+    private $monto;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="activo", type="boolean")
+     */
+    private $activo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaAlta", type="datetime", nullable=true)
+     */
+    private $fechaAlta;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaBaja", type="datetime", nullable=true)
+     */
+    private $fechaBaja;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TipoBeca", inversedBy="beca")
+     * @ORM\JoinColumn(name="tipo_beca_id", referencedColumnName="id")
+     */
+    private $tipoBeca;
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="BecadoBeca", mappedBy="beca", cascade={"persist"})
+     */
+    private $becadobeca;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TipoFuncion", inversedBy="beca")
+     * @ORM\JoinColumn(name="tipo_funcion_id", referencedColumnName="id")
+     */
+    private $tipoFuncion;
+
+    public function __construct() {
+        $this->becadobeca = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set monto
+     *
+     * @param float $monto
+     * @return Beca
+     */
+    public function setMonto($monto) {
+        $this->monto = $monto;
+
+        return $this;
+    }
+
+    /**
+     * Get monto
+     *
+     * @return float 
+     */
+    public function getMonto() {
+        return $this->monto;
+    }
+
+    /**
+     * Set activo
+     *
+     * @param boolean $activo
+     * @return Beca
+     */
+    public function setActivo($activo) {
+        $this->activo = $activo;
+
+        return $this;
+    }
+
+    /**
+     * Get activo
+     *
+     * @return boolean 
+     */
+    public function getActivo() {
+        return $this->activo;
+    }
+
+    /**
+     * Set fechaAlta
+     *
+     * @param \DateTime $fechaAlta
+     * @return Beca
+     */
+    public function setFechaAlta($fechaAlta) {
+        $this->fechaAlta = $fechaAlta;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaAlta
+     *
+     * @return \DateTime 
+     */
+    public function getFechaAlta() {
+        return $this->fechaAlta;
+    }
+
+    /**
+     * Set fechaBaja
+     *
+     * @param \DateTime $fechaBaja
+     * @return Beca
+     */
+    public function setFechaBaja($fechaBaja) {
+        $this->fechaBaja = $fechaBaja;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaBaja
+     *
+     * @return \DateTime 
+     */
+    public function getFechaBaja() {
+        return $this->fechaBaja;
+    }
+
+    /**
+     * Set tipoBeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\TipoBeca $tipoBeca
+     * @return Beca
+     */
+    public function setTipoBeca(\BecasMds\BecaBundle\Entity\TipoBeca $tipoBeca = null) {
+        $this->tipoBeca = $tipoBeca;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoBeca
+     *
+     * @return \BecasMds\BecaBundle\Entity\TipoBeca 
+     */
+    public function getTipoBeca() {
+        return $this->tipoBeca;
+    }
+
+    /**
+     * Set tipoFuncion
+     *
+     * @param \BecasMds\BecaBundle\Entity\TipoFuncion $tipoFuncion
+     * @return Beca
+     */
+    public function setTipoFuncion(\BecasMds\BecaBundle\Entity\TipoFuncion $tipoFuncion = null) {
+        $this->tipoFuncion = $tipoFuncion;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoFuncion
+     *
+     * @return \BecasMds\BecaBundle\Entity\TipoFuncion 
+     */
+    public function getTipoFuncion() {
+        return $this->tipoFuncion;
+    }
+
+    public function __toString() {
+        return $this->getTipoBeca() . ' - ' . $this->getTipoFuncion() . ' - ' . $this->getMonto();
+    }
+
+    /**
+     * Set becadobeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
+     * @return Beca
+     */
+    public function setBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca = null) {
+        $this->becadobeca = $becadobeca;
+
+        return $this;
+    }
+
+    /**
+     * Get becadobeca
+     *
+     * @return \BecasMds\BecaBundle\Entity\BecadoBeca 
+     */
+    public function getBecadobeca() {
+        return $this->becadobeca;
+    }
+
+    /**
+     * Add becadobeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
+     * @return Beca
+     */
+    public function addBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca) {
+        $this->becadobeca[] = $becadobeca;
+
+        return $this;
+    }
+
+    /**
+     * Remove becadobeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
+     */
+    public function removeBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca) {
+        $this->becadobeca->removeElement($becadobeca);
+    }
+    
+    public function getBecaLista(){
+        return $this->getTipoBeca().' -'.$this->getTipoFuncion().' -'.$this->getMonto();
+    }
+
+}

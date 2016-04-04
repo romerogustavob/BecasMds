@@ -1,0 +1,30 @@
+secundario:
+    pattern:  /
+    defaults: { _controller: "FormacionBundle:Secundario:index" }
+
+secundario_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FormacionBundle:Secundario:show" }
+
+secundario_new:
+    pattern:  /new
+    defaults: { _controller: "FormacionBundle:Secundario:new" }
+
+secundario_create:
+    pattern:  /create
+    defaults: { _controller: "FormacionBundle:Secundario:create" }
+    requirements: { _method: post }
+
+secundario_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FormacionBundle:Secundario:edit" }
+
+secundario_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FormacionBundle:Secundario:update" }
+    requirements: { _method: post|put }
+
+secundario_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FormacionBundle:Secundario:delete" }
+    requirements: { _method: post|delete }

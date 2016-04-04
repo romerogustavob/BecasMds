@@ -1,0 +1,30 @@
+terciario:
+    pattern:  /
+    defaults: { _controller: "FormacionBundle:Terciario:index" }
+
+terciario_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FormacionBundle:Terciario:show" }
+
+terciario_new:
+    pattern:  /new
+    defaults: { _controller: "FormacionBundle:Terciario:new" }
+
+terciario_create:
+    pattern:  /create
+    defaults: { _controller: "FormacionBundle:Terciario:create" }
+    requirements: { _method: post }
+
+terciario_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FormacionBundle:Terciario:edit" }
+
+terciario_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FormacionBundle:Terciario:update" }
+    requirements: { _method: post|put }
+
+terciario_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FormacionBundle:Terciario:delete" }
+    requirements: { _method: post|delete }

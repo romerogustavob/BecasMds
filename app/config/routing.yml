@@ -1,0 +1,18 @@
+certificacion:
+    resource: "@CertificacionBundle/Resources/config/routing.yml"
+    prefix:   /
+
+beca:
+    resource: "@BecaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+formacion:
+    resource: "@FormacionBundle/Resources/config/routing.yml"
+    prefix:   /
+
+persona:
+    resource: "@PersonaBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

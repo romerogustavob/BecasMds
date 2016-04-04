@@ -1,0 +1,30 @@
+becado:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:Becado:index" }
+
+becado_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:Becado:show" }
+
+becado_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:Becado:new" }
+
+becado_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:Becado:create" }
+    requirements: { _method: post }
+
+becado_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:Becado:edit" }
+
+becado_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:Becado:update" }
+    requirements: { _method: post|put }
+
+becado_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:Becado:delete" }
+    requirements: { _method: post|delete }

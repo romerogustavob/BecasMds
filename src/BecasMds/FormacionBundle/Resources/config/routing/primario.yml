@@ -1,0 +1,30 @@
+primario:
+    pattern:  /
+    defaults: { _controller: "FormacionBundle:Primario:index" }
+
+primario_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FormacionBundle:Primario:show" }
+
+primario_new:
+    pattern:  /new
+    defaults: { _controller: "FormacionBundle:Primario:new" }
+
+primario_create:
+    pattern:  /create
+    defaults: { _controller: "FormacionBundle:Primario:create" }
+    requirements: { _method: post }
+
+primario_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FormacionBundle:Primario:edit" }
+
+primario_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FormacionBundle:Primario:update" }
+    requirements: { _method: post|put }
+
+primario_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FormacionBundle:Primario:delete" }
+    requirements: { _method: post|delete }

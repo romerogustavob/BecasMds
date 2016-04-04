@@ -1,0 +1,75 @@
+{#{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+#}
+{#{% block title %}
+{{ parent() }} - {{ 'views.new.creation'|trans({'%entity%': 'BecadoBeca'}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}#}
+
+{% block page %}
+
+{#<h2 style="color: #0044cc">Añadir Beca{{ 'views.new.creation'|trans({'%entity%': 'Becas'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>#}
+
+<form class="well" action="{{ path('becadobeca_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_start(form) }}
+    <table>
+        <thead>
+            
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="control-group">
+                        
+                        {{ form_label(form.becado) }}
+                        
+                        {{ form_widget(form.becado, { 'attr': {'disabled': 'disabled'} }) }}
+                        
+                    </div>
+                </td>
+                <td>
+                    <div class="control-group">
+                    {{ form_row(form.beca) }}
+                    </div>
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                     <div class="control-group">
+                     {{ form_row(form.fechaAlta) }}
+                    </div>
+                   
+                </td>
+                <td>
+                    <div class="control-group">
+                     {{ form_row(form.fechaBaja) }}
+                    </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="control-group">
+                    {{ form_row(form.activo) }}
+                    </div>
+                    
+                </td>
+                <td> 
+                    <div class="control-group">
+                    {{ form_row(form.detalles) }}
+                    </div></td>
+            </tr>
+        </tbody>
+    </table>
+    {{ form_end(form) }}
+    <p>
+        <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+    </p>
+</form>
+
+{#<div>
+    <div class="float-left">
+        <a class="btn" href="{{ path('becadobeca') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>
+    </div>
+</div>#}
+{% endblock %}

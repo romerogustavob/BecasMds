@@ -1,0 +1,30 @@
+formacion:
+    pattern:  /
+    defaults: { _controller: "FormacionBundle:Formacion:index" }
+
+formacion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FormacionBundle:Formacion:show" }
+
+formacion_new:
+    pattern:  /new
+    defaults: { _controller: "FormacionBundle:Formacion:new" }
+
+formacion_create:
+    pattern:  /create
+    defaults: { _controller: "FormacionBundle:Formacion:create" }
+    requirements: { _method: post }
+
+formacion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FormacionBundle:Formacion:edit" }
+
+formacion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FormacionBundle:Formacion:update" }
+    requirements: { _method: post|put }
+
+formacion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FormacionBundle:Formacion:delete" }
+    requirements: { _method: post|delete }

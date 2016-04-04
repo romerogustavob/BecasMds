@@ -1,0 +1,30 @@
+barrio:
+    pattern:  /
+    defaults: { _controller: "PersonaBundle:Barrio:index" }
+
+barrio_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PersonaBundle:Barrio:show" }
+
+barrio_new:
+    pattern:  /new
+    defaults: { _controller: "PersonaBundle:Barrio:new" }
+
+barrio_create:
+    pattern:  /create
+    defaults: { _controller: "PersonaBundle:Barrio:create" }
+    requirements: { _method: post }
+
+barrio_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PersonaBundle:Barrio:edit" }
+
+barrio_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PersonaBundle:Barrio:update" }
+    requirements: { _method: post|put }
+
+barrio_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PersonaBundle:Barrio:delete" }
+    requirements: { _method: post|delete }
