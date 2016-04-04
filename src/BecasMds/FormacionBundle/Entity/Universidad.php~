@@ -1,0 +1,139 @@
+<?php
+
+namespace BecasMds\FormacionBundle\Entity;
+
+use BecasMds\FormacionBundle\Entity\Educacion;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Universidad
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="BecasMds\FormacionBundle\Entity\UniversidadRepository")
+ */
+class Universidad extends Educacion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facultad", type="string", length=255)
+     */
+    protected $facultad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="carrera", type="string", length=255)
+     */
+    protected $carrera;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nivel", type="string", length=255)
+     */
+    protected $nivel;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Formacion", mappedBy="formacion")
+     */
+    protected $formacion;
+    
+    public function __construct() {
+        $this->formacion=new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set facultad
+     *
+     * @param string $facultad
+     * @return Universidad
+     */
+    public function setFacultad($facultad)
+    {
+        $this->facultad = $facultad;
+    
+        return $this;
+    }
+
+    /**
+     * Get facultad
+     *
+     * @return string 
+     */
+    public function getFacultad()
+    {
+        return $this->facultad;
+    }
+
+    /**
+     * Set carrera
+     *
+     * @param string $carrera
+     * @return Universidad
+     */
+    public function setCarrera($carrera)
+    {
+        $this->carrera = $carrera;
+    
+        return $this;
+    }
+
+    /**
+     * Get carrera
+     *
+     * @return string 
+     */
+    public function getCarrera()
+    {
+        return $this->carrera;
+    }
+
+    /**
+     * Set nivel
+     *
+     * @param string $nivel
+     * @return Universidad
+     */
+    public function setNivel($nivel)
+    {
+        $this->nivel = $nivel;
+    
+        return $this;
+    }
+
+    /**
+     * Get nivel
+     *
+     * @return string 
+     */
+    public function getNivel()
+    {
+        return $this->nivel;
+    }
+    
+    public function __toString() {
+        return $this->getInstitucion().'-'.$this->getTipoEducacion().'-'.
+                $this->getFacultad().'-'.$this->getCarrera().'-'.
+                $this->getNivel().'-'.$this->getTitulo();
+    }
+}

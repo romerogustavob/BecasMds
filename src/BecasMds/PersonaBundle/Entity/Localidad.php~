@@ -1,0 +1,219 @@
+<?php
+
+namespace BecasMds\PersonaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Localidad
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="BecasMds\PersonaBundle\Entity\LocalidadRepository")
+ */
+class Localidad
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Barrio", mappedBy="localidad")
+     */
+    protected $barrio;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Calle", mappedBy="localidad")
+     */    
+    private $calle;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Domicilio", mappedBy="localidad")
+     */
+    private $domicilio;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Departamento", inversedBy="localidad")
+     * @ORM\JoinColumn(name="departamento_id", referencedColumnName="id")
+     */
+    private $departamento;
+    
+    /**
+    * @var string
+    * @ORM\Column(name="nombre", type="string", length=255)
+    */
+    private $nombre; 
+    
+    public function __construct() {
+        $this->domicilio = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->barrio = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->calle = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255)
+     */
+    private $descripcion;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     * @return Localidad
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+   
+
+    /**
+     * Add domicilio
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Domicilio $domicilio
+     * @return Localidad
+     */
+    public function addDomicilio(\BecasMds\PersonaBundle\Entity\Domicilio $domicilio)
+    {
+        $this->domicilio[] = $domicilio;
+    
+        return $this;
+    }
+
+    /**
+     * Remove domicilio
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Domicilio $domicilio
+     */
+    public function removeDomicilio(\BecasMds\PersonaBundle\Entity\Domicilio $domicilio)
+    {
+        $this->domicilio->removeElement($domicilio);
+    }
+
+    /**
+     * Get domicilio
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDomicilio()
+    {
+        return $this->domicilio;
+    }
+
+    /**
+     * Add barrio
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Barrio $barrio
+     * @return Localidad
+     */
+    public function addBarrio(\BecasMds\PersonaBundle\Entity\Barrio $barrio)
+    {
+        $this->barrio[] = $barrio;
+    
+        return $this;
+    }
+
+    /**
+     * Remove barrio
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Barrio $barrio
+     */
+    public function removeBarrio(\BecasMds\PersonaBundle\Entity\Barrio $barrio)
+    {
+        $this->barrio->removeElement($barrio);
+    }
+
+    /**
+     * Get barrio
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBarrio()
+    {
+        return $this->barrio;
+    }
+
+    /**
+     * Add calle
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Calle $calle
+     * @return Localidad
+     */
+    public function addCalle(\BecasMds\PersonaBundle\Entity\Calle $calle)
+    {
+        $this->calle[] = $calle;
+    
+        return $this;
+    }
+
+    /**
+     * Remove calle
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Calle $calle
+     */
+    public function removeCalle(\BecasMds\PersonaBundle\Entity\Calle $calle)
+    {
+        $this->calle->removeElement($calle);
+    }
+
+    /**
+     * Get calle
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCalle()
+    {
+        return $this->calle;
+    }
+
+    /**
+     * Set departamento
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Departamento $departamento
+     * @return Localidad
+     */
+    public function setDepartamento(\BecasMds\PersonaBundle\Entity\Departamento $departamento = null)
+    {
+        $this->departamento = $departamento;
+    
+        return $this;
+    }
+
+    /**
+     * Get departamento
+     *
+     * @return \BecasMds\PersonaBundle\Entity\Departamento 
+     */
+    public function getDepartamento()
+    {
+        return $this->departamento;
+    }
+}

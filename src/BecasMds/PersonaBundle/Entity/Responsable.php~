@@ -1,0 +1,42 @@
+<?php
+
+namespace BecasMds\PersonaBundle\Entity;
+
+use BecasMds\PersonaBundle\Entity\Persona;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Responsable
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="BecasMds\PersonaBundle\Entity\ResponsableRepository")
+ */
+class Responsable extends Persona
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Dependencia", mappedBy="responsable")
+     */
+    protected $dependencia;
+    
+    public function __construct() {
+        
+    }
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

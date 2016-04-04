@@ -1,0 +1,48 @@
+<?php
+
+namespace BecasMds\FormacionBundle\Entity;
+
+use BecasMds\FormacionBundle\Entity\Educacion;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Primario
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="BecasMds\FormacionBundle\Entity\PrimarioRepository")
+ */
+class Primario extends Educacion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Formacion", mappedBy="formacion")
+     */
+    protected $formacion;
+    
+    public function __construct() {
+        $this->formacion=new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    public function __toString() {
+        return $this->getInstitucion().'-'.$this->getInstitucion().'-'.$this->getTitulo();
+    }
+}
