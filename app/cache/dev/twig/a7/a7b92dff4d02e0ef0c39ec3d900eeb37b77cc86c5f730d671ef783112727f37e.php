@@ -44,197 +44,254 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
         echo "
     <h3 style=\"color: #0044cc;\">Ver Ficha Becado</h3>
 
-    <form class=\"form-horizontal\">
-        <fieldset>        
-            <div class=\"control-group\" style=\"display: none;\">
-                <h4>Datos Personales</h4>
+    <form class=\"form-inline\">
+        <fieldset> 
+            <h4>Datos Personales</h4>
+            <div class=\"control-group\" style=\"display: none;\">                
                 <label class=\"control-label\">Id</label>
                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
         // line 16
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()), "html", null, true);
         echo "</span>            </div>
             </div>
-            <div class=\"control-group\">
-                <label class=\"control-label\">Nº Doc.</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 20
+            <table>
+                <tbody>
+                    <tr>
+                        <td><div class=\"control-group\">
+                                <label class=\"control-label\">Nº Doc.</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+        // line 23
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "dni", array()), "html", null, true);
         echo "</span>            </div>
-            </div>
-            <div class=\"control-group\">
-                <label class=\"control-label\">Apellidos</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 24
+                            </div></td>
+                        <td><div class=\"control-group\">
+                                <label class=\"control-label\">Apellidos</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+        // line 27
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "apellidos", array()), "html", null, true);
         echo "</span>            </div>
-            </div>
-            <div class=\"control-group\">
-                <label class=\"control-label\">Nombres</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 28
+                            </div></td>
+                        <td>
+                            <div class=\"control-group\">
+                                <label class=\"control-label\">Nombres</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+        // line 32
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "nombres", array()), "html", null, true);
         echo "</span>            </div>
-            </div>
-            <div class=\"control-group\">
-                <label class=\"control-label\">Teléfono</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 32
+                            </div>
+                        </td>
+                        <td>
+                            <div class=\"control-group\">
+                                <label class=\"control-label\">Teléfono</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+        // line 38
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "telefono", array()), "html", null, true);
         echo "</span>            </div>
-            </div>
-            <div class=\"control-group\">
-                <label class=\"control-label\">Email</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 36
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan=\"2\">
+                            <div class=\"control-group\">
+                                <label class=\"control-label\">Email</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+        // line 46
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "email", array()), "html", null, true);
         echo "</span>            </div>
-            </div>
+                            </div>
+                        </td>
+                        <td colspan=\"2\">
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>   
+
             <h4>Domicilio</h4>
             ";
-        // line 39
+        // line 58
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "domicilio", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["domicilio"]) {
-            // line 40
-            echo "                <div class=\"control-group\">
+            // line 59
+            echo "                <div class=\"control-group\" style=\"display:none\">
                     <label class=\"control-label\">Departamento</label>
                     <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 42
+            // line 61
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "departamento", array()), "html", null, true);
             echo "</span>            </div>
                 </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Localidad</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 46
+
+                <table>
+                    <tbody>
+                        <tr>
+
+                            <td><div class=\"control-group\">
+                                    <label class=\"control-label\">Localidad</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 70
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "localidad", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Barrio</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 51
+                                </div></td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Barrio</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 75
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "barrio", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Calle</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 55
+                                </div>
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Calle</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 81
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "calle", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Nro.</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 59
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Nro.</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 88
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "numero", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Dpto.</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 63
+                                </div>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Dpto.</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 97
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "dpto", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Piso</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 67
+                                </div>
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Piso</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 103
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "piso", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Edificio</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 71
+                                </div>
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Edificio</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 109
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "edificio", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Manzana</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 75
+                                </div>
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Manzana</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 115
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "manzana", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Tira</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 79
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class=\"control-group\">
+                                    <label class=\"control-label\">Tira</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 122
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "tira", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Parcela</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 83
+                                </div></td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Parcela</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 127
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "parcela", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Quinta</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 87
+                                </div>
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Quinta</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 133
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "quinta", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Un. Funcional</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 91
+                                </div>
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Un. Funcional</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 139
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "unidadDuncional", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Referencias</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-            // line 95
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=\"4\">
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Referencias</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
+            // line 147
             echo twig_escape_filter($this->env, $this->getAttribute($context["domicilio"], "referencias", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
 
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['domicilio'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 99
+        // line 156
         echo "            <h4>Becas Asignadas</h4>
             ";
-        // line 100
+        // line 157
         $context["contBeca"] = 0;
-        // line 101
+        // line 158
         echo "            ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becadobeca", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["becadobeca"]) {
-            // line 102
+            // line 159
             echo "                ";
             if ($this->getAttribute($context["becadobeca"], "activo", array())) {
-                // line 103
+                // line 160
                 echo "                    ";
                 $context["contBeca"] = ((isset($context["contBeca"]) ? $context["contBeca"] : null) + 1);
-                // line 104
+                // line 161
                 echo "                    <div class=\"control-group\">
                         <label class=\"control-label\">Beca Nº ";
-                // line 105
+                // line 162
                 echo twig_escape_filter($this->env, (isset($context["contBeca"]) ? $context["contBeca"] : null), "html", null, true);
                 echo ":</label>
                         <div class=\"controls\">                
                             <span class=\"input-xlarge uneditable-input span7\">                                               
                                 ";
-                // line 108
+                // line 165
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["becadobeca"], "beca", array()), "tipoBeca", array()), "html", null, true);
                 echo "
                                 Tipo Función:";
-                // line 109
+                // line 166
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["becadobeca"], "beca", array()), "tipoFuncion", array()), "html", null, true);
                 echo "
                                 Monto:";
-                // line 110
+                // line 167
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["becadobeca"], "beca", array()), "monto", array()), "html", null, true);
                 echo "
                             </span>            
@@ -246,7 +303,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                             <span class=\"input-xlarge\">                                               
 
                                 <a class=\"btn btn-primary\" href=\"";
-                // line 119
+                // line 176
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_edit", array("id" => $this->getAttribute($context["becadobeca"], "id", array()))), "html", null, true);
                 echo "\">
                                     Editar Beca
@@ -261,34 +318,34 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                             <span class=\"input-xlarge\">                                               
 
                                 <a class=\"btn btn-primary\" href=\"";
-                // line 131
+                // line 188
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("certificacion_new", array("id" => $this->getAttribute($context["becadobeca"], "id", array()))), "html", null, true);
                 echo "\">
                                     Certificar
                                 </a>
-                                    
+
                             </span>            
                         </div>
                     </div> 
                 ";
             }
-            // line 139
+            // line 196
             echo "            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['becadobeca'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 140
+        // line 197
         echo "            <h4>Movimientos/Afectación/Dependencia</h4>
             <div class=\"control-group\">
                 <label class=\"control-label\">Mov. Social/Referente</label>
                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">
                         ";
-        // line 144
+        // line 201
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "referente", array()), "movimientoSocial", array()), "html", null, true);
         echo " - Referente: 
                         ";
-        // line 145
+        // line 202
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "referente", array()), "apellidos", array()), "html", null, true);
         echo ", ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "referente", array()), "nombres", array()), "html", null, true);
@@ -297,111 +354,147 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
             <div class=\"control-group\">
                 <label class=\"control-label\">Lugar Afectación</label>
                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-        // line 149
+        // line 206
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "lugarAfectacion", array()), "html", null, true);
         echo "</span>            </div>
             </div>
             <div class=\"control-group\">
                 <label class=\"control-label\">Dependencia</label>
                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-        // line 153
+        // line 210
         echo $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "dependencia", array());
         echo "</span>            </div>
             </div>
 
             <h4>Formación</h4>
             ";
-        // line 157
+        // line 214
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "formacion", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["educacion"]) {
-            // line 158
-            echo "                <div class=\"control-group\">
-                    <label class=\"control-label\">Institución</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 160
+            // line 215
+            echo "                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan=\"2\">
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Institución</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span10\">";
+            // line 221
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "institucion", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Nivel Educativo</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 164
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Nivel Educativo</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
+            // line 229
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "nivelEducativo", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Profesión</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 168
+                                </div>
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Profesión</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
+            // line 235
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "profesion", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Perfil</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 172
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Perfil</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
+            // line 243
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "perfil", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Oficio</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 176
+                                </div>
+                            </td>
+                            <td>
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Oficio</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
+            // line 249
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "oficio", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
-                <div class=\"control-group\">
-                    <label class=\"control-label\">Descripción</label>
-                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 180
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=\"2\">
+                                <div class=\"control-group\">
+                                    <label class=\"control-label\">Descripción</label>
+                                    <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span10\">";
+            // line 257
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "descripcion", array()), "html", null, true);
             echo "</span>            </div>
-                </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['educacion'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 183
+        // line 265
         echo "            <h4>Otros Datos</h4>
-            <div class=\"control-group\">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><div class=\"control-group\">
 
-                <label class=\"control-label\">Presenta certificacion</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 187
+                                <label class=\"control-label\">Presenta certificacion</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span2\">";
+        // line 272
         if ($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "presentaCertificacion", array())) {
             echo "Sí";
         } else {
             echo "No";
         }
         echo "</span>            </div>
-            </div>                
-            <div class=\"control-group\">
-                <label class=\"control-label\">Fecha Alta</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 191
+                            </div></td>
+                        <td>
+                            <div class=\"control-group\">
+                                <label class=\"control-label\">Fecha Alta</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span2\">";
+        // line 277
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "fechaAlta", array()), "Y-m-d H:i:s"), "html", null, true);
         echo "</span>            </div>
-            </div>        
-            <div class=\"control-group\">
-                <label class=\"control-label\">Fecha Baja</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 195
+                            </div> 
+                        </td>
+                        <td>
+                            <div class=\"control-group\">
+                                <label class=\"control-label\">Fecha Baja</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span2\">";
+        // line 283
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "fechaBaja", array()), "Y-m-d H:i:s"), "html", null, true);
         echo "</span>            </div>
-            </div>    
-            <div class=\"control-group\">
-                <label class=\"control-label\">Activo</label>
-                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 199
+                            </div>
+                        </td>
+                        <td colspan=\"3\">
+                            <div class=\"control-group\">
+                                <label class=\"control-label\">Activo</label>
+                                <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span2\">";
+        // line 289
         if ($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "activo", array())) {
             echo "Sí";
         } else {
             echo "No";
         }
         echo "</span>            </div>
-            </div>
+                            </div> 
+                        </td>
+                </tbody>
+            </table>
 
         </fieldset>
     </form>
@@ -409,11 +502,11 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
     <div>
         <div class=\"float-left\">
             <a class=\"btn\" href=\"";
-        // line 207
+        // line 300
         echo $this->env->getExtension('routing')->getPath("becado");
         echo "\">
                 ";
-        // line 208
+        // line 301
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
             </a>
@@ -421,11 +514,11 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
         <div class=\"float-left\">
             <a class=\"btn btn-primary\" href=\"";
-        // line 213
+        // line 306
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\">
                 ";
-        // line 214
+        // line 307
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.edit", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
             </a>
@@ -433,16 +526,16 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
         <div class=\"float-left\">
             <form action=\"";
-        // line 219
+        // line 312
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\">
                 <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
                 ";
-        // line 221
+        // line 314
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : null), 'widget');
         echo "
                 <button class=\"btn btn-danger\" type=\"submit\" onclick=\"return confirm('";
-        // line 222
+        // line 315
         echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.confirm", array(), "JordiLlonchCrudGeneratorBundle"), "js"), "html", null, true);
         echo "');\">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.delete", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
@@ -465,7 +558,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                     </div>
                     <div class=\"modal-body\">
                         ";
-        // line 240
+        // line 333
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("BecaBundle:BecadoBeca:new", array("id" => (isset($context["entity"]) ? $context["entity"] : null))));
         echo "
                     </div>
@@ -476,9 +569,9 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
             </div>
         </div>
-  
+
         ";
-        // line 271
+        // line 364
         echo "    </div>
 
 ";
@@ -496,7 +589,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
     public function getDebugInfo()
     {
-        return array (  482 => 271,  469 => 240,  446 => 222,  442 => 221,  437 => 219,  429 => 214,  425 => 213,  417 => 208,  413 => 207,  398 => 199,  391 => 195,  384 => 191,  373 => 187,  367 => 183,  358 => 180,  351 => 176,  344 => 172,  337 => 168,  330 => 164,  323 => 160,  319 => 158,  315 => 157,  308 => 153,  301 => 149,  292 => 145,  288 => 144,  282 => 140,  276 => 139,  265 => 131,  250 => 119,  238 => 110,  234 => 109,  230 => 108,  224 => 105,  221 => 104,  218 => 103,  215 => 102,  210 => 101,  208 => 100,  205 => 99,  195 => 95,  188 => 91,  181 => 87,  174 => 83,  167 => 79,  160 => 75,  153 => 71,  146 => 67,  139 => 63,  132 => 59,  125 => 55,  118 => 51,  110 => 46,  103 => 42,  99 => 40,  95 => 39,  89 => 36,  82 => 32,  75 => 28,  68 => 24,  61 => 20,  54 => 16,  44 => 8,  41 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  575 => 364,  562 => 333,  539 => 315,  535 => 314,  530 => 312,  522 => 307,  518 => 306,  510 => 301,  506 => 300,  488 => 289,  479 => 283,  470 => 277,  458 => 272,  449 => 265,  435 => 257,  424 => 249,  415 => 243,  404 => 235,  395 => 229,  384 => 221,  376 => 215,  372 => 214,  365 => 210,  358 => 206,  349 => 202,  345 => 201,  339 => 197,  333 => 196,  322 => 188,  307 => 176,  295 => 167,  291 => 166,  287 => 165,  281 => 162,  278 => 161,  275 => 160,  272 => 159,  267 => 158,  265 => 157,  262 => 156,  247 => 147,  236 => 139,  227 => 133,  218 => 127,  210 => 122,  200 => 115,  191 => 109,  182 => 103,  173 => 97,  161 => 88,  151 => 81,  142 => 75,  134 => 70,  122 => 61,  118 => 59,  114 => 58,  99 => 46,  88 => 38,  79 => 32,  71 => 27,  64 => 23,  54 => 16,  44 => 8,  41 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -509,92 +602,149 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 /* */
 /*     <h3 style="color: #0044cc;">Ver Ficha Becado</h3>*/
 /* */
-/*     <form class="form-horizontal">*/
-/*         <fieldset>        */
-/*             <div class="control-group" style="display: none;">*/
-/*                 <h4>Datos Personales</h4>*/
+/*     <form class="form-inline">*/
+/*         <fieldset> */
+/*             <h4>Datos Personales</h4>*/
+/*             <div class="control-group" style="display: none;">                */
 /*                 <label class="control-label">Id</label>*/
 /*                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.id }}</span>            </div>*/
 /*             </div>*/
-/*             <div class="control-group">*/
-/*                 <label class="control-label">Nº Doc.</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.dni }}</span>            </div>*/
-/*             </div>*/
-/*             <div class="control-group">*/
-/*                 <label class="control-label">Apellidos</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.apellidos }}</span>            </div>*/
-/*             </div>*/
-/*             <div class="control-group">*/
-/*                 <label class="control-label">Nombres</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.nombres }}</span>            </div>*/
-/*             </div>*/
-/*             <div class="control-group">*/
-/*                 <label class="control-label">Teléfono</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.telefono }}</span>            </div>*/
-/*             </div>*/
-/*             <div class="control-group">*/
-/*                 <label class="control-label">Email</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.email }}</span>            </div>*/
-/*             </div>*/
+/*             <table>*/
+/*                 <tbody>*/
+/*                     <tr>*/
+/*                         <td><div class="control-group">*/
+/*                                 <label class="control-label">Nº Doc.</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.dni }}</span>            </div>*/
+/*                             </div></td>*/
+/*                         <td><div class="control-group">*/
+/*                                 <label class="control-label">Apellidos</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.apellidos }}</span>            </div>*/
+/*                             </div></td>*/
+/*                         <td>*/
+/*                             <div class="control-group">*/
+/*                                 <label class="control-label">Nombres</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.nombres }}</span>            </div>*/
+/*                             </div>*/
+/*                         </td>*/
+/*                         <td>*/
+/*                             <div class="control-group">*/
+/*                                 <label class="control-label">Teléfono</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.telefono }}</span>            </div>*/
+/*                             </div>*/
+/*                         </td>*/
+/*                     </tr>*/
+/*                     <tr>*/
+/*                         <td colspan="2">*/
+/*                             <div class="control-group">*/
+/*                                 <label class="control-label">Email</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.email }}</span>            </div>*/
+/*                             </div>*/
+/*                         </td>*/
+/*                         <td colspan="2">*/
+/* */
+/*                         </td>*/
+/* */
+/*                     </tr>*/
+/*                 </tbody>*/
+/*             </table>   */
+/* */
 /*             <h4>Domicilio</h4>*/
 /*             {% for domicilio in entity.domicilio %}*/
-/*                 <div class="control-group">*/
+/*                 <div class="control-group" style="display:none">*/
 /*                     <label class="control-label">Departamento</label>*/
 /*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.departamento }}</span>            </div>*/
 /*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Localidad</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.localidad }}</span>            </div>*/
-/*                 </div>*/
 /* */
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Barrio</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.barrio }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Calle</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.calle }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Nro.</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.numero }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Dpto.</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.dpto }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Piso</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.piso }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Edificio</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.edificio }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Manzana</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.manzana }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Tira</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.tira }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Parcela</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.parcela }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Quinta</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.quinta }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Un. Funcional</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.unidadDuncional }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Referencias</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.referencias }}</span>            </div>*/
-/*                 </div>*/
+/*                 <table>*/
+/*                     <tbody>*/
+/*                         <tr>*/
+/* */
+/*                             <td><div class="control-group">*/
+/*                                     <label class="control-label">Localidad</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.localidad }}</span>            </div>*/
+/*                                 </div></td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Barrio</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.barrio }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Calle</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.calle }}</span>            </div>*/
+/*                                 </div>*/
+/* */
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Nro.</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.numero }}</span>            </div>*/
+/*                                 </div>*/
+/* */
+/* */
+/*                         </tr>*/
+/*                         <tr>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Dpto.</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.dpto }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Piso</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.piso }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Edificio</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.edificio }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Manzana</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.manzana }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                         </tr>*/
+/*                         <tr>*/
+/*                             <td><div class="control-group">*/
+/*                                     <label class="control-label">Tira</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.tira }}</span>            </div>*/
+/*                                 </div></td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Parcela</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.parcela }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Quinta</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.quinta }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Un. Funcional</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.unidadDuncional }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                         </tr>*/
+/*                         <tr>*/
+/*                             <td colspan="4">*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Referencias</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.referencias }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                         </tr>*/
+/*                     </tbody>*/
+/* */
+/*                 </table>*/
 /* */
 /*             {% endfor %}*/
 /*             <h4>Becas Asignadas</h4>*/
@@ -632,7 +782,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 /*                                 <a class="btn btn-primary" href="{{ path('certificacion_new', { 'id': becadobeca.id }) }}">*/
 /*                                     Certificar*/
 /*                                 </a>*/
-/*                                     */
+/* */
 /*                             </span>            */
 /*                         </div>*/
 /*                     </div> */
@@ -656,49 +806,85 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 /* */
 /*             <h4>Formación</h4>*/
 /*             {% for educacion in entity.formacion %}*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Institución</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.institucion }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Nivel Educativo</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.nivelEducativo }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Profesión</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.profesion }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Perfil</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.perfil }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Oficio</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.oficio }}</span>            </div>*/
-/*                 </div>*/
-/*                 <div class="control-group">*/
-/*                     <label class="control-label">Descripción</label>*/
-/*                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.descripcion }}</span>            </div>*/
-/*                 </div>*/
+/*                 <table>*/
+/*                     <tbody>*/
+/*                         <tr>*/
+/*                             <td colspan="2">*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Institución</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input span10">{{ educacion.institucion }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                         </tr>*/
+/*                         <tr>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Nivel Educativo</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.nivelEducativo }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Profesión</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.profesion }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                         </tr>*/
+/*                         <tr>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Perfil</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.perfil }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                             <td>*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Oficio</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.oficio }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                         </tr>*/
+/*                         <tr>*/
+/*                             <td colspan="2">*/
+/*                                 <div class="control-group">*/
+/*                                     <label class="control-label">Descripción</label>*/
+/*                                     <div class="controls">                <span class="input-xlarge uneditable-input span10">{{ educacion.descripcion }}</span>            </div>*/
+/*                                 </div>*/
+/*                             </td>*/
+/*                         </tr>*/
+/*                     </tbody>*/
+/*                 </table>*/
+/* */
 /*             {% endfor %}*/
 /*             <h4>Otros Datos</h4>*/
-/*             <div class="control-group">*/
+/*             <table>*/
+/*                 <tbody>*/
+/*                     <tr>*/
+/*                         <td><div class="control-group">*/
 /* */
-/*                 <label class="control-label">Presenta certificacion</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{%if entity.presentaCertificacion %}Sí{% else %}No{% endif %}</span>            </div>*/
-/*             </div>                */
-/*             <div class="control-group">*/
-/*                 <label class="control-label">Fecha Alta</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.fechaAlta|date('Y-m-d H:i:s') }}</span>            </div>*/
-/*             </div>        */
-/*             <div class="control-group">*/
-/*                 <label class="control-label">Fecha Baja</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.fechaBaja|date('Y-m-d H:i:s') }}</span>            </div>*/
-/*             </div>    */
-/*             <div class="control-group">*/
-/*                 <label class="control-label">Activo</label>*/
-/*                 <div class="controls">                <span class="input-xlarge uneditable-input">{%if entity.activo %}Sí{% else %}No{% endif %}</span>            </div>*/
-/*             </div>*/
+/*                                 <label class="control-label">Presenta certificacion</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input span2">{%if entity.presentaCertificacion %}Sí{% else %}No{% endif %}</span>            </div>*/
+/*                             </div></td>*/
+/*                         <td>*/
+/*                             <div class="control-group">*/
+/*                                 <label class="control-label">Fecha Alta</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input span2">{{ entity.fechaAlta|date('Y-m-d H:i:s') }}</span>            </div>*/
+/*                             </div> */
+/*                         </td>*/
+/*                         <td>*/
+/*                             <div class="control-group">*/
+/*                                 <label class="control-label">Fecha Baja</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input span2">{{ entity.fechaBaja|date('Y-m-d H:i:s') }}</span>            </div>*/
+/*                             </div>*/
+/*                         </td>*/
+/*                         <td colspan="3">*/
+/*                             <div class="control-group">*/
+/*                                 <label class="control-label">Activo</label>*/
+/*                                 <div class="controls">                <span class="input-xlarge uneditable-input span2">{%if entity.activo %}Sí{% else %}No{% endif %}</span>            </div>*/
+/*                             </div> */
+/*                         </td>*/
+/*                 </tbody>*/
+/*             </table>*/
 /* */
 /*         </fieldset>*/
 /*     </form>*/
@@ -747,7 +933,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 /* */
 /*             </div>*/
 /*         </div>*/
-/*   */
+/* */
 /*         {#<!-- Modal -->*/
 /*         <div id="editBecaModal" class="modal fade" role="dialog">*/
 /*             <div class="modal-dialog">*/

@@ -1,27 +1,56 @@
+
 {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
 {% import "PersonaBundle:Form:macro.formacion.html.twig" as macrosFormacion %}
 {% import "PersonaBundle:Form:macro.domicilio.html.twig" as macrosDomicilio %}
 
 {% block title %}
     {{ parent() }} -  {{ 'views.edit.edit'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}
-    
 {% endblock %}
 
 {% block page %}
 
+    
     <h2 style="color: #0044cc">{{ 'views.edit.edit'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
 
     <form class="well" action="{{ path('becado_update', { 'id': entity.id  }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
-        
-        {{ form_start(edit_form) }}
-       {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
-        <div style="display: none;">
-            {{ form_row(edit_form.id) }}
-        </div>
-        <h4>Datos Personales</h4>
-        {{ form_row(edit_form.dni) }} {{ form_row(edit_form.apellidos) }} {{ form_row(edit_form.nombres) }}
-        {{ form_row(edit_form.telefono) }}{{ form_row(edit_form.email) }} 
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3"><h4>Datos Personales</h4></td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form_start(edit_form) }}
+                        {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
+                        <div style="display: none;">
+                            {{ form_row(edit_form.id) }}
+                        </div>
+                        {{ form_row(edit_form.dni) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.apellidos) }}                        
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.nombres) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form_row(edit_form.telefono) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.email) }}
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>      
 
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
@@ -33,45 +62,90 @@
                 </div>
                 <div id="domicilioCollapse" class="panel-collapse collapse in">
                     <div class="panel-body">
-
                         {{ form_errors(edit_form.domicilio) }}
-                        {% if edit_form.domicilio is not null %}
+                        {% if edit_form.domicilio is not empty %}
                             {% for domicilio in edit_form.domicilio %}
-                                <div style="display: none;">
-                                    {{ form_row(domicilio.latitude) }}
-                                </div>
-                                <div style="display: none;">
-                                    {{ form_row(domicilio.longitude) }}
-                                </div>
-                                <div style="display: none;">
-                                    {{ form_row(domicilio.departamento) }}
-                                </div>
-                                {{ form_label(domicilio.localidad, 'Localidad') }}
-                                {{ form_widget(domicilio.localidad) }}
-                                {{ form_label(domicilio.barrio, 'Barrio') }}
-                                {{ form_widget(domicilio.barrio) }}
-                                {{ form_label(domicilio.calle, 'Calle') }}
-                                {{ form_widget(domicilio.calle) }}
-                                {{ form_label(domicilio.numero, 'número') }}
-                                {{ form_widget(domicilio.numero) }}
-                                {{ form_label(domicilio.dpto, 'Departamento') }}
-                                {{ form_widget(domicilio.dpto) }}
-                                {{ form_label(domicilio.piso, 'Piso') }}
-                                {{ form_widget(domicilio.piso) }}
-                                {{ form_label(domicilio.edificio, 'Edificio') }}
-                                {{ form_widget(domicilio.edificio) }}
-                                {{ form_label(domicilio.manzana, 'Manzana') }}
-                                {{ form_widget(domicilio.manzana) }}
-                                {{ form_label(domicilio.tira, 'Tira') }}
-                                {{ form_widget(domicilio.tira) }}
-                                {{ form_label(domicilio.parcela, 'Parcela') }}
-                                {{ form_widget(domicilio.parcela) }}
-                                {{ form_label(domicilio.quinta, 'Quinta') }}
-                                {{ form_widget(domicilio.quinta) }}
-                                {{ form_label(domicilio.unidadFuncional, 'UF/Casa') }}
-                                {{ form_widget(domicilio.unidadFuncional) }}
-                                {{ form_label(domicilio.referencias, 'Referencias') }}
-                                {{ form_widget(domicilio.referencias) }}
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            {{ form_label(domicilio.localidad, 'Localidad') }}
+                                            {{ form_widget(domicilio.localidad) }}
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.barrio, 'Barrio') }}
+                                            {{ form_widget(domicilio.barrio) }}
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.calle, 'Calle') }}
+                                            {{ form_widget(domicilio.calle) }}
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.numero, 'número') }}
+                                            {{ form_widget(domicilio.numero) }}
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{ form_label(domicilio.dpto, 'Departamento') }}
+                                            {{ form_widget(domicilio.dpto) }}
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.piso, 'Piso') }}
+                                            {{ form_widget(domicilio.piso) }}
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.edificio, 'Edificio') }}
+                                            {{ form_widget(domicilio.edificio) }}
+                                            
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.manzana, 'Manzana') }}
+                                            {{ form_widget(domicilio.manzana) }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{ form_label(domicilio.tira, 'Tira') }}
+                                            {{ form_widget(domicilio.tira) }}
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.parcela, 'Parcela') }}
+                                            {{ form_widget(domicilio.parcela) }}
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.quinta, 'Quinta') }}
+                                            {{ form_widget(domicilio.quinta) }}
+                                        </td>
+                                        <td>
+                                            {{ form_label(domicilio.unidadFuncional, 'UF/Casa') }}
+                                            {{ form_widget(domicilio.unidadFuncional) }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            
+                                            {{ form_label(domicilio.referencias, 'Referencias') }}
+                                            {{ form_widget(domicilio.referencias, {'attr':{'class':'span6'}}) }}
+                                            <div style="display: none;">
+                                            {{ form_row(domicilio.departamento) }}
+                                            </div>
+                                            <div style="display: none;">
+                                                {{ form_row(domicilio.latitude) }}
+                                            </div>
+                                       
+                                        </td>
+                                        <td>
+                                            
+                                            <div style="display: none;">
+                                                {{ form_row(domicilio.longitude) }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                                
                             {% endfor %}
                         {% else %}
                             <div class="row-fluid">
@@ -83,22 +157,23 @@
                                 <a href='#' class='btn add-domicilio-form'>
                                     <i class='icon-pencil'></i> Agregar Domicilio                                    
                                 </a>
-                            </div>  
+                            </div>
+                            
                         {% endif %}
                     </div> 
                 </div>
             </div>
         </div>
-        
- 
+
+
         {% if edit_form.becadobeca is not null %}
-        <div >
-            <div class="float-left">
-            <a class="btn" href="{{ path('becadobeca') }}">
-                Editar Beca
-            </a>
-        </div>
-        </div>
+            <div >
+                <div class="float-left">
+                    <a class="btn" href="{{ path('becadobeca') }}">
+                        Editar Beca
+                    </a>
+                </div>
+            </div>
         {% endif %}
         <h4>Movimiento/Afectación/Dependencia</h4>
 
@@ -120,9 +195,35 @@
                 <div id="formacionCollapse" class="panel-collapse collapse in">
                     <div class="panel-body">
                         {{ form_errors(edit_form.formacion) }}
-                        {% if edit_form.formacion is not null %}
-                            {% for formacion in edit_form.formacion %}       
-                                {{ form_widget(formacion) }}
+                        {% if edit_form.formacion is not empty %}
+                            {% for formacion in edit_form.formacion %}
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {{ form_row(formacion.institucion) }}
+                                            </td>
+                                            <td>
+                                                {{ form_row(formacion.nivelEducativo) }}
+                                            </td>
+                                            <td>
+                                                {{ form_row(formacion.profesion) }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {{ form_row(formacion.oficio) }}
+                                            </td>
+                                            <td>
+                                                {{ form_row(formacion.perfil) }}
+                                            </td>
+                                            <td>
+                                                {{ form_row(formacion.descripcion) }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
                             {% endfor %}
                         {% else %}
                             <div class="row-fluid">
@@ -144,13 +245,13 @@
         <h4>Otros Datos</h4>
         {{ form_row(edit_form.presentaCertificacion) }} {{ form_row(edit_form.fechaAlta) }}
         {{ form_row(edit_form.fechaBaja) }} {{ form_row(edit_form.activo) }}
-        
+
         {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
         <div style="display: none">
-        {{ form_widget(edit_form.formacion) }}
+            {{ form_widget(edit_form.formacion) }}
         </div>
         <div style="display: none">
-        {{ form_widget(edit_form.domicilio) }}
+            {{ form_widget(edit_form.domicilio) }}
         </div>
         <div style="padding-top: 15px;"><span class="divider-vertical">
                 <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
@@ -176,10 +277,15 @@
 
     {% block javascript %}
         {{ parent() }}
-        {% javascripts '@PersonaBundle/Resources/public/js/*' %}
+        {% javascripts 
+            '@PersonaBundle/Resources/public/js/addForm.js' 
+            '@PersonaBundle/Resources/public/js/deleteRow.js'
+            '@PersonaBundle/Resources/public/js/select2.js'
+            '@PersonaBundle/Resources/public/js/select2Localidad.js'
+            '@PersonaBundle/Resources/public/js/agregarFormacion.js'
+            '@PersonaBundle/Resources/public/js/agregarDomicilio.js' 
+        %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        
     {% endblock %}
-
 {% endblock %}

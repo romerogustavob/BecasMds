@@ -6,7 +6,7 @@
 
 {% block page %}
 
-    <h3 style="color: #0044cc">Nueva Certificación de: {{ entity.becadobeca }}</h3>
+    <h3 style="color: #0044cc">Nueva Certificación de: </h3><h4>Dni: {{ entity.becadobeca }}</h4>
 
     <form class="well" action="{{ path('certificacion_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_start(form) }}

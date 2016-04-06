@@ -21,14 +21,23 @@ class CertificacionFilterType extends AbstractType
             ->add('certificado', 'choice', array('choices' => array('n' => 'No', '1' => 'Sí'),
                     'required' => false, 'empty_value' => 'Indiferente', 'empty_data' => null,
                     'label' => 'Beca Activa'))
-            ->add('mesCertificacion', 'filter_date', array('widget' => 'single_text',
+            ->add('mesCertificacion', 'filter_date_range', array(
+                    'left_date_options' => array('widget' => 'single_text',
                         'format' => 'dd-MM-yyyy',
                         'attr' => [
                             'class' => 'form-control input-inline boostrap-datepicker',
                             'data-provide' => 'datepicker',
                             'data-date-format' => 'dd-mm-yyyy'
                         ]
-                    , 'required' => false,
+                    ), 'required' => false,
+                    'right_date_options' => array('widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => [
+                            'class' => 'form-control input-inline boostrap-datepicker',
+                            'data-provide' => 'datepicker',
+                            'data-date-format' => 'dd-mm-yyyy'
+                        ]
+                    ), 'required' => false,
                 ))
         ;
 

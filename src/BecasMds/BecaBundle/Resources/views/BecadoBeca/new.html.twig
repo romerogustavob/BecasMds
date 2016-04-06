@@ -6,7 +6,7 @@
 
 {% block page %}
 
-{#<h2 style="color: #0044cc">Añadir Beca{{ 'views.new.creation'|trans({'%entity%': 'Becas'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>#}
+<h2 style="color: #0044cc">Añadir Beca{{ entity.becado }}</h2>
 
 <form class="well" action="{{ path('becadobeca_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_start(form) }}
@@ -17,11 +17,10 @@
         <tbody>
             <tr>
                 <td>
-                    <div class="control-group">
+                    <div class="control-group" style="display: none">
                         
-                        {{ form_label(form.becado) }}
-                        
-                        {{ form_widget(form.becado, { 'attr': {'disabled': 'disabled'} }) }}
+                        {{ form_label(form.becado) }}                        
+                        {{ form_widget(form.becado) }}
                         
                     </div>
                 </td>
@@ -59,10 +58,11 @@
             </tr>
         </tbody>
     </table>
-    {{ form_end(form) }}
+                    
     <p>
         <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
     </p>
+    {{ form_end(form) }}
 </form>
 
 {#<div>

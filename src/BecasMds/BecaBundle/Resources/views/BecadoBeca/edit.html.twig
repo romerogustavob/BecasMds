@@ -17,6 +17,7 @@
     {{ form_row(edit_form.beca) }}
     {{ form_row(edit_form.fechaAlta) }}
     {{ form_row(edit_form.fechaBaja) }}
+    {{ form_row(edit_form.detalles) }}
     {{ form_row(edit_form.activo) }}
     
     <p>
@@ -32,8 +33,8 @@
         </a>
     </div>
     <div class="float-left">
-        <a class="btn" href="{{ path('becado_show', {'id': entity.becado.id}) }}">
-            Ver Becado
+        <a class="btn btn-info" href="{{ path('becado_show', {'id': entity.becado.id}) }}">
+            Ir a Becado
         </a>
     </div>
     <div class="float-left">

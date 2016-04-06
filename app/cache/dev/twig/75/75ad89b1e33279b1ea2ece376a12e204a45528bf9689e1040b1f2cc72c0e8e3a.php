@@ -7,8 +7,8 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
     {
         parent::__construct($env);
 
-        // line 1
-        $this->parent = $this->loadTemplate("JordiLlonchCrudGeneratorBundle::layout.html.twig", "PersonaBundle:Becado:edit.html.twig", 1);
+        // line 2
+        $this->parent = $this->loadTemplate("JordiLlonchCrudGeneratorBundle::layout.html.twig", "PersonaBundle:Becado:edit.html.twig", 2);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'page' => array($this, 'block_page'),
@@ -23,24 +23,23 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 2
-        $context["macrosFormacion"] = $this->loadTemplate("PersonaBundle:Form:macro.formacion.html.twig", "PersonaBundle:Becado:edit.html.twig", 2);
         // line 3
-        $context["macrosDomicilio"] = $this->loadTemplate("PersonaBundle:Form:macro.domicilio.html.twig", "PersonaBundle:Becado:edit.html.twig", 3);
-        // line 1
+        $context["macrosFormacion"] = $this->loadTemplate("PersonaBundle:Form:macro.formacion.html.twig", "PersonaBundle:Becado:edit.html.twig", 3);
+        // line 4
+        $context["macrosDomicilio"] = $this->loadTemplate("PersonaBundle:Form:macro.domicilio.html.twig", "PersonaBundle:Becado:edit.html.twig", 4);
+        // line 2
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 5
+    // line 6
     public function block_title($context, array $blocks = array())
     {
-        // line 6
+        // line 7
         echo "    ";
         $this->displayParentBlock("title", $context, $blocks);
         echo " -  ";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.edit.edit", array("%entity%" => "Becado"), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
-    
 ";
     }
 
@@ -49,45 +48,78 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
     {
         // line 11
         echo "
+    
     <h2 style=\"color: #0044cc\">";
-        // line 12
+        // line 13
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.edit.edit", array("%entity%" => "Becado"), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</h2>
 
     <form class=\"well\" action=\"";
-        // line 14
+        // line 15
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_update", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'enctype');
         echo ">
         <input type=\"hidden\" name=\"_method\" value=\"PUT\" />
-        
-        ";
-        // line 17
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan=\"3\"><h4>Datos Personales</h4></td>
+                </tr>
+                <tr>
+                    <td>
+                        ";
+        // line 29
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'form_start');
         echo "
-       ";
-        // line 19
-        echo "        <div style=\"display: none;\">
-            ";
-        // line 20
+                        ";
+        // line 31
+        echo "                        <div style=\"display: none;\">
+                            ";
+        // line 32
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "id", array()), 'row');
         echo "
-        </div>
-        <h4>Datos Personales</h4>
-        ";
-        // line 23
+                        </div>
+                        ";
+        // line 34
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "dni", array()), 'row');
-        echo " ";
+        echo "
+                    </td>
+                    <td>
+                        ";
+        // line 37
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "apellidos", array()), 'row');
-        echo " ";
+        echo "                        
+                    </td>
+                    <td>
+                        ";
+        // line 40
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "nombres", array()), 'row');
         echo "
-        ";
-        // line 24
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ";
+        // line 45
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "telefono", array()), 'row');
+        echo "
+                    </td>
+                    <td>
+                        ";
+        // line 48
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "email", array()), 'row');
-        echo " 
+        echo "
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>      
 
         <div class=\"panel-group\" id=\"accordion\">
             <div class=\"panel panel-default\">
@@ -99,162 +131,207 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
                 </div>
                 <div id=\"domicilioCollapse\" class=\"panel-collapse collapse in\">
                     <div class=\"panel-body\">
-
                         ";
-        // line 37
+        // line 65
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "domicilio", array()), 'errors');
         echo "
                         ";
-        // line 38
-        if ( !(null === $this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "domicilio", array()))) {
-            // line 39
+        // line 66
+        if ( !twig_test_empty($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "domicilio", array()))) {
+            // line 67
             echo "                            ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "domicilio", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["domicilio"]) {
-                // line 40
-                echo "                                <div style=\"display: none;\">
-                                    ";
-                // line 41
-                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "latitude", array()), 'row');
-                echo "
-                                </div>
-                                <div style=\"display: none;\">
-                                    ";
-                // line 44
-                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "longitude", array()), 'row');
-                echo "
-                                </div>
-                                <div style=\"display: none;\">
-                                    ";
-                // line 47
-                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "departamento", array()), 'row');
-                echo "
-                                </div>
-                                ";
-                // line 49
+                // line 68
+                echo "                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            ";
+                // line 72
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "localidad", array()), 'label', array("label" => "Localidad"));
                 echo "
-                                ";
-                // line 50
+                                            ";
+                // line 73
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "localidad", array()), 'widget');
                 echo "
-                                ";
-                // line 51
+                                        </td>
+                                        <td>
+                                            ";
+                // line 76
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "barrio", array()), 'label', array("label" => "Barrio"));
                 echo "
-                                ";
-                // line 52
+                                            ";
+                // line 77
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "barrio", array()), 'widget');
                 echo "
-                                ";
-                // line 53
+                                        </td>
+                                        <td>
+                                            ";
+                // line 80
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "calle", array()), 'label', array("label" => "Calle"));
                 echo "
-                                ";
-                // line 54
+                                            ";
+                // line 81
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "calle", array()), 'widget');
                 echo "
-                                ";
-                // line 55
+                                        </td>
+                                        <td>
+                                            ";
+                // line 84
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "numero", array()), 'label', array("label" => "número"));
                 echo "
-                                ";
-                // line 56
+                                            ";
+                // line 85
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "numero", array()), 'widget');
                 echo "
-                                ";
-                // line 57
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            ";
+                // line 91
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "dpto", array()), 'label', array("label" => "Departamento"));
                 echo "
-                                ";
-                // line 58
+                                            ";
+                // line 92
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "dpto", array()), 'widget');
                 echo "
-                                ";
-                // line 59
+                                        </td>
+                                        <td>
+                                            ";
+                // line 95
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "piso", array()), 'label', array("label" => "Piso"));
                 echo "
-                                ";
-                // line 60
+                                            ";
+                // line 96
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "piso", array()), 'widget');
                 echo "
-                                ";
-                // line 61
+                                        </td>
+                                        <td>
+                                            ";
+                // line 99
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "edificio", array()), 'label', array("label" => "Edificio"));
                 echo "
-                                ";
-                // line 62
+                                            ";
+                // line 100
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "edificio", array()), 'widget');
                 echo "
-                                ";
-                // line 63
+                                            
+                                        </td>
+                                        <td>
+                                            ";
+                // line 104
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "manzana", array()), 'label', array("label" => "Manzana"));
                 echo "
-                                ";
-                // line 64
+                                            ";
+                // line 105
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "manzana", array()), 'widget');
                 echo "
-                                ";
-                // line 65
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            ";
+                // line 110
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "tira", array()), 'label', array("label" => "Tira"));
                 echo "
-                                ";
-                // line 66
+                                            ";
+                // line 111
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "tira", array()), 'widget');
                 echo "
-                                ";
-                // line 67
+                                        </td>
+                                        <td>
+                                            ";
+                // line 114
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "parcela", array()), 'label', array("label" => "Parcela"));
                 echo "
-                                ";
-                // line 68
+                                            ";
+                // line 115
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "parcela", array()), 'widget');
                 echo "
-                                ";
-                // line 69
+                                        </td>
+                                        <td>
+                                            ";
+                // line 118
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "quinta", array()), 'label', array("label" => "Quinta"));
                 echo "
-                                ";
-                // line 70
+                                            ";
+                // line 119
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "quinta", array()), 'widget');
                 echo "
-                                ";
-                // line 71
+                                        </td>
+                                        <td>
+                                            ";
+                // line 122
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "unidadFuncional", array()), 'label', array("label" => "UF/Casa"));
                 echo "
-                                ";
-                // line 72
+                                            ";
+                // line 123
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "unidadFuncional", array()), 'widget');
                 echo "
-                                ";
-                // line 73
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan=\"3\">
+                                            
+                                            ";
+                // line 129
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "referencias", array()), 'label', array("label" => "Referencias"));
                 echo "
-                                ";
-                // line 74
-                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "referencias", array()), 'widget');
+                                            ";
+                // line 130
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "referencias", array()), 'widget', array("attr" => array("class" => "span6")));
                 echo "
+                                            <div style=\"display: none;\">
+                                            ";
+                // line 132
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "departamento", array()), 'row');
+                echo "
+                                            </div>
+                                            <div style=\"display: none;\">
+                                                ";
+                // line 135
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "latitude", array()), 'row');
+                echo "
+                                            </div>
+                                       
+                                        </td>
+                                        <td>
+                                            
+                                            <div style=\"display: none;\">
+                                                ";
+                // line 142
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["domicilio"], "longitude", array()), 'row');
+                echo "
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                                
                             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['domicilio'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 76
+            // line 150
             echo "                        ";
         } else {
-            // line 77
+            // line 151
             echo "                            <div class=\"row-fluid\">
                                 <div data-prototype=\"";
-            // line 78
+            // line 152
             echo twig_escape_filter($this->env, $context["macrosDomicilio"]->getdomicilio($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "domicilio", array()), "vars", array()), "prototype", array())));
             echo "\" class=\"row-fluid domicilio\">
                                     ";
-            // line 79
+            // line 153
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "domicilio", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["domi"]) {
-                // line 80
+                // line 154
                 echo "                                        ";
                 echo $context["macrosDomicilio"]->getdomicilio($context["domi"]);
                 echo "
@@ -263,62 +340,63 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['domi'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 82
+            // line 156
             echo "                                </div>
                                 <a href='#' class='btn add-domicilio-form'>
                                     <i class='icon-pencil'></i> Agregar Domicilio                                    
                                 </a>
-                            </div>  
+                            </div>
+                            
                         ";
         }
-        // line 88
+        // line 163
         echo "                    </div> 
                 </div>
             </div>
         </div>
-        
- 
+
+
         ";
-        // line 94
+        // line 169
         if ( !(null === $this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becadobeca", array()))) {
-            // line 95
-            echo "        <div >
-            <div class=\"float-left\">
-            <a class=\"btn\" href=\"";
-            // line 97
+            // line 170
+            echo "            <div >
+                <div class=\"float-left\">
+                    <a class=\"btn\" href=\"";
+            // line 172
             echo $this->env->getExtension('routing')->getPath("becadobeca");
             echo "\">
-                Editar Beca
-            </a>
-        </div>
-        </div>
+                        Editar Beca
+                    </a>
+                </div>
+            </div>
         ";
         }
-        // line 103
+        // line 178
         echo "        <h4>Movimiento/Afectación/Dependencia</h4>
 
         ";
-        // line 105
+        // line 180
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "referente", array()), 'label', array("label" => "Mov. Social/Referente"));
         echo "
         ";
-        // line 106
+        // line 181
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock(twig_escape_filter($this->env, $this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "referente", array())), 'widget');
         echo " 
         ";
-        // line 107
+        // line 182
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "lugarAfectacion", array()), 'label', array("label" => "Lugar de Afectación"));
         echo "
         ";
-        // line 108
+        // line 183
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock(twig_escape_filter($this->env, $this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "lugarAfectacion", array())), 'widget');
         echo "
         ";
-        // line 109
+        // line 184
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "dependencia", array()), 'label', array("label" => "Dependencia"));
         echo "
         ";
-        // line 110
+        // line 185
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock(twig_escape_filter($this->env, $this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "dependencia", array())), 'widget');
         echo "
 
@@ -333,46 +411,87 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
                 <div id=\"formacionCollapse\" class=\"panel-collapse collapse in\">
                     <div class=\"panel-body\">
                         ";
-        // line 122
+        // line 197
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "formacion", array()), 'errors');
         echo "
                         ";
-        // line 123
-        if ( !(null === $this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "formacion", array()))) {
-            // line 124
+        // line 198
+        if ( !twig_test_empty($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "formacion", array()))) {
+            // line 199
             echo "                            ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "formacion", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["formacion"]) {
-                echo "       
-                                ";
-                // line 125
-                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($context["formacion"], 'widget');
+                // line 200
+                echo "                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                ";
+                // line 204
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["formacion"], "institucion", array()), 'row');
                 echo "
+                                            </td>
+                                            <td>
+                                                ";
+                // line 207
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["formacion"], "nivelEducativo", array()), 'row');
+                echo "
+                                            </td>
+                                            <td>
+                                                ";
+                // line 210
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["formacion"], "profesion", array()), 'row');
+                echo "
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                ";
+                // line 215
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["formacion"], "oficio", array()), 'row');
+                echo "
+                                            </td>
+                                            <td>
+                                                ";
+                // line 218
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["formacion"], "perfil", array()), 'row');
+                echo "
+                                            </td>
+                                            <td>
+                                                ";
+                // line 221
+                echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($context["formacion"], "descripcion", array()), 'row');
+                echo "
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
                             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formacion'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 127
+            // line 228
             echo "                        ";
         } else {
-            // line 128
+            // line 229
             echo "                            <div class=\"row-fluid\">
                                 ";
-            // line 129
+            // line 230
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "formacion", array()), 'errors');
             echo "
                                 <div data-prototype=\"";
-            // line 130
+            // line 231
             echo twig_escape_filter($this->env, $context["macrosFormacion"]->getformacion($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "formacion", array()), "vars", array()), "prototype", array())));
             echo "\" class=\"row-fluid formacion\">
                                     ";
-            // line 131
+            // line 232
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "formacion", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["formac"]) {
-                // line 132
+                // line 233
                 echo "                                        ";
                 echo $context["macrosFormacion"]->getformacion($context["formac"]);
                 echo "
@@ -381,7 +500,7 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formac'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 134
+            // line 235
             echo "                                </div>
                                 <a href='#' class='btn add-formacion-form'>
                                     <i class='icon-pencil'></i> Agregar Formación
@@ -389,48 +508,48 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
                             </div>  
                         ";
         }
-        // line 140
+        // line 241
         echo "                    </div>
                 </div>
             </div>
         </div>
         <h4>Otros Datos</h4>
         ";
-        // line 145
+        // line 246
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "presentaCertificacion", array()), 'row');
         echo " ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "fechaAlta", array()), 'row');
         echo "
         ";
-        // line 146
+        // line 247
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "fechaBaja", array()), 'row');
         echo " ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "activo", array()), 'row');
         echo "
-        
+
         ";
-        // line 149
+        // line 250
         echo "        <div style=\"display: none\">
-        ";
-        // line 150
+            ";
+        // line 251
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "formacion", array()), 'widget');
         echo "
         </div>
         <div style=\"display: none\">
-        ";
-        // line 153
+            ";
+        // line 254
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "domicilio", array()), 'widget');
         echo "
         </div>
         <div style=\"padding-top: 15px;\"><span class=\"divider-vertical\">
                 <button type=\"submit\" class=\"btn btn-success\">";
-        // line 156
+        // line 257
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.edit.editbutton", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</button>
             </span></div>
 
         ";
-        // line 159
+        // line 260
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'form_end');
         echo "
     </form>
@@ -438,27 +557,27 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
     <div>
         <div class=\"float-left\">
             <a class=\"btn\" href=\"";
-        // line 164
+        // line 265
         echo $this->env->getExtension('routing')->getPath("becado");
         echo "\">
                 ";
-        // line 165
+        // line 266
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
             </a>
         </div>
         <div class=\"float-left\">
             <form action=\"";
-        // line 169
+        // line 270
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\">
                 <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
                 ";
-        // line 171
+        // line 272
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : null), 'widget');
         echo "
                 <button class=\"btn btn-danger\" type=\"submit\" onclick=\"return confirm('";
-        // line 172
+        // line 273
         echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.confirm", array(), "JordiLlonchCrudGeneratorBundle"), "js"), "html", null, true);
         echo "');\">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.delete", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
@@ -468,138 +587,67 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
     </div>
 
     ";
-        // line 177
+        // line 278
         $this->displayBlock('javascript', $context, $blocks);
-        // line 184
-        echo "
-";
     }
 
-    // line 177
     public function block_javascript($context, array $blocks = array())
     {
-        // line 178
+        // line 279
         echo "        ";
         $this->displayParentBlock("javascript", $context, $blocks);
         echo "
         ";
-        // line 179
+        // line 280
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "23e1c15_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_addForm_1.js");
-            // line 180
+            // asset "532a43b_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_532a43b_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/532a43b_addForm_1.js");
+            // line 288
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "23e1c15_1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_agregarDomicilio_2.js");
+            // asset "532a43b_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_532a43b_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/532a43b_deleteRow_2.js");
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "23e1c15_2"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_agregarFormacion_3.js");
+            // asset "532a43b_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_532a43b_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/532a43b_select2_3.js");
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "23e1c15_3"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_agregarFormacion_1_4.js");
+            // asset "532a43b_3"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_532a43b_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/532a43b_select2Localidad_4.js");
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "23e1c15_4"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_bootstrap-datepicker_5.js");
+            // asset "532a43b_4"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_532a43b_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/532a43b_agregarFormacion_5.js");
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "23e1c15_5"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_deleteRow_6.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_6"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_6") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_jquery-1.9.0_7.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_7"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_7") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_jquery-ui_8.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_8"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_8") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_jquery.Jcrop_9.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_9"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_9") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_jquery.color_10.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_10"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_10") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_jquery.min_11.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_11"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_11") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_jquery.tokeninput_12.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_12"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_12") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_select2.full_13.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_13"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_13") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_select2.full.min_14.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_14"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_14") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_select2_15.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_15"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_15") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_select2.min_16.js");
-            echo "        <script type=\"text/javascript\" src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "23e1c15_16"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15_16") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15_part_1_select2Localidad_17.js");
+            // asset "532a43b_5"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_532a43b_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/532a43b_agregarDomicilio_6.js");
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
         } else {
-            // asset "23e1c15"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_23e1c15") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/23e1c15.js");
+            // asset "532a43b"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_532a43b") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/532a43b.js");
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
         }
         unset($context["asset_url"]);
-        // line 182
-        echo "        
-    ";
+        // line 290
+        echo "    ";
     }
 
     public function getTemplateName()
@@ -614,33 +662,62 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
 
     public function getDebugInfo()
     {
-        return array (  601 => 182,  491 => 180,  487 => 179,  482 => 178,  479 => 177,  474 => 184,  472 => 177,  462 => 172,  458 => 171,  453 => 169,  446 => 165,  442 => 164,  434 => 159,  428 => 156,  422 => 153,  416 => 150,  413 => 149,  406 => 146,  400 => 145,  393 => 140,  385 => 134,  376 => 132,  372 => 131,  368 => 130,  364 => 129,  361 => 128,  358 => 127,  350 => 125,  343 => 124,  341 => 123,  337 => 122,  322 => 110,  318 => 109,  314 => 108,  310 => 107,  306 => 106,  302 => 105,  298 => 103,  289 => 97,  285 => 95,  283 => 94,  275 => 88,  267 => 82,  258 => 80,  254 => 79,  250 => 78,  247 => 77,  244 => 76,  236 => 74,  232 => 73,  228 => 72,  224 => 71,  220 => 70,  216 => 69,  212 => 68,  208 => 67,  204 => 66,  200 => 65,  196 => 64,  192 => 63,  188 => 62,  184 => 61,  180 => 60,  176 => 59,  172 => 58,  168 => 57,  164 => 56,  160 => 55,  156 => 54,  152 => 53,  148 => 52,  144 => 51,  140 => 50,  136 => 49,  131 => 47,  125 => 44,  119 => 41,  116 => 40,  111 => 39,  109 => 38,  105 => 37,  88 => 24,  80 => 23,  74 => 20,  71 => 19,  67 => 17,  59 => 14,  54 => 12,  51 => 11,  48 => 10,  38 => 6,  35 => 5,  31 => 1,  29 => 3,  27 => 2,  11 => 1,);
+        return array (  650 => 290,  606 => 288,  602 => 280,  597 => 279,  591 => 278,  581 => 273,  577 => 272,  572 => 270,  565 => 266,  561 => 265,  553 => 260,  547 => 257,  541 => 254,  535 => 251,  532 => 250,  525 => 247,  519 => 246,  512 => 241,  504 => 235,  495 => 233,  491 => 232,  487 => 231,  483 => 230,  480 => 229,  477 => 228,  464 => 221,  458 => 218,  452 => 215,  444 => 210,  438 => 207,  432 => 204,  426 => 200,  421 => 199,  419 => 198,  415 => 197,  400 => 185,  396 => 184,  392 => 183,  388 => 182,  384 => 181,  380 => 180,  376 => 178,  367 => 172,  363 => 170,  361 => 169,  353 => 163,  344 => 156,  335 => 154,  331 => 153,  327 => 152,  324 => 151,  321 => 150,  307 => 142,  297 => 135,  291 => 132,  286 => 130,  282 => 129,  273 => 123,  269 => 122,  263 => 119,  259 => 118,  253 => 115,  249 => 114,  243 => 111,  239 => 110,  231 => 105,  227 => 104,  220 => 100,  216 => 99,  210 => 96,  206 => 95,  200 => 92,  196 => 91,  187 => 85,  183 => 84,  177 => 81,  173 => 80,  167 => 77,  163 => 76,  157 => 73,  153 => 72,  147 => 68,  142 => 67,  140 => 66,  136 => 65,  116 => 48,  110 => 45,  102 => 40,  96 => 37,  90 => 34,  85 => 32,  82 => 31,  78 => 29,  59 => 15,  54 => 13,  50 => 11,  47 => 10,  38 => 7,  35 => 6,  31 => 2,  29 => 4,  27 => 3,  11 => 2,);
     }
 }
+/* */
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
 /* {% import "PersonaBundle:Form:macro.formacion.html.twig" as macrosFormacion %}*/
 /* {% import "PersonaBundle:Form:macro.domicilio.html.twig" as macrosDomicilio %}*/
 /* */
 /* {% block title %}*/
 /*     {{ parent() }} -  {{ 'views.edit.edit'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}*/
-/*     */
 /* {% endblock %}*/
 /* */
 /* {% block page %}*/
 /* */
+/*     */
 /*     <h2 style="color: #0044cc">{{ 'views.edit.edit'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>*/
 /* */
 /*     <form class="well" action="{{ path('becado_update', { 'id': entity.id  }) }}" method="post" {{ form_enctype(edit_form) }}>*/
 /*         <input type="hidden" name="_method" value="PUT" />*/
-/*         */
-/*         {{ form_start(edit_form) }}*/
-/*        {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}*/
-/*         <div style="display: none;">*/
-/*             {{ form_row(edit_form.id) }}*/
-/*         </div>*/
-/*         <h4>Datos Personales</h4>*/
-/*         {{ form_row(edit_form.dni) }} {{ form_row(edit_form.apellidos) }} {{ form_row(edit_form.nombres) }}*/
-/*         {{ form_row(edit_form.telefono) }}{{ form_row(edit_form.email) }} */
+/*         <table>*/
+/*             <thead>*/
+/*                 <tr>*/
+/*                     <th></th>*/
+/*                 </tr>*/
+/*             </thead>*/
+/*             <tbody>*/
+/*                 <tr>*/
+/*                     <td colspan="3"><h4>Datos Personales</h4></td>*/
+/*                 </tr>*/
+/*                 <tr>*/
+/*                     <td>*/
+/*                         {{ form_start(edit_form) }}*/
+/*                         {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}*/
+/*                         <div style="display: none;">*/
+/*                             {{ form_row(edit_form.id) }}*/
+/*                         </div>*/
+/*                         {{ form_row(edit_form.dni) }}*/
+/*                     </td>*/
+/*                     <td>*/
+/*                         {{ form_row(edit_form.apellidos) }}                        */
+/*                     </td>*/
+/*                     <td>*/
+/*                         {{ form_row(edit_form.nombres) }}*/
+/*                     </td>*/
+/*                 </tr>*/
+/*                 <tr>*/
+/*                     <td>*/
+/*                         {{ form_row(edit_form.telefono) }}*/
+/*                     </td>*/
+/*                     <td>*/
+/*                         {{ form_row(edit_form.email) }}*/
+/*                     </td>*/
+/*                     <td></td>*/
+/*                 </tr>*/
+/*             </tbody>*/
+/*         </table>      */
 /* */
 /*         <div class="panel-group" id="accordion">*/
 /*             <div class="panel panel-default">*/
@@ -652,45 +729,90 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
 /*                 </div>*/
 /*                 <div id="domicilioCollapse" class="panel-collapse collapse in">*/
 /*                     <div class="panel-body">*/
-/* */
 /*                         {{ form_errors(edit_form.domicilio) }}*/
-/*                         {% if edit_form.domicilio is not null %}*/
+/*                         {% if edit_form.domicilio is not empty %}*/
 /*                             {% for domicilio in edit_form.domicilio %}*/
-/*                                 <div style="display: none;">*/
-/*                                     {{ form_row(domicilio.latitude) }}*/
-/*                                 </div>*/
-/*                                 <div style="display: none;">*/
-/*                                     {{ form_row(domicilio.longitude) }}*/
-/*                                 </div>*/
-/*                                 <div style="display: none;">*/
-/*                                     {{ form_row(domicilio.departamento) }}*/
-/*                                 </div>*/
-/*                                 {{ form_label(domicilio.localidad, 'Localidad') }}*/
-/*                                 {{ form_widget(domicilio.localidad) }}*/
-/*                                 {{ form_label(domicilio.barrio, 'Barrio') }}*/
-/*                                 {{ form_widget(domicilio.barrio) }}*/
-/*                                 {{ form_label(domicilio.calle, 'Calle') }}*/
-/*                                 {{ form_widget(domicilio.calle) }}*/
-/*                                 {{ form_label(domicilio.numero, 'número') }}*/
-/*                                 {{ form_widget(domicilio.numero) }}*/
-/*                                 {{ form_label(domicilio.dpto, 'Departamento') }}*/
-/*                                 {{ form_widget(domicilio.dpto) }}*/
-/*                                 {{ form_label(domicilio.piso, 'Piso') }}*/
-/*                                 {{ form_widget(domicilio.piso) }}*/
-/*                                 {{ form_label(domicilio.edificio, 'Edificio') }}*/
-/*                                 {{ form_widget(domicilio.edificio) }}*/
-/*                                 {{ form_label(domicilio.manzana, 'Manzana') }}*/
-/*                                 {{ form_widget(domicilio.manzana) }}*/
-/*                                 {{ form_label(domicilio.tira, 'Tira') }}*/
-/*                                 {{ form_widget(domicilio.tira) }}*/
-/*                                 {{ form_label(domicilio.parcela, 'Parcela') }}*/
-/*                                 {{ form_widget(domicilio.parcela) }}*/
-/*                                 {{ form_label(domicilio.quinta, 'Quinta') }}*/
-/*                                 {{ form_widget(domicilio.quinta) }}*/
-/*                                 {{ form_label(domicilio.unidadFuncional, 'UF/Casa') }}*/
-/*                                 {{ form_widget(domicilio.unidadFuncional) }}*/
-/*                                 {{ form_label(domicilio.referencias, 'Referencias') }}*/
-/*                                 {{ form_widget(domicilio.referencias) }}*/
+/*                             <table>*/
+/*                                 <tbody>*/
+/*                                     <tr>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.localidad, 'Localidad') }}*/
+/*                                             {{ form_widget(domicilio.localidad) }}*/
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.barrio, 'Barrio') }}*/
+/*                                             {{ form_widget(domicilio.barrio) }}*/
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.calle, 'Calle') }}*/
+/*                                             {{ form_widget(domicilio.calle) }}*/
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.numero, 'número') }}*/
+/*                                             {{ form_widget(domicilio.numero) }}*/
+/*                                             */
+/*                                         </td>*/
+/*                                     </tr>*/
+/*                                     <tr>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.dpto, 'Departamento') }}*/
+/*                                             {{ form_widget(domicilio.dpto) }}*/
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.piso, 'Piso') }}*/
+/*                                             {{ form_widget(domicilio.piso) }}*/
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.edificio, 'Edificio') }}*/
+/*                                             {{ form_widget(domicilio.edificio) }}*/
+/*                                             */
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.manzana, 'Manzana') }}*/
+/*                                             {{ form_widget(domicilio.manzana) }}*/
+/*                                         </td>*/
+/*                                     </tr>*/
+/*                                     <tr>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.tira, 'Tira') }}*/
+/*                                             {{ form_widget(domicilio.tira) }}*/
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.parcela, 'Parcela') }}*/
+/*                                             {{ form_widget(domicilio.parcela) }}*/
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.quinta, 'Quinta') }}*/
+/*                                             {{ form_widget(domicilio.quinta) }}*/
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             {{ form_label(domicilio.unidadFuncional, 'UF/Casa') }}*/
+/*                                             {{ form_widget(domicilio.unidadFuncional) }}*/
+/*                                         </td>*/
+/*                                     </tr>*/
+/*                                     <tr>*/
+/*                                         <td colspan="3">*/
+/*                                             */
+/*                                             {{ form_label(domicilio.referencias, 'Referencias') }}*/
+/*                                             {{ form_widget(domicilio.referencias, {'attr':{'class':'span6'}}) }}*/
+/*                                             <div style="display: none;">*/
+/*                                             {{ form_row(domicilio.departamento) }}*/
+/*                                             </div>*/
+/*                                             <div style="display: none;">*/
+/*                                                 {{ form_row(domicilio.latitude) }}*/
+/*                                             </div>*/
+/*                                        */
+/*                                         </td>*/
+/*                                         <td>*/
+/*                                             */
+/*                                             <div style="display: none;">*/
+/*                                                 {{ form_row(domicilio.longitude) }}*/
+/*                                             </div>*/
+/*                                         </td>*/
+/*                                     </tr>*/
+/*                                 </tbody>*/
+/*                             </table>*/
+/*                                 */
 /*                             {% endfor %}*/
 /*                         {% else %}*/
 /*                             <div class="row-fluid">*/
@@ -702,22 +824,23 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
 /*                                 <a href='#' class='btn add-domicilio-form'>*/
 /*                                     <i class='icon-pencil'></i> Agregar Domicilio                                    */
 /*                                 </a>*/
-/*                             </div>  */
+/*                             </div>*/
+/*                             */
 /*                         {% endif %}*/
 /*                     </div> */
 /*                 </div>*/
 /*             </div>*/
 /*         </div>*/
-/*         */
-/*  */
+/* */
+/* */
 /*         {% if edit_form.becadobeca is not null %}*/
-/*         <div >*/
-/*             <div class="float-left">*/
-/*             <a class="btn" href="{{ path('becadobeca') }}">*/
-/*                 Editar Beca*/
-/*             </a>*/
-/*         </div>*/
-/*         </div>*/
+/*             <div >*/
+/*                 <div class="float-left">*/
+/*                     <a class="btn" href="{{ path('becadobeca') }}">*/
+/*                         Editar Beca*/
+/*                     </a>*/
+/*                 </div>*/
+/*             </div>*/
 /*         {% endif %}*/
 /*         <h4>Movimiento/Afectación/Dependencia</h4>*/
 /* */
@@ -739,9 +862,35 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
 /*                 <div id="formacionCollapse" class="panel-collapse collapse in">*/
 /*                     <div class="panel-body">*/
 /*                         {{ form_errors(edit_form.formacion) }}*/
-/*                         {% if edit_form.formacion is not null %}*/
-/*                             {% for formacion in edit_form.formacion %}       */
-/*                                 {{ form_widget(formacion) }}*/
+/*                         {% if edit_form.formacion is not empty %}*/
+/*                             {% for formacion in edit_form.formacion %}*/
+/*                                 <table>*/
+/*                                     <tbody>*/
+/*                                         <tr>*/
+/*                                             <td>*/
+/*                                                 {{ form_row(formacion.institucion) }}*/
+/*                                             </td>*/
+/*                                             <td>*/
+/*                                                 {{ form_row(formacion.nivelEducativo) }}*/
+/*                                             </td>*/
+/*                                             <td>*/
+/*                                                 {{ form_row(formacion.profesion) }}*/
+/*                                             </td>*/
+/*                                         </tr>*/
+/*                                         <tr>*/
+/*                                             <td>*/
+/*                                                 {{ form_row(formacion.oficio) }}*/
+/*                                             </td>*/
+/*                                             <td>*/
+/*                                                 {{ form_row(formacion.perfil) }}*/
+/*                                             </td>*/
+/*                                             <td>*/
+/*                                                 {{ form_row(formacion.descripcion) }}*/
+/*                                             </td>*/
+/*                                         </tr>*/
+/*                                     </tbody>*/
+/*                                 </table>*/
+/*                                 */
 /*                             {% endfor %}*/
 /*                         {% else %}*/
 /*                             <div class="row-fluid">*/
@@ -763,13 +912,13 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
 /*         <h4>Otros Datos</h4>*/
 /*         {{ form_row(edit_form.presentaCertificacion) }} {{ form_row(edit_form.fechaAlta) }}*/
 /*         {{ form_row(edit_form.fechaBaja) }} {{ form_row(edit_form.activo) }}*/
-/*         */
+/* */
 /*         {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}*/
 /*         <div style="display: none">*/
-/*         {{ form_widget(edit_form.formacion) }}*/
+/*             {{ form_widget(edit_form.formacion) }}*/
 /*         </div>*/
 /*         <div style="display: none">*/
-/*         {{ form_widget(edit_form.domicilio) }}*/
+/*             {{ form_widget(edit_form.domicilio) }}*/
 /*         </div>*/
 /*         <div style="padding-top: 15px;"><span class="divider-vertical">*/
 /*                 <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>*/
@@ -795,10 +944,15 @@ class __TwigTemplate_51ad271db552b3a538d21c9678551f346903b3d1b54cd3722b7bca92149
 /* */
 /*     {% block javascript %}*/
 /*         {{ parent() }}*/
-/*         {% javascripts '@PersonaBundle/Resources/public/js/*' %}*/
+/*         {% javascripts */
+/*             '@PersonaBundle/Resources/public/js/addForm.js' */
+/*             '@PersonaBundle/Resources/public/js/deleteRow.js'*/
+/*             '@PersonaBundle/Resources/public/js/select2.js'*/
+/*             '@PersonaBundle/Resources/public/js/select2Localidad.js'*/
+/*             '@PersonaBundle/Resources/public/js/agregarFormacion.js'*/
+/*             '@PersonaBundle/Resources/public/js/agregarDomicilio.js' */
+/*         %}*/
 /*         <script type="text/javascript" src="{{ asset_url }}"></script>*/
 /*         {% endjavascripts %}*/
-/*         */
 /*     {% endblock %}*/
-/* */
 /* {% endblock %}*/

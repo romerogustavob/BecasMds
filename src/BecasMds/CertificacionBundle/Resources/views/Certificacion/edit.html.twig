@@ -6,14 +6,56 @@
 
 {% block page %}
 
-<h2 style="color: #0044cc">{{ 'views.edit.edit'|trans({'%entity%': 'Certificacion'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
+    <h3 style="color: #0044cc">Modificar Certificación de: </h3><h4>Dni: {{ entity.becadobeca }}</h4>
 
 <form class="well" action="{{ path('certificacion_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     <input type="hidden" name="_method" value="PUT" />
-    {{ form_widget(edit_form) }}
+    {{ form_start(edit_form) }}
+        <table>
+            <tbody>
+            <div class="form-row">
+                <tr>
+                    <td>
+                        <div style="display:none"
+                             {{ form_row(edit_form.becadobeca) }}
+                    </div>
+                    {{ form_label(edit_form.mesCertificacion, 'Mes Certificación') }}
+                    {{ form_widget(edit_form.mesCertificacion) }}
+
+                </td>
+                <td>
+                    {{ form_label(edit_form.monto, 'Monto Beca') }}
+                    {{ form_widget(edit_form.monto) }}
+                </td>
+                <td>
+                    {{ form_label(edit_form.descuentoDias, 'Días de Descuento') }}
+                    {{ form_widget(edit_form.descuentoDias) }}
+
+                </td>
+            </tr>                
+        </div>
+        <div class="form-row">
+            <tr>
+
+                <td>
+                    {{ form_label(edit_form.totalPagar, 'Total a Pagar') }}
+                    {{ form_widget(edit_form.totalPagar, {'attr': {'onfocus':'totalPagar();'}}) }}
+                </td>
+                <td colspan="2" style="alignment-adjust: middle">
+                    {{ form_row(edit_form.certificado) }}
+
+                </td>
+            </tr>
+
+        </div>
+
+        </tbody>
+    </table>
+    
     <p>
         <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
     </p>
+    {{ form_end(edit_form) }}
 </form>
 
 <div>
@@ -30,4 +72,9 @@
         </form>
     </div>
 </div>
+{% block javascript %}                
+    {% javascripts '@CertificacionBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
 {% endblock %}

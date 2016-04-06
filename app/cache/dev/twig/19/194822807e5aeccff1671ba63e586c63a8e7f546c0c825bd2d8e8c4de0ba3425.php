@@ -43,10 +43,10 @@ class __TwigTemplate_8f4c10983bb7156fea4deb117358ff9ef0a7e2b9f85297bcfc204536ee6
     {
         // line 8
         echo "
-    <h3 style=\"color: #0044cc\">Nueva Certificación de: ";
+    <h3 style=\"color: #0044cc\">Nueva Certificación de: </h3><h4>Dni: ";
         // line 9
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becadobeca", array()), "html", null, true);
-        echo "</h3>
+        echo "</h4>
 
     <form class=\"well\" action=\"";
         // line 11
@@ -211,7 +211,7 @@ class __TwigTemplate_8f4c10983bb7156fea4deb117358ff9ef0a7e2b9f85297bcfc204536ee6
 /* */
 /* {% block page %}*/
 /* */
-/*     <h3 style="color: #0044cc">Nueva Certificación de: {{ entity.becadobeca }}</h3>*/
+/*     <h3 style="color: #0044cc">Nueva Certificación de: </h3><h4>Dni: {{ entity.becadobeca }}</h4>*/
 /* */
 /*     <form class="well" action="{{ path('certificacion_create') }}" method="post" {{ form_enctype(form) }}>*/
 /*         {{ form_start(form) }}*/

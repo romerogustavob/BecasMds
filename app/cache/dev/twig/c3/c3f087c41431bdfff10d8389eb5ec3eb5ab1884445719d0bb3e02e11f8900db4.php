@@ -15,7 +15,7 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 145
+        // line 144
         echo "<a href=\"../../../../../../../.gitignore\"></a>";
     }
 
@@ -36,7 +36,7 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
         .negrita{
             font-weight: bold;
         }
-        table{
+        .tablafondo{
             background: #D3D3D3;
             border-top: 1px solid #000;
 
@@ -51,7 +51,7 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
         }
     </style>
     <div class=\"row-fluid bordediv\">
-        <table>
+        <table class=\"tablafondo\">
             <thead>
                 <tr>
                     <th></th><th></th><th></th>
@@ -250,12 +250,12 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
             </tbody>
 
         </table>
-        <span class=\"select2-container select2-container--default select2-container--open\" style=\"position: absolute; top: 1809px; left: 120.5px;\"><span class=\"select2-dropdown select2-dropdown--above\" dir=\"ltr\" style=\"width: 816px;\"><span class=\"select2-search select2-search--dropdown\"><input class=\"select2-search__field\" type=\"search\" tabindex=\"0\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" role=\"textbox\"></span><span class=\"select2-results\"><ul class=\"select2-results__options\" role=\"tree\" id=\"select2-l4vw-results\" aria-expanded=\"true\" aria-hidden=\"false\"><li class=\"select2-results__option select2-results__option--highlighted\" role=\"treeitem\" aria-selected=\"true\">enhancement</li><li class=\"select2-results__option\" role=\"treeitem\" aria-selected=\"false\">bug</li><li class=\"select2-results__option\" role=\"treeitem\" aria-selected=\"false\">duplicate</li><li class=\"select2-results__option\" role=\"treeitem\" aria-selected=\"false\">invalid</li><li class=\"select2-results__option\" role=\"treeitem\" aria-selected=\"false\">wontfix</li></ul></span></span></span>
-        <div class=\"span2\">
+        ";
+            // line 139
+            echo "        <div class=\"span2\">
             <a class='delete-form btn btn-mini btn-danger' href='#'><i class='icon-remove-circle'></i>Quitar Domicilio </a>
         </div>
     </div>
-    
 ";
         } catch (Exception $e) {
             ob_end_clean();
@@ -278,7 +278,7 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 
     public function getDebugInfo()
     {
-        return array (  247 => 132,  242 => 125,  236 => 122,  233 => 121,  224 => 114,  220 => 113,  209 => 105,  205 => 104,  197 => 99,  193 => 98,  185 => 93,  181 => 92,  173 => 87,  169 => 86,  158 => 78,  154 => 77,  146 => 72,  142 => 71,  134 => 66,  130 => 65,  122 => 60,  118 => 59,  108 => 52,  104 => 51,  96 => 46,  92 => 45,  84 => 40,  80 => 39,  72 => 34,  68 => 33,  35 => 2,  23 => 1,  19 => 145,);
+        return array (  255 => 139,  247 => 132,  242 => 125,  236 => 122,  233 => 121,  224 => 114,  220 => 113,  209 => 105,  205 => 104,  197 => 99,  193 => 98,  185 => 93,  181 => 92,  173 => 87,  169 => 86,  158 => 78,  154 => 77,  146 => 72,  142 => 71,  134 => 66,  130 => 65,  122 => 60,  118 => 59,  108 => 52,  104 => 51,  96 => 46,  92 => 45,  84 => 40,  80 => 39,  72 => 34,  68 => 33,  35 => 2,  23 => 1,  19 => 144,);
     }
 }
 /* {% macro domicilio(domi) %}*/
@@ -286,7 +286,7 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 /*         .negrita{*/
 /*             font-weight: bold;*/
 /*         }*/
-/*         table{*/
+/*         .tablafondo{*/
 /*             background: #D3D3D3;*/
 /*             border-top: 1px solid #000;*/
 /* */
@@ -301,7 +301,7 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 /*         }*/
 /*     </style>*/
 /*     <div class="row-fluid bordediv">*/
-/*         <table>*/
+/*         <table class="tablafondo">*/
 /*             <thead>*/
 /*                 <tr>*/
 /*                     <th></th><th></th><th></th>*/
@@ -418,11 +418,10 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 /*             </tbody>*/
 /* */
 /*         </table>*/
-/*         <span class="select2-container select2-container--default select2-container--open" style="position: absolute; top: 1809px; left: 120.5px;"><span class="select2-dropdown select2-dropdown--above" dir="ltr" style="width: 816px;"><span class="select2-search select2-search--dropdown"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox"></span><span class="select2-results"><ul class="select2-results__options" role="tree" id="select2-l4vw-results" aria-expanded="true" aria-hidden="false"><li class="select2-results__option select2-results__option--highlighted" role="treeitem" aria-selected="true">enhancement</li><li class="select2-results__option" role="treeitem" aria-selected="false">bug</li><li class="select2-results__option" role="treeitem" aria-selected="false">duplicate</li><li class="select2-results__option" role="treeitem" aria-selected="false">invalid</li><li class="select2-results__option" role="treeitem" aria-selected="false">wontfix</li></ul></span></span></span>*/
+/*         {#<span class="select2-container select2-container--default select2-container--open" style="position: absolute; top: 1809px; left: 120.5px;"><span class="select2-dropdown select2-dropdown--above" dir="ltr" style="width: 816px;"><span class="select2-search select2-search--dropdown"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox"></span><span class="select2-results"><ul class="select2-results__options" role="tree" id="select2-l4vw-results" aria-expanded="true" aria-hidden="false"><li class="select2-results__option select2-results__option--highlighted" role="treeitem" aria-selected="true">enhancement</li><li class="select2-results__option" role="treeitem" aria-selected="false">bug</li><li class="select2-results__option" role="treeitem" aria-selected="false">duplicate</li><li class="select2-results__option" role="treeitem" aria-selected="false">invalid</li><li class="select2-results__option" role="treeitem" aria-selected="false">wontfix</li></ul></span></span></span>#}*/
 /*         <div class="span2">*/
 /*             <a class='delete-form btn btn-mini btn-danger' href='#'><i class='icon-remove-circle'></i>Quitar Domicilio </a>*/
 /*         </div>*/
 /*     </div>*/
-/*     */
 /* {% endmacro %}*/
 /* <a href="../../../../../../../.gitignore"></a>*/

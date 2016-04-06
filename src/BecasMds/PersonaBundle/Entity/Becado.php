@@ -35,7 +35,32 @@ class Becado extends Persona
      * @ORM\JoinColumn(name="dependencia_id", referencedColumnName="id")
      */
     protected $dependencia;
+    
+     /**
+     * @var string
+     */
+    protected $dni;
 
+    /**
+     * @var string
+     */
+    protected $apellidos;
+
+    /**
+     * @var string
+     */
+    protected $nombres;
+
+    /**
+     * @var string
+     */
+    protected $telefono;
+
+    /**
+     * @var string
+     */
+    protected $email;
+    
     /**
      * @var boolean
      *
@@ -93,31 +118,7 @@ class Becado extends Persona
         return $this;
     }
 
-    /**
-     * @var string
-     */
-    protected $dni;
-
-    /**
-     * @var string
-     */
-    protected $apellidos;
-
-    /**
-     * @var string
-     */
-    protected $nombres;
-
-    /**
-     * @var string
-     */
-    protected $telefono;
-
-    /**
-     * @var string
-     */
-    protected $email;
-
+   
     /**
      * Constructor
      */
@@ -363,7 +364,7 @@ class Becado extends Persona
     }
     
     public function __toString() {
-        return $this->getDni().'-'.$this->getApellidos().'-'.$this->getNombres();
+        return $this->getDni().'-'.$this->getApellidos().','.$this->getNombres();
     }
 
     /**

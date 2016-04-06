@@ -49,37 +49,30 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
     public function block_page($context, array $blocks = array())
     {
         // line 10
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 19
-        echo "
-    ";
-        // line 20
-        $this->displayBlock('javascript', $context, $blocks);
-        // line 37
         echo "
     <h2 style=\"color: #0044cc\">Nuevo Becado";
-        // line 38
+        // line 11
         echo "</h2>
 
     <form class=\"well\" action=\"";
-        // line 40
+        // line 13
         echo $this->env->getExtension('routing')->getPath("becado_create");
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : null), 'enctype');
         echo ">
         ";
-        // line 42
+        // line 15
         echo "        ";
-        // line 44
+        // line 17
         echo "        ";
-        // line 45
+        // line 18
         echo "        ";
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : null), 'form_start');
         echo "
 
         <h4>Datos Personales</h4>
         ";
-        // line 48
+        // line 21
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "dni", array()), 'row');
         echo " ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "apellidos", array()), 'row');
@@ -87,7 +80,7 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "nombres", array()), 'row');
         echo "
         ";
-        // line 49
+        // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "telefono", array()), 'row');
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "email", array()), 'row');
         echo "
@@ -104,19 +97,19 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
                 <div id=\"domicilioCollapse\" class=\"panel-collapse collapse in\">
                     <div class=\"row-fluid\">
                         ";
-        // line 62
+        // line 35
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "domicilio", array()), 'errors');
         echo "
                         <div data-prototype=\"";
-        // line 63
+        // line 36
         echo twig_escape_filter($this->env, $context["macrosDomicilio"]->getdomicilio($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "domicilio", array()), "vars", array()), "prototype", array())));
         echo "\" class=\"row-fluid domicilio\">
                             ";
-        // line 64
+        // line 37
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "domicilio", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["domi"]) {
-            // line 65
+            // line 38
             echo "                                ";
             echo $context["macrosDomicilio"]->getdomicilio($context["domi"]);
             echo "
@@ -125,7 +118,7 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['domi'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 67
+        // line 40
         echo "
                         </div>
 
@@ -141,17 +134,17 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
 
 
         ";
-        // line 81
+        // line 54
         echo " 
         <h4>Movimiento/Afectación/Dependencia</h4>
         ";
-        // line 83
+        // line 56
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "referente", array()), 'row');
         echo " ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "lugarAfectacion", array()), 'row');
         echo "
         ";
-        // line 84
+        // line 57
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "dependencia", array()), 'row');
         echo " 
 
@@ -169,19 +162,19 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
                         <div class=\"row-fluid\">
 
                             ";
-        // line 99
+        // line 72
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "formacion", array()), 'errors');
         echo "
                             <div data-prototype=\"";
-        // line 100
+        // line 73
         echo twig_escape_filter($this->env, $context["macrosFormacion"]->getformacion($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "formacion", array()), "vars", array()), "prototype", array())));
         echo "\" class=\"row-fluid formacion\">
                                 ";
-        // line 101
+        // line 74
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "formacion", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["formac"]) {
-            // line 102
+            // line 75
             echo "                                    ";
             echo $context["macrosFormacion"]->getformacion($context["formac"]);
             echo "
@@ -190,7 +183,7 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formac'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 104
+        // line 77
         echo "                            </div>
 
                         </div> 
@@ -204,35 +197,35 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
 
         <h4>Otros Datos</h4>
         ";
-        // line 116
+        // line 89
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "presentaCertificacion", array()), 'row');
         echo " ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "fechaAlta", array()), 'row');
         echo "
         ";
-        // line 117
+        // line 90
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "fechaBaja", array()), 'row');
         echo " ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "activo", array()), 'row');
         echo "
         ";
-        // line 119
+        // line 92
         echo "        <div style=\"display: none\">
             ";
-        // line 120
+        // line 93
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "formacion", array()), 'widget');
         echo "
         </div>
         <div style=\"display: none\">
             ";
-        // line 123
+        // line 96
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "domicilio", array()), 'widget');
         echo "
         </div>
         <div style=\"padding-top: 15px;\"><span class=\"divider-vertical\">
 
                 <button type=\"submit\" class=\"btn btn-success\">";
-        // line 127
+        // line 100
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.new.create", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</button>
             </span></div>   
@@ -240,207 +233,209 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
 
 
         ";
-        // line 132
+        // line 105
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : null), 'form_end');
         echo "
-        
-        
+
+
     </form>
 
     <div>
         <div class=\"float-left\">
             <a class=\"btn\" href=\"";
-        // line 139
+        // line 112
         echo $this->env->getExtension('routing')->getPath("becado");
         echo "\">
                 ";
-        // line 140
+        // line 113
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
             </a>
         </div>
     </div>
 
-    
-
-
-
+    ";
+        // line 146
+        echo "
+";
+        // line 147
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 157
+        echo "
+    ";
+        // line 158
+        $this->displayBlock('javascript', $context, $blocks);
+        // line 175
+        echo "
 ";
     }
 
-    // line 10
+    // line 147
     public function block_stylesheets($context, array $blocks = array())
     {
-        // line 11
-        echo "        <link href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/select2.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+        // line 148
+        echo "        ";
+        $this->displayParentBlock("stylesheets", $context, $blocks);
+        echo "
         <link href=\"";
-        // line 12
+        // line 149
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/jquery-ui.css"), "html", null, true);
         echo "\" rel=\"stylesheet\" />
         <link href=\"";
-        // line 13
+        // line 150
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/select2.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+        <link href=\"";
+        // line 151
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/jquery.Jcrop.css"), "html", null, true);
         echo "\" rel=\"stylesheet\" />
         <link href=\"";
-        // line 14
+        // line 152
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/token-input-facebook.css"), "html", null, true);
         echo "\" rel=\"stylesheet\" />
         <link href=\"";
-        // line 15
+        // line 153
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/token-input.css"), "html", null, true);
         echo "\" rel=\"stylesheet\" />
         ";
-        // line 16
+        // line 154
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : null), 'stylesheet');
         echo "
 
     ";
     }
 
-    // line 20
+    // line 158
     public function block_javascript($context, array $blocks = array())
     {
-        // line 21
+        // line 159
         echo "        ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "312a84e_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_addForm_1.js");
-            // line 33
+            // asset "bc53fdc_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_select2Localidad_1.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_agregarFormacion_2.js");
-            // line 33
+            // asset "bc53fdc_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_jquery-ui_2.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_2"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_deleteRow_3.js");
-            // line 33
+            // asset "bc53fdc_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_jquery.Jcrop_3.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_3"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_agregarDomicilio_4.js");
-            // line 33
+            // asset "bc53fdc_3"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_jquery.color_4.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_4"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_select2_5.js");
-            // line 33
+            // asset "bc53fdc_4"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_jquery.tokeninput_5.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_5"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_select2Localidad_6.js");
-            // line 33
+            // asset "bc53fdc_5"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_select2_6.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_6"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_6") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_jquery-1.9.0_7.js");
-            // line 33
+            // asset "bc53fdc_6"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_6") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_agregarDomicilio_7.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_7"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_7") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_jquery-ui_8.js");
-            // line 33
+            // asset "bc53fdc_7"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_7") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_agregarFormacion_8.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_8"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_8") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_jquery.Jcrop_9.js");
-            // line 33
+            // asset "bc53fdc_8"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_8") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_addForm_9.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // asset "312a84e_9"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_9") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_jquery.color_10.js");
-            // line 33
+            // asset "bc53fdc_9"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc_9") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc_deleteRow_10.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
-        ";
-            // asset "312a84e_10"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e_10") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e_jquery.tokeninput_11.js");
-            // line 33
-            echo "        ";
-            echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
-            echo "
-        <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
         } else {
-            // asset "312a84e"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_312a84e") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/312a84e.js");
-            // line 33
+            // asset "bc53fdc"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bc53fdc") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bc53fdc.js");
+            // line 171
             echo "        ";
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["form"]) ? $context["form"] : null));
             echo "
         <script type=\"text/javascript\" src=\"";
-            // line 34
+            // line 172
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
         }
         unset($context["asset_url"]);
-        // line 36
+        // line 174
         echo "    ";
     }
 
@@ -456,7 +451,7 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
 
     public function getDebugInfo()
     {
-        return array (  444 => 36,  438 => 34,  433 => 33,  426 => 34,  421 => 33,  415 => 34,  410 => 33,  404 => 34,  399 => 33,  393 => 34,  388 => 33,  382 => 34,  377 => 33,  371 => 34,  366 => 33,  360 => 34,  355 => 33,  349 => 34,  344 => 33,  338 => 34,  333 => 33,  327 => 34,  322 => 33,  316 => 34,  311 => 33,  306 => 21,  303 => 20,  296 => 16,  292 => 15,  288 => 14,  284 => 13,  280 => 12,  275 => 11,  272 => 10,  258 => 140,  254 => 139,  244 => 132,  236 => 127,  229 => 123,  223 => 120,  220 => 119,  214 => 117,  208 => 116,  194 => 104,  185 => 102,  181 => 101,  177 => 100,  173 => 99,  155 => 84,  149 => 83,  145 => 81,  129 => 67,  120 => 65,  116 => 64,  112 => 63,  108 => 62,  91 => 49,  83 => 48,  76 => 45,  74 => 44,  72 => 42,  66 => 40,  62 => 38,  59 => 37,  57 => 20,  54 => 19,  52 => 10,  49 => 9,  39 => 5,  36 => 4,  32 => 1,  30 => 3,  28 => 2,  11 => 1,);
+        return array (  439 => 174,  433 => 172,  428 => 171,  421 => 172,  416 => 171,  410 => 172,  405 => 171,  399 => 172,  394 => 171,  388 => 172,  383 => 171,  377 => 172,  372 => 171,  366 => 172,  361 => 171,  355 => 172,  350 => 171,  344 => 172,  339 => 171,  333 => 172,  328 => 171,  322 => 172,  317 => 171,  312 => 159,  309 => 158,  302 => 154,  298 => 153,  294 => 152,  290 => 151,  286 => 150,  282 => 149,  277 => 148,  274 => 147,  269 => 175,  267 => 158,  264 => 157,  262 => 147,  259 => 146,  251 => 113,  247 => 112,  237 => 105,  229 => 100,  222 => 96,  216 => 93,  213 => 92,  207 => 90,  201 => 89,  187 => 77,  178 => 75,  174 => 74,  170 => 73,  166 => 72,  148 => 57,  142 => 56,  138 => 54,  122 => 40,  113 => 38,  109 => 37,  105 => 36,  101 => 35,  84 => 22,  76 => 21,  69 => 18,  67 => 17,  65 => 15,  59 => 13,  55 => 11,  52 => 10,  49 => 9,  39 => 5,  36 => 4,  32 => 1,  30 => 3,  28 => 2,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -468,33 +463,6 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
 /* {% endblock %}*/
 /* */
 /* {% block page %}*/
-/* {% block stylesheets %}*/
-/*         <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />*/
-/*         <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />*/
-/*         <link href="{{ asset('bundles/persona/css/jquery.Jcrop.css') }}" rel="stylesheet" />*/
-/*         <link href="{{ asset('bundles/persona/css/token-input-facebook.css') }}" rel="stylesheet" />*/
-/*         <link href="{{ asset('bundles/persona/css/token-input.css') }}" rel="stylesheet" />*/
-/*         {{ form_stylesheet(form) }}*/
-/* */
-/*     {% endblock %}*/
-/* */
-/*     {% block javascript %}*/
-/*         {% javascripts '@PersonaBundle/Resources/public/js/addForm.js' */
-/*             '@PersonaBundle/Resources/public/js/agregarFormacion.js'*/
-/*             '@PersonaBundle/Resources/public/js/deleteRow.js'*/
-/*             '@PersonaBundle/Resources/public/js/agregarDomicilio.js'*/
-/*             '@PersonaBundle/Resources/public/js/select2.js'*/
-/*             '@PersonaBundle/Resources/public/js/select2Localidad.js'*/
-/*             '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'*/
-/*             '@PersonaBundle/Resources/public/js/jquery-ui.js'*/
-/*             '@PersonaBundle/Resources/public/js/jquery.Jcrop.js'*/
-/*             '@PersonaBundle/Resources/public/js/jquery.color.js'*/
-/*             '@PersonaBundle/Resources/public/js/jquery.tokeninput.js'*/
-/*         %}*/
-/*         {{ form_javascript(form) }}*/
-/*         <script type="text/javascript" src="{{ asset_url }}"></script>*/
-/*         {% endjavascripts %}*/
-/*     {% endblock %}*/
 /* */
 /*     <h2 style="color: #0044cc">Nuevo Becado{#{{ 'views.new.creation'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}#}</h2>*/
 /* */
@@ -591,8 +559,8 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
 /* */
 /* */
 /*         {{ form_end(form) }}*/
-/*         */
-/*         */
+/* */
+/* */
 /*     </form>*/
 /* */
 /*     <div>*/
@@ -603,9 +571,63 @@ class __TwigTemplate_bc376ed086053217e49b2672c92084c7051493adf286fc0e9611e3f5be4
 /*         </div>*/
 /*     </div>*/
 /* */
-/*     */
+/*     {#{% form_theme form _self %}*/
 /* */
+/*     {% block genemu_jqueryselect2_hidden_javascript %}*/
 /* */
+/*         <script type="text/javascript">*/
+/*             $field = $('#{{ id }}');*/
+/* */
+/*             var $configs = {{ configs|json_encode|raw }};*/
+/*                     // custom configs*/
+/*                     $configs = $.extend($configs, {*/
+/*                         query: function (query) {*/
+/*                             var data = {results: []}, i, j, s;*/
+/*                             for (i = 1; i < 5; i++) {*/
+/*                                 s = "";*/
+/*                                 for (j = 0; j < i; j++) {*/
+/*                                     s = s + query.term;*/
+/*                                 }*/
+/*                                 data.results.push({id: query.term + i, text: s});*/
+/*                             }*/
+/*                             query.callback(data);*/
+/*                         }*/
+/*                     });*/
+/*             // end of custom configs*/
+/* */
+/*             $field.select2($configs);*/
+/*         </script>*/
+/* */
+/*     {% endblock %}#}*/
+/* */
+/* {% block stylesheets %}*/
+/*         {{ parent() }}*/
+/*         <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />*/
+/*         <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />*/
+/*         <link href="{{ asset('bundles/persona/css/jquery.Jcrop.css') }}" rel="stylesheet" />*/
+/*         <link href="{{ asset('bundles/persona/css/token-input-facebook.css') }}" rel="stylesheet" />*/
+/*         <link href="{{ asset('bundles/persona/css/token-input.css') }}" rel="stylesheet" />*/
+/*         {{ form_stylesheet(form) }}*/
+/* */
+/*     {% endblock %}*/
+/* */
+/*     {% block javascript %}*/
+/*         {% javascripts '@PersonaBundle/Resources/public/js/select2Localidad.js'*/
+/*             '@PersonaBundle/Resources/public/js/jquery-ui.js'*/
+/*             '@PersonaBundle/Resources/public/js/jquery.Jcrop.js'*/
+/*             '@PersonaBundle/Resources/public/js/jquery.color.js'*/
+/*             '@PersonaBundle/Resources/public/js/jquery.tokeninput.js'*/
+/*             '@PersonaBundle/Resources/public/js/select2.js'*/
+/*             '@PersonaBundle/Resources/public/js/agregarDomicilio.js'*/
+/*             '@PersonaBundle/Resources/public/js/agregarFormacion.js'*/
+/*             '@PersonaBundle/Resources/public/js/addForm.js'  */
+/*             '@PersonaBundle/Resources/public/js/deleteRow.js'*/
+/*                       */
+/*         %}*/
+/*         {{ form_javascript(form) }}*/
+/*         <script type="text/javascript" src="{{ asset_url }}"></script>*/
+/*         {% endjavascripts %}*/
+/*     {% endblock %}*/
 /* */
 /* {% endblock %}*/
 /* */

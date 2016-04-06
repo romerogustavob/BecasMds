@@ -260,33 +260,39 @@ class LocalidadController extends Controller {
         ;
     }
 
-    public function findLocalidadAjaxAction(Request $request) {
-        $expr = new Expr();
-
-        $objects = $this->getManager()
-                    ->getRepository('PersonaBundle:Localidad')
-                    ->createQueryBuilder('l')
-                    ->select('o.nombre, o.id')
-                    ->getQuery()
-                    ->getArrayResult();
-
-        return new JsonResponse($objects);
-    }
-
-    public function getLocalidadAjaxAction($ids)
+   
+    public function localidadAjaxAction(Request $request)
     {
-        $expr = new Expr();
+        $value = $request->get('term');
+
+        $em=  $this->getDoctrine()->getManager();
+        $localidad=$em->getRepository('PersonaBundle:Localidad')->findByNombre($value);
+        foreach ($localidades as $localidad) {
+            $json[] = array(
+                'label' => $localidades->getNombre(),
+                'value' => $localidades->getId()
+            );
+        }
+//        for(localidad in $localidad){
+//        $search = array(
+//            array('value' => 'foo', 'label' => 'Foo'),
+//            array('value' => 'bar', 'label' => 'Bar')
+//        );
+
+        $response = new Response();
+        $response->setContent(json_encode($json));
+
+        return $response;
+    }
+    
+  
+    public function localidadIdAjaxAction($ids)
+    {
         $ids = explode(',', $ids);
 
         $objects = $this->getManager()
-                    ->getRepository('PersonaBundle:Localidad')
-                    ->createQueryBuilder('l')
-                    ->select('l.id, l.name')
-                    ->where($expr->in('l.id', ':ids'))
-                    ->setParameter('ids', $ids)
-                    ->getQuery()
-                    ->getArrayResult();
-
+                    ->getRepository('PersonaBundle:Localidad')->findById($ids);
+        
         return new JsonResponse($objects);
     }
 

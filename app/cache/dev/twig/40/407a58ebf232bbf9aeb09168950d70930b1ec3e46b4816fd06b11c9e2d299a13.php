@@ -36,7 +36,7 @@ class __TwigTemplate_58164e5ab776ca74fd9c045c71ec97c6627929a69b2b9fb23318e710a98
         .negrita{
             font-weight: bold;
         }
-        table{
+        .tablafondo{
             background: #D3D3D3;
             border-top: 1px solid #000;
            
@@ -51,7 +51,7 @@ class __TwigTemplate_58164e5ab776ca74fd9c045c71ec97c6627929a69b2b9fb23318e710a98
         }
     </style>
     <div class=\"row-fluid bordediv\">
-        <table>
+        <table class=\"tablafondo\">
             <thead>
                 <tr>
                     <th></th><th></th><th></th>
@@ -176,7 +176,7 @@ class __TwigTemplate_58164e5ab776ca74fd9c045c71ec97c6627929a69b2b9fb23318e710a98
 /*         .negrita{*/
 /*             font-weight: bold;*/
 /*         }*/
-/*         table{*/
+/*         .tablafondo{*/
 /*             background: #D3D3D3;*/
 /*             border-top: 1px solid #000;*/
 /*            */
@@ -191,7 +191,7 @@ class __TwigTemplate_58164e5ab776ca74fd9c045c71ec97c6627929a69b2b9fb23318e710a98
 /*         }*/
 /*     </style>*/
 /*     <div class="row-fluid bordediv">*/
-/*         <table>*/
+/*         <table class="tablafondo">*/
 /*             <thead>*/
 /*                 <tr>*/
 /*                     <th></th><th></th><th></th>*/

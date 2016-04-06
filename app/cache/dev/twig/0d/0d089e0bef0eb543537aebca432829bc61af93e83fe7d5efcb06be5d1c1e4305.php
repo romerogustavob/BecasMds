@@ -77,17 +77,21 @@ class __TwigTemplate_bc621b47ef228da3004e2d822a6fdf528cb32cec104a66fca8eb6b2e948
         echo "
     ";
         // line 20
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "detalles", array()), 'row');
+        echo "
+    ";
+        // line 21
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "activo", array()), 'row');
         echo "
     
     <p>
         <button type=\"submit\" class=\"btn btn-success\">";
-        // line 23
+        // line 24
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.edit.editbutton", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</button>
     </p>
     ";
-        // line 25
+        // line 26
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'form_end');
         echo "
 </form>
@@ -95,35 +99,35 @@ class __TwigTemplate_bc621b47ef228da3004e2d822a6fdf528cb32cec104a66fca8eb6b2e948
 <div>
     <div class=\"float-left\">
         <a class=\"btn\" href=\"";
-        // line 30
+        // line 31
         echo $this->env->getExtension('routing')->getPath("becadobeca");
         echo "\">
             ";
-        // line 31
+        // line 32
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
         </a>
     </div>
     <div class=\"float-left\">
-        <a class=\"btn\" href=\"";
-        // line 35
+        <a class=\"btn btn-info\" href=\"";
+        // line 36
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_show", array("id" => $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becado", array()), "id", array()))), "html", null, true);
         echo "\">
-            Ver Becado
+            Ir a Becado
         </a>
     </div>
     <div class=\"float-left\">
         <form action=\"";
-        // line 40
+        // line 41
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\">
             <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
             ";
-        // line 42
+        // line 43
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : null), 'widget');
         echo "
             <button class=\"btn btn-danger\" type=\"submit\" onclick=\"return confirm('";
-        // line 43
+        // line 44
         echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.confirm", array(), "JordiLlonchCrudGeneratorBundle"), "js"), "html", null, true);
         echo "');\">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.delete", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
@@ -146,7 +150,7 @@ class __TwigTemplate_bc621b47ef228da3004e2d822a6fdf528cb32cec104a66fca8eb6b2e948
 
     public function getDebugInfo()
     {
-        return array (  127 => 43,  123 => 42,  118 => 40,  110 => 35,  103 => 31,  99 => 30,  91 => 25,  86 => 23,  80 => 20,  76 => 19,  72 => 18,  68 => 17,  63 => 15,  58 => 13,  51 => 11,  45 => 9,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  131 => 44,  127 => 43,  122 => 41,  114 => 36,  107 => 32,  103 => 31,  95 => 26,  90 => 24,  84 => 21,  80 => 20,  76 => 19,  72 => 18,  68 => 17,  63 => 15,  58 => 13,  51 => 11,  45 => 9,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -168,6 +172,7 @@ class __TwigTemplate_bc621b47ef228da3004e2d822a6fdf528cb32cec104a66fca8eb6b2e948
 /*     {{ form_row(edit_form.beca) }}*/
 /*     {{ form_row(edit_form.fechaAlta) }}*/
 /*     {{ form_row(edit_form.fechaBaja) }}*/
+/*     {{ form_row(edit_form.detalles) }}*/
 /*     {{ form_row(edit_form.activo) }}*/
 /*     */
 /*     <p>*/
@@ -183,8 +188,8 @@ class __TwigTemplate_bc621b47ef228da3004e2d822a6fdf528cb32cec104a66fca8eb6b2e948
 /*         </a>*/
 /*     </div>*/
 /*     <div class="float-left">*/
-/*         <a class="btn" href="{{ path('becado_show', {'id': entity.becado.id}) }}">*/
-/*             Ver Becado*/
+/*         <a class="btn btn-info" href="{{ path('becado_show', {'id': entity.becado.id}) }}">*/
+/*             Ir a Becado*/
 /*         </a>*/
 /*     </div>*/
 /*     <div class="float-left">*/

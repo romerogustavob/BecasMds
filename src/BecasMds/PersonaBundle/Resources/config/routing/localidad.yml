@@ -28,15 +28,15 @@ localidad_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "PersonaBundle:Localidad:delete" }
     requirements: { _method: post|delete }
-    
-find_localidad:
-    pattern: /findlocalidad
-    defaults: { _controller: "PersonaBundle:Localidad:findLocalidadAjax" }
-    options: 
+   
+localidad_ajax:
+    pattern: /localidadajax
+    defaults: { _controller: PersonaBundle:Localidad:localidadAjax}
+    options:
         expose: true
 
-get_localidad:
-        pattern:        /getlocalidad/{ids}
-        defaults:       { _controller: PersonaBundle:Localidad:getLocalidadAjax }
-        options:
-            expose: true
+localidad_id_ajax:
+    pattern: /getlocalidad/{ids}
+    defaults: { _controller: PersonaBundle:Localidad:localidadIdAjax }
+    options:
+        expose: true

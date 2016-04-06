@@ -10,19 +10,13 @@
 *
 * @return void
 */
-function triggerJavascript(id)
-{
-    $field = $('#' + id);
-    {{ form_javascript(form.domicilio.vars.prototype.localidad, true) }}
-}
 
-function addForm(collectionHolder, target, regName) {
+function addFormulario(collectionHolder, target, regName) {
     /*Obtien el data-prototype*/
     var prototype = collectionHolder.data('prototype');
 
     /*Obtiene el valor del index actual*/
     var index = collectionHolder.data('index');
-    var id = '{{ form.domicilio.vars.id }}_' + id;
     /*Reemplaza el valor '__name__' en el HTML del prototype por el número
     según la cantidad de items que tengamos*/
     if (regName == null) {
@@ -33,6 +27,5 @@ function addForm(collectionHolder, target, regName) {
     collectionHolder.data('index', index + 1);
     /*Agrega el formulario al DOM*/
     target.append(newForm);
-    var id = '{{ form.tags.vars.id }}_' + id;
 }
 

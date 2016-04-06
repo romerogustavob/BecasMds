@@ -8,92 +8,149 @@
 
     <h3 style="color: #0044cc;">Ver Ficha Becado</h3>
 
-    <form class="form-horizontal">
-        <fieldset>        
-            <div class="control-group" style="display: none;">
-                <h4>Datos Personales</h4>
+    <form class="form-inline">
+        <fieldset> 
+            <h4>Datos Personales</h4>
+            <div class="control-group" style="display: none;">                
                 <label class="control-label">Id</label>
                 <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.id }}</span>            </div>
             </div>
-            <div class="control-group">
-                <label class="control-label">Nº Doc.</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.dni }}</span>            </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">Apellidos</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.apellidos }}</span>            </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">Nombres</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.nombres }}</span>            </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">Teléfono</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.telefono }}</span>            </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label">Email</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.email }}</span>            </div>
-            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><div class="control-group">
+                                <label class="control-label">Nº Doc.</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.dni }}</span>            </div>
+                            </div></td>
+                        <td><div class="control-group">
+                                <label class="control-label">Apellidos</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.apellidos }}</span>            </div>
+                            </div></td>
+                        <td>
+                            <div class="control-group">
+                                <label class="control-label">Nombres</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.nombres }}</span>            </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="control-group">
+                                <label class="control-label">Teléfono</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.telefono }}</span>            </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="control-group">
+                                <label class="control-label">Email</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.email }}</span>            </div>
+                            </div>
+                        </td>
+                        <td colspan="2">
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>   
+
             <h4>Domicilio</h4>
             {% for domicilio in entity.domicilio %}
-                <div class="control-group">
+                <div class="control-group" style="display:none">
                     <label class="control-label">Departamento</label>
                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.departamento }}</span>            </div>
                 </div>
-                <div class="control-group">
-                    <label class="control-label">Localidad</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.localidad }}</span>            </div>
-                </div>
 
-                <div class="control-group">
-                    <label class="control-label">Barrio</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.barrio }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Calle</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.calle }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Nro.</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.numero }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Dpto.</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.dpto }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Piso</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.piso }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Edificio</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.edificio }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Manzana</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.manzana }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Tira</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.tira }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Parcela</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.parcela }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Quinta</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.quinta }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Un. Funcional</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.unidadDuncional }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Referencias</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.referencias }}</span>            </div>
-                </div>
+                <table>
+                    <tbody>
+                        <tr>
+
+                            <td><div class="control-group">
+                                    <label class="control-label">Localidad</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.localidad }}</span>            </div>
+                                </div></td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Barrio</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.barrio }}</span>            </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Calle</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.calle }}</span>            </div>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Nro.</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.numero }}</span>            </div>
+                                </div>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Dpto.</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.dpto }}</span>            </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Piso</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.piso }}</span>            </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Edificio</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.edificio }}</span>            </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Manzana</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.manzana }}</span>            </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="control-group">
+                                    <label class="control-label">Tira</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.tira }}</span>            </div>
+                                </div></td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Parcela</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.parcela }}</span>            </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Quinta</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.quinta }}</span>            </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Un. Funcional</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.unidadDuncional }}</span>            </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div class="control-group">
+                                    <label class="control-label">Referencias</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.referencias }}</span>            </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
 
             {% endfor %}
             <h4>Becas Asignadas</h4>
@@ -131,7 +188,7 @@
                                 <a class="btn btn-primary" href="{{ path('certificacion_new', { 'id': becadobeca.id }) }}">
                                     Certificar
                                 </a>
-                                    
+
                             </span>            
                         </div>
                     </div> 
@@ -155,49 +212,85 @@
 
             <h4>Formación</h4>
             {% for educacion in entity.formacion %}
-                <div class="control-group">
-                    <label class="control-label">Institución</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.institucion }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Nivel Educativo</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.nivelEducativo }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Profesión</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.profesion }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Perfil</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.perfil }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Oficio</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.oficio }}</span>            </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Descripción</label>
-                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.descripcion }}</span>            </div>
-                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <div class="control-group">
+                                    <label class="control-label">Institución</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input span10">{{ educacion.institucion }}</span>            </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Nivel Educativo</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.nivelEducativo }}</span>            </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Profesión</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.profesion }}</span>            </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Perfil</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.perfil }}</span>            </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label">Oficio</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input span5">{{ educacion.oficio }}</span>            </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="control-group">
+                                    <label class="control-label">Descripción</label>
+                                    <div class="controls">                <span class="input-xlarge uneditable-input span10">{{ educacion.descripcion }}</span>            </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             {% endfor %}
             <h4>Otros Datos</h4>
-            <div class="control-group">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><div class="control-group">
 
-                <label class="control-label">Presenta certificacion</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{%if entity.presentaCertificacion %}Sí{% else %}No{% endif %}</span>            </div>
-            </div>                
-            <div class="control-group">
-                <label class="control-label">Fecha Alta</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.fechaAlta|date('Y-m-d H:i:s') }}</span>            </div>
-            </div>        
-            <div class="control-group">
-                <label class="control-label">Fecha Baja</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.fechaBaja|date('Y-m-d H:i:s') }}</span>            </div>
-            </div>    
-            <div class="control-group">
-                <label class="control-label">Activo</label>
-                <div class="controls">                <span class="input-xlarge uneditable-input">{%if entity.activo %}Sí{% else %}No{% endif %}</span>            </div>
-            </div>
+                                <label class="control-label">Presenta certificacion</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input span2">{%if entity.presentaCertificacion %}Sí{% else %}No{% endif %}</span>            </div>
+                            </div></td>
+                        <td>
+                            <div class="control-group">
+                                <label class="control-label">Fecha Alta</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input span2">{{ entity.fechaAlta|date('Y-m-d H:i:s') }}</span>            </div>
+                            </div> 
+                        </td>
+                        <td>
+                            <div class="control-group">
+                                <label class="control-label">Fecha Baja</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input span2">{{ entity.fechaBaja|date('Y-m-d H:i:s') }}</span>            </div>
+                            </div>
+                        </td>
+                        <td colspan="3">
+                            <div class="control-group">
+                                <label class="control-label">Activo</label>
+                                <div class="controls">                <span class="input-xlarge uneditable-input span2">{%if entity.activo %}Sí{% else %}No{% endif %}</span>            </div>
+                            </div> 
+                        </td>
+                </tbody>
+            </table>
 
         </fieldset>
     </form>
@@ -246,7 +339,7 @@
 
             </div>
         </div>
-  
+
         {#<!-- Modal -->
         <div id="editBecaModal" class="modal fade" role="dialog">
             <div class="modal-dialog">

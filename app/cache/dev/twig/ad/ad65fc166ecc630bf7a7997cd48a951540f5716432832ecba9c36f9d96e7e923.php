@@ -27,9 +27,11 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
     {
         // line 8
         echo "
-";
-        // line 10
-        echo "
+<h2 style=\"color: #0044cc\">Añadir Beca";
+        // line 9
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becado", array()), "html", null, true);
+        echo "</h2>
+
 <form class=\"well\" action=\"";
         // line 11
         echo $this->env->getExtension('routing')->getPath("becadobeca_create");
@@ -47,16 +49,15 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
         <tbody>
             <tr>
                 <td>
-                    <div class=\"control-group\">
+                    <div class=\"control-group\" style=\"display: none\">
                         
                         ";
         // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "becado", array()), 'label');
-        echo "
-                        
+        echo "                        
                         ";
-        // line 24
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "becado", array()), 'widget', array("attr" => array("disabled" => "disabled")));
+        // line 23
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "becado", array()), 'widget');
         echo "
                         
                     </div>
@@ -64,7 +65,7 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
                 <td>
                     <div class=\"control-group\">
                     ";
-        // line 30
+        // line 29
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "beca", array()), 'row');
         echo "
                     </div>
@@ -74,7 +75,7 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
                 <td>
                      <div class=\"control-group\">
                      ";
-        // line 37
+        // line 36
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "fechaAlta", array()), 'row');
         echo "
                     </div>
@@ -83,7 +84,7 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
                 <td>
                     <div class=\"control-group\">
                      ";
-        // line 43
+        // line 42
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "fechaBaja", array()), 'row');
         echo "
                     </div>
@@ -94,7 +95,7 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
                 <td>
                     <div class=\"control-group\">
                     ";
-        // line 51
+        // line 50
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "activo", array()), 'row');
         echo "
                     </div>
@@ -103,23 +104,24 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
                 <td> 
                     <div class=\"control-group\">
                     ";
-        // line 57
+        // line 56
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "detalles", array()), 'row');
         echo "
                     </div></td>
             </tr>
         </tbody>
     </table>
-    ";
-        // line 62
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : null), 'form_end');
-        echo "
+                    
     <p>
         <button type=\"submit\" class=\"btn btn-success\">";
-        // line 64
+        // line 63
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.new.create", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</button>
     </p>
+    ";
+        // line 65
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : null), 'form_end');
+        echo "
 </form>
 
 ";
@@ -132,7 +134,7 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
 
     public function getDebugInfo()
     {
-        return array (  120 => 64,  115 => 62,  107 => 57,  98 => 51,  87 => 43,  78 => 37,  68 => 30,  59 => 24,  54 => 22,  41 => 12,  35 => 11,  32 => 10,  29 => 8,  23 => 7,  20 => 6,);
+        return array (  123 => 65,  118 => 63,  108 => 56,  99 => 50,  88 => 42,  79 => 36,  69 => 29,  60 => 23,  56 => 22,  43 => 12,  37 => 11,  32 => 9,  29 => 8,  23 => 7,  20 => 6,);
     }
 }
 /* {#{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -143,7 +145,7 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
 /* */
 /* {% block page %}*/
 /* */
-/* {#<h2 style="color: #0044cc">Añadir Beca{{ 'views.new.creation'|trans({'%entity%': 'Becas'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>#}*/
+/* <h2 style="color: #0044cc">Añadir Beca{{ entity.becado }}</h2>*/
 /* */
 /* <form class="well" action="{{ path('becadobeca_create') }}" method="post" {{ form_enctype(form) }}>*/
 /*     {{ form_start(form) }}*/
@@ -154,11 +156,10 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
 /*         <tbody>*/
 /*             <tr>*/
 /*                 <td>*/
-/*                     <div class="control-group">*/
+/*                     <div class="control-group" style="display: none">*/
 /*                         */
-/*                         {{ form_label(form.becado) }}*/
-/*                         */
-/*                         {{ form_widget(form.becado, { 'attr': {'disabled': 'disabled'} }) }}*/
+/*                         {{ form_label(form.becado) }}                        */
+/*                         {{ form_widget(form.becado) }}*/
 /*                         */
 /*                     </div>*/
 /*                 </td>*/
@@ -196,10 +197,11 @@ class __TwigTemplate_6a7ffc6d2053f0783566155fc86d0dfc5d2a103d08994f5f0589e8a22aa
 /*             </tr>*/
 /*         </tbody>*/
 /*     </table>*/
-/*     {{ form_end(form) }}*/
+/*                     */
 /*     <p>*/
 /*         <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>*/
 /*     </p>*/
+/*     {{ form_end(form) }}*/
 /* </form>*/
 /* */
 /* {#<div>*/
