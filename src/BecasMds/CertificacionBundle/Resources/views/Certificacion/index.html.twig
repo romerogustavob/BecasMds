@@ -33,6 +33,7 @@
 
             <form class="well" action="{{ path('certificacion') }}" method="get" {{ form_enctype(filterForm) }}>
                 {{ form_row(filterForm.id) }}
+               
                 {{ form_row(filterForm.monto) }}
                 {{ form_row(filterForm.descuentoDias) }}
                 {{ form_row(filterForm.totalPagar) }}
@@ -54,6 +55,8 @@
     <thead>
         <tr>
             <th>Id</th>
+            <th>Becado</th>
+            <th>Beca</th>
             <th>Monto</th>
             <th>Descuentodias</th>
             <th>Totalpagar</th>
@@ -66,6 +69,8 @@
     {% for entity in entities %}
         <tr>
             <td><a href="{{ path('certificacion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>Dni: {{ entity.becadobeca.becado }}</td>
+            <td>{{ entity.becadobeca.beca }}</td>
             <td>{{ entity.monto }}</td>
             <td>{{ entity.descuentoDias }}</td>
             <td>{{ entity.totalPagar }}</td>

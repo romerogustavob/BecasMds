@@ -246,5 +246,10 @@ class BecadoBeca {
     public function getCertificacion() {
         return $this->certificacion;
     }
+
+    
+    public function __sleep() {
+        return array();
+    }
     
 }

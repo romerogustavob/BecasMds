@@ -11,9 +11,9 @@ class CertificacionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('monto')
+            ->add('monto', 'money', array('precision'=>3, 'currency'=>''))
             ->add('descuentoDias')
-            ->add('totalPagar')
+            ->add('totalPagar','money', array('precision'=>3, 'currency'=>''))
             ->add('certificado')
             ->add('mesCertificacion', 'date', array('widget' => 'single_text',
                         'format' => 'dd-MM-yyyy',

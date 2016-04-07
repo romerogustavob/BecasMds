@@ -24,7 +24,7 @@ class Certificacion
     /**
      * @var string
      *
-     * @ORM\Column(name="monto", type="decimal")
+     * @ORM\Column(name="monto", type="decimal", scale=3)
      */
     private $monto;
 
@@ -38,7 +38,7 @@ class Certificacion
     /**
      * @var string
      *
-     * @ORM\Column(name="totalPagar", type="decimal")
+     * @ORM\Column(name="totalPagar", type="decimal", scale=3)
      */
     private $totalPagar;
 
@@ -58,7 +58,7 @@ class Certificacion
     
     /**
      * @ORM\ManyToOne(targetEntity="\BecasMds\BecaBundle\Entity\BecadoBeca", inversedBy="certificacion")
-     * @ORM\JoinColumn(name="certificacion_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="becadobeca_id", referencedColumnName="id")
      */
     protected $becadobeca;
 
@@ -213,5 +213,9 @@ class Certificacion
     
     public function getBecaMonto(){
         return $this->getBecadobeca()->getBeca()->getMonto();
+    }
+    
+    public function getBecado(){
+        return $this->getBecadobeca()->getBecado();
     }
 }

@@ -10,13 +10,14 @@
 *
 * @return void
 */
-
 function addFormulario(collectionHolder, target, regName) {
+  
     /*Obtien el data-prototype*/
     var prototype = collectionHolder.data('prototype');
 
     /*Obtiene el valor del index actual*/
     var index = collectionHolder.data('index');
+    
     /*Reemplaza el valor '__name__' en el HTML del prototype por el número
     según la cantidad de items que tengamos*/
     if (regName == null) {

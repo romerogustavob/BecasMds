@@ -524,4 +524,8 @@ class Becado extends Persona
     {
         return $this->becadobeca;
     }
+    
+    public function __sleep() {
+        return array('');
+    }
 }

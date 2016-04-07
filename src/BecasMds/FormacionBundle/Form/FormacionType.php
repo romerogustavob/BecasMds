@@ -11,20 +11,20 @@ class FormacionType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('id','hidden')
-                ->add('institucion', 'entity', array('class'=>'FormacionBundle:Institucion', 
-                    'property'=>'nombre', 'label'=>'Institución', 'empty_value'=>'Seleccione Institución', 
+                ->add('institucion', 'genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:Institucion', 
+                    'property'=>'nombre', 'label'=>'Institución', 'empty_value'=>'', 
                     'required'=>false))
-                ->add('nivelEducativo', 'entity', array('class'=>'FormacionBundle:NivelEducativo', 
-                    'property'=>'descripcion', 'label'=>'Nivel Educativo', 'empty_value'=>'Seleccione Nivel Ed.',
+                ->add('nivelEducativo', 'genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:NivelEducativo', 
+                    'property'=>'descripcion', 'label'=>'Nivel Educativo', 'empty_value'=>'',
                     'required'=>false))
-                ->add('profesion', 'entity', array('class'=>'FormacionBundle:Profesion', 
-                    'property'=>'descripcion', 'label'=>'Profesión', 'empty_value'=>'Seleccione Profesión',
+                ->add('profesion', 'genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:Profesion', 
+                    'property'=>'descripcion', 'label'=>'Profesión', 'empty_value'=>'',
                     'required'=>false))
-                ->add('oficio', 'entity', array('class'=>'FormacionBundle:Oficio', 
-                    'property'=>'descripcion', 'label'=>'Oficio', 'empty_value'=>'Seleccione Oficio',
+                ->add('oficio', 'genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:Oficio', 
+                    'property'=>'descripcion', 'label'=>'Oficio', 'empty_value'=>'',
                     'required'=>false))
-                ->add('perfil','entity', array('class'=>'FormacionBundle:Perfil', 
-                    'property'=>'descripcion', 'label'=>'Perfil', 'empty_value'=>'Seleccione Perfil',
+                ->add('perfil','genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:Perfil', 
+                    'property'=>'descripcion', 'label'=>'Perfil', 'empty_value'=>'',
                     'required'=>false))
                 ->add('descripcion',null,array('label'=>'Descripción', 'required'=>false))
         ;

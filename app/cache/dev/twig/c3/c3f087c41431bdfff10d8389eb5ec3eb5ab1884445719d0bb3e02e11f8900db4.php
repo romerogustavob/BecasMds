@@ -10,13 +10,68 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
         $this->parent = false;
 
         $this->blocks = array(
+            'stylesheets' => array($this, 'block_stylesheets'),
+            'javascript' => array($this, 'block_javascript'),
         );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 144
+        // line 156
         echo "<a href=\"../../../../../../../.gitignore\"></a>";
+    }
+
+    // line 2
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        // line 3
+        echo "        <link href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/select2.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\" />
+        ";
+        // line 4
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["domi"]) ? $context["domi"] : null), 'stylesheet');
+        echo "
+    ";
+    }
+
+    // line 7
+    public function block_javascript($context, array $blocks = array())
+    {
+        // line 8
+        echo "        ";
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "3cf3039_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_3cf3039_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/3cf3039_select2_1.js");
+            // line 9
+            echo "        
+        <script type=\"text/javascript\" src=\"";
+            // line 10
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
+            echo "\"></script>
+        ";
+            // line 11
+            echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["domi"]) ? $context["domi"] : null));
+            echo "
+        ";
+        } else {
+            // asset "3cf3039"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_3cf3039") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/3cf3039.js");
+            // line 9
+            echo "        
+        <script type=\"text/javascript\" src=\"";
+            // line 10
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
+            echo "\"></script>
+        ";
+            // line 11
+            echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["domi"]) ? $context["domi"] : null));
+            echo "
+        ";
+        }
+        unset($context["asset_url"]);
+        // line 13
+        echo "    ";
     }
 
     // line 1
@@ -32,6 +87,14 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
         ob_start();
         try {
             // line 2
+            echo "    ";
+            $this->displayBlock('stylesheets', $context, $blocks);
+            // line 6
+            echo "
+    ";
+            // line 7
+            $this->displayBlock('javascript', $context, $blocks);
+            // line 14
             echo "    <style>
         .negrita{
             font-weight: bold;
@@ -64,11 +127,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 33
+            // line 45
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "localidad", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Localidad"));
             echo "
                             ";
-            // line 34
+            // line 46
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "localidad", array()), 'widget');
             echo "
                         </div>
@@ -76,11 +139,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 39
+            // line 51
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "barrio", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Barrio"));
             echo "
                             ";
-            // line 40
+            // line 52
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "barrio", array()), 'widget');
             echo "
                         </div>
@@ -88,11 +151,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 45
+            // line 57
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "calle", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Calle"));
             echo "
                             ";
-            // line 46
+            // line 58
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "calle", array()), 'widget');
             echo "
                         </div>                        
@@ -100,11 +163,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 51
+            // line 63
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "numero", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Nº/Altura"));
             echo "
                             ";
-            // line 52
+            // line 64
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "numero", array()), 'widget');
             echo "
                         </div>
@@ -114,11 +177,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span4\">
                             ";
-            // line 59
+            // line 71
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "dpto", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Dpto."));
             echo "
                             ";
-            // line 60
+            // line 72
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "dpto", array()), 'widget');
             echo "
                         </div>
@@ -126,11 +189,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span4\">
                             ";
-            // line 65
+            // line 77
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "piso", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Piso"));
             echo "
                             ";
-            // line 66
+            // line 78
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "piso", array()), 'widget');
             echo "
                         </div>
@@ -138,11 +201,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span4\">
                             ";
-            // line 71
+            // line 83
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "edificio", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Edificio"));
             echo "
                             ";
-            // line 72
+            // line 84
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "edificio", array()), 'widget');
             echo "
                         </div>
@@ -150,11 +213,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span4\">
                             ";
-            // line 77
+            // line 89
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "manzana", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Manzana"));
             echo "
                             ";
-            // line 78
+            // line 90
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "manzana", array()), 'widget');
             echo "
                         </div>
@@ -165,11 +228,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                         <div class=\"span4\">
 
                             ";
-            // line 86
+            // line 98
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "tira", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Tira"));
             echo "
                             ";
-            // line 87
+            // line 99
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "tira", array()), 'widget');
             echo "
                         </div>
@@ -177,11 +240,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span4\">
                             ";
-            // line 92
+            // line 104
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "parcela", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Parcela"));
             echo "
                             ";
-            // line 93
+            // line 105
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "parcela", array()), 'widget');
             echo "
                         </div>
@@ -189,11 +252,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span4\">
                             ";
-            // line 98
+            // line 110
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "quinta", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Quinta"));
             echo "
                             ";
-            // line 99
+            // line 111
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "quinta", array()), 'widget');
             echo "
                         </div>
@@ -201,11 +264,11 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                     <td>
                         <div class=\"span4\">
                             ";
-            // line 104
+            // line 116
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "unidadFuncional", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "UF/Casa"));
             echo "
                             ";
-            // line 105
+            // line 117
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "unidadFuncional", array()), 'widget');
             echo "
                         </div>
@@ -213,15 +276,15 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan=\"4\">
                         <div class=\"span7\">
                             ";
-            // line 113
+            // line 125
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "referencias", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Referencias"));
             echo "
                             ";
-            // line 114
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "referencias", array()), 'widget');
+            // line 126
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "referencias", array()), 'widget', array("attr" => array("class" => "span5")));
             echo "
                         </div>
                     </td>
@@ -229,21 +292,21 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
                 </tr>
                 <tr>
                     ";
-            // line 121
+            // line 133
             echo "                    <td><div class=\"bordehidden\">
                             ";
-            // line 122
+            // line 134
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "latitude", array()), 'row');
             echo "
                         </div></td>
                     <td><div class=\"bordehidden\">
                             ";
-            // line 125
+            // line 137
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["domi"]) ? $context["domi"] : null), "longitude", array()), 'row');
             echo "
                         </div></td>
                         ";
-            // line 132
+            // line 144
             echo "                </tr>
 
 
@@ -251,7 +314,7 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 
         </table>
         ";
-            // line 139
+            // line 151
             echo "        <div class=\"span2\">
             <a class='delete-form btn btn-mini btn-danger' href='#'><i class='icon-remove-circle'></i>Quitar Domicilio </a>
         </div>
@@ -278,10 +341,22 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 
     public function getDebugInfo()
     {
-        return array (  255 => 139,  247 => 132,  242 => 125,  236 => 122,  233 => 121,  224 => 114,  220 => 113,  209 => 105,  205 => 104,  197 => 99,  193 => 98,  185 => 93,  181 => 92,  173 => 87,  169 => 86,  158 => 78,  154 => 77,  146 => 72,  142 => 71,  134 => 66,  130 => 65,  122 => 60,  118 => 59,  108 => 52,  104 => 51,  96 => 46,  92 => 45,  84 => 40,  80 => 39,  72 => 34,  68 => 33,  35 => 2,  23 => 1,  19 => 144,);
+        return array (  318 => 151,  310 => 144,  305 => 137,  299 => 134,  296 => 133,  287 => 126,  283 => 125,  272 => 117,  268 => 116,  260 => 111,  256 => 110,  248 => 105,  244 => 104,  236 => 99,  232 => 98,  221 => 90,  217 => 89,  209 => 84,  205 => 83,  197 => 78,  193 => 77,  185 => 72,  181 => 71,  171 => 64,  167 => 63,  159 => 58,  155 => 57,  147 => 52,  143 => 51,  135 => 46,  131 => 45,  98 => 14,  96 => 7,  93 => 6,  90 => 2,  78 => 1,  74 => 13,  68 => 11,  64 => 10,  61 => 9,  54 => 11,  50 => 10,  47 => 9,  42 => 8,  39 => 7,  33 => 4,  28 => 3,  25 => 2,  21 => 156,);
     }
 }
 /* {% macro domicilio(domi) %}*/
+/*     {% block stylesheets %}*/
+/*         <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />*/
+/*         {{ form_stylesheet(domi) }}*/
+/*     {% endblock %}*/
+/* */
+/*     {% block javascript %}*/
+/*         {% javascripts '@PersonaBundle/Resources/public/js/select2.js' %}*/
+/*         */
+/*         <script type="text/javascript" src="{{ asset_url }}"></script>*/
+/*         {{ form_javascript(domi) }}*/
+/*         {% endjavascripts %}*/
+/*     {% endblock %}*/
 /*     <style>*/
 /*         .negrita{*/
 /*             font-weight: bold;*/
@@ -391,10 +466,10 @@ class __TwigTemplate_3058ae8aa290de2c1beb9c365ea5600846512c11bde57755eeb10a982e1
 /* */
 /*                 </tr>*/
 /*                 <tr>*/
-/*                     <td>*/
+/*                     <td colspan="4">*/
 /*                         <div class="span7">*/
 /*                             {{ form_label(domi.referencias, 'Referencias', {'label_attr': {'class': 'negrita'}}) }}*/
-/*                             {{ form_widget(domi.referencias) }}*/
+/*                             {{ form_widget(domi.referencias, {'attr':{'class':'span5'}}) }}*/
 /*                         </div>*/
 /*                     </td>*/
 /* */

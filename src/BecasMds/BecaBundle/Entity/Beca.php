@@ -24,7 +24,7 @@ class Beca {
     /**
      * @var float
      *
-     * @ORM\Column(name="monto", type="float")
+     * @ORM\Column(name="monto", type="float", scale=3)
      */
     private $monto;
 

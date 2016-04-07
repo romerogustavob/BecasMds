@@ -83,11 +83,5 @@ lexik_form_filter:
 
 genemu_form:
     date: ~
-    select2:
-        enabled: true
-        configs:
-            placeholder: Select a value
-            width: off
-            allowClear: false
-            minimumInputLength: 0
+    select2: ~
     autocomplete: ~

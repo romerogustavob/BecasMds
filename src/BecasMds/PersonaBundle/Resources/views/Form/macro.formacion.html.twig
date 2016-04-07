@@ -1,4 +1,16 @@
 {% macro formacion(formac) %}
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        {{ form_stylesheet(formac) }}
+    {% endblock %}
+
+    {% block javascript %}
+        {% javascripts '@PersonaBundle/Resources/public/js/select2.js' %}
+        
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {{ form_javascript(formac) }}
+        {% endjavascripts %}
+    {% endblock %}
     <style>
         .negrita{
             font-weight: bold;

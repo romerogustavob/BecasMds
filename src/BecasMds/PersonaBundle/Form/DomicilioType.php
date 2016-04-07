@@ -12,19 +12,23 @@ class DomicilioType extends AbstractType
     {
         $builder
             ->add('departamento')
-            ->add('localidad',null, array('attr'=>array('onkeydown'=>'encontrar_localidad(this.id);')))
+            ->add('localidad','genemu_jqueryselect2_entity', 
+                    array(
+                        'class'=>'PersonaBundle:Localidad',
+                        'property'=>'nombre',
+                        'empty_value'=>''))
             ->add('barrio', 'genemu_jqueryselect2_entity', 
                     array(
                 'class' => 'PersonaBundle:Barrio',
                 'property'=>'barrioLista',
                 'multiple' => false,
-                'empty_value'=>'Seleccione Barrio'))
+                'empty_value'=>''))
             ->add('calle','genemu_jqueryselect2_entity', 
                     array(
                 'class' => 'PersonaBundle:Calle',
                 'property'=>'calleLista',
                 'multiple' => false,
-                'empty_value'=>'Seleccione Calle'))
+                'empty_value'=>''))
             ->add('numero')
             ->add('dpto')
             ->add('piso')

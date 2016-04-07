@@ -3866,102 +3866,52 @@
     <service id="genemu.form.jquery.type.select2.choice" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_choice"/>
       <argument>choice</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.language" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_language"/>
       <argument>language</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.country" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_country"/>
       <argument>country</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.timezone" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_timezone"/>
       <argument>timezone</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.locale" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_locale"/>
       <argument>locale</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.entity" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_entity"/>
       <argument>entity</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.document" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_document"/>
       <argument>document</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.model" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_model"/>
       <argument>model</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.currency" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_currency"/>
       <argument>currency</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.select2.hidden" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type">
       <tag name="form.type" alias="genemu_jqueryselect2_hidden"/>
       <argument>hidden</argument>
-      <argument type="collection">
-        <argument key="placeholder">Select a value</argument>
-        <argument key="width">off</argument>
-        <argument key="allowClear">false</argument>
-        <argument key="minimumInputLength">0</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="genemu.form.jquery.type.chosen.choice" class="Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType">
       <tag name="form.type" alias="genemu_jquerychosen_choice"/>

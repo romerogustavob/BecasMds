@@ -1881,7 +1881,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_ChoiceService()
     {
-        return $this->services['genemu.form.jquery.type.select2.choice'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('choice', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.choice'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('choice', array());
     }
 
     /**
@@ -1894,7 +1894,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_CountryService()
     {
-        return $this->services['genemu.form.jquery.type.select2.country'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('country', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.country'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('country', array());
     }
 
     /**
@@ -1907,7 +1907,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_CurrencyService()
     {
-        return $this->services['genemu.form.jquery.type.select2.currency'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('currency', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.currency'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('currency', array());
     }
 
     /**
@@ -1920,7 +1920,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_DocumentService()
     {
-        return $this->services['genemu.form.jquery.type.select2.document'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('document', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.document'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('document', array());
     }
 
     /**
@@ -1933,7 +1933,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_EntityService()
     {
-        return $this->services['genemu.form.jquery.type.select2.entity'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('entity', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.entity'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('entity', array());
     }
 
     /**
@@ -1946,7 +1946,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_HiddenService()
     {
-        return $this->services['genemu.form.jquery.type.select2.hidden'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('hidden', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.hidden'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('hidden', array());
     }
 
     /**
@@ -1959,7 +1959,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_LanguageService()
     {
-        return $this->services['genemu.form.jquery.type.select2.language'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('language', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.language'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('language', array());
     }
 
     /**
@@ -1972,7 +1972,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_LocaleService()
     {
-        return $this->services['genemu.form.jquery.type.select2.locale'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('locale', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.locale'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('locale', array());
     }
 
     /**
@@ -1985,7 +1985,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_ModelService()
     {
-        return $this->services['genemu.form.jquery.type.select2.model'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('model', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.model'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('model', array());
     }
 
     /**
@@ -1998,7 +1998,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_TimezoneService()
     {
-        return $this->services['genemu.form.jquery.type.select2.timezone'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('timezone', array('placeholder' => 'Select a value', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 0));
+        return $this->services['genemu.form.jquery.type.select2.timezone'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('timezone', array());
     }
 
     /**

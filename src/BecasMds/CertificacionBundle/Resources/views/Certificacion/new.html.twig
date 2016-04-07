@@ -24,7 +24,7 @@
                 </td>
                 <td>
                     {{ form_label(form.monto, 'Monto Beca') }}
-                    {{ form_widget(form.monto) }}
+                    {{ form_widget(form.monto)|number_format(3) }}
                 </td>
                 <td>
                     {{ form_label(form.descuentoDias, 'Días de Descuento') }}
@@ -38,7 +38,7 @@
 
                 <td>
                     {{ form_label(form.totalPagar, 'Total a Pagar') }}
-                    {{ form_widget(form.totalPagar, {'attr': {'onfocus':'totalPagar();'}}) }}
+                    {{ form_widget(form.totalPagar, {'attr': {'onfocus':'totalPagar();'}})|number_format(3) }}
                 </td>
                 <td colspan="2" style="alignment-adjust: middle">
                     {{ form_row(form.certificado) }}

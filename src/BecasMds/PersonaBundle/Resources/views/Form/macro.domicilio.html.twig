@@ -1,4 +1,16 @@
 {% macro domicilio(domi) %}
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        {{ form_stylesheet(domi) }}
+    {% endblock %}
+
+    {% block javascript %}
+        {% javascripts '@PersonaBundle/Resources/public/js/select2.js' %}
+        
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {{ form_javascript(domi) }}
+        {% endjavascripts %}
+    {% endblock %}
     <style>
         .negrita{
             font-weight: bold;
@@ -108,10 +120,10 @@
 
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="4">
                         <div class="span7">
                             {{ form_label(domi.referencias, 'Referencias', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.referencias) }}
+                            {{ form_widget(domi.referencias, {'attr':{'class':'span5'}}) }}
                         </div>
                     </td>
 

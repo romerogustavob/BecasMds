@@ -90,7 +90,7 @@ class BecaCollectionFilterType extends AbstractType {
     }
 
     public function getName() {
-        return 'becasmds_becabundle_becafiltertype';
+        return 'becasmds_becabundle_becacollectionfiltertype';
     }
 
     public function configureOptions(OptionsResolver $resolver) {

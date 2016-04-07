@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormError;
+use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderExecuterInterface;
 
 class CertificacionFilterType extends AbstractType
 {
@@ -39,7 +40,8 @@ class CertificacionFilterType extends AbstractType
                         ]
                     ), 'required' => false,
                 ))
-        ;
+        ; 
+        
 
         $listener = function(FormEvent $event)
         {
@@ -64,4 +66,12 @@ class CertificacionFilterType extends AbstractType
     {
         return 'becasmds_certificacionbundle_certificacionfiltertype';
     }
+    
+    public function configureOptions(OptionsResolver $resolver) {
+        $resolver->setDefaults(array(
+            'csrf_protection' => false,
+            'validation_groups' => array('filtering') // avoid NotBlank() constraint-related message
+        ));
+    }
+    
 }

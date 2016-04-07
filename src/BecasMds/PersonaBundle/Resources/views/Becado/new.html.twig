@@ -7,6 +7,31 @@
 {% endblock %}
 
 {% block page %}
+     {% block stylesheets %}
+        {{ parent() }}
+        <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/persona/css/jquery.Jcrop.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/token-input-facebook.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/token-input.css') }}" rel="stylesheet" />
+        {{ form_stylesheet(form) }}
+
+    {% endblock %}
+
+    {% block javascript %}
+        {{ parent() }}
+        {% javascripts
+            '@PersonaBundle/Resources/public/js/agregarDomicilio.js'
+            '@PersonaBundle/Resources/public/js/agregarFormacion.js'
+            '@PersonaBundle/Resources/public/js/addForm.js'  
+            '@PersonaBundle/Resources/public/js/deleteRow.js'
+                      
+        %}
+        {{ form_javascript(form) }}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        
+        {% endjavascripts %}
+    {% endblock %}
 
     <h2 style="color: #0044cc">Nuevo Becado{#{{ 'views.new.creation'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}#}</h2>
 
@@ -115,62 +140,7 @@
         </div>
     </div>
 
-    {#{% form_theme form _self %}
-
-    {% block genemu_jqueryselect2_hidden_javascript %}
-
-        <script type="text/javascript">
-            $field = $('#{{ id }}');
-
-            var $configs = {{ configs|json_encode|raw }};
-                    // custom configs
-                    $configs = $.extend($configs, {
-                        query: function (query) {
-                            var data = {results: []}, i, j, s;
-                            for (i = 1; i < 5; i++) {
-                                s = "";
-                                for (j = 0; j < i; j++) {
-                                    s = s + query.term;
-                                }
-                                data.results.push({id: query.term + i, text: s});
-                            }
-                            query.callback(data);
-                        }
-                    });
-            // end of custom configs
-
-            $field.select2($configs);
-        </script>
-
-    {% endblock %}#}
-
-{% block stylesheets %}
-        {{ parent() }}
-        <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
-        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('bundles/persona/css/jquery.Jcrop.css') }}" rel="stylesheet" />
-        <link href="{{ asset('bundles/persona/css/token-input-facebook.css') }}" rel="stylesheet" />
-        <link href="{{ asset('bundles/persona/css/token-input.css') }}" rel="stylesheet" />
-        {{ form_stylesheet(form) }}
-
-    {% endblock %}
-
-    {% block javascript %}
-        {% javascripts '@PersonaBundle/Resources/public/js/select2Localidad.js'
-            '@PersonaBundle/Resources/public/js/jquery-ui.js'
-            '@PersonaBundle/Resources/public/js/jquery.Jcrop.js'
-            '@PersonaBundle/Resources/public/js/jquery.color.js'
-            '@PersonaBundle/Resources/public/js/jquery.tokeninput.js'
-            '@PersonaBundle/Resources/public/js/select2.js'
-            '@PersonaBundle/Resources/public/js/agregarDomicilio.js'
-            '@PersonaBundle/Resources/public/js/agregarFormacion.js'
-            '@PersonaBundle/Resources/public/js/addForm.js'  
-            '@PersonaBundle/Resources/public/js/deleteRow.js'
-                      
-        %}
-        {{ form_javascript(form) }}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-    {% endblock %}
+   
+    
 
 {% endblock %}

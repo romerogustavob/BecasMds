@@ -270,7 +270,7 @@ class Becado extends \BecasMds\PersonaBundle\Entity\Becado implements \Doctrine\
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'dni', 'apellidos', 'nombres', 'telefono', 'email', 'formacion', 'domicilio', 'presentaCertificacion', 'activo', 'fechaAlta', 'fechaBaja', 'referente', 'dependencia', 'lugarAfectacion', 'becadobeca');
+        return array_merge(array('__isInitialized__'), parent::__sleep());
     }
 
     public function __clone()
