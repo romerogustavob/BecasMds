@@ -203,6 +203,10 @@ class BecadoBeca {
 
         return $this;
     }
+    
+    public function getBecadoString(){
+        return $this->getBecado()->getBecadoLista();
+    }
 
     /**
      * Get beca
@@ -252,4 +256,7 @@ class BecadoBeca {
         return array();
     }
     
+    public function getBecas(){
+        return $this->getBeca();
+    }
 }

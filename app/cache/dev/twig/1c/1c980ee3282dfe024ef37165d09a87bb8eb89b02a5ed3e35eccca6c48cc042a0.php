@@ -76,7 +76,10 @@ class __TwigTemplate_82a32f59bc2c76dfe60019b7c1d9700012cd6da7a1cce1ec8603a1c600d
         // line 37
         echo $this->env->getExtension('routing')->getPath("becado_new");
         echo "\">Agregar Becado</a></li>
-                        <li><a href=\"/ppa_ved.php/llamado/new\">Certifaciones</a></li>           
+                        <li><a href=\"";
+        // line 38
+        echo $this->env->getExtension('routing')->getPath("certificacion");
+        echo "\">Certifaciones</a></li>           
                         <li><a href=\"";
         // line 39
         echo $this->env->getExtension('routing')->getPath("becado");
@@ -294,7 +297,7 @@ class __TwigTemplate_82a32f59bc2c76dfe60019b7c1d9700012cd6da7a1cce1ec8603a1c600d
 
     public function getDebugInfo()
     {
-        return array (  277 => 215,  274 => 189,  197 => 103,  193 => 102,  189 => 101,  185 => 100,  181 => 99,  171 => 92,  166 => 90,  162 => 89,  150 => 80,  146 => 79,  135 => 71,  131 => 70,  127 => 69,  116 => 61,  112 => 60,  108 => 59,  104 => 58,  82 => 39,  77 => 37,  54 => 16,  40 => 14,  36 => 13,  30 => 10,  19 => 1,);
+        return array (  280 => 215,  277 => 189,  200 => 103,  196 => 102,  192 => 101,  188 => 100,  184 => 99,  174 => 92,  169 => 90,  165 => 89,  153 => 80,  149 => 79,  138 => 71,  134 => 70,  130 => 69,  119 => 61,  115 => 60,  111 => 59,  107 => 58,  85 => 39,  81 => 38,  77 => 37,  54 => 16,  40 => 14,  36 => 13,  30 => 10,  19 => 1,);
     }
 }
 /* */
@@ -334,7 +337,7 @@ class __TwigTemplate_82a32f59bc2c76dfe60019b7c1d9700012cd6da7a1cce1ec8603a1c600d
 /*                         Entradas <b class="caret"></b></a>*/
 /*                     <ul class="dropdown-menu">*/
 /*                         <li><a href="{{ path('becado_new') }}">Agregar Becado</a></li>*/
-/*                         <li><a href="/ppa_ved.php/llamado/new">Certifaciones</a></li>           */
+/*                         <li><a href="{{ path('certificacion') }}">Certifaciones</a></li>           */
 /*                         <li><a href="{{ path('becado') }}"> Listado de Becados  </a></li>*/
 /*                         <li><a href="/ppa_ved.php/denuncia_espontanea/new"></a></li>*/
 /*                         <li class="divider"></li>*/

@@ -255,6 +255,12 @@ class Becado extends \BecasMds\PersonaBundle\Entity\Becado implements \Doctrine\
         return parent::addBecadobeca($becadobeca);
     }
 
+    public function setBecadoBeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca)
+    {
+        $this->__load();
+        return parent::setBecadoBeca($becadobeca);
+    }
+
     public function removeBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca)
     {
         $this->__load();

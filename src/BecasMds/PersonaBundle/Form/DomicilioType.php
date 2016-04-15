@@ -5,30 +5,37 @@ namespace BecasMds\PersonaBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use BecasMds\PersonaBundle\Form\EventListener;
 
 class DomicilioType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('departamento')
-            ->add('localidad','genemu_jqueryselect2_entity', 
+            ->add('localidad','entity', 
                     array(
                         'class'=>'PersonaBundle:Localidad',
                         'property'=>'nombre',
-                        'empty_value'=>''))
-            ->add('barrio', 'genemu_jqueryselect2_entity', 
-                    array(
-                'class' => 'PersonaBundle:Barrio',
-                'property'=>'barrioLista',
-                'multiple' => false,
-                'empty_value'=>''))
-            ->add('calle','genemu_jqueryselect2_entity', 
-                    array(
-                'class' => 'PersonaBundle:Calle',
-                'property'=>'calleLista',
-                'multiple' => false,
-                'empty_value'=>''))
+                        'empty_value'=>' ',
+                        'attr'=>array('class'=>'select2-localidad')))
+            ->add('barrio', 'shtumi_dependent_filtered_entity'
+                , array('entity_alias' => 'barrio_by_localidad'
+                      , 'empty_value'=> ''
+                      , 'parent_field'=>'localidad'
+                      , 'attr'=>array('class'=>'select2-barrio')))
+            ->add('calle', 'shtumi_dependent_filtered_entity'
+                , array('entity_alias' => 'calle_by_localidad'
+                      , 'empty_value'=> ''
+                      , 'parent_field'=>'localidad'
+                      , 'attr'=>array('class'=>'select2-calle')))
+//            ->add('calle','genemu_jqueryselect2_entity', 
+//                    array(
+//                'class' => 'PersonaBundle:Calle',
+//                'property'=>'calleLista',
+//                'multiple' => false,
+//                'empty_value'=>''))
             ->add('numero')
             ->add('dpto')
             ->add('piso')

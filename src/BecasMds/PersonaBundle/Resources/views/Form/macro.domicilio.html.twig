@@ -5,8 +5,11 @@
     {% endblock %}
 
     {% block javascript %}
-        {% javascripts '@PersonaBundle/Resources/public/js/select2.js' %}
-        
+        {% javascripts
+            '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'
+            '@PersonaBundle/Resources/public/js/select2.js'
+            '@PersonaBundle/Resources/public/js/select2Becado.js'            
+        %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {{ form_javascript(domi) }}
         {% endjavascripts %}
@@ -33,98 +36,78 @@
         <table class="tablafondo">
             <thead>
                 <tr>
-                    <th></th><th></th><th></th>
-                    <th></th><th></th><th></th>
+                    <th></th><th></th>
+                    <th></th><th></th>
                 </tr>
             </thead>
             <tbody>
-
                 <tr>
                     <td>
-                        <div class="span7">
+                        <div class="span6">
                             {{ form_label(domi.localidad, 'Localidad', {'label_attr': {'class': 'negrita'}}) }}
                             {{ form_widget(domi.localidad) }}
                         </div>
                     </td>
                     <td>
-                        <div class="span7">
+                        <div class="span6">
                             {{ form_label(domi.barrio, 'Barrio', {'label_attr': {'class': 'negrita'}}) }}
                             {{ form_widget(domi.barrio) }}
                         </div>
                     </td>
                     <td>
-                        <div class="span7">
+                        <div class="span6">
                             {{ form_label(domi.calle, 'Calle', {'label_attr': {'class': 'negrita'}}) }}
                             {{ form_widget(domi.calle) }}
                         </div>                        
                     </td>
                     <td>
-                        <div class="span7">
-                            {{ form_label(domi.numero, 'Nº/Altura', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.numero) }}
-                        </div>
+                        {{ form_label(domi.numero, 'Nº/Altura', {'label_attr': {'class': 'negrita'}}) }}
+                        {{ form_widget(domi.numero, {'attr':{'class':'span5'}}) }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="span4">
                             {{ form_label(domi.dpto, 'Dpto.', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.dpto) }}
-                        </div>
+                            {{ form_widget(domi.dpto, {'attr':{'class':'span5'}}) }}
                     </td>
                     <td>
-                        <div class="span4">
                             {{ form_label(domi.piso, 'Piso', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.piso) }}
-                        </div>
+                            {{ form_widget(domi.piso, {'attr':{'class':'span5'}}) }}
                     </td>
                     <td>
-                        <div class="span4">
                             {{ form_label(domi.edificio, 'Edificio', {'label_attr': {'class': 'negrita'}}) }}
                             {{ form_widget(domi.edificio) }}
-                        </div>
                     </td>
                     <td>
-                        <div class="span4">
                             {{ form_label(domi.manzana, 'Manzana', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.manzana) }}
-                        </div>
+                            {{ form_widget(domi.manzana, {'attr':{'class':'span5'}}) }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="span4">
-
                             {{ form_label(domi.tira, 'Tira', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.tira) }}
-                        </div>
+                            {{ form_widget(domi.tira, {'attr':{'class':'span5'}}) }}
                     </td>
                     <td>
-                        <div class="span4">
                             {{ form_label(domi.parcela, 'Parcela', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.parcela) }}
-                        </div>
+                            {{ form_widget(domi.parcela, {'attr':{'class':'span5'}}) }}
                     </td>
                     <td>
-                        <div class="span4">
                             {{ form_label(domi.quinta, 'Quinta', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.quinta) }}
-                        </div>
+                            {{ form_widget(domi.quinta, {'attr':{'class':'span5'}}) }}
                     </td>
                     <td>
-                        <div class="span4">
                             {{ form_label(domi.unidadFuncional, 'UF/Casa', { 'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.unidadFuncional) }}
-                        </div>
+                            {{ form_widget(domi.unidadFuncional, {'attr':{'class':'span5'}}) }}
                     </td>
 
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <div class="span7">
-                            {{ form_label(domi.referencias, 'Referencias', {'label_attr': {'class': 'negrita'}}) }}
-                            {{ form_widget(domi.referencias, {'attr':{'class':'span5'}}) }}
-                        </div>
+
+                        {{ form_label(domi.referencias, 'Referencias', {'label_attr': {'class': 'negrita'}}) }}
+                        {{ form_widget(domi.referencias, {'attr':{'class':'span7'}}) }}
+
                     </td>
 
                 </tr>
@@ -141,6 +124,7 @@
                                      </div>
                          
                          </td>#}
+                    <td></td><td></td>
                 </tr>
 
 

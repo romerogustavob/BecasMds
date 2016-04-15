@@ -25,7 +25,8 @@
         "genemu/form-bundle": "2.2.*",
         "piotrantosik/ajax-autocomplete-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "1.6.0",
-        "whiteoctober/tcpdf-bundle": "dev-master"
+        "whiteoctober/tcpdf-bundle": "dev-master",
+        "shtumi/useful-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

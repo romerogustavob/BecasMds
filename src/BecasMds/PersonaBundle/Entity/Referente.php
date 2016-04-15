@@ -84,8 +84,7 @@ class Referente extends Persona
      */
     public function __construct()
     {
-        $becado=new \Doctrine\Common\Collections\ArrayCollection();
-
+        $this->becado=new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -247,7 +246,11 @@ class Referente extends Persona
     public function getReferentesLista(){
         return 'Dni: '.  $this->getDni().' - '.$this->getApellidos().', '.$this->getNombres();
     }
-
+    
+    public function getReferente(){
+        return 'Dni: '.  $this->getDni().' - '.$this->getApellidos().', '.$this->getNombres();
+    }
+    
     /**
      * Set movimientoSocial
      *

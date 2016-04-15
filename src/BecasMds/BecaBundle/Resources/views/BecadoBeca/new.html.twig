@@ -5,7 +5,21 @@
 {% endblock %}#}
 
 {% block page %}
+{% block stylesheets %}
+        <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+      
+    {% endblock %}
 
+    {% block javascript %}
+        {% javascripts
+            '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'
+            '@PersonaBundle/Resources/public/js/select2.js'
+            '@PersonaBundle/Resources/public/js/select2Becado.js'
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
 <h2 style="color: #0044cc">Añadir Beca{{ entity.becado }}</h2>
 
 <form class="well" action="{{ path('becadobeca_create') }}" method="post" {{ form_enctype(form) }}>
@@ -23,38 +37,39 @@
                         {{ form_widget(form.becado) }}
                         
                     </div>
+                    <div class="control-group">
+                    {{ form_row(form.beca) }}
+                    </div>
+                        
                 </td>
                 <td>
                     <div class="control-group">
-                    {{ form_row(form.beca) }}
+                     {{ form_row(form.fechaAlta) }}
                     </div>
                     </td>
             </tr>
             <tr>
                 <td>
                      <div class="control-group">
-                     {{ form_row(form.fechaAlta) }}
+                     {{ form_row(form.fechaBaja) }}
                     </div>
                    
                 </td>
-                <td>
+                <td>                    
                     <div class="control-group">
-                     {{ form_row(form.fechaBaja) }}
+                    {{ form_row(form.activo) }}
                     </div>
-                    
                 </td>
             </tr>
             <tr>
                 <td>
                     <div class="control-group">
-                    {{ form_row(form.activo) }}
+                    {{ form_row(form.detalles) }}
                     </div>
                     
                 </td>
                 <td> 
-                    <div class="control-group">
-                    {{ form_row(form.detalles) }}
-                    </div></td>
+                    </td>
             </tr>
         </tbody>
     </table>

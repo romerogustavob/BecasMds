@@ -123,6 +123,12 @@ class BecadoBeca extends \BecasMds\BecaBundle\Entity\BecadoBeca implements \Doct
         return parent::setBeca($beca);
     }
 
+    public function getBecadoString()
+    {
+        $this->__load();
+        return parent::getBecadoString();
+    }
+
     public function getBeca()
     {
         $this->__load();
@@ -151,6 +157,12 @@ class BecadoBeca extends \BecasMds\BecaBundle\Entity\BecadoBeca implements \Doct
     {
         $this->__load();
         return parent::getCertificacion();
+    }
+
+    public function getBecas()
+    {
+        $this->__load();
+        return parent::getBecas();
     }
 
 

@@ -153,47 +153,52 @@
                 </table>
 
             {% endfor %}
-            <h4>Becas Asignadas</h4>
-            {% set contBeca=0 %}
-            {% for becadobeca in entity.becadobeca %}
-                {% if becadobeca.activo %}
-                    {% set contBeca=contBeca+1 %}
-                    <div class="control-group">
-                        <label class="control-label">Beca Nº {{ contBeca }}:</label>
-                        <div class="controls">                
-                            <span class="input-xlarge uneditable-input span7">                                               
-                                {{ becadobeca.beca.tipoBeca }}
-                                Tipo Función:{{ becadobeca.beca.tipoFuncion }}
-                                Monto:{{ becadobeca.beca.monto }}
-                            </span>            
-                        </div>
-                    </div> 
-                    <div class="control-group">
-                        <label class="control-label"></label>
-                        <div class="controls">                
-                            <span class="input-xlarge">                                               
+            <h4>Becas Activas</h4>
+            <table style=" border-collapse: collapse;">
+                <tbody style=" border: 1px black solid; ">
+                    {% set contBeca=0 %}
+                    {% for becadobeca in entity.becadobeca %}
+                        {% if becadobeca.activo %}
+                            {% set contBeca=contBeca+1 %}
+                            <tr style="background: #46a546; color: #ffffff;" >
+                                <td style=" border: 1px black solid;">
+                                    <label class="control-label"><b>Beca Nº {{ contBeca }}:</b></label>
+                                </td>
+                                <td style=" border: 1px black solid;" colspan="2" align="center">
+                                    <b>Acciones</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" border: 1px black solid;">
+                                    <div class="control-group">
+                                        
+                                        <div class="controls">                
+                                            <span class="input-xlarge uneditable-input span6">                                               
+                                                <b>{{ becadobeca.beca.tipoBeca }}
+                                                Tipo Función:{{ becadobeca.beca.tipoFuncion }}
+                                                Monto:{{ becadobeca.beca.monto }}
+                                                </b>
+                                            </span>            
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style=" border: 1px black solid;">
 
-                                <a class="btn btn-primary" href="{{ path('becadobeca_edit', { 'id': becadobeca.id }) }}">
-                                    Editar Beca
-                                </a>
+                                    <a class="btn btn-mini btn-info" href="{{ path('becadobeca_edit', { 'id': becadobeca.id }) }}">
+                                        <b>Editar Beca</b>
+                                    </a>
+                                </td>
+                                <td style=" border: 1px black solid;">
+                                    <a class="btn btn-mini btn-primary" href="{{ path('certificacion_new', { 'id': becadobeca.id }) }}">
+                                        Certificar
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endif %}
 
-                            </span>            
-                        </div>
-                    </div> 
-                    <div class="control-group">
-                        <label class="control-label"></label>
-                        <div class="controls">                
-                            <span class="input-xlarge">                                               
-
-                                <a class="btn btn-primary" href="{{ path('certificacion_new', { 'id': becadobeca.id }) }}">
-                                    Certificar
-                                </a>
-
-                            </span>            
-                        </div>
-                    </div> 
-                {% endif %}
-            {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
             <h4>Movimientos/Afectación/Dependencia</h4>
             <div class="control-group">
                 <label class="control-label">Mov. Social/Referente</label>
@@ -320,7 +325,7 @@
         <button type="button" class="float-left btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Añadir Beca</button>
 
         <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="myModal" class="modal fade" role="dialog" style="display: none">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -339,28 +344,6 @@
 
             </div>
         </div>
-
-        {#<!-- Modal -->
-        <div id="editBecaModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Añadir Beca</h4>
-                    </div>
-                    <div class="modal-body">
-                        {{ render( controller('BecaBundle:BecadoBeca:edit', {'id': entity.becacadobeca.id })) }}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-#}
     </div>
 
 {% endblock %}

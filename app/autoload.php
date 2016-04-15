@@ -7,6 +7,7 @@ use Composer\Autoload\ClassLoader;
  * @var $loader ClassLoader
  */
 $loader = require __DIR__.'/../vendor/autoload.php';
+$loader->add('Shtumi', __DIR__.'/../vendor/bundles');
 $loader->add('WhiteOctober', __DIR__.'/../vendor/bundles');
 
 

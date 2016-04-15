@@ -86,7 +86,7 @@ class __TwigTemplate_8f4c10983bb7156fea4deb117358ff9ef0a7e2b9f85297bcfc204536ee6
         echo "
                     ";
         // line 27
-        echo twig_escape_filter($this->env, twig_number_format_filter($this->env, $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "monto", array()), 'widget'), 3), "html", null, true);
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "monto", array()), 'widget');
         echo "
                 </td>
                 <td>
@@ -112,7 +112,7 @@ class __TwigTemplate_8f4c10983bb7156fea4deb117358ff9ef0a7e2b9f85297bcfc204536ee6
         echo "
                     ";
         // line 41
-        echo twig_escape_filter($this->env, twig_number_format_filter($this->env, $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "totalPagar", array()), 'widget', array("attr" => array("onfocus" => "totalPagar();"))), 3), "html", null, true);
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "totalPagar", array()), 'widget', array("attr" => array("onfocus" => "totalPagar();")));
         echo "
                 </td>
                 <td colspan=\"2\" style=\"alignment-adjust: middle\">
@@ -229,7 +229,7 @@ class __TwigTemplate_8f4c10983bb7156fea4deb117358ff9ef0a7e2b9f85297bcfc204536ee6
 /*                 </td>*/
 /*                 <td>*/
 /*                     {{ form_label(form.monto, 'Monto Beca') }}*/
-/*                     {{ form_widget(form.monto)|number_format(3) }}*/
+/*                     {{ form_widget(form.monto) }}*/
 /*                 </td>*/
 /*                 <td>*/
 /*                     {{ form_label(form.descuentoDias, 'Días de Descuento') }}*/
@@ -243,7 +243,7 @@ class __TwigTemplate_8f4c10983bb7156fea4deb117358ff9ef0a7e2b9f85297bcfc204536ee6
 /* */
 /*                 <td>*/
 /*                     {{ form_label(form.totalPagar, 'Total a Pagar') }}*/
-/*                     {{ form_widget(form.totalPagar, {'attr': {'onfocus':'totalPagar();'}})|number_format(3) }}*/
+/*                     {{ form_widget(form.totalPagar, {'attr': {'onfocus':'totalPagar();'}}) }}*/
 /*                 </td>*/
 /*                 <td colspan="2" style="alignment-adjust: middle">*/
 /*                     {{ form_row(form.certificado) }}*/

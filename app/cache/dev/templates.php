@@ -196,6 +196,7 @@
   'GenemuFormBundle:Form:div_layout.html.twig' => 'C:\\xampp\\htdocs\\BecasMds\\vendor\\genemu\\form-bundle\\Genemu\\Bundle\\FormBundle/Resources/views/Form/div_layout.html.twig',
   'GenemuFormBundle:Form:jquery_layout.html.twig' => 'C:\\xampp\\htdocs\\BecasMds\\vendor\\genemu\\form-bundle\\Genemu\\Bundle\\FormBundle/Resources/views/Form/jquery_layout.html.twig',
   'GenemuFormBundle:Form:stylesheet_layout.html.twig' => 'C:\\xampp\\htdocs\\BecasMds\\vendor\\genemu\\form-bundle\\Genemu\\Bundle\\FormBundle/Resources/views/Form/stylesheet_layout.html.twig',
+  'ShtumiUsefulBundle::fields.html.twig' => 'C:\\xampp\\htdocs\\BecasMds\\vendor\\shtumi\\useful-bundle\\Shtumi\\UsefulBundle/Resources/views/fields.html.twig',
   'AcmeDemoBundle:Demo:contact.html.twig' => 'C:\\xampp\\htdocs\\BecasMds\\src\\Acme\\DemoBundle/Resources/views/Demo/contact.html.twig',
   'AcmeDemoBundle:Demo:hello.html.twig' => 'C:\\xampp\\htdocs\\BecasMds\\src\\Acme\\DemoBundle/Resources/views/Demo/hello.html.twig',
   'AcmeDemoBundle:Demo:index.html.twig' => 'C:\\xampp\\htdocs\\BecasMds\\src\\Acme\\DemoBundle/Resources/views/Demo/index.html.twig',

@@ -270,4 +270,20 @@ class BarrioController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * @Route("/barrio", name="select_barrio", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
+     */
+     public function barrioAction(Request $request)
+     {
+         $em = $this->getDoctrine()->getManager();
+
+         $localidad_id = $request->request->get('localidad_id');
+
+         $barrio = $em->getRepository('PersonaBundle:Barrio')->findByLocalidad($localidad_id);
+
+         return new JsonResponse($barrio);
+     }
+    
+    
 }

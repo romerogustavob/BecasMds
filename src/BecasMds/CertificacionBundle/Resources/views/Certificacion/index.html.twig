@@ -5,7 +5,21 @@
 {% endblock %}
 
 {% block page %}
+{% block stylesheets %}
+        <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+      
+    {% endblock %}
 
+    {% block javascript %}
+        {% javascripts
+            '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'
+            '@PersonaBundle/Resources/public/js/select2.js'
+            '@PersonaBundle/Resources/public/js/select2Becado.js'
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
 <div class="row">
 
     <div class="span8">
@@ -32,8 +46,7 @@
         <div id="filters" class="collapse">
 
             <form class="well" action="{{ path('certificacion') }}" method="get" {{ form_enctype(filterForm) }}>
-                {{ form_row(filterForm.id) }}
-               
+                {{ form_row(filterForm.id) }}               
                 {{ form_row(filterForm.monto) }}
                 {{ form_row(filterForm.descuentoDias) }}
                 {{ form_row(filterForm.totalPagar) }}
@@ -74,8 +87,8 @@
             <td>{{ entity.monto }}</td>
             <td>{{ entity.descuentoDias }}</td>
             <td>{{ entity.totalPagar }}</td>
-            <td>{{ entity.certificado }}</td>
-            <td>{% if entity.mesCertificacion %}{{ entity.mesCertificacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.certificado %}Sí {% else %} No {% endif%}</td>
+            <td>{% if entity.mesCertificacion %}{{ entity.mesCertificacion|date('d-m-Y') }}{% endif %}</td>
             <td>
         <a class="btn btn-mini" href="{{ path('certificacion_show', { 'id': entity.id }) }}">
             {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}

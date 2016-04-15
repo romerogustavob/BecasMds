@@ -174,6 +174,7 @@ class appDevDebugProjectContainer extends Container
             'genemu.form.type_recaptcha.validator' => 'getGenemu_Form_TypeRecaptcha_ValidatorService',
             'genemu.gd.captcha' => 'getGenemu_Gd_CaptchaService',
             'genemu.twig.extension.form' => 'getGenemu_Twig_Extension_FormService',
+            'get_set_method_normalizer' => 'getGetSetMethodNormalizerService',
             'http_kernel' => 'getHttpKernelService',
             'intl.twig.extension' => 'getIntl_Twig_ExtensionService',
             'kernel' => 'getKernelService',
@@ -247,6 +248,7 @@ class appDevDebugProjectContainer extends Container
             'sensio_framework_extra.converter.manager' => 'getSensioFrameworkExtra_Converter_ManagerService',
             'sensio_framework_extra.view.guesser' => 'getSensioFrameworkExtra_View_GuesserService',
             'sensio_framework_extra.view.listener' => 'getSensioFrameworkExtra_View_ListenerService',
+            'serializer' => 'getSerializerService',
             'service_container' => 'getServiceContainerService',
             'session' => 'getSessionService',
             'session.handler' => 'getSession_HandlerService',
@@ -255,6 +257,14 @@ class appDevDebugProjectContainer extends Container
             'session.storage.native' => 'getSession_Storage_NativeService',
             'session.storage.php_bridge' => 'getSession_Storage_PhpBridgeService',
             'session_listener' => 'getSessionListenerService',
+            'shtumi.useful.orm.filter.type.ajax_autocomplete' => 'getShtumi_Useful_Orm_Filter_Type_AjaxAutocompleteService',
+            'shtumi.useful.type.ajax_autocomplete' => 'getShtumi_Useful_Type_AjaxAutocompleteService',
+            'shtumi.useful.type.ajax_file' => 'getShtumi_Useful_Type_AjaxFileService',
+            'shtumi.useful.type.daterange' => 'getShtumi_Useful_Type_DaterangeService',
+            'shtumi.useful.type.dependent_filtered_entity' => 'getShtumi_Useful_Type_DependentFilteredEntityService',
+            'shtumi.useful.type.dependent_filtered_select2' => 'getShtumi_Useful_Type_DependentFilteredSelect2Service',
+            'shtumi.useful.type.select2_entity' => 'getShtumi_Useful_Type_Select2EntityService',
+            'shtumi_daterange' => 'getShtumiDaterangeService',
             'streamed_response_listener' => 'getStreamedResponseListenerService',
             'swiftmailer.email_sender.listener' => 'getSwiftmailer_EmailSender_ListenerService',
             'swiftmailer.mailer.default' => 'getSwiftmailer_Mailer_DefaultService',
@@ -394,6 +404,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'PersonaBundle', ($this->targetDirs[2].'/Resources/PersonaBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'PersonaBundle', ($this->targetDirs[3].'\\src\\BecasMds\\PersonaBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'CertificacionBundle', ($this->targetDirs[2].'/Resources/CertificacionBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'CertificacionBundle', ($this->targetDirs[3].'\\src\\BecasMds\\CertificacionBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'BecaBundle', ($this->targetDirs[2].'/Resources/BecaBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'BecaBundle', ($this->targetDirs[3].'\\src\\BecasMds\\BecaBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FormacionBundle', ($this->targetDirs[2].'/Resources/FormacionBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FormacionBundle', ($this->targetDirs[3].'\\src\\BecasMds\\FormacionBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, '', ($this->targetDirs[2].'/Resources/views'), '/\\.[^.]+\\.twig$/'), 'twig');
 
         return $instance;
@@ -681,7 +692,7 @@ class appDevDebugProjectContainer extends Container
         $g->setMetadataDriverImpl($f);
         $g->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
         $g->setProxyNamespace('Proxies');
-        $g->setAutoGenerateProxyClasses(true);
+        $g->setAutoGenerateProxyClasses(false);
         $g->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
         $g->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
         $g->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
@@ -840,7 +851,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_RegistryService()
     {
-        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'filter_text' => 'lexik_form_filter.type.filter_text', 'filter_number' => 'lexik_form_filter.type.filter_number', 'filter_number_range' => 'lexik_form_filter.type.filter_number_range', 'filter_checkbox' => 'lexik_form_filter.type.filter_checkbox', 'filter_boolean' => 'lexik_form_filter.type.filter_boolean', 'filter_choice' => 'lexik_form_filter.type.filter_choice', 'filter_entity' => 'lexik_form_filter.type.filter_entity', 'filter_date' => 'lexik_form_filter.type.filter_date', 'filter_date_range' => 'lexik_form_filter.type.filter_date_range', 'filter_datetime' => 'lexik_form_filter.type.filter_datetime', 'filter_datetime_range' => 'lexik_form_filter.type.filter_datetime_range', 'filter_collection_adapter' => 'lexik_form_filter.type.filter_collection_adapter', 'filter_sharedable' => 'lexik_form_filter.type.filter_sharedable', 'genemu_recaptcha' => 'genemu.form.core.type.recaptcha', 'genemu_captcha' => 'genemu.form.core.type.captcha', 'genemu_plain' => 'genemu.form.core.type.plain', 'genemu_tinymce' => 'genemu.form.core.type.tinymce', 'genemu_ajaxmodel' => 'genemu.form.model.type.ajaxmodel', 'genemu_jquerycolor' => 'genemu.form.jquery.type.color', 'genemu_jquerydate' => 'genemu.form.jquery.type.date', 'genemu_jqueryfile' => 'genemu.form.jquery.type.file', 'genemu_jquerygeolocation' => 'genemu.form.jquery.type.geolocation', 'genemu_jqueryimage' => 'genemu.form.jquery.type.image', 'genemu_jqueryrating' => 'genemu.form.jquery.type.rating', 'genemu_jqueryslider' => 'genemu.form.jquery.type.slider', 'genemu_ajaxentity' => 'genemu.form.entity.type.ajaxentity', 'genemu_jqueryautocomplete_text' => 'genemu.form.jquery.type.autocomplete.text', 'genemu_jqueryautocomplete_entity' => 'genemu.form.jquery.type.autocomplete.entity', 'genemu_jqueryautocomplete_document' => 'genemu.form.jquery.type.autocomplete.document', 'genemu_jqueryselect2_choice' => 'genemu.form.jquery.type.select2.choice', 'genemu_jqueryselect2_language' => 'genemu.form.jquery.type.select2.language', 'genemu_jqueryselect2_country' => 'genemu.form.jquery.type.select2.country', 'genemu_jqueryselect2_timezone' => 'genemu.form.jquery.type.select2.timezone', 'genemu_jqueryselect2_locale' => 'genemu.form.jquery.type.select2.locale', 'genemu_jqueryselect2_entity' => 'genemu.form.jquery.type.select2.entity', 'genemu_jqueryselect2_document' => 'genemu.form.jquery.type.select2.document', 'genemu_jqueryselect2_model' => 'genemu.form.jquery.type.select2.model', 'genemu_jqueryselect2_currency' => 'genemu.form.jquery.type.select2.currency', 'genemu_jqueryselect2_hidden' => 'genemu.form.jquery.type.select2.hidden', 'genemu_jquerychosen_choice' => 'genemu.form.jquery.type.chosen.choice', 'genemu_jquerychosen_language' => 'genemu.form.jquery.type.chosen.language', 'genemu_jquerychosen_country' => 'genemu.form.jquery.type.chosen.country', 'genemu_jquerychosen_timezone' => 'genemu.form.jquery.type.chosen.timezone', 'genemu_jquerychosen_locale' => 'genemu.form.jquery.type.chosen.locale', 'genemu_jquerychosen_entity' => 'genemu.form.jquery.type.chosen.entity', 'genemu_jquerychosen_document' => 'genemu.form.jquery.type.chosen.document', 'genemu_jquerychosen_model' => 'genemu.form.jquery.type.chosen.model', 'genemu_jquerychosen_currency' => 'genemu.form.jquery.type.chosen.currency', 'genemu_jqueryautocompleter_choice' => 'genemu.form.jquery.type.autocompleter.choice', 'genemu_jqueryautocompleter_language' => 'genemu.form.jquery.type.autocompleter.language', 'genemu_jqueryautocompleter_country' => 'genemu.form.jquery.type.autocompleter.country', 'genemu_jqueryautocompleter_timezone' => 'genemu.form.jquery.type.autocompleter.timezone', 'genemu_jqueryautocompleter_locale' => 'genemu.form.jquery.type.autocompleter.locale', 'genemu_jqueryautocompleter_entity' => 'genemu.form.jquery.type.autocompleter.entity', 'genemu_jqueryautocompleter_document' => 'genemu.form.jquery.type.autocompleter.document', 'genemu_jqueryautocompleter_model' => 'genemu.form.jquery.type.autocompleter.model', 'genemu_jqueryautocompleter_currency' => 'genemu.form.jquery.type.autocompleter.currency', 'genemu_jquerytokeninput_choice' => 'genemu.form.jquery.type.tokeninput.choice', 'genemu_jquerytokeninput_language' => 'genemu.form.jquery.type.tokeninput.language', 'genemu_jquerytokeninput_country' => 'genemu.form.jquery.type.tokeninput.country', 'genemu_jquerytokeninput_timezone' => 'genemu.form.jquery.type.tokeninput.timezone', 'genemu_jquerytokeninput_locale' => 'genemu.form.jquery.type.tokeninput.locale', 'genemu_jquerytokeninput_entity' => 'genemu.form.jquery.type.tokeninput.entity', 'genemu_jquerytokeninput_document' => 'genemu.form.jquery.type.tokeninput.document', 'genemu_jquerytokeninput_model' => 'genemu.form.jquery.type.tokeninput.model', 'genemu_jquerytokeninput_currency' => 'genemu.form.jquery.type.tokeninput.currency', 'ajax_auto_complete' => 'antqa.form.type.ajax_auto_complete'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'lexik_form_filter.type_extension.filter_extension'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
+        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'filter_text' => 'lexik_form_filter.type.filter_text', 'filter_number' => 'lexik_form_filter.type.filter_number', 'filter_number_range' => 'lexik_form_filter.type.filter_number_range', 'filter_checkbox' => 'lexik_form_filter.type.filter_checkbox', 'filter_boolean' => 'lexik_form_filter.type.filter_boolean', 'filter_choice' => 'lexik_form_filter.type.filter_choice', 'filter_entity' => 'lexik_form_filter.type.filter_entity', 'filter_date' => 'lexik_form_filter.type.filter_date', 'filter_date_range' => 'lexik_form_filter.type.filter_date_range', 'filter_datetime' => 'lexik_form_filter.type.filter_datetime', 'filter_datetime_range' => 'lexik_form_filter.type.filter_datetime_range', 'filter_collection_adapter' => 'lexik_form_filter.type.filter_collection_adapter', 'filter_sharedable' => 'lexik_form_filter.type.filter_sharedable', 'genemu_recaptcha' => 'genemu.form.core.type.recaptcha', 'genemu_captcha' => 'genemu.form.core.type.captcha', 'genemu_plain' => 'genemu.form.core.type.plain', 'genemu_tinymce' => 'genemu.form.core.type.tinymce', 'genemu_ajaxmodel' => 'genemu.form.model.type.ajaxmodel', 'genemu_jquerycolor' => 'genemu.form.jquery.type.color', 'genemu_jquerydate' => 'genemu.form.jquery.type.date', 'genemu_jqueryfile' => 'genemu.form.jquery.type.file', 'genemu_jquerygeolocation' => 'genemu.form.jquery.type.geolocation', 'genemu_jqueryimage' => 'genemu.form.jquery.type.image', 'genemu_jqueryrating' => 'genemu.form.jquery.type.rating', 'genemu_jqueryslider' => 'genemu.form.jquery.type.slider', 'genemu_ajaxentity' => 'genemu.form.entity.type.ajaxentity', 'genemu_jqueryautocomplete_text' => 'genemu.form.jquery.type.autocomplete.text', 'genemu_jqueryautocomplete_entity' => 'genemu.form.jquery.type.autocomplete.entity', 'genemu_jqueryautocomplete_document' => 'genemu.form.jquery.type.autocomplete.document', 'genemu_jqueryselect2_choice' => 'genemu.form.jquery.type.select2.choice', 'genemu_jqueryselect2_language' => 'genemu.form.jquery.type.select2.language', 'genemu_jqueryselect2_country' => 'genemu.form.jquery.type.select2.country', 'genemu_jqueryselect2_timezone' => 'genemu.form.jquery.type.select2.timezone', 'genemu_jqueryselect2_locale' => 'genemu.form.jquery.type.select2.locale', 'genemu_jqueryselect2_entity' => 'genemu.form.jquery.type.select2.entity', 'genemu_jqueryselect2_document' => 'genemu.form.jquery.type.select2.document', 'genemu_jqueryselect2_model' => 'genemu.form.jquery.type.select2.model', 'genemu_jqueryselect2_currency' => 'genemu.form.jquery.type.select2.currency', 'genemu_jqueryselect2_hidden' => 'genemu.form.jquery.type.select2.hidden', 'genemu_jquerychosen_choice' => 'genemu.form.jquery.type.chosen.choice', 'genemu_jquerychosen_language' => 'genemu.form.jquery.type.chosen.language', 'genemu_jquerychosen_country' => 'genemu.form.jquery.type.chosen.country', 'genemu_jquerychosen_timezone' => 'genemu.form.jquery.type.chosen.timezone', 'genemu_jquerychosen_locale' => 'genemu.form.jquery.type.chosen.locale', 'genemu_jquerychosen_entity' => 'genemu.form.jquery.type.chosen.entity', 'genemu_jquerychosen_document' => 'genemu.form.jquery.type.chosen.document', 'genemu_jquerychosen_model' => 'genemu.form.jquery.type.chosen.model', 'genemu_jquerychosen_currency' => 'genemu.form.jquery.type.chosen.currency', 'genemu_jqueryautocompleter_choice' => 'genemu.form.jquery.type.autocompleter.choice', 'genemu_jqueryautocompleter_language' => 'genemu.form.jquery.type.autocompleter.language', 'genemu_jqueryautocompleter_country' => 'genemu.form.jquery.type.autocompleter.country', 'genemu_jqueryautocompleter_timezone' => 'genemu.form.jquery.type.autocompleter.timezone', 'genemu_jqueryautocompleter_locale' => 'genemu.form.jquery.type.autocompleter.locale', 'genemu_jqueryautocompleter_entity' => 'genemu.form.jquery.type.autocompleter.entity', 'genemu_jqueryautocompleter_document' => 'genemu.form.jquery.type.autocompleter.document', 'genemu_jqueryautocompleter_model' => 'genemu.form.jquery.type.autocompleter.model', 'genemu_jqueryautocompleter_currency' => 'genemu.form.jquery.type.autocompleter.currency', 'genemu_jquerytokeninput_choice' => 'genemu.form.jquery.type.tokeninput.choice', 'genemu_jquerytokeninput_language' => 'genemu.form.jquery.type.tokeninput.language', 'genemu_jquerytokeninput_country' => 'genemu.form.jquery.type.tokeninput.country', 'genemu_jquerytokeninput_timezone' => 'genemu.form.jquery.type.tokeninput.timezone', 'genemu_jquerytokeninput_locale' => 'genemu.form.jquery.type.tokeninput.locale', 'genemu_jquerytokeninput_entity' => 'genemu.form.jquery.type.tokeninput.entity', 'genemu_jquerytokeninput_document' => 'genemu.form.jquery.type.tokeninput.document', 'genemu_jquerytokeninput_model' => 'genemu.form.jquery.type.tokeninput.model', 'genemu_jquerytokeninput_currency' => 'genemu.form.jquery.type.tokeninput.currency', 'ajax_auto_complete' => 'antqa.form.type.ajax_auto_complete', 'shtumi_ajax_autocomplete' => 'shtumi.useful.type.ajax_autocomplete', 'shtumi_select2_entity' => 'shtumi.useful.type.select2_entity', 'shtumi_dependent_filtered_entity' => 'shtumi.useful.type.dependent_filtered_entity', 'shtumi_dependent_filtered_select2' => 'shtumi.useful.type.dependent_filtered_select2', 'shtumi_ajaxfile' => 'shtumi.useful.type.ajax_file', 'shtumi_daterange' => 'shtumi.useful.type.daterange'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'lexik_form_filter.type_extension.filter_extension'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
     }
 
     /**
@@ -1373,7 +1384,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosJsRouting_ExtractorService()
     {
-        return $this->services['fos_js_routing.extractor'] = new \FOS\JsRoutingBundle\Extractor\ExposedRoutesExtractor($this->get('router'), array(), __DIR__, array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle', 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle', 'TwigBundle' => 'Symfony\\Bundle\\TwigBundle\\TwigBundle', 'MonologBundle' => 'Symfony\\Bundle\\MonologBundle\\MonologBundle', 'SwiftmailerBundle' => 'Symfony\\Bundle\\SwiftmailerBundle\\SwiftmailerBundle', 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle', 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle', 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle', 'LexikFormFilterBundle' => 'Lexik\\Bundle\\FormFilterBundle\\LexikFormFilterBundle', 'JordiLlonchCrudGeneratorBundle' => 'JordiLlonch\\Bundle\\CrudGeneratorBundle\\JordiLlonchCrudGeneratorBundle', 'PersonaBundle' => 'BecasMds\\PersonaBundle\\PersonaBundle', 'FormacionBundle' => 'BecasMds\\FormacionBundle\\FormacionBundle', 'BecaBundle' => 'BecasMds\\BecaBundle\\BecaBundle', 'CertificacionBundle' => 'BecasMds\\CertificacionBundle\\CertificacionBundle', 'GenemuFormBundle' => 'Genemu\\Bundle\\FormBundle\\GenemuFormBundle', 'AntQaAjaxAutoCompleteBundle' => 'AntQa\\AjaxAutoCompleteBundle\\AntQaAjaxAutoCompleteBundle', 'FOSJsRoutingBundle' => 'FOS\\JsRoutingBundle\\FOSJsRoutingBundle', 'WhiteOctoberTCPDFBundle' => 'WhiteOctober\\TCPDFBundle\\WhiteOctoberTCPDFBundle', 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle', 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle', 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle', 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle'));
+        return $this->services['fos_js_routing.extractor'] = new \FOS\JsRoutingBundle\Extractor\ExposedRoutesExtractor($this->get('router'), array(), __DIR__, array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle', 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle', 'TwigBundle' => 'Symfony\\Bundle\\TwigBundle\\TwigBundle', 'MonologBundle' => 'Symfony\\Bundle\\MonologBundle\\MonologBundle', 'SwiftmailerBundle' => 'Symfony\\Bundle\\SwiftmailerBundle\\SwiftmailerBundle', 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle', 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle', 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle', 'LexikFormFilterBundle' => 'Lexik\\Bundle\\FormFilterBundle\\LexikFormFilterBundle', 'JordiLlonchCrudGeneratorBundle' => 'JordiLlonch\\Bundle\\CrudGeneratorBundle\\JordiLlonchCrudGeneratorBundle', 'PersonaBundle' => 'BecasMds\\PersonaBundle\\PersonaBundle', 'FormacionBundle' => 'BecasMds\\FormacionBundle\\FormacionBundle', 'BecaBundle' => 'BecasMds\\BecaBundle\\BecaBundle', 'CertificacionBundle' => 'BecasMds\\CertificacionBundle\\CertificacionBundle', 'GenemuFormBundle' => 'Genemu\\Bundle\\FormBundle\\GenemuFormBundle', 'AntQaAjaxAutoCompleteBundle' => 'AntQa\\AjaxAutoCompleteBundle\\AntQaAjaxAutoCompleteBundle', 'FOSJsRoutingBundle' => 'FOS\\JsRoutingBundle\\FOSJsRoutingBundle', 'WhiteOctoberTCPDFBundle' => 'WhiteOctober\\TCPDFBundle\\WhiteOctoberTCPDFBundle', 'ShtumiUsefulBundle' => 'Shtumi\\UsefulBundle\\ShtumiUsefulBundle', 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle', 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle', 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle', 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle'));
     }
 
     /**
@@ -1881,7 +1892,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_ChoiceService()
     {
-        return $this->services['genemu.form.jquery.type.select2.choice'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('choice', array());
+        return $this->services['genemu.form.jquery.type.select2.choice'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('choice', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1894,7 +1905,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_CountryService()
     {
-        return $this->services['genemu.form.jquery.type.select2.country'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('country', array());
+        return $this->services['genemu.form.jquery.type.select2.country'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('country', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1907,7 +1918,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_CurrencyService()
     {
-        return $this->services['genemu.form.jquery.type.select2.currency'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('currency', array());
+        return $this->services['genemu.form.jquery.type.select2.currency'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('currency', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1920,7 +1931,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_DocumentService()
     {
-        return $this->services['genemu.form.jquery.type.select2.document'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('document', array());
+        return $this->services['genemu.form.jquery.type.select2.document'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('document', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1933,7 +1944,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_EntityService()
     {
-        return $this->services['genemu.form.jquery.type.select2.entity'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('entity', array());
+        return $this->services['genemu.form.jquery.type.select2.entity'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('entity', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1946,7 +1957,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_HiddenService()
     {
-        return $this->services['genemu.form.jquery.type.select2.hidden'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('hidden', array());
+        return $this->services['genemu.form.jquery.type.select2.hidden'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('hidden', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1959,7 +1970,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_LanguageService()
     {
-        return $this->services['genemu.form.jquery.type.select2.language'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('language', array());
+        return $this->services['genemu.form.jquery.type.select2.language'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('language', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1972,7 +1983,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_LocaleService()
     {
-        return $this->services['genemu.form.jquery.type.select2.locale'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('locale', array());
+        return $this->services['genemu.form.jquery.type.select2.locale'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('locale', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1985,7 +1996,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_ModelService()
     {
-        return $this->services['genemu.form.jquery.type.select2.model'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('model', array());
+        return $this->services['genemu.form.jquery.type.select2.model'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('model', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -1998,7 +2009,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Jquery_Type_Select2_TimezoneService()
     {
-        return $this->services['genemu.form.jquery.type.select2.timezone'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('timezone', array());
+        return $this->services['genemu.form.jquery.type.select2.timezone'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\Select2Type('timezone', array('placeholder' => 'Por favor, Ingrese un caracter', 'width' => 'off', 'allowClear' => false, 'minimumInputLength' => 1));
     }
 
     /**
@@ -2181,6 +2192,19 @@ class appDevDebugProjectContainer extends Container
     protected function getGenemu_Twig_Extension_FormService()
     {
         return $this->services['genemu.twig.extension.form'] = new \Genemu\Bundle\FormBundle\Twig\Extension\FormExtension($this->get('twig.form.renderer'));
+    }
+
+    /**
+     * Gets the 'get_set_method_normalizer' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer A Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer instance.
+     */
+    protected function getGetSetMethodNormalizerService()
+    {
+        return $this->services['get_set_method_normalizer'] = new \Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer();
     }
 
     /**
@@ -3221,6 +3245,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'serializer' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Component\Serializer\Serializer A Symfony\Component\Serializer\Serializer instance.
+     */
+    protected function getSerializerService()
+    {
+        return $this->services['serializer'] = new \Symfony\Component\Serializer\Serializer(array(0 => $this->get('get_set_method_normalizer')), array(0 => new \Symfony\Component\Serializer\Encoder\XmlEncoder(), 1 => new \Symfony\Component\Serializer\Encoder\JsonEncoder()));
+    }
+
+    /**
      * Gets the 'service_container' service.
      *
      * This service is shared.
@@ -3322,6 +3359,110 @@ class appDevDebugProjectContainer extends Container
     protected function getSessionListenerService()
     {
         return $this->services['session_listener'] = new \Symfony\Bundle\FrameworkBundle\EventListener\SessionListener($this);
+    }
+
+    /**
+     * Gets the 'shtumi.useful.orm.filter.type.ajax_autocomplete' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Shtumi\UsefulBundle\Filter\AjaxAutocompleteFilter A Shtumi\UsefulBundle\Filter\AjaxAutocompleteFilter instance.
+     */
+    protected function getShtumi_Useful_Orm_Filter_Type_AjaxAutocompleteService()
+    {
+        return $this->services['shtumi.useful.orm.filter.type.ajax_autocomplete'] = new \Shtumi\UsefulBundle\Filter\AjaxAutocompleteFilter($this);
+    }
+
+    /**
+     * Gets the 'shtumi.useful.type.ajax_autocomplete' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Shtumi\UsefulBundle\Form\Type\AjaxAutocompleteType A Shtumi\UsefulBundle\Form\Type\AjaxAutocompleteType instance.
+     */
+    protected function getShtumi_Useful_Type_AjaxAutocompleteService()
+    {
+        return $this->services['shtumi.useful.type.ajax_autocomplete'] = new \Shtumi\UsefulBundle\Form\Type\AjaxAutocompleteType($this);
+    }
+
+    /**
+     * Gets the 'shtumi.useful.type.ajax_file' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Shtumi\UsefulBundle\Form\Type\AjaxFileType A Shtumi\UsefulBundle\Form\Type\AjaxFileType instance.
+     */
+    protected function getShtumi_Useful_Type_AjaxFileService()
+    {
+        return $this->services['shtumi.useful.type.ajax_file'] = new \Shtumi\UsefulBundle\Form\Type\AjaxFileType($this);
+    }
+
+    /**
+     * Gets the 'shtumi.useful.type.daterange' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Shtumi\UsefulBundle\Form\Type\DateRangeType A Shtumi\UsefulBundle\Form\Type\DateRangeType instance.
+     */
+    protected function getShtumi_Useful_Type_DaterangeService()
+    {
+        return $this->services['shtumi.useful.type.daterange'] = new \Shtumi\UsefulBundle\Form\Type\DateRangeType($this, array('date_format' => 'd/m/Y', 'default_interval' => 'P30D'));
+    }
+
+    /**
+     * Gets the 'shtumi.useful.type.dependent_filtered_entity' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Shtumi\UsefulBundle\Form\Type\DependentFilteredEntityType A Shtumi\UsefulBundle\Form\Type\DependentFilteredEntityType instance.
+     */
+    protected function getShtumi_Useful_Type_DependentFilteredEntityService()
+    {
+        return $this->services['shtumi.useful.type.dependent_filtered_entity'] = new \Shtumi\UsefulBundle\Form\Type\DependentFilteredEntityType($this);
+    }
+
+    /**
+     * Gets the 'shtumi.useful.type.dependent_filtered_select2' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Shtumi\UsefulBundle\Form\Type\DependentFilteredSelect2Type A Shtumi\UsefulBundle\Form\Type\DependentFilteredSelect2Type instance.
+     */
+    protected function getShtumi_Useful_Type_DependentFilteredSelect2Service()
+    {
+        return $this->services['shtumi.useful.type.dependent_filtered_select2'] = new \Shtumi\UsefulBundle\Form\Type\DependentFilteredSelect2Type($this);
+    }
+
+    /**
+     * Gets the 'shtumi.useful.type.select2_entity' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Shtumi\UsefulBundle\Form\Type\Select2EntityType A Shtumi\UsefulBundle\Form\Type\Select2EntityType instance.
+     */
+    protected function getShtumi_Useful_Type_Select2EntityService()
+    {
+        return $this->services['shtumi.useful.type.select2_entity'] = new \Shtumi\UsefulBundle\Form\Type\Select2EntityType($this);
+    }
+
+    /**
+     * Gets the 'shtumi_daterange' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Shtumi\UsefulBundle\Service\DateRangeManager A Shtumi\UsefulBundle\Service\DateRangeManager instance.
+     */
+    protected function getShtumiDaterangeService()
+    {
+        return $this->services['shtumi_daterange'] = new \Shtumi\UsefulBundle\Service\DateRangeManager(array('date_format' => 'd/m/Y', 'default_interval' => 'P30D'));
     }
 
     /**
@@ -4188,7 +4329,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension($this->get('twig.form.renderer')));
         $instance->addExtension(new \Twig_Extension_Debug());
-        $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(0 => 'PersonaBundle', 1 => 'CertificacionBundle', 2 => 'BecaBundle'), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
+        $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(0 => 'PersonaBundle', 1 => 'CertificacionBundle', 2 => 'BecaBundle', 3 => 'FormacionBundle'), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
         $instance->addExtension($this->get('genemu.twig.extension.form'));
         $instance->addExtension($this->get('twig.extension.acme.demo'));
@@ -4247,6 +4388,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath(($this->targetDirs[3].'\\src\\BecasMds\\BecaBundle/Resources/views'), 'Beca');
         $instance->addPath(($this->targetDirs[3].'\\src\\BecasMds\\CertificacionBundle/Resources/views'), 'Certificacion');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\genemu\\form-bundle\\Genemu\\Bundle\\FormBundle/Resources/views'), 'GenemuForm');
+        $instance->addPath(($this->targetDirs[3].'\\vendor\\shtumi\\useful-bundle\\Shtumi\\UsefulBundle/Resources/views'), 'ShtumiUseful');
         $instance->addPath(($this->targetDirs[3].'\\src\\Acme\\DemoBundle/Resources/views'), 'AcmeDemo');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views'), 'WebProfiler');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views'), 'SensioDistribution');
@@ -4626,7 +4768,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTwig_Form_RendererService()
     {
-        return $this->services['twig.form.renderer'] = new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig', 1 => 'LexikFormFilterBundle:Form:form_div_layout.html.twig', 2 => 'GenemuFormBundle:Form:div_layout.html.twig', 3 => 'GenemuFormBundle:Form:jquery_layout.html.twig', 4 => 'GenemuFormBundle:Form:stylesheet_layout.html.twig')), $this->get('form.csrf_provider', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['twig.form.renderer'] = new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig', 1 => 'LexikFormFilterBundle:Form:form_div_layout.html.twig', 2 => 'ShtumiUsefulBundle::fields.html.twig', 3 => 'GenemuFormBundle:Form:div_layout.html.twig', 4 => 'GenemuFormBundle:Form:jquery_layout.html.twig', 5 => 'GenemuFormBundle:Form:stylesheet_layout.html.twig')), $this->get('form.csrf_provider', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -4722,6 +4864,7 @@ class appDevDebugProjectContainer extends Container
                 'AntQaAjaxAutoCompleteBundle' => 'AntQa\\AjaxAutoCompleteBundle\\AntQaAjaxAutoCompleteBundle',
                 'FOSJsRoutingBundle' => 'FOS\\JsRoutingBundle\\FOSJsRoutingBundle',
                 'WhiteOctoberTCPDFBundle' => 'WhiteOctober\\TCPDFBundle\\WhiteOctoberTCPDFBundle',
+                'ShtumiUsefulBundle' => 'Shtumi\\UsefulBundle\\ShtumiUsefulBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
@@ -4915,6 +5058,9 @@ class appDevDebugProjectContainer extends Container
             'annotations.reader.class' => 'Doctrine\\Common\\Annotations\\AnnotationReader',
             'annotations.cached_reader.class' => 'Doctrine\\Common\\Annotations\\CachedReader',
             'annotations.file_cache_reader.class' => 'Doctrine\\Common\\Annotations\\FileCacheReader',
+            'serializer.class' => 'Symfony\\Component\\Serializer\\Serializer',
+            'serializer.encoder.xml.class' => 'Symfony\\Component\\Serializer\\Encoder\\XmlEncoder',
+            'serializer.encoder.json.class' => 'Symfony\\Component\\Serializer\\Encoder\\JsonEncoder',
             'security.context.class' => 'Symfony\\Component\\Security\\Core\\SecurityContext',
             'security.user_checker.class' => 'Symfony\\Component\\Security\\Core\\User\\UserChecker',
             'security.encoder_factory.generic.class' => 'Symfony\\Component\\Security\\Core\\Encoder\\EncoderFactory',
@@ -5013,9 +5159,10 @@ class appDevDebugProjectContainer extends Container
             'twig.form.resources' => array(
                 0 => 'form_div_layout.html.twig',
                 1 => 'LexikFormFilterBundle:Form:form_div_layout.html.twig',
-                2 => 'GenemuFormBundle:Form:div_layout.html.twig',
-                3 => 'GenemuFormBundle:Form:jquery_layout.html.twig',
-                4 => 'GenemuFormBundle:Form:stylesheet_layout.html.twig',
+                2 => 'ShtumiUsefulBundle::fields.html.twig',
+                3 => 'GenemuFormBundle:Form:div_layout.html.twig',
+                4 => 'GenemuFormBundle:Form:jquery_layout.html.twig',
+                5 => 'GenemuFormBundle:Form:stylesheet_layout.html.twig',
             ),
             'debug.templating.engine.twig.class' => 'Symfony\\Bundle\\TwigBundle\\Debug\\TimedTwigEngine',
             'twig.options' => array(
@@ -5111,6 +5258,7 @@ class appDevDebugProjectContainer extends Container
                 0 => 'PersonaBundle',
                 1 => 'CertificacionBundle',
                 2 => 'BecaBundle',
+                3 => 'FormacionBundle',
             ),
             'assetic.twig_extension.class' => 'Symfony\\Bundle\\AsseticBundle\\Twig\\AsseticExtension',
             'assetic.twig_formula_loader.class' => 'Assetic\\Extension\\Twig\\TwigFormulaLoader',
@@ -5193,7 +5341,7 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.listeners.resolve_target_entity.class' => 'Doctrine\\ORM\\Tools\\ResolveTargetEntityListener',
             'doctrine.orm.naming_strategy.default.class' => 'Doctrine\\ORM\\Mapping\\DefaultNamingStrategy',
             'doctrine.orm.naming_strategy.underscore.class' => 'Doctrine\\ORM\\Mapping\\UnderscoreNamingStrategy',
-            'doctrine.orm.auto_generate_proxy_classes' => true,
+            'doctrine.orm.auto_generate_proxy_classes' => false,
             'doctrine.orm.proxy_dir' => (__DIR__.'/doctrine/orm/Proxies'),
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
@@ -5350,6 +5498,62 @@ class appDevDebugProjectContainer extends Container
                 'pdf_font_monospaced' => 'courier',
                 'pdf_image_scale_ratio' => 1.25,
             ),
+            'shtumi.autocomplete_entities' => array(
+                'localidad' => array(
+                    'class' => 'PersonaBundle:Localidad',
+                    'role' => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                    'property' => 'nombre',
+                    'search' => 'contains',
+                    'case_insensitive' => true,
+                ),
+                'barrio' => array(
+                    'class' => 'PersonaBundle:Barrio',
+                    'role' => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                    'property' => 'nombre',
+                    'search' => 'contains',
+                    'case_insensitive' => true,
+                ),
+                'calle' => array(
+                    'class' => 'PersonaBundle:Calle',
+                    'role' => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                    'property' => 'nombre',
+                    'search' => 'contains',
+                    'case_insensitive' => true,
+                ),
+            ),
+            'shtumi.dependent_filtered_entities' => array(
+                'barrio_by_localidad' => array(
+                    'class' => 'PersonaBundle:Barrio',
+                    'parent_property' => 'localidad',
+                    'property' => 'nombre',
+                    'role' => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                    'no_result_msg' => ' ',
+                    'order_property' => 'nombre',
+                    'order_direction' => 'ASC',
+                    'property_complicated' => false,
+                    'case_insensitive' => true,
+                    'search' => 'begins_with',
+                    'callback' => NULL,
+                ),
+                'calle_by_localidad' => array(
+                    'class' => 'PersonaBundle:Calle',
+                    'parent_property' => 'localidad',
+                    'property' => 'nombre',
+                    'role' => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                    'no_result_msg' => ' ',
+                    'order_property' => 'nombre',
+                    'order_direction' => 'ASC',
+                    'property_complicated' => false,
+                    'case_insensitive' => true,
+                    'search' => 'begins_with',
+                    'callback' => NULL,
+                ),
+            ),
+            'shtumi.date_range' => array(
+                'date_format' => 'd/m/Y',
+                'default_interval' => 'P30D',
+            ),
+            'shtumi_dependent_filtered_entity_controller_route' => 'ShtumiUsefulBundle:DependentFilteredEntity:getOptions',
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',

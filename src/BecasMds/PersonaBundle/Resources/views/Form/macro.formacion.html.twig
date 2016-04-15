@@ -5,7 +5,10 @@
     {% endblock %}
 
     {% block javascript %}
-        {% javascripts '@PersonaBundle/Resources/public/js/select2.js' %}
+        {% javascripts 
+            '@PersonaBundle/Resources/public/js/select2.js'
+            '@FormacionBundle/Resources/public/js/select2Formacion.js'
+        %}
         
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {{ form_javascript(formac) }}

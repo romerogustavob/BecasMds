@@ -11,20 +11,25 @@ class FormacionType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('id','hidden')
-                ->add('institucion', 'genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:Institucion', 
-                    'property'=>'nombre', 'label'=>'Institución', 'empty_value'=>'', 
+                ->add('institucion', 'entity', array('class'=>'FormacionBundle:Institucion', 
+                    'property'=>'nombre', 'label'=>'Institución', 'empty_value'=>'',
+                    'attr'=>array('class'=>'select2-institucion'),
                     'required'=>false))
-                ->add('nivelEducativo', 'genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:NivelEducativo', 
+                ->add('nivelEducativo', 'entity', array('class'=>'FormacionBundle:NivelEducativo', 
                     'property'=>'descripcion', 'label'=>'Nivel Educativo', 'empty_value'=>'',
+                    'attr'=>array('class'=>'select2-niveleducativo'),
                     'required'=>false))
-                ->add('profesion', 'genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:Profesion', 
+                ->add('profesion', 'entity', array('class'=>'FormacionBundle:Profesion', 
                     'property'=>'descripcion', 'label'=>'Profesión', 'empty_value'=>'',
+                    'attr'=>array('class'=>'select2-profesion'),
                     'required'=>false))
-                ->add('oficio', 'genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:Oficio', 
+                ->add('oficio', 'entity', array('class'=>'FormacionBundle:Oficio', 
                     'property'=>'descripcion', 'label'=>'Oficio', 'empty_value'=>'',
+                    'attr'=>array('class'=>'select2-oficio'),
                     'required'=>false))
-                ->add('perfil','genemu_jqueryselect2_entity', array('class'=>'FormacionBundle:Perfil', 
+                ->add('perfil','entity', array('class'=>'FormacionBundle:Perfil', 
                     'property'=>'descripcion', 'label'=>'Perfil', 'empty_value'=>'',
+                    'attr'=>array('class'=>'select2-perfil'),
                     'required'=>false))
                 ->add('descripcion',null,array('label'=>'Descripción', 'required'=>false))
         ;

@@ -25,6 +25,8 @@ class AppKernel extends Kernel {
             new AntQa\AjaxAutoCompleteBundle\AntQaAjaxAutoCompleteBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),
+            new Shtumi\UsefulBundle\ShtumiUsefulBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

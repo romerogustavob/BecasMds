@@ -48,6 +48,7 @@ class Becado extends Persona
 
     /**
      * @var string
+     * 
      */
     protected $nombres;
 
@@ -504,7 +505,10 @@ class Becado extends Persona
     
         return $this;
     }
-
+    
+    public function setBecadoBeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca){
+        $this->becadobeca[] = $becadobeca;
+    }
     /**
      * Remove becadobeca
      *
@@ -526,6 +530,6 @@ class Becado extends Persona
     }
     
     public function __sleep() {
-        return array('');
+        return array($this->getBecadoLista());
     }
 }

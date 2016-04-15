@@ -21,6 +21,8 @@ framework:
     session:         ~
     fragments:       ~
     http_method_override: true
+    serializer:
+        enabled: true
 
 # Twig Configuration
 twig:
@@ -29,12 +31,13 @@ twig:
     form:
         resources:
             - LexikFormFilterBundle:Form:form_div_layout.html.twig
+            - ShtumiUsefulBundle::fields.html.twig
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles: [ PersonaBundle, CertificacionBundle, BecaBundle ]
+    bundles: [ PersonaBundle, CertificacionBundle, BecaBundle, FormacionBundle ]
     filters:
         cssrewrite: ~
         #closure:
@@ -61,7 +64,8 @@ doctrine:
         # path:     %database_path%
 
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
+        auto_generate_proxy_classes: false
+#        %kernel.debug%
         auto_mapping: true
 
 # Swiftmailer Configuration
@@ -83,5 +87,48 @@ lexik_form_filter:
 
 genemu_form:
     date: ~
-    select2: ~
+    select2:
+        enabled: true
+        configs:
+            placeholder: Por favor, Ingrese un caracter
+            width: off
+            allowClear: false
+            minimumInputLength: 1
     autocomplete: ~
+
+shtumi_useful :
+    dependent_filtered_entities:
+        barrio_by_localidad:
+            class: PersonaBundle:Barrio
+            parent_property: localidad
+            property: nombre
+            role: IS_AUTHENTICATED_ANONYMOUSLY
+            no_result_msg: ' '
+            order_property: nombre
+            order_direction: ASC
+            
+        calle_by_localidad:
+            class: PersonaBundle:Calle
+            parent_property: localidad
+            property: nombre
+            role: IS_AUTHENTICATED_ANONYMOUSLY
+            no_result_msg: ' '
+            order_property: nombre
+            order_direction: ASC
+            
+    autocomplete_entities:
+        localidad:
+            class: PersonaBundle:Localidad
+            role: IS_AUTHENTICATED_ANONYMOUSLY
+            property: nombre
+            search: contains
+        barrio:
+            class: PersonaBundle:Barrio
+            role: IS_AUTHENTICATED_ANONYMOUSLY
+            property: nombre
+            search: contains
+        calle:
+            class: PersonaBundle:Calle
+            role: IS_AUTHENTICATED_ANONYMOUSLY
+            property: nombre
+            search: contains

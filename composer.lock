@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8618a96462758e20cf7f629970041a13",
-    "content-hash": "53434b26c44bbc18fce79876423929d5",
+    "hash": "1f611cd05ee4fe253d8af411e40c0f0a",
+    "content-hash": "ae9bb9050c3dec6f0f7d402a8a1f7688",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1466,6 +1466,53 @@
             "time": "2014-04-28 14:01:06"
         },
         {
+            "name": "shtumi/useful-bundle",
+            "version": "dev-master",
+            "target-dir": "Shtumi/UsefulBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shtumi/ShtumiUsefulBundle.git",
+                "reference": "857508126f2456ffda4e2d2dc00d3f62e66269cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shtumi/ShtumiUsefulBundle/zipball/857508126f2456ffda4e2d2dc00d3f62e66269cc",
+                "reference": "857508126f2456ffda4e2d2dc00d3f62e66269cc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "sonata-project/admin-bundle": "master-dev",
+                "sonata-project/doctrine-orm-admin-bundle": "master-dev"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Shtumi\\UsefulBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mikhail Shtukin",
+                    "email": "shtumi@tut.by"
+                }
+            ],
+            "description": "Symfony ShtumiUsefulBundle",
+            "keywords": [
+                "Ajax Autocomplete form type",
+                "Dependent filtered form type",
+                "daterange",
+                "shtumi"
+            ],
+            "time": "2014-11-19 21:34:07"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "5.x-dev",
             "source": {
@@ -1865,7 +1912,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/131436525f1360823be32e4c573d9592fe25e60d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/416f7d751f76223d4054fc98cd776ee6c11f49a2",
                 "reference": "d2208301ee97ab990c0d1e4d6d1b3b4e7dc4e7c7",
                 "shasum": ""
             },
@@ -2233,7 +2280,8 @@
     "stability-flags": {
         "pagerfanta/pagerfanta": 20,
         "piotrantosik/ajax-autocomplete-bundle": 20,
-        "whiteoctober/tcpdf-bundle": 20
+        "whiteoctober/tcpdf-bundle": 20,
+        "shtumi/useful-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

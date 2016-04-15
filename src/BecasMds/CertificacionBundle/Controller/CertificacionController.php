@@ -142,6 +142,9 @@ class CertificacionController extends Controller
     {
         $entity = new Certificacion();
         $entity->setBecadobeca($idBecadoBeca);
+        if(!$entity->getBecadobeca()->getBecado()->getActivo()){
+            throw $this->createNotFoundException('La Persona No se encuentra Activa, No puede ser Certificada');
+        }
         $monto=$entity->getBecadobeca()->getBeca()->getMonto();
         $entity->setMonto($monto);
         $form   = $this->createForm(new CertificacionType(), $entity);

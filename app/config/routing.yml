@@ -16,3 +16,6 @@ persona:
     
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+shtumi_useful:
+    resource: '@ShtumiUsefulBundle/Resources/config/routing.xml'

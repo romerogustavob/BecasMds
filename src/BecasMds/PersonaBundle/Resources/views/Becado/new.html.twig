@@ -19,13 +19,14 @@
     {% endblock %}
 
     {% block javascript %}
-        {{ parent() }}
         {% javascripts
             '@PersonaBundle/Resources/public/js/agregarDomicilio.js'
             '@PersonaBundle/Resources/public/js/agregarFormacion.js'
             '@PersonaBundle/Resources/public/js/addForm.js'  
             '@PersonaBundle/Resources/public/js/deleteRow.js'
-                      
+            '@PersonaBundle/Resources/public/js/select2.js'
+            '@PersonaBundle/Resources/public/js/select2Becado.js'
+    
         %}
         {{ form_javascript(form) }}
         <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -42,18 +43,35 @@
         {#{{ form_widget(form) }}#}
         {{ form_start(form) }}
 
-        <h4>Datos Personales</h4>
-        {{ form_row(form.dni) }} {{ form_row(form.apellidos) }} {{ form_row(form.nombres) }}
-        {{ form_row(form.telefono) }}{{ form_row(form.email) }}
-
+        <table>
+            <tbody>
+                <fieldset style="border:1px solid; background-color: #3a8104; color: #000;"><h4>Datos Personales</h4>
+                <tr>            
+                    <td>{{ form_row(form.dni) }}</td>
+                    <td>{{ form_row(form.apellidos) }}</td>
+                    <td>{{ form_row(form.nombres) }}</td>
+                    <td>
+                        {{ form_label(form.telefono, 'Teléfono') }}
+                        {{ form_widget(form.telefono) }}
+                    </td>            
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        {{ form_row(form.email) }}
+                    </td>
+                </tr>
+                </fieldset>
+            </tbody>
+        </table>
         <div class="panel-group" id="accordion">
-
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <fieldset style="border:1px solid; background-color: #9fda58 ">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse" style="color: #000">
                             Domicilio</a>
                     </h4>
+                    </fieldset>
                 </div>
                 <div id="domicilioCollapse" class="panel-collapse collapse in">
                     <div class="row-fluid">
@@ -75,19 +93,22 @@
         </div>
 
 
-
         {#{{ form_row(form.becadobeca) }}#} 
+        <fieldset style="border:1px solid; background-color: #3a8104; color: #000;">
         <h4>Movimiento/Afectación/Dependencia</h4>
+        </fieldset>
         {{ form_row(form.referente) }} {{ form_row(form.lugarAfectacion) }}
         {{ form_row(form.dependencia) }} 
 
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <fieldset style="border:1px solid; background-color: #9fda58; color: #000;">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse" style="color: #000">
                             Formación</a>
                     </h4>
+                    </fieldset>
                 </div>
                 <div id="formacionCollapse" class="panel-collapse collapse in">
                     <div class="panel-body">

@@ -9,6 +9,8 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormError;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderExecuterInterface;
+use Doctrine\ORM\Query\Expr;
+use Doctrine\ORM\QueryBuilder;
 
 class CertificacionFilterType extends AbstractType
 {
@@ -16,7 +18,7 @@ class CertificacionFilterType extends AbstractType
     {
         $builder
             ->add('id', 'hidden')
-            ->add('monto', 'number', array('required'=>false))
+            ->add('monto', 'number', array('required'=>false, 'label'=>'Monto Certificación'))
             ->add('descuentoDias', 'number', array('required'=>false))
             ->add('totalPagar','number', array('required'=>false))
             ->add('certificado', 'choice', array('choices' => array('n' => 'No', '1' => 'Sí'),
@@ -40,8 +42,24 @@ class CertificacionFilterType extends AbstractType
                         ]
                     ), 'required' => false,
                 ))
-        ; 
-        
+        ;
+        $builder
+                ->add('becadobeca', 'filter_collection_adapter', array(
+                    'type' => new \BecasMds\BecaBundle\Form\BecadoBecaCollectionFilterType(),
+                    'add_shared' => function (FilterBuilderExecuterInterface $qbe) {
+                        $closure = function (QueryBuilder $filterBuilder, $alias, $joinAlias, Expr $expr) {
+                                    // add the join clause to the doctrine query builder
+                                    // the where clause for the label and color fields will be added automatically with the right alias later by the Lexik\Filter\QueryBuilderUpdater
+                                    $filterBuilder->leftJoin($alias . '.becadobeca', $joinAlias);
+                                };
+
+                        // then use the query builder executor to define the join and its alias.
+                        $qbe->addOnce($qbe->getAlias() . '.becadobeca', 'bcdbc', $closure);
+                    },
+                    'required' => false,
+                ))
+                
+       ; 
 
         $listener = function(FormEvent $event)
         {

@@ -2,39 +2,14 @@
 
 // PersonaBundle:Form:macro.domicilio.html.twig
 return array (
-  '532a43b' => 
+  6486516 => 
   array (
     0 => 
     array (
-      0 => '@PersonaBundle/Resources/public/js/addForm.js',
-      1 => '@PersonaBundle/Resources/public/js/deleteRow.js',
-      2 => '@PersonaBundle/Resources/public/js/select2.js',
-      3 => '@PersonaBundle/Resources/public/js/select2Localidad.js',
-      4 => '@PersonaBundle/Resources/public/js/agregarFormacion.js',
-      5 => '@PersonaBundle/Resources/public/js/agregarDomicilio.js',
-    ),
-    1 => 
-    array (
-    ),
-    2 => 
-    array (
-      'output' => '_controller/js/532a43b.js',
-      'name' => '532a43b',
-      'debug' => NULL,
-      'combine' => NULL,
-      'vars' => 
-      array (
-      ),
-    ),
-  ),
-  '5deb2d3' => 
-  array (
-    0 => 
-    array (
-      0 => '@PersonaBundle/Resources/public/js/jquery-ui.js',
-      1 => '@PersonaBundle/Resources/public/js/jquery.Jcrop.js',
-      2 => '@PersonaBundle/Resources/public/js/jquery.color.js',
-      3 => '@PersonaBundle/Resources/public/js/jquery.tokeninput.js',
+      0 => '@PersonaBundle/Resources/public/js/jquery-1.9.0.js',
+      1 => '@PersonaBundle/Resources/public/js/select2.js',
+      2 => '@PersonaBundle/Resources/public/js/select2Becado.js',
+      3 => '@FormacionBundle/Resources/public/js/select2Formacion.js',
       4 => '@PersonaBundle/Resources/public/js/agregarDomicilio.js',
       5 => '@PersonaBundle/Resources/public/js/agregarFormacion.js',
       6 => '@PersonaBundle/Resources/public/js/addForm.js',
@@ -45,8 +20,55 @@ return array (
     ),
     2 => 
     array (
-      'output' => '_controller/js/5deb2d3.js',
-      'name' => '5deb2d3',
+      'output' => '_controller/js/6486516.js',
+      'name' => '6486516',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  'e604a14' => 
+  array (
+    0 => 
+    array (
+      0 => '@PersonaBundle/Resources/public/js/jquery-1.9.0.js',
+      1 => '@PersonaBundle/Resources/public/js/select2.js',
+      2 => '@PersonaBundle/Resources/public/js/select2Becado.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/e604a14.js',
+      'name' => 'e604a14',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  'c5b44a2' => 
+  array (
+    0 => 
+    array (
+      0 => '@PersonaBundle/Resources/public/js/agregarDomicilio.js',
+      1 => '@PersonaBundle/Resources/public/js/agregarFormacion.js',
+      2 => '@PersonaBundle/Resources/public/js/addForm.js',
+      3 => '@PersonaBundle/Resources/public/js/deleteRow.js',
+      4 => '@PersonaBundle/Resources/public/js/select2.js',
+      5 => '@PersonaBundle/Resources/public/js/select2Becado.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/c5b44a2.js',
+      'name' => 'c5b44a2',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

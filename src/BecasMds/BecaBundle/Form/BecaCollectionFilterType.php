@@ -30,6 +30,7 @@ class BecaCollectionFilterType extends AbstractType {
                         $qbe->addOnce($qbe->getAlias() . '.tipoBeca', 'opt', $closure);
                     },
                     'required' => false,
+                    'label'=>' ',
                 ))
                 ->add('tipoFuncion', 'filter_collection_adapter', array(
                     'type' => new TipoFuncionCollectionFilterType(),
@@ -44,47 +45,48 @@ class BecaCollectionFilterType extends AbstractType {
                         $qbe->addOnce($qbe->getAlias() . '.tipoFuncion', 'tfn', $closure);
                     },
                     'required' => false,
+                    'label'=>' ',
                 ))
-                ->add('monto', 'number', array('required' => false))
-                ->add('fechaAlta', 'filter_date_range', array(
-                    'left_date_options' => array('widget' => 'single_text',
-                        'format' => 'dd-MM-yyyy',
-                        'attr' => [
-                            'class' => 'form-control input-inline boostrap-datepicker',
-                            'data-provide' => 'datepicker',
-                            'data-date-format' => 'dd-mm-yyyy'
-                        ]
-                    ), 'required' => false,
-                    'right_date_options' => array('widget' => 'single_text',
-                        'format' => 'dd-MM-yyyy',
-                        'attr' => [
-                            'class' => 'form-control input-inline boostrap-datepicker',
-                            'data-provide' => 'datepicker',
-                            'data-date-format' => 'dd-mm-yyyy'
-                        ]
-                    ), 'required' => false,
-                ))
-                ->add('fechaBaja', 'filter_date_range', array(
-                    'left_date_options' => array('widget' => 'single_text',
-                        'format' => 'dd-MM-yyyy',
-                        'attr' => [
-                            'class' => 'form-control input-inline boostrap-datepicker',
-                            'data-provide' => 'datepicker',
-                            'data-date-format' => 'dd-mm-yyyy'
-                        ]
-                    ), 'required' => false,
-                    'right_date_options' => array('widget' => 'single_text',
-                        'format' => 'dd-MM-yyyy',
-                        'attr' => [
-                            'class' => 'form-control input-inline boostrap-datepicker',
-                            'data-provide' => 'datepicker',
-                            'data-date-format' => 'dd-mm-yyyy'
-                        ]
-                    ), 'required' => false,
-                ))
-                ->add('activo', 'choice', array('choices' => array('n' => 'No', '1' => 'Sí'),
-                    'required' => false, 'empty_value' => 'Indiferente', 'empty_data' => null,
-                    'label' => 'Beca Activa'))
+//                ->add('monto', 'number', array('required' => false))
+//                ->add('fechaAlta', 'filter_date_range', array(
+//                    'left_date_options' => array('widget' => 'single_text',
+//                        'format' => 'dd-MM-yyyy',
+//                        'attr' => [
+//                            'class' => 'form-control input-inline boostrap-datepicker',
+//                            'data-provide' => 'datepicker',
+//                            'data-date-format' => 'dd-mm-yyyy'
+//                        ]
+//                    ), 'required' => false,
+//                    'right_date_options' => array('widget' => 'single_text',
+//                        'format' => 'dd-MM-yyyy',
+//                        'attr' => [
+//                            'class' => 'form-control input-inline boostrap-datepicker',
+//                            'data-provide' => 'datepicker',
+//                            'data-date-format' => 'dd-mm-yyyy'
+//                        ]
+//                    ), 'required' => false,
+//                ))
+//                ->add('fechaBaja', 'filter_date_range', array(
+//                    'left_date_options' => array('widget' => 'single_text',
+//                        'format' => 'dd-MM-yyyy',
+//                        'attr' => [
+//                            'class' => 'form-control input-inline boostrap-datepicker',
+//                            'data-provide' => 'datepicker',
+//                            'data-date-format' => 'dd-mm-yyyy'
+//                        ]
+//                    ), 'required' => false,
+//                    'right_date_options' => array('widget' => 'single_text',
+//                        'format' => 'dd-MM-yyyy',
+//                        'attr' => [
+//                            'class' => 'form-control input-inline boostrap-datepicker',
+//                            'data-provide' => 'datepicker',
+//                            'data-date-format' => 'dd-mm-yyyy'
+//                        ]
+//                    ), 'required' => false,
+//                ))
+//                ->add('activo', 'choice', array('choices' => array('n' => 'No', '1' => 'Sí'),
+//                    'required' => false, 'empty_value' => 'Indiferente', 'empty_data' => null,
+//                    'label' => 'Beca Activa'))
         ;
 
     }

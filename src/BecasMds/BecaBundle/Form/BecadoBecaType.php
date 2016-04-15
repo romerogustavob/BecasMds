@@ -14,9 +14,24 @@ class BecadoBecaType extends AbstractType
             ->add('becado', 'entity', array('class'=>'PersonaBundle:Becado',
                 'property'=>'becadoLista'))
             ->add('beca','entity', array('class'=>'BecaBundle:Beca',
-                'property'=>'becaLista'))
-            ->add('fechaAlta','genemu_jquerydate', array('widget' => 'single_text', 'required'=>false))
-            ->add('fechaBaja','genemu_jquerydate', array('widget' => 'single_text', 'required'=>false))
+                'property'=>'becaLista',
+                'attr'=>array('onload'=>'select2($this);')))
+            ->add('fechaAlta','date',array('widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => [
+                            'class' => 'form-control input-inline boostrap-datepicker',
+                            'data-provide' => 'datepicker',
+                            'data-date-format' => 'dd-mm-yyyy'
+                        ] , 'required' => false,
+                    ))
+            ->add('fechaBaja','date',array('widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => [
+                            'class' => 'form-control input-inline boostrap-datepicker',
+                            'data-provide' => 'datepicker',
+                            'data-date-format' => 'dd-mm-yyyy'
+                        ] , 'required' => false,
+                    ))
             ->add('activo')
             ->add('detalles')
         ;

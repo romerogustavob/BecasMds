@@ -115,11 +115,13 @@ class BecadoController extends Controller
      */
     public function createAction(Request $request)
     {
-        
         $entity  = new Becado();
         $formacion=new \BecasMds\FormacionBundle\Entity\Formacion();
+        $domicilio=new \BecasMds\PersonaBundle\Entity\Domicilio();
+        $domicilio->setPersona($entity);
         $formacion->setPersona($entity);
         $entity->addFormacion($formacion);
+        $entity->addDomicilio($domicilio);
         $form = $this->createForm(new BecadoType(), $entity);
         $form->bind($request);
 
@@ -181,8 +183,8 @@ class BecadoController extends Controller
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-
         $entity = $em->getRepository('PersonaBundle:Becado')->find($id);
+        
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Becado entity.');
         }
@@ -209,7 +211,11 @@ class BecadoController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Becado entity.');
         }
-        
+//        $formacion=new \BecasMds\FormacionBundle\Entity\Formacion();
+//        $entity->addFormacion($formacion);
+//        $domicilio=new \BecasMds\PersonaBundle\Entity\Domicilio();
+//        $entity->addDomicilio($domicilio);
+//        
         $originalFormacion=new ArrayCollection();
         
         foreach($entity->getFormacion() as $formacion){
@@ -220,47 +226,34 @@ class BecadoController extends Controller
         
         foreach($entity->getDomicilio() as $domicilio){
             $originalDomicilio->add($domicilio);
-        }
-        
-//        $formacion=new \BecasMds\FormacionBundle\Entity\Formacion();
-//        $formacion->setPersona($entity);
-//        $entity->addFormacion($formacion);
-//        $domicilio=new \BecasMds\PersonaBundle\Entity\Domicilio();
-//        $domicilio->setPersona($entity);
-//        $entity->addDomicilio($domicilio);
-        
+        }        
         
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Becado entity.');
+            throw $this->createNotFoundException('No se encuentra la entidad Becado');
         }
+        
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new BecadoType(), $entity);
         $editForm->bind($request);
-//        $editForm->handleRequest($request);
-        if ($editForm->isValid()) {
-            
-            foreach($originalFormacion as $formacion){
-                if(false===$entity->getFormacion()->contains($formacion)){
-                    $formacion->getPersona()->removeElement($entity);
-                    $em->persist($formacion);
-                }
-            }
-            
-            foreach($originalDomicilio as $domicilio){
-                if(false===$entity->getDomicilio()->contains($domicilio)){
-                    $domicilio->getPersona()->removeElement($entity);
-                    $em->persist($domicilio);
-                }
-            }
+        if(!empty($entity->getBecadoBeca())){
+        if ($editForm->isValid() ) {
             
             $em->persist($entity);
             $em->flush();
             $this->get('session')->getFlashBag()->add('success', 'flash.update.success');
 
             return $this->redirect($this->generateUrl('becado_show', array('id' => $id)));
+            
+        
+            
         } else {
             $this->get('session')->getFlashBag()->add('error', 'flash.update.error');
+        }
+        }
+        else{
+            $this->get('session')->getFlashBag()->add('error', 'Agregue una beca para poder modificar los datos de la Ficha');
+            
         }
 
         return $this->render('PersonaBundle:Becado:edit.html.twig', array(

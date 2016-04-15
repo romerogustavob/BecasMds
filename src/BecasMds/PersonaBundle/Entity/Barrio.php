@@ -159,6 +159,7 @@ class Barrio {
     }
     
     public function getBarrioLista(){
+ 
         return $this->getNombre();
     }
 }

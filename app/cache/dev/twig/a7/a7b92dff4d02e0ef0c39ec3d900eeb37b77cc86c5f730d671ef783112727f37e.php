@@ -259,93 +259,98 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['domicilio'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 156
-        echo "            <h4>Becas Asignadas</h4>
-            ";
-        // line 157
+        echo "            <h4>Becas Activas</h4>
+            <table style=\" border-collapse: collapse;\">
+                <tbody style=\" border: 1px black solid; \">
+                    ";
+        // line 159
         $context["contBeca"] = 0;
-        // line 158
-        echo "            ";
+        // line 160
+        echo "                    ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becadobeca", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["becadobeca"]) {
-            // line 159
-            echo "                ";
+            // line 161
+            echo "                        ";
             if ($this->getAttribute($context["becadobeca"], "activo", array())) {
-                // line 160
-                echo "                    ";
-                $context["contBeca"] = ((isset($context["contBeca"]) ? $context["contBeca"] : null) + 1);
-                // line 161
-                echo "                    <div class=\"control-group\">
-                        <label class=\"control-label\">Beca Nº ";
                 // line 162
-                echo twig_escape_filter($this->env, (isset($context["contBeca"]) ? $context["contBeca"] : null), "html", null, true);
-                echo ":</label>
-                        <div class=\"controls\">                
-                            <span class=\"input-xlarge uneditable-input span7\">                                               
-                                ";
+                echo "                            ";
+                $context["contBeca"] = ((isset($context["contBeca"]) ? $context["contBeca"] : null) + 1);
+                // line 163
+                echo "                            <tr style=\"background: #46a546; color: #ffffff;\" >
+                                <td style=\" border: 1px black solid;\">
+                                    <label class=\"control-label\"><b>Beca Nº ";
                 // line 165
+                echo twig_escape_filter($this->env, (isset($context["contBeca"]) ? $context["contBeca"] : null), "html", null, true);
+                echo ":</b></label>
+                                </td>
+                                <td style=\" border: 1px black solid;\" colspan=\"2\" align=\"center\">
+                                    <b>Acciones</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=\" border: 1px black solid;\">
+                                    <div class=\"control-group\">
+                                        
+                                        <div class=\"controls\">                
+                                            <span class=\"input-xlarge uneditable-input span6\">                                               
+                                                <b>";
+                // line 177
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["becadobeca"], "beca", array()), "tipoBeca", array()), "html", null, true);
                 echo "
-                                Tipo Función:";
-                // line 166
+                                                Tipo Función:";
+                // line 178
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["becadobeca"], "beca", array()), "tipoFuncion", array()), "html", null, true);
                 echo "
-                                Monto:";
-                // line 167
+                                                Monto:";
+                // line 179
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["becadobeca"], "beca", array()), "monto", array()), "html", null, true);
                 echo "
-                            </span>            
-                        </div>
-                    </div> 
-                    <div class=\"control-group\">
-                        <label class=\"control-label\"></label>
-                        <div class=\"controls\">                
-                            <span class=\"input-xlarge\">                                               
+                                                </b>
+                                            </span>            
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style=\" border: 1px black solid;\">
 
-                                <a class=\"btn btn-primary\" href=\"";
-                // line 176
+                                    <a class=\"btn btn-mini btn-info\" href=\"";
+                // line 187
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_edit", array("id" => $this->getAttribute($context["becadobeca"], "id", array()))), "html", null, true);
                 echo "\">
-                                    Editar Beca
-                                </a>
-
-                            </span>            
-                        </div>
-                    </div> 
-                    <div class=\"control-group\">
-                        <label class=\"control-label\"></label>
-                        <div class=\"controls\">                
-                            <span class=\"input-xlarge\">                                               
-
-                                <a class=\"btn btn-primary\" href=\"";
-                // line 188
+                                        <b>Editar Beca</b>
+                                    </a>
+                                </td>
+                                <td style=\" border: 1px black solid;\">
+                                    <a class=\"btn btn-mini btn-primary\" href=\"";
+                // line 192
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("certificacion_new", array("id" => $this->getAttribute($context["becadobeca"], "id", array()))), "html", null, true);
                 echo "\">
-                                    Certificar
-                                </a>
-
-                            </span>            
-                        </div>
-                    </div> 
-                ";
+                                        Certificar
+                                    </a>
+                                </td>
+                            </tr>
+                        ";
             }
-            // line 196
-            echo "            ";
+            // line 198
+            echo "
+                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['becadobeca'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 197
-        echo "            <h4>Movimientos/Afectación/Dependencia</h4>
+        // line 200
+        echo "                </tbody>
+            </table>
+            <h4>Movimientos/Afectación/Dependencia</h4>
             <div class=\"control-group\">
                 <label class=\"control-label\">Mov. Social/Referente</label>
                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">
                         ";
-        // line 201
+        // line 206
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "referente", array()), "movimientoSocial", array()), "html", null, true);
         echo " - Referente: 
                         ";
-        // line 202
+        // line 207
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "referente", array()), "apellidos", array()), "html", null, true);
         echo ", ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "referente", array()), "nombres", array()), "html", null, true);
@@ -354,25 +359,25 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
             <div class=\"control-group\">
                 <label class=\"control-label\">Lugar Afectación</label>
                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-        // line 206
+        // line 211
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "lugarAfectacion", array()), "html", null, true);
         echo "</span>            </div>
             </div>
             <div class=\"control-group\">
                 <label class=\"control-label\">Dependencia</label>
                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-        // line 210
+        // line 215
         echo $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "dependencia", array());
         echo "</span>            </div>
             </div>
 
             <h4>Formación</h4>
             ";
-        // line 214
+        // line 219
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "formacion", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["educacion"]) {
-            // line 215
+            // line 220
             echo "                <table>
                     <tbody>
                         <tr>
@@ -380,7 +385,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                                 <div class=\"control-group\">
                                     <label class=\"control-label\">Institución</label>
                                     <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span10\">";
-            // line 221
+            // line 226
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "institucion", array()), "html", null, true);
             echo "</span>            </div>
                                 </div>
@@ -391,7 +396,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                                 <div class=\"control-group\">
                                     <label class=\"control-label\">Nivel Educativo</label>
                                     <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 229
+            // line 234
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "nivelEducativo", array()), "html", null, true);
             echo "</span>            </div>
                                 </div>
@@ -400,7 +405,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                                 <div class=\"control-group\">
                                     <label class=\"control-label\">Profesión</label>
                                     <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 235
+            // line 240
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "profesion", array()), "html", null, true);
             echo "</span>            </div>
                                 </div>
@@ -411,7 +416,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                                 <div class=\"control-group\">
                                     <label class=\"control-label\">Perfil</label>
                                     <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 243
+            // line 248
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "perfil", array()), "html", null, true);
             echo "</span>            </div>
                                 </div>
@@ -420,7 +425,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                                 <div class=\"control-group\">
                                     <label class=\"control-label\">Oficio</label>
                                     <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span5\">";
-            // line 249
+            // line 254
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "oficio", array()), "html", null, true);
             echo "</span>            </div>
                                 </div>
@@ -431,7 +436,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                                 <div class=\"control-group\">
                                     <label class=\"control-label\">Descripción</label>
                                     <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span10\">";
-            // line 257
+            // line 262
             echo twig_escape_filter($this->env, $this->getAttribute($context["educacion"], "descripcion", array()), "html", null, true);
             echo "</span>            </div>
                                 </div>
@@ -445,7 +450,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['educacion'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 265
+        // line 270
         echo "            <h4>Otros Datos</h4>
             <table>
                 <tbody>
@@ -454,7 +459,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
                                 <label class=\"control-label\">Presenta certificacion</label>
                                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span2\">";
-        // line 272
+        // line 277
         if ($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "presentaCertificacion", array())) {
             echo "Sí";
         } else {
@@ -466,7 +471,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                             <div class=\"control-group\">
                                 <label class=\"control-label\">Fecha Alta</label>
                                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span2\">";
-        // line 277
+        // line 282
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "fechaAlta", array()), "Y-m-d H:i:s"), "html", null, true);
         echo "</span>            </div>
                             </div> 
@@ -475,7 +480,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                             <div class=\"control-group\">
                                 <label class=\"control-label\">Fecha Baja</label>
                                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span2\">";
-        // line 283
+        // line 288
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "fechaBaja", array()), "Y-m-d H:i:s"), "html", null, true);
         echo "</span>            </div>
                             </div>
@@ -484,7 +489,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                             <div class=\"control-group\">
                                 <label class=\"control-label\">Activo</label>
                                 <div class=\"controls\">                <span class=\"input-xlarge uneditable-input span2\">";
-        // line 289
+        // line 294
         if ($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "activo", array())) {
             echo "Sí";
         } else {
@@ -502,11 +507,11 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
     <div>
         <div class=\"float-left\">
             <a class=\"btn\" href=\"";
-        // line 300
+        // line 305
         echo $this->env->getExtension('routing')->getPath("becado");
         echo "\">
                 ";
-        // line 301
+        // line 306
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
             </a>
@@ -514,11 +519,11 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
         <div class=\"float-left\">
             <a class=\"btn btn-primary\" href=\"";
-        // line 306
+        // line 311
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\">
                 ";
-        // line 307
+        // line 312
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.edit", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
             </a>
@@ -526,16 +531,16 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
         <div class=\"float-left\">
             <form action=\"";
-        // line 312
+        // line 317
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\">
                 <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
                 ";
-        // line 314
+        // line 319
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : null), 'widget');
         echo "
                 <button class=\"btn btn-danger\" type=\"submit\" onclick=\"return confirm('";
-        // line 315
+        // line 320
         echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.confirm", array(), "JordiLlonchCrudGeneratorBundle"), "js"), "html", null, true);
         echo "');\">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.delete", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
@@ -547,7 +552,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
         <button type=\"button\" class=\"float-left btn btn-info btn-lg\" data-toggle=\"modal\" data-target=\"#myModal\">Añadir Beca</button>
 
         <!-- Modal -->
-        <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">
+        <div id=\"myModal\" class=\"modal fade\" role=\"dialog\" style=\"display: none\">
             <div class=\"modal-dialog\">
 
                 <!-- Modal content-->
@@ -558,7 +563,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
                     </div>
                     <div class=\"modal-body\">
                         ";
-        // line 333
+        // line 338
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("BecaBundle:BecadoBeca:new", array("id" => (isset($context["entity"]) ? $context["entity"] : null))));
         echo "
                     </div>
@@ -569,10 +574,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
             </div>
         </div>
-
-        ";
-        // line 364
-        echo "    </div>
+    </div>
 
 ";
     }
@@ -589,7 +591,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 
     public function getDebugInfo()
     {
-        return array (  575 => 364,  562 => 333,  539 => 315,  535 => 314,  530 => 312,  522 => 307,  518 => 306,  510 => 301,  506 => 300,  488 => 289,  479 => 283,  470 => 277,  458 => 272,  449 => 265,  435 => 257,  424 => 249,  415 => 243,  404 => 235,  395 => 229,  384 => 221,  376 => 215,  372 => 214,  365 => 210,  358 => 206,  349 => 202,  345 => 201,  339 => 197,  333 => 196,  322 => 188,  307 => 176,  295 => 167,  291 => 166,  287 => 165,  281 => 162,  278 => 161,  275 => 160,  272 => 159,  267 => 158,  265 => 157,  262 => 156,  247 => 147,  236 => 139,  227 => 133,  218 => 127,  210 => 122,  200 => 115,  191 => 109,  182 => 103,  173 => 97,  161 => 88,  151 => 81,  142 => 75,  134 => 70,  122 => 61,  118 => 59,  114 => 58,  99 => 46,  88 => 38,  79 => 32,  71 => 27,  64 => 23,  54 => 16,  44 => 8,  41 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  567 => 338,  544 => 320,  540 => 319,  535 => 317,  527 => 312,  523 => 311,  515 => 306,  511 => 305,  493 => 294,  484 => 288,  475 => 282,  463 => 277,  454 => 270,  440 => 262,  429 => 254,  420 => 248,  409 => 240,  400 => 234,  389 => 226,  381 => 220,  377 => 219,  370 => 215,  363 => 211,  354 => 207,  350 => 206,  342 => 200,  335 => 198,  326 => 192,  318 => 187,  307 => 179,  303 => 178,  299 => 177,  284 => 165,  280 => 163,  277 => 162,  274 => 161,  269 => 160,  267 => 159,  262 => 156,  247 => 147,  236 => 139,  227 => 133,  218 => 127,  210 => 122,  200 => 115,  191 => 109,  182 => 103,  173 => 97,  161 => 88,  151 => 81,  142 => 75,  134 => 70,  122 => 61,  118 => 59,  114 => 58,  99 => 46,  88 => 38,  79 => 32,  71 => 27,  64 => 23,  54 => 16,  44 => 8,  41 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -747,47 +749,52 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 /*                 </table>*/
 /* */
 /*             {% endfor %}*/
-/*             <h4>Becas Asignadas</h4>*/
-/*             {% set contBeca=0 %}*/
-/*             {% for becadobeca in entity.becadobeca %}*/
-/*                 {% if becadobeca.activo %}*/
-/*                     {% set contBeca=contBeca+1 %}*/
-/*                     <div class="control-group">*/
-/*                         <label class="control-label">Beca Nº {{ contBeca }}:</label>*/
-/*                         <div class="controls">                */
-/*                             <span class="input-xlarge uneditable-input span7">                                               */
-/*                                 {{ becadobeca.beca.tipoBeca }}*/
-/*                                 Tipo Función:{{ becadobeca.beca.tipoFuncion }}*/
-/*                                 Monto:{{ becadobeca.beca.monto }}*/
-/*                             </span>            */
-/*                         </div>*/
-/*                     </div> */
-/*                     <div class="control-group">*/
-/*                         <label class="control-label"></label>*/
-/*                         <div class="controls">                */
-/*                             <span class="input-xlarge">                                               */
+/*             <h4>Becas Activas</h4>*/
+/*             <table style=" border-collapse: collapse;">*/
+/*                 <tbody style=" border: 1px black solid; ">*/
+/*                     {% set contBeca=0 %}*/
+/*                     {% for becadobeca in entity.becadobeca %}*/
+/*                         {% if becadobeca.activo %}*/
+/*                             {% set contBeca=contBeca+1 %}*/
+/*                             <tr style="background: #46a546; color: #ffffff;" >*/
+/*                                 <td style=" border: 1px black solid;">*/
+/*                                     <label class="control-label"><b>Beca Nº {{ contBeca }}:</b></label>*/
+/*                                 </td>*/
+/*                                 <td style=" border: 1px black solid;" colspan="2" align="center">*/
+/*                                     <b>Acciones</b>*/
+/*                                 </td>*/
+/*                             </tr>*/
+/*                             <tr>*/
+/*                                 <td style=" border: 1px black solid;">*/
+/*                                     <div class="control-group">*/
+/*                                         */
+/*                                         <div class="controls">                */
+/*                                             <span class="input-xlarge uneditable-input span6">                                               */
+/*                                                 <b>{{ becadobeca.beca.tipoBeca }}*/
+/*                                                 Tipo Función:{{ becadobeca.beca.tipoFuncion }}*/
+/*                                                 Monto:{{ becadobeca.beca.monto }}*/
+/*                                                 </b>*/
+/*                                             </span>            */
+/*                                         </div>*/
+/*                                     </div>*/
+/*                                 </td>*/
+/*                                 <td style=" border: 1px black solid;">*/
 /* */
-/*                                 <a class="btn btn-primary" href="{{ path('becadobeca_edit', { 'id': becadobeca.id }) }}">*/
-/*                                     Editar Beca*/
-/*                                 </a>*/
+/*                                     <a class="btn btn-mini btn-info" href="{{ path('becadobeca_edit', { 'id': becadobeca.id }) }}">*/
+/*                                         <b>Editar Beca</b>*/
+/*                                     </a>*/
+/*                                 </td>*/
+/*                                 <td style=" border: 1px black solid;">*/
+/*                                     <a class="btn btn-mini btn-primary" href="{{ path('certificacion_new', { 'id': becadobeca.id }) }}">*/
+/*                                         Certificar*/
+/*                                     </a>*/
+/*                                 </td>*/
+/*                             </tr>*/
+/*                         {% endif %}*/
 /* */
-/*                             </span>            */
-/*                         </div>*/
-/*                     </div> */
-/*                     <div class="control-group">*/
-/*                         <label class="control-label"></label>*/
-/*                         <div class="controls">                */
-/*                             <span class="input-xlarge">                                               */
-/* */
-/*                                 <a class="btn btn-primary" href="{{ path('certificacion_new', { 'id': becadobeca.id }) }}">*/
-/*                                     Certificar*/
-/*                                 </a>*/
-/* */
-/*                             </span>            */
-/*                         </div>*/
-/*                     </div> */
-/*                 {% endif %}*/
-/*             {% endfor %}*/
+/*                     {% endfor %}*/
+/*                 </tbody>*/
+/*             </table>*/
 /*             <h4>Movimientos/Afectación/Dependencia</h4>*/
 /*             <div class="control-group">*/
 /*                 <label class="control-label">Mov. Social/Referente</label>*/
@@ -914,7 +921,7 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 /*         <button type="button" class="float-left btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Añadir Beca</button>*/
 /* */
 /*         <!-- Modal -->*/
-/*         <div id="myModal" class="modal fade" role="dialog">*/
+/*         <div id="myModal" class="modal fade" role="dialog" style="display: none">*/
 /*             <div class="modal-dialog">*/
 /* */
 /*                 <!-- Modal content-->*/
@@ -933,28 +940,6 @@ class __TwigTemplate_2c9662aa1db4a708ead0fee44cd2cb1b28bc93f30e099e74e3c78d04210
 /* */
 /*             </div>*/
 /*         </div>*/
-/* */
-/*         {#<!-- Modal -->*/
-/*         <div id="editBecaModal" class="modal fade" role="dialog">*/
-/*             <div class="modal-dialog">*/
-/* */
-/*                 <!-- Modal content-->*/
-/*                 <div class="modal-content">*/
-/*                     <div class="modal-header">*/
-/*                         <button type="button" class="close" data-dismiss="modal">&times;</button>*/
-/*                         <h4 class="modal-title">Añadir Beca</h4>*/
-/*                     </div>*/
-/*                     <div class="modal-body">*/
-/*                         {{ render( controller('BecaBundle:BecadoBeca:edit', {'id': entity.becacadobeca.id })) }}*/
-/*                     </div>*/
-/*                     <div class="modal-footer">*/
-/*                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*/
-/*                     </div>*/
-/*                 </div>*/
-/* */
-/*             </div>*/
-/*         </div>*/
-/* #}*/
 /*     </div>*/
 /* */
 /* {% endblock %}*/

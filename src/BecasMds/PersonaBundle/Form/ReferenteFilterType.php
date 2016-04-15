@@ -9,19 +9,19 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormError;
 
-class ReferenteFilterType extends AbstractType
+class ReferenteFilterType extends AbstractType implements \Lexik\Bundle\FormFilterBundle\Filter\Form\Type\EmbeddedFilterTypeInterface
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id', 'hidden')
+            ->add('id', 'hidden', array('required'=>false))
             ->add('dni', 'text', array('required'=>false))
             ->add('apellidos', 'text', array('required'=>false))
             ->add('nombres', 'text', array('required'=>false))
             ->add('telefono', 'text', array('required'=>false))
             ->add('email', 'text', array('required'=>false))
-            ->add('movimientoSocial', 'entity', array('class'=>'PersonaBundle:MovimientoSocial', 
-                'empty_value'=>'Seleccione Movimiento', 'empty_data'=>null, 'required'=>false))
+//            ->add('movimientoSocial', 'entity', array('class'=>'PersonaBundle:MovimientoSocial', 
+//                'empty_value'=>'Seleccione Movimiento', 'empty_data'=>null, 'required'=>false))
         ;
 
         $listener = function(FormEvent $event)

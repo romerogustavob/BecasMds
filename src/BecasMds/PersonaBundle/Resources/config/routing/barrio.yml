@@ -28,3 +28,4 @@ barrio_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "PersonaBundle:Barrio:delete" }
     requirements: { _method: post|delete }
+    
