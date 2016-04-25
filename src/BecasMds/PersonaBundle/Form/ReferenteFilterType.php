@@ -47,4 +47,11 @@ class ReferenteFilterType extends AbstractType implements \Lexik\Bundle\FormFilt
     {
         return 'becasmds_personabundle_referentefiltertype';
     }
+    
+    public function configureOptions(OptionsResolver $resolver) {
+        $resolver->setDefaults(array(
+            'csrf_protection' => false,
+            'validation_groups' => array('filtering') // avoid NotBlank() constraint-related message
+        ));
+    }
 }

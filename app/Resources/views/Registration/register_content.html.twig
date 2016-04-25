@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="well">
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    <div class="form-control">
+        <fieldset>
+            <div>
+                {{ form_label(form.dni) }}
+                {{ form_widget(form.dni) }}
+            </div>
+            <div>
+                {{ form_label(form.apellidos) }}
+                {{ form_widget(form.apellidos) }}
+            </div>
+            <div>
+                {{ form_label(form.nombres) }}
+                {{ form_widget(form.nombres) }}
+            </div>
+            <div>
+                {{ form_label(form.username) }}
+                {{ form_widget(form.username) }}
+            </div>
+            <div>
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+            <div>
+
+                {{ form_row(form.roles) }}
+            </div>
+            <div style="display:none">
+                {{ form_row(form.plainPassword) }}
+            </div> 
+            <div>
+                {{ form_row(form.created_at) }}
+            </div>
+            <div>
+                {{ form_row(form.updated_at) }}
+            </div>
+            <div>
+                {{ form_label(form.enabled, 'Habilitado') }}
+                {{ form_widget(form.enabled) }}
+            </div>
+        </fieldset>
+        <div style="padding-top: 10px; margin-top: 10px;">
+            <input class="btn btn-success" type="submit" value="{{ 'registration.submit'|trans }}" />
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+<div class="float-left">
+    <a class="btn btn-primary" href="{{ path('user') }}">
+        {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+    </a>
+</div>
+

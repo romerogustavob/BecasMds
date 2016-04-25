@@ -1,0 +1,52 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+    <div class="control-group">
+        <label class="control-label">DNI</label>
+        <div class="controls">                
+            <span class="input-xlarge uneditable-input">{{ user.dni }}</span> 
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Apellidos</label>
+        <div class="controls">                
+            <span class="input-xlarge uneditable-input">{{ user.apellidos }}</span> 
+        </div>
+    </div> 
+    <div class="control-group">
+        <label class="control-label">Nombres</label>
+        <div class="controls">                
+            <span class="input-xlarge uneditable-input">{{ user.nombres }}</span> 
+        </div>
+    </div> 
+    <div class="control-group">
+        <label class="control-label">Nombre Usuario</label>
+        <div class="controls">                
+            <span class="input-xlarge uneditable-input">{{ user.username }}</span> 
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Email</label>
+        <div class="controls">                
+            <span class="input-xlarge uneditable-input">{{ user.email }}</span> 
+        </div>
+    </div> 
+    <div class="control-group">
+        <label class="control-label">Roles</label>
+        <div class="controls">                
+            <span class="input-xlarge uneditable-input">
+                {% for roles in app.user.roles %}
+                    {{ roles }}
+                {% endfor %}
+                </span> 
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-warning" href="{{ path('fos_user_change_password') }}">
+            <i class="icon-edit"></i>Cambiar Password
+        </a>
+    </div>
+    {#<p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>#}
+
+</div>

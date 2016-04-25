@@ -76,7 +76,7 @@ class BecadoFilterType extends AbstractType {
 
                 // then use the query builder executor to define the join and its alias.
                 $qbe->addOnce($qbe->getAlias().'.referente', 'ref', $closure);
-            },
+            },'attr'=>array('label'=>'',), 'required'=>false,
         ));
 
 

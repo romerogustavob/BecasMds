@@ -1,0 +1,14 @@
+{% block stylesheets %}    
+    <link href="{{ asset('bundles/jordillonchcrudgenerator/css/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('bundles/usuario/css/loginUser.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('bundles/persona/css/boostrap-datepicker.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block menu %}
+    {% include 'menulogin.html.twig' %}
+{% endblock %}
+
+{% block content %}   
+    {% block fos_user_content %}
+
+    {% endblock fos_user_content %} 
+{% endblock content %}

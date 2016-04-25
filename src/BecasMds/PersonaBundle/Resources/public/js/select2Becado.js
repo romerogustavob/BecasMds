@@ -15,4 +15,7 @@ $('.select2-referente').select2({
     placeholder: "Buscar Referente",
     allowClear: true
 });
+jQuery('.inputUpper').keyup(function(){
+    this.value = this.value.toUpperCase();
+});
 });

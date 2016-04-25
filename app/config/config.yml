@@ -37,7 +37,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles: [ PersonaBundle, CertificacionBundle, BecaBundle, FormacionBundle ]
+    bundles: [ PersonaBundle, CertificacionBundle, BecaBundle, FormacionBundle, UsuarioBundle ]
     filters:
         cssrewrite: ~
         #closure:
@@ -64,8 +64,7 @@ doctrine:
         # path:     %database_path%
 
     orm:
-        auto_generate_proxy_classes: false
-#        %kernel.debug%
+        auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
 # Swiftmailer Configuration
@@ -132,3 +131,13 @@ shtumi_useful :
             role: IS_AUTHENTICATED_ANONYMOUSLY
             property: nombre
             search: contains
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: BecasMds\UsuarioBundle\Entity\User
+    registration:
+        form:
+            type: usuario_user_registration
+    profile:
+        form:
+            type: usuario_user_profile

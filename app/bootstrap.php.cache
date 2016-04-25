@@ -927,14 +927,18 @@ return isset(static::$formats[$format]) ? static::$formats[$format][0] : null;
 }
 public function getFormat($mimeType)
 {
+$canonicalMimeType = null;
 if (false !== $pos = strpos($mimeType,';')) {
-$mimeType = substr($mimeType, 0, $pos);
+$canonicalMimeType = substr($mimeType, 0, $pos);
 }
 if (null === static::$formats) {
 static::initializeFormats();
 }
 foreach (static::$formats as $format => $mimeTypes) {
 if (in_array($mimeType, (array) $mimeTypes)) {
+return $format;
+}
+if (null !== $canonicalMimeType && in_array($canonicalMimeType, (array) $mimeTypes)) {
 return $format;
 }
 }
@@ -2715,8 +2719,9 @@ return true;
 }
 public function findFile($class)
 {
-if (false === $file = apcu_fetch($this->prefix.$class)) {
-apcu_store($this->prefix.$class, $file = $this->decorated->findFile($class));
+$file = apcu_fetch($this->prefix.$class, $success);
+if (!$success) {
+apcu_store($this->prefix.$class, $file = $this->decorated->findFile($class) ?: null);
 }
 return $file;
 }

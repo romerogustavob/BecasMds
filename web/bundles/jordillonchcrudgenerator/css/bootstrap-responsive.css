@@ -120,7 +120,6 @@
   .navbar-fixed-bottom .container {
     width: 1170px;
   }
-  
   .span12 {
     width: 1170px;
   }
@@ -811,7 +810,7 @@
     margin-left: 0;
   }
   .container {
-    width: 120%;
+    width: auto;
   }
   .row-fluid {
     width: 100%;

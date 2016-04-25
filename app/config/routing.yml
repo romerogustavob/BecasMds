@@ -1,3 +1,7 @@
+usuario:
+    resource: "@UsuarioBundle/Resources/config/routing.yml"
+    prefix:   /
+
 certificacion:
     resource: "@CertificacionBundle/Resources/config/routing.yml"
     prefix:   /
@@ -19,3 +23,10 @@ fos_js_routing:
     
 shtumi_useful:
     resource: '@ShtumiUsefulBundle/Resources/config/routing.xml'
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+inicio:
+    pattern: /
+    defaults: { _controller: UsuarioBundle:Default:index }

@@ -78,6 +78,24 @@ $catalogue = new MessageCatalogue('es', array (
     'This form should not contain extra fields.' => 'Este formulario no debería contener campos adicionales.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'El archivo subido es demasiado grande. Por favor, suba un archivo más pequeño.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'El token CSRF no es válido. Por favor, pruebe a enviar nuevamente el formulario.',
+    'fos_user.username.already_used' => 'El nombre de usuario ya está en uso',
+    'fos_user.username.blank' => 'Por favor, ingrese un nombre de usuario',
+    'fos_user.username.short' => '[-Inf,Inf]El nombre de usuario es demasiado corto',
+    'fos_user.username.long' => '[-Inf,Inf]El nombre de usuario es demasiado largo',
+    'fos_user.email.already_used' => 'La dirección de correo ya está en uso',
+    'fos_user.email.blank' => 'Por favor, ingrese una dirección de correo',
+    'fos_user.email.short' => '[-Inf,Inf]La dirección de correo es demasiado corta',
+    'fos_user.email.long' => '[-Inf,Inf]La dirección de correo es demasiado larga',
+    'fos_user.email.invalid' => 'La dirección de correo no es válida',
+    'fos_user.password.blank' => 'Por favor, ingrese una contraseña',
+    'fos_user.password.short' => '[-Inf,Inf]La contraseña es demasiado corta',
+    'fos_user.password.mismatch' => 'Las dos contraseñas no coinciden',
+    'fos_user.new_password.blank' => 'Por favor, ingrese una nueva contraseña',
+    'fos_user.new_password.short' => '[-Inf,Inf]La nueva contraseña es demasiado corta',
+    'fos_user.current_password.invalid' => 'La contraseña ingresada no es válida',
+    'fos_user.group.blank' => 'Por favor, ingrese un nombre',
+    'fos_user.group.short' => '[-Inf,Inf]El nombre es demasiado corto',
+    'fos_user.group.long' => '[-Inf,Inf]El nombre es demasiado largo',
   ),
   'security' => 
   array (
@@ -141,6 +159,65 @@ $catalogue = new MessageCatalogue('es', array (
     'flash.update.error' => 'Se ha producido un error durante la actualización del elemento.',
     'flash.delete.success' => 'Elemento eliminado satisfactoriamente.',
     'flash.delete.error' => 'Se ha producido un error durante la eliminación del elemento.',
+  ),
+  'FOSUserBundle' => 
+  array (
+    'group.edit.submit' => 'Actualizar grupo',
+    'group.show.name' => 'Nombre de grupo',
+    'group.new.submit' => 'Crear grupo',
+    'group.flash.updated' => 'El grupo ha sido actualizado',
+    'group.flash.created' => 'El grupo ha sido creado',
+    'group.flash.deleted' => 'El grupo ha sido borrado',
+    'security.login.username' => 'Nombre de usuario',
+    'security.login.password' => 'Contraseña',
+    'security.login.remember_me' => 'Recordar',
+    'security.login.submit' => 'Entrar',
+    'profile.show.username' => 'Nombre de usuario',
+    'profile.show.email' => 'Email',
+    'profile.edit.submit' => 'Actualizar usuario',
+    'profile.flash.updated' => 'El perfil ha sido actualizado',
+    'change_password.submit' => 'Cambiar contraseña',
+    'change_password.flash.success' => 'La contraseña se ha cambiado con éxito',
+    'registration.check_email' => 'Se ha enviado un email a %email%. Contiene un enlace de activación que debes presionar para activar tu cuenta.',
+    'registration.confirmed' => 'Felicidades %username%, tu cuenta está ahora confirmada.',
+    'registration.back' => 'Volver a la página original.',
+    'registration.submit' => 'Registrar',
+    'registration.flash.user_created' => 'El usuario se ha creado satisfactoriamente',
+    'registration.email.subject' => 'Bienvenido %username%!',
+    'registration.email.message' => 'Hola %username%!
+
+Para completar la validación de tu cuenta - por favor visita %confirmationUrl%
+
+Atentamente,
+el Equipo.
+',
+    'resetting.password_already_requested' => 'La contraseña para este usuario ya ha sido solicitada dentro de las 24 horas.',
+    'resetting.check_email' => 'Un email ha sido enviado a %email%. Contiene un enlace de activación que debes presionar para restablecer tu contraseña.',
+    'resetting.request.invalid_username' => 'El usuario o dirección de correo "%username%" no existe.',
+    'resetting.request.username' => 'Nombre de usuario',
+    'resetting.request.submit' => 'Restablecer contraseña',
+    'resetting.reset.submit' => 'Cambiar contraseña',
+    'resetting.flash.success' => 'La contraseña se ha cambiado con éxito',
+    'resetting.email.subject' => 'Restablecer Contraseña',
+    'resetting.email.message' => 'Hola %username%!
+
+Para restablecer tu contraseña - por favor visita %confirmationUrl%
+
+Atentamente,
+el Equipo.
+',
+    'layout.logout' => 'Salir',
+    'layout.login' => 'Entrar',
+    'layout.register' => 'Registrar',
+    'layout.logged_in_as' => 'Identificado como %username%',
+    'form.group_name' => 'Nombre de grupo',
+    'form.username' => 'Nombre de usuario',
+    'form.email' => 'Email',
+    'form.current_password' => 'Contraseña actual',
+    'form.password' => 'Contraseña',
+    'form.password_confirmation' => 'Repita la contraseña',
+    'form.new_password' => 'Nueva contraseña',
+    'form.new_password_confirmation' => 'Repita la contraseña',
   ),
 ));
 

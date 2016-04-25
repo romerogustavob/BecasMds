@@ -3,11 +3,10 @@
 {% import "PersonaBundle:Form:macro.domicilio.html.twig" as macrosDomicilio %}
 {% block title %}
     {{ parent() }} - {{ 'views.new.creation'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}
-
 {% endblock %}
 
 {% block page %}
-     {% block stylesheets %}
+    {% block stylesheets %}
         {{ parent() }}
         <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
@@ -15,7 +14,6 @@
         <link href="{{ asset('bundles/persona/css/token-input-facebook.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/persona/css/token-input.css') }}" rel="stylesheet" />
         {{ form_stylesheet(form) }}
-
     {% endblock %}
 
     {% block javascript %}
@@ -26,15 +24,15 @@
             '@PersonaBundle/Resources/public/js/deleteRow.js'
             '@PersonaBundle/Resources/public/js/select2.js'
             '@PersonaBundle/Resources/public/js/select2Becado.js'
-    
         %}
         {{ form_javascript(form) }}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-        
+        <script type="text/javascript" src="{{ asset_url }}"></script>        
         {% endjavascripts %}
     {% endblock %}
 
-    <h2 style="color: #0044cc">Nuevo Becado{#{{ 'views.new.creation'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}#}</h2>
+    <h2 style="color: #0044cc">
+        Nuevo Becado{#{{ 'views.new.creation'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}#}
+    </h2>
 
     <form class="well" action="{{ path('becado_create') }}" method="post" {{ form_enctype(form) }}>
         {# Aplicando theming al formulario alumno #}
@@ -42,10 +40,9 @@
         {{ form(form) }}#}
         {#{{ form_widget(form) }}#}
         {{ form_start(form) }}
-
         <table>
             <tbody>
-                <fieldset style="border:1px solid; background-color: #3a8104; color: #000;"><h4>Datos Personales</h4>
+            <fieldset style="border:1px solid; background-color: #3a8104; color: #000;"><h4>Datos Personales</h4>
                 <tr>            
                     <td>{{ form_row(form.dni) }}</td>
                     <td>{{ form_row(form.apellidos) }}</td>
@@ -60,17 +57,17 @@
                         {{ form_row(form.email) }}
                     </td>
                 </tr>
-                </fieldset>
+            </fieldset>
             </tbody>
         </table>
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <fieldset style="border:1px solid; background-color: #9fda58 ">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse" style="color: #000">
-                            Domicilio</a>
-                    </h4>
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse" style="color: #000">
+                                Domicilio</a>
+                        </h4>
                     </fieldset>
                 </div>
                 <div id="domicilioCollapse" class="panel-collapse collapse in">
@@ -80,48 +77,41 @@
                             {% for domi in form.domicilio %}
                                 {{ macrosDomicilio.domicilio(domi) }}
                             {% endfor %}
-
                         </div>
-
                         <a href='#' class='btn add-domicilio-form'>
                             <i class='icon-pencil'></i> Agregar Domicilio 
                         </a>
-
                     </div> 
                 </div>
             </div>
         </div>
-
-
         {#{{ form_row(form.becadobeca) }}#} 
         <fieldset style="border:1px solid; background-color: #3a8104; color: #000;">
-        <h4>Movimiento/Afectación/Dependencia</h4>
+            <h4>Movimiento/Afectación/Dependencia</h4>
         </fieldset>
-        {{ form_row(form.referente) }} {{ form_row(form.lugarAfectacion) }}
-        {{ form_row(form.dependencia) }} 
-
+        {{ form_row(form.referente) }}
+        {{ form_row(form.lugarAfectacion) }}
+        {{ form_row(form.dependencia) }}
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <fieldset style="border:1px solid; background-color: #9fda58; color: #000;">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse" style="color: #000">
-                            Formación</a>
-                    </h4>
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse" style="color: #000">
+                                Formación
+                            </a>
+                        </h4>
                     </fieldset>
                 </div>
                 <div id="formacionCollapse" class="panel-collapse collapse in">
                     <div class="panel-body">
-
                         <div class="row-fluid">
-
                             {{ form_errors(form.formacion) }}
                             <div data-prototype="{{ macrosFormacion.formacion(form.formacion.vars.prototype)|e }}" class="row-fluid formacion">
                                 {% for formac in form.formacion %}
                                     {{ macrosFormacion.formacion(formac) }}
                                 {% endfor %}
                             </div>
-
                         </div> 
                         <a href='#' class='btn add-formacion-form'>
                             <i class='icon-pencil'></i> Agregar Formación
@@ -141,18 +131,15 @@
         <div style="display: none">
             {{ form_widget(form.domicilio) }}
         </div>
-        <div style="padding-top: 15px;"><span class="divider-vertical">
-
-                <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
-            </span></div>   
-
-
-
+        <div style="padding-top: 15px;">
+            <span class="divider-vertical">
+                <button type="submit" class="btn btn-success">
+                    {{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                </button>
+            </span>
+        </div>
         {{ form_end(form) }}
-
-
     </form>
-
     <div>
         <div class="float-left">
             <a class="btn" href="{{ path('becado') }}">
@@ -160,8 +147,4 @@
             </a>
         </div>
     </div>
-
-   
-    
-
 {% endblock %}

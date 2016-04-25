@@ -13,8 +13,10 @@ class BecadoType extends AbstractType
         $builder
             ->add('id', 'hidden')
             ->add('dni')
-            ->add('apellidos')
-            ->add('nombres')
+            ->add('apellidos','text', array('attr'=>array('class'=>'inputUpper'), 
+                'required'=>false))
+            ->add('nombres', 'text', array('attr'=>array('class'=>'inputUpper'), 
+                'required'=>false))
             ->add('telefono','text', array('required'=>false))
             ->add('email', 'text', array('required'=>false))                
             ->add('referente', 'entity', array('class'=>'PersonaBundle:Referente', 

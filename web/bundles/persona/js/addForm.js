@@ -20,7 +20,7 @@ function addFormulario(collectionHolder, target, regName) {
     
     /*Reemplaza el valor '__name__' en el HTML del prototype por el número
     según la cantidad de items que tengamos*/
-    if (regName == null) {
+    if (regName === null) {
         regName = /__name__/g;
     }
     var newForm = prototype.replace(regName, index);
