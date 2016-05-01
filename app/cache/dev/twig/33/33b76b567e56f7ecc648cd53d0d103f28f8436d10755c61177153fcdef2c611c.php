@@ -121,17 +121,25 @@ class __TwigTemplate_3363fb4dd00bc72572f2c25c52ae1342cc8ea101ca15802abcf30e0e838
         </a>
     </div>
     <div class=\"float-left\">
-        <form action=\"";
+        <a class=\"btn btn-warning\" href=\"";
         // line 53
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_resetPassword", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
+        echo "\">
+            Resetear Contraseña
+        </a>
+    </div>
+    <div class=\"float-left\">
+        <form action=\"";
+        // line 58
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\">
             <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
             ";
-        // line 55
+        // line 60
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : null), 'widget');
         echo "
             <button class=\"btn btn-danger\" type=\"submit\" onclick=\"return confirm('";
-        // line 56
+        // line 61
         echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.confirm", array(), "JordiLlonchCrudGeneratorBundle"), "js"), "html", null, true);
         echo "');\">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.delete", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
@@ -154,7 +162,7 @@ class __TwigTemplate_3363fb4dd00bc72572f2c25c52ae1342cc8ea101ca15802abcf30e0e838
 
     public function getDebugInfo()
     {
-        return array (  135 => 56,  131 => 55,  126 => 53,  119 => 49,  115 => 48,  108 => 44,  104 => 43,  95 => 37,  89 => 34,  82 => 30,  75 => 26,  69 => 23,  63 => 20,  57 => 17,  51 => 14,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  143 => 61,  139 => 60,  134 => 58,  126 => 53,  119 => 49,  115 => 48,  108 => 44,  104 => 43,  95 => 37,  89 => 34,  82 => 30,  75 => 26,  69 => 23,  63 => 20,  57 => 17,  51 => 14,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -206,6 +214,11 @@ class __TwigTemplate_3363fb4dd00bc72572f2c25c52ae1342cc8ea101ca15802abcf30e0e838
 /*     <div class="float-left">*/
 /*         <a class="btn btn-primary" href="{{ path('user_edit', { 'id': entity.id }) }}">*/
 /*             {{ 'views.recordactions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}*/
+/*         </a>*/
+/*     </div>*/
+/*     <div class="float-left">*/
+/*         <a class="btn btn-warning" href="{{ path('user_resetPassword', { 'id': entity.id }) }}">*/
+/*             Resetear Contraseña*/
 /*         </a>*/
 /*     </div>*/
 /*     <div class="float-left">*/

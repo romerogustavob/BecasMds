@@ -28,3 +28,7 @@ user_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "UsuarioBundle:User:delete" }
     requirements: { _method: post|delete }
+
+user_resetPassword:
+   pattern: /{id}/reset
+   defaults: { _controller: "UsuarioBundle:User:resetPassword" }

@@ -50,7 +50,17 @@ class __TwigTemplate_b585fe35062e39c3202c87052847f6df3b400e8c7c37e7a38bbada10b86
 
             <span style=\"vertical-align: middle; font-family: serif; font-size: 26px; float: right;\">
                 <strong> <br><br><br>GESTIÓN DE BECAS - MDS
-                </strong></span>
+                </strong>
+                <br>
+                ";
+        // line 17
+        if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "request", array()), "getBaseUrl", array()) == "/app_dev.php")) {
+            // line 18
+            echo "                    <span style=\"background-color: red; color: white; font-size: 18px; border: 3px; border-color: #040404;\"><strong>ENTORNO DE PRUEBAS</strong></span>
+                ";
+        }
+        // line 20
+        echo "            </span>
         </div>
     </div>
 </div> ";
@@ -68,7 +78,7 @@ class __TwigTemplate_b585fe35062e39c3202c87052847f6df3b400e8c7c37e7a38bbada10b86
 
     public function getDebugInfo()
     {
-        return array (  49 => 11,  35 => 9,  31 => 8,  25 => 5,  19 => 1,);
+        return array (  63 => 20,  59 => 18,  57 => 17,  49 => 11,  35 => 9,  31 => 8,  25 => 5,  19 => 1,);
     }
 }
 /* */
@@ -85,7 +95,12 @@ class __TwigTemplate_b585fe35062e39c3202c87052847f6df3b400e8c7c37e7a38bbada10b86
 /* */
 /*             <span style="vertical-align: middle; font-family: serif; font-size: 26px; float: right;">*/
 /*                 <strong> <br><br><br>GESTIÓN DE BECAS - MDS*/
-/*                 </strong></span>*/
+/*                 </strong>*/
+/*                 <br>*/
+/*                 {% if app.request.getBaseUrl == "/app_dev.php" %}*/
+/*                     <span style="background-color: red; color: white; font-size: 18px; border: 3px; border-color: #040404;"><strong>ENTORNO DE PRUEBAS</strong></span>*/
+/*                 {% endif %}*/
+/*             </span>*/
 /*         </div>*/
 /*     </div>*/
 /* </div> */

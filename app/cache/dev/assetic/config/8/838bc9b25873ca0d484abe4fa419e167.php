@@ -44,4 +44,24 @@ return array (
       ),
     ),
   ),
+  '3aa7f8d' => 
+  array (
+    0 => 
+    array (
+      0 => '@PersonaBundle/Resources/public/js/jquery-1.9.0.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/3aa7f8d.js',
+      'name' => '3aa7f8d',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
 );

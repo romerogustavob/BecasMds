@@ -213,12 +213,13 @@ class __TwigTemplate_33b60361caef6879958338b494d7f6231224d2772e5be78e0d66b99e299
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.actions.show", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
             echo "
         </a>
-        <a class=\"btn btn-mini\" href=\"";
-            // line 84
+        
+        <a class=\"btn btn-mini btn-primary\" href=\"";
+            // line 85
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">
             ";
-            // line 85
+            // line 86
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.actions.edit", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
             echo "
         </a>            </td>
@@ -228,25 +229,25 @@ class __TwigTemplate_33b60361caef6879958338b494d7f6231224d2772e5be78e0d66b99e299
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 89
+        // line 90
         echo "    </tbody>
 </table>
     </div>
 
     <div class=\"span4\">
     ";
-        // line 94
+        // line 95
         echo (isset($context["pagerHtml"]) ? $context["pagerHtml"] : null);
         echo "
     </div>
 
         <div class=\"span8\">
-    <a class=\"btn btn-primary likepaginator\" href=\"";
-        // line 98
+    <a class=\"btn btn-success likepaginator\" href=\"";
+        // line 99
         echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
         echo "\">
             ";
-        // line 99
+        // line 100
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.index.createnew", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo " Usuario
         </a>
@@ -268,7 +269,7 @@ class __TwigTemplate_33b60361caef6879958338b494d7f6231224d2772e5be78e0d66b99e299
 
     public function getDebugInfo()
     {
-        return array (  250 => 99,  246 => 98,  239 => 94,  232 => 89,  222 => 85,  218 => 84,  213 => 82,  209 => 81,  202 => 79,  196 => 78,  188 => 77,  184 => 76,  180 => 75,  176 => 74,  172 => 73,  168 => 72,  162 => 71,  159 => 70,  155 => 69,  148 => 65,  125 => 45,  121 => 44,  115 => 41,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  95 => 36,  91 => 35,  85 => 34,  73 => 25,  66 => 20,  60 => 17,  57 => 16,  55 => 15,  49 => 12,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  251 => 100,  247 => 99,  240 => 95,  233 => 90,  223 => 86,  219 => 85,  213 => 82,  209 => 81,  202 => 79,  196 => 78,  188 => 77,  184 => 76,  180 => 75,  176 => 74,  172 => 73,  168 => 72,  162 => 71,  159 => 70,  155 => 69,  148 => 65,  125 => 45,  121 => 44,  115 => 41,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  95 => 36,  91 => 35,  85 => 34,  73 => 25,  66 => 20,  60 => 17,  57 => 16,  55 => 15,  49 => 12,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -354,7 +355,8 @@ class __TwigTemplate_33b60361caef6879958338b494d7f6231224d2772e5be78e0d66b99e299
 /*         <a class="btn btn-mini" href="{{ path('user_show', { 'id': entity.id }) }}">*/
 /*             {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}*/
 /*         </a>*/
-/*         <a class="btn btn-mini" href="{{ path('user_edit', { 'id': entity.id }) }}">*/
+/*         */
+/*         <a class="btn btn-mini btn-primary" href="{{ path('user_edit', { 'id': entity.id }) }}">*/
 /*             {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}*/
 /*         </a>            </td>*/
 /*         </tr>*/
@@ -368,7 +370,7 @@ class __TwigTemplate_33b60361caef6879958338b494d7f6231224d2772e5be78e0d66b99e299
 /*     </div>*/
 /* */
 /*         <div class="span8">*/
-/*     <a class="btn btn-primary likepaginator" href="{{ path('fos_user_registration_register') }}">*/
+/*     <a class="btn btn-success likepaginator" href="{{ path('fos_user_registration_register') }}">*/
 /*             {{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} Usuario*/
 /*         </a>*/
 /*     </div>*/

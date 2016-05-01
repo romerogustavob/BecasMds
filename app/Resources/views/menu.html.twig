@@ -13,7 +13,12 @@
 
             <span style="vertical-align: middle; font-family: serif; font-size: 26px; float: right;">
                 <strong> <br><br><br>GESTIÓN DE BECAS - MDS
-                </strong></span>
+                </strong>
+                <br>
+                {% if app.request.getBaseUrl == "/app_dev.php" %}
+                    <span style="background-color: red; color: white; font-size: 18px; border: 3px; border-color: #040404;"><strong>ENTORNO DE PRUEBAS</strong></span>
+                {% endif %}
+            </span>
         </div>
     </div><!-- /navbar-inner -->
     <div class="navbar-inner" >

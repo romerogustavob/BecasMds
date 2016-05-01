@@ -49,14 +49,14 @@ class User extends BaseUser
     protected $nombres;
     
     /**
-     * @ORM\Column(type="date")
-     * @var date
+     * @ORM\Column(type="datetime")
+     * @var datetime
      */
     protected $created_at;
     
     /**
-     * @ORM\Column(type="date")
-     * @var date
+     * @ORM\Column(type="datetime")
+     * @var datetime
      */
     protected $updated_at;
     

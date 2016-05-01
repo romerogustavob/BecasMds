@@ -12,6 +12,8 @@ use Pagerfanta\View\TwitterBootstrapView;
 use BecasMds\UsuarioBundle\Entity\User;
 use BecasMds\UsuarioBundle\Form\UserType;
 use BecasMds\UsuarioBundle\Form\UserFilterType;
+//use Symfony\Component\Form\Extension\Core\Type\DateTimeType
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 /**
  * User controller.
@@ -192,6 +194,25 @@ class UserController extends Controller
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
+    }
+    
+    public function resetPasswordAction($id){
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('UsuarioBundle:User')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+        $entity->setPlainPassword('123456'); 
+        $entity->setUpdatedAt(new \DateTime('now'));
+        
+        $em->persist($entity);
+        $em->flush();
+        $this->get('session')->getFlashBag()->add('success', 'Se Reseteo la contraseña a 123456');
+
+        return $this->redirect($this->generateUrl('user_show', array('id' => $id)));
+       
     }
 
     /**

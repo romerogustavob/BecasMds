@@ -213,19 +213,18 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
             // line 111
             echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
             echo "\"> Nuevo Usuario </a></li>
-                        <li><a href=\"/ppa_ved.php/usuario/index\">Usuarios</a></li>
-                        <li class=\"divider\"></li>
-                        <li class=\"nav-header\">GRUPOS</li>
-                        <li><a href=\"/ppa_ved.php/group/new\">Nuevo Grupo</a></li>
-                        <li><a href=\"/ppa_ved.php/admin/grupo/\">Listado Grupos</a></li>
+                        <li><a href=\"";
+            // line 112
+            echo $this->env->getExtension('routing')->getPath("user");
+            echo "\">Usuarios</a></li>                        
                     </ul>
                 </li>
                 ";
         }
-        // line 120
+        // line 116
         echo "                ";
         if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
-            // line 121
+            // line 117
             echo "                <li class=\"dropdown\">
                     <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
                         <i class=\"icon-signal\"></i>  
@@ -256,7 +255,7 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                 </li>
                 ";
         }
-        // line 150
+        // line 146
         echo "                <li class=\"dropdown\">
                     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                         <i class=\"icon-user\"></i>
@@ -266,7 +265,7 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                         <li>
                             <a>                          
                                 ";
-        // line 158
+        // line 154
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "nombres", array()), "html", null, true);
         echo ", ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "apellidos", array()), "html", null, true);
@@ -274,12 +273,12 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                             </a>
                         </li>
                         <li><a href=\"";
-        // line 161
+        // line 157
         echo $this->env->getExtension('routing')->getPath("fos_user_profile_show");
         echo "\"><b>Ver Perfil</b></a></li>              
                         <li class=\"divider\"></li>
                         <li><a href=\"";
-        // line 163
+        // line 159
         echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
         echo "\"><i class=\"icon-off\"></i> Salir</a></li>
                     </ul>
@@ -302,7 +301,7 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
 
     public function getDebugInfo()
     {
-        return array (  283 => 163,  278 => 161,  270 => 158,  260 => 150,  229 => 121,  226 => 120,  214 => 111,  205 => 104,  203 => 103,  192 => 95,  188 => 94,  184 => 93,  180 => 92,  176 => 91,  165 => 83,  160 => 81,  156 => 80,  144 => 71,  140 => 70,  129 => 62,  125 => 61,  121 => 60,  110 => 52,  106 => 51,  102 => 50,  98 => 49,  77 => 31,  73 => 30,  69 => 29,  50 => 12,  36 => 10,  32 => 9,  26 => 6,  19 => 1,);
+        return array (  282 => 159,  277 => 157,  269 => 154,  259 => 146,  228 => 117,  225 => 116,  218 => 112,  214 => 111,  205 => 104,  203 => 103,  192 => 95,  188 => 94,  184 => 93,  180 => 92,  176 => 91,  165 => 83,  160 => 81,  156 => 80,  144 => 71,  140 => 70,  129 => 62,  125 => 61,  121 => 60,  110 => 52,  106 => 51,  102 => 50,  98 => 49,  77 => 31,  73 => 30,  69 => 29,  50 => 12,  36 => 10,  32 => 9,  26 => 6,  19 => 1,);
     }
 }
 /* <div class="navbar" style="color: #040404;">*/
@@ -416,11 +415,7 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
 /*                         <li class="divider"></li>                                  */
 /*                         <li class="nav-header">USUARIOS</li>*/
 /*                         <li><a href="{{ path('fos_user_registration_register') }}"> Nuevo Usuario </a></li>*/
-/*                         <li><a href="/ppa_ved.php/usuario/index">Usuarios</a></li>*/
-/*                         <li class="divider"></li>*/
-/*                         <li class="nav-header">GRUPOS</li>*/
-/*                         <li><a href="/ppa_ved.php/group/new">Nuevo Grupo</a></li>*/
-/*                         <li><a href="/ppa_ved.php/admin/grupo/">Listado Grupos</a></li>*/
+/*                         <li><a href="{{ path('user') }}">Usuarios</a></li>                        */
 /*                     </ul>*/
 /*                 </li>*/
 /*                 {% endif %}*/

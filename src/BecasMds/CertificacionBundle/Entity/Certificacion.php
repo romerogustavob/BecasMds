@@ -134,7 +134,7 @@ class Certificacion
     /**
      * Get totalPagar
      *
-     * @return string 
+     * @return decimal 
      */
     public function getTotalPagar()
     {

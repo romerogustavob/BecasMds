@@ -29,13 +29,17 @@ class __TwigTemplate_c91b8e8017954b3923f4f2d5fe9c1dd459440b306559dcfdb19349c8399
     public function block_page($context, array $blocks = array())
     {
         // line 3
+        echo "    ";
         $this->displayBlock('fos_user_content', $context, $blocks);
     }
 
     public function block_fos_user_content($context, array $blocks = array())
     {
         // line 4
+        echo "        ";
         $this->loadTemplate("FOSUserBundle:Registration:register_content.html.twig", "FOSUserBundle:Registration:register.html.twig", 4)->display($context);
+        // line 5
+        echo "    ";
     }
 
     public function getTemplateName()
@@ -50,13 +54,13 @@ class __TwigTemplate_c91b8e8017954b3923f4f2d5fe9c1dd459440b306559dcfdb19349c8399
 
     public function getDebugInfo()
     {
-        return array (  38 => 4,  32 => 3,  29 => 2,  11 => 1,);
+        return array (  42 => 5,  39 => 4,  32 => 3,  29 => 2,  11 => 1,);
     }
 }
 /* {% extends "FOSUserBundle::layout_interno.html.twig" %}*/
 /* {% block page %}*/
-/* {% block fos_user_content %}*/
-/* {% include 'FOSUserBundle:Registration:register_content.html.twig' %}*/
-/* {% endblock fos_user_content %}*/
+/*     {% block fos_user_content %}*/
+/*         {% include 'FOSUserBundle:Registration:register_content.html.twig' %}*/
+/*     {% endblock fos_user_content %}*/
 /* {% endblock page %}*/
 /* */

@@ -28,3 +28,15 @@ certificacion_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "CertificacionBundle:Certificacion:delete" }
     requirements: { _method: post|delete }
+
+certificacion_individual:
+    pattern: /{id}/individualcertificacion
+    defaults: { _controller: "CertificacionBundle:Certificacion:individualCertificacion" }
+
+certificacion_individual_imprimir:
+    pattern: /{id}/imprimir
+    defaults: { _controller: "CertificacionBundle:Certificacion:certificacionIndividualPdf" }
+    
+certificacion_individual_excel:
+    pattern: /{id}/excel
+    defaults: { _controller: "CertificacionBundle:Certificacion:excelCertificacionInd" }

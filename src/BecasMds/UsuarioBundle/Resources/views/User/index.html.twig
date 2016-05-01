@@ -81,7 +81,8 @@
         <a class="btn btn-mini" href="{{ path('user_show', { 'id': entity.id }) }}">
             {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
-        <a class="btn btn-mini" href="{{ path('user_edit', { 'id': entity.id }) }}">
+        
+        <a class="btn btn-mini btn-primary" href="{{ path('user_edit', { 'id': entity.id }) }}">
             {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>            </td>
         </tr>
@@ -95,7 +96,7 @@
     </div>
 
         <div class="span8">
-    <a class="btn btn-primary likepaginator" href="{{ path('fos_user_registration_register') }}">
+    <a class="btn btn-success likepaginator" href="{{ path('fos_user_registration_register') }}">
             {{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} Usuario
         </a>
     </div>

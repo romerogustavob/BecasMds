@@ -5,21 +5,47 @@
 {% endblock %}
 
 {% block page %}
-    
     {% block stylesheets %}
         <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
-        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />      
+        <link href="{{ asset('bundles/persona/css/jquery-ui.structure.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/persona/css/jquery-ui.theme.css') }}" rel="stylesheet" />    
     {% endblock %}
+    
     {% block javascript %}
+       
         {% javascripts
-            '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'
-            '@PersonaBundle/Resources/public/js/select2.js'
-            '@PersonaBundle/Resources/public/js/select2Becado.js'
+           
+            '@PersonaBundle/Resources/public/js/jquery-ui.js'
         %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
+        <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
+      
+        <script type="text/javascript">
+        {#$(document).ready(function() {
+            $('#page-help').each(function() {
+		var $link = $(this);
+		var $dialog = $('<div style="align:center;"></div>')
+			.load($link.attr('href'))
+			.dialog({
+				autoOpen: false,
+                                modal: true,
+				title: $link.attr('title'),
+				width: 700,
+				height: 300,
+			});
+ 
+		$link.click(function() {
+			$dialog.dialog('open'); 
+			return false;
+		});
+            });
+        });#}
+    </script> 
+        
     {% endblock %}
-   
+    
+    
+
     <div class="row">
         <style>
             .negrita{
@@ -50,9 +76,11 @@
                 background-color: #f2f2f2 
             }
         </style>
+        
         <div class="span8">
             <h2 style="color: #0044cc">{{ 'views.index.list'|trans({'%entity%': 'Becados'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
         </div>
+        
         <div class="span2">
             {% if form_errors(filterForm) %}
                 <div class="alert alert-block alert-error fade in form-errors">
@@ -61,6 +89,7 @@
             {% endif %}
             &nbsp;
         </div>
+            
         <div class="span2">
             <div class="filters-right">
                 <a class="btn dropdown-toggle" data-toggle="collapse" data-target="#filters">
@@ -69,6 +98,7 @@
                 </a>
             </div>
         </div>
+                    
         <div class="row-fluid span12">
             <div id="filters" class="collapse table-responsive">
                 <form class="well" action="{{ path('becado') }}" method="get" {{ form_enctype(filterForm) }}>
@@ -123,7 +153,7 @@
                             {% for referente in filterForm.referente %}
                                 <tr> 
                                     <td>
-                                        
+
                                         {{ form_label(referente.dni, 'Nº Doc. Referente', 
                                                                 {'label_attr':{'class':'negrita'}}) }}
                                         {{ form_widget(referente.dni)}}</td>
@@ -139,7 +169,7 @@
                                     </td>                                                                                      
                                     {% for movimiento in referente.movimientoSocial %}
                                         <td>
-                                            
+
                                             {{ form_label(movimiento.nombre, 'Nombre Mov. Social', 
                                                                     {'label_attr':{'class':'negrita colorverde'}}) }}
                                             {{ form_widget(movimiento.nombre)}}</td>
@@ -152,19 +182,19 @@
                                             </div>
                                         </td>                            
                                     {% endfor %}
-                                    
+
                                 </tr>
                             {% endfor %}
-                        <div style="display:none"> 
+                        <div style="display:none;"> 
                             {{ form_row(filterForm.referente) }}
                         </div>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                         </tbody>
                     </table>
                     {{ form_rest(filterForm) }}
@@ -212,28 +242,28 @@
                             {#<td>{{ entity.telefono }}</td>
                             <td>{{ entity.email }}</td>#}
                             <td>{% for domicilio in entity.domicilio %}
-                                <b>Loc.:</b>{{ domicilio.localidad }}<br/><b>Barrio:</b>
-                                {{ domicilio.barrio }}<br/><b>Calle:</b> {{ domicilio.calle }}
-                                :{{ domicilio.numero }}<br/><b>Refs:</b>  {{ domicilio.referencias }}
-                            {% endfor %}
-                        </td>
-                        <td>
-                            {% for becadobeca in entity.becadobeca %}
-                                {% if becadobeca.activo %}                        
-                                    <b>Tipo Beca:</b>{{ becadobeca.beca.tipoBeca }}
-                                    <br/><b>Tipo Función:</b>{{ becadobeca.beca.tipoFuncion }}
-                                    <br/><b>Monto:</b>{{ becadobeca.beca.monto }}
-                                    <br/>
-                                {% endif %}
-                            {% endfor %}
-                        </td>
-                        <td>
-                            {{ entity.referente | raw }}
-                        </td>
-                        <td>{{ entity.lugarAfectacion }}</td>
-                        <td>{{ entity.dependencia | raw }}</td>{#
-                        <td>{% if entity.presentaCertificacion %}Sí{% else %} No {% endif %}</td>#}
-                        <td>{% for formacion in entity.formacion %}
+                                    <b>Loc.:</b>{{ domicilio.localidad }}<br/><b>Barrio:</b>
+                                    {{ domicilio.barrio }}<br/><b>Calle:</b> {{ domicilio.calle }}
+                                    :{{ domicilio.numero }}<br/><b>Refs:</b>  {{ domicilio.referencias }}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% for becadobeca in entity.becadobeca %}
+                                    {% if becadobeca.activo %}                        
+                                        <b>Tipo Beca:</b>{{ becadobeca.beca.tipoBeca }}
+                                        <br/><b>Tipo Función:</b>{{ becadobeca.beca.tipoFuncion }}
+                                        <br/><b>Monto:</b>{{ becadobeca.beca.monto }}
+                                        <br/>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {{ entity.referente | raw }}
+                            </td>
+                            <td>{{ entity.lugarAfectacion }}</td>
+                            <td>{{ entity.dependencia | raw }}</td>{#
+                            <td>{% if entity.presentaCertificacion %}Sí{% else %} No {% endif %}</td>#}
+                            <td>{% for formacion in entity.formacion %}
                             <b>Institución: </b>{{ formacion.institucion }} <br/> <b>Niv. Educ.:</b> {{ formacion.nivelEducativo }}
                             <br/><b>Profesión:</b>{{ formacion.profesion }} <br/><b>Perfil:</b> {{ formacion.perfil }}
                             <br/><b>Oficio:</b> {{ formacion.oficio }}
@@ -249,6 +279,12 @@
                                 <a class="btn btn-mini btn-primary" href="{{ path('becado_edit', { 'id': entity.id }) }}">
                                     {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
                                 </a>
+                               
+                                <a class="btn btn-mini btn-info" id="page-help-{{ entity.id }}" href="{{ path('certificacion_individual', { 'id': entity.id }) }}" 
+                                   onclick="window.open(this.href, 'popupwindow', 'top=125,left=175,width=800,height=300'); return false;">
+                                    Certificaciones</a>
+                                
+
                             </td>
                         </tr>
                     {% endfor %}
@@ -264,4 +300,5 @@
             </a>
         </div>
     </div>
+                     
 {% endblock %}

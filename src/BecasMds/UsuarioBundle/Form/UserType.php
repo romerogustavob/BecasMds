@@ -18,8 +18,27 @@ class UserType extends AbstractType
             ->add('dni')
             ->add('apellidos')
             ->add('nombres')
-            ->add('created_at')
-            ->add('updated_at')
+            ->add('email')
+            ->add('roles', 'choice', array('label'=>'Rol','required'=>true,
+                            'choices'=>array(0=>'ROLE_USER', 
+                                1=>'ROLE_ADMIN'), 'multiple'=>true))
+            ->add('enabled')
+            ->add('created_at','date',array('widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => [
+                            'class' => 'form-control input-inline boostrap-datepicker',
+                            'data-provide' => 'datepicker',
+                            'data-date-format' => 'dd-mm-yyyy'
+                        ] , 'required' => false,
+                    ))
+            ->add('updated_at', 'date',array('widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => [
+                            'class' => 'form-control input-inline boostrap-datepicker',
+                            'data-provide' => 'datepicker',
+                            'data-date-format' => 'dd-mm-yyyy'
+                        ] , 'required' => false,
+                    ))
         ;
     }
     
