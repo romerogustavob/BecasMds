@@ -10,29 +10,30 @@
         {{ parent() }}
         <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('bundles/persona/css/jquery.Jcrop.css') }}" rel="stylesheet" />
-        <link href="{{ asset('bundles/persona/css/token-input-facebook.css') }}" rel="stylesheet" />
-        <link href="{{ asset('bundles/persona/css/token-input.css') }}" rel="stylesheet" />
         {{ form_stylesheet(form) }}
     {% endblock %}
-
+    
     {% block javascript %}
-        {% javascripts
+        <script src="{{ asset('bundles/jordillonchcrudgenerator/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        {% javascripts            
+            '@PersonaBundle/Resources/public/js/jquery-ui.js'   
             '@PersonaBundle/Resources/public/js/agregarDomicilio.js'
             '@PersonaBundle/Resources/public/js/agregarFormacion.js'
             '@PersonaBundle/Resources/public/js/addForm.js'  
             '@PersonaBundle/Resources/public/js/deleteRow.js'
             '@PersonaBundle/Resources/public/js/select2.js'
-            '@PersonaBundle/Resources/public/js/select2Becado.js'
+            '@PersonaBundle/Resources/public/js/select2Becado.js'   
+            '@PersonaBundle/Resources/public/js/dalert.jquery.min.js'
+            '@PersonaBundle/Resources/public/js/ajax-functions.js'
         %}
+        
         {{ form_javascript(form) }}
-        <script type="text/javascript" src="{{ asset_url }}"></script>        
+        <script type="text/javascript" src="{{ asset_url }}"></script>   
         {% endjavascripts %}
     {% endblock %}
-
-    <h2 style="color: #0044cc">
-        Nuevo Becado{#{{ 'views.new.creation'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}#}
-    </h2>
+    <h2 style="color: #0044cc">Nuevo Becado</h2>
 
     <form class="well" action="{{ path('becado_create') }}" method="post" {{ form_enctype(form) }}>
         {# Aplicando theming al formulario alumno #}
@@ -43,14 +44,18 @@
         <table>
             <tbody>
             <fieldset style="border:1px solid; background-color: #3a8104; color: #000;"><h4>Datos Personales</h4>
-                <tr>            
-                    <td>{{ form_row(form.dni) }}</td>
+                <tr class="form-horizontal">            
+                    <td>
+                        {{ form_label(form.dni) }}
+                        {{ form_widget(form.dni, { 'attr':{ 'style': 'width:100px', 'placeholder':'documento'} }) }}   
+                        <a class="btn btn-primary" onclick="ajaxDni();" href="#">Buscar</a>
+                    </td>                    
                     <td>{{ form_row(form.apellidos) }}</td>
                     <td>{{ form_row(form.nombres) }}</td>
                     <td>
                         {{ form_label(form.telefono, 'Teléfono') }}
                         {{ form_widget(form.telefono) }}
-                    </td>            
+                    </td>                    
                 </tr>
                 <tr>
                     <td colspan="4">
@@ -66,7 +71,8 @@
                     <fieldset style="border:1px solid; background-color: #9fda58 ">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse" style="color: #000">
-                                Domicilio</a>
+                                Domicilio
+                            </a>
                         </h4>
                     </fieldset>
                 </div>
@@ -130,6 +136,9 @@
         </div>
         <div style="display: none">
             {{ form_widget(form.domicilio) }}
+        </div>
+        <div style="display: none">
+            {{ form_widget(form.becadobeca) }}
         </div>
         <div style="padding-top: 15px;">
             <span class="divider-vertical">

@@ -28,3 +28,9 @@ becado_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "PersonaBundle:Becado:delete" }
     requirements: { _method: post|delete }
+
+ajax_dni:
+    pattern: /{dni}/ajaxdni
+    defaults: { _controller: "PersonaBundle:Becado:ajaxDni" }
+    options:
+        expose: true

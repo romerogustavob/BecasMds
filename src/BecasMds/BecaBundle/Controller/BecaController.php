@@ -26,9 +26,7 @@ class BecaController extends Controller {
         $pdf = $this->container->get("white_october.tcpdf")->create(
                 'LANDSCAPE', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false
         );
-        
-        
-        
+
         $pdf->SetAuthor('Gustavo Romero');
         $pdf->SetTitle('Becas Lista');
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
@@ -37,17 +35,19 @@ class BecaController extends Controller {
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         $pdf->setFontSubsetting(true);
         $pdf->SetFont('helvetica', '', 11, '', true);
+        $pdf->setFooterMargin(8);
         $pdf->AddPage();
 
         $html =  $this->renderView('BecaBundle:Beca:indexPrint.html.twig',
-         array(
-          'entities' => $entities,
-          'baseUrl'  =>$base_url,
-         )
-    );
+            array(
+                'entities' => $entities,
+                'baseUrl'  =>$base_url,
+            )
+        );
 
         $pdf->writeHTMLCell(
-                $w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = '', $autopadding = true
+                $w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, 
+                $reseth = true, $align = '', $autopadding = true
         );
 
         $pdf->Output("example.pdf", 'I');

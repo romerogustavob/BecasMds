@@ -46,19 +46,15 @@ class __TwigTemplate_add69890fab2cd7fdb7a866769f4f70c264395f86cf06d5d4327f79b2b3
         <tbody>
             <tr>
                 <td>
-                    <img src=\"http://becasmds.chaco.gov.ar:86";
-        // line 16
-        echo twig_escape_filter($this->env, (isset($context["baseUrl"]) ? $context["baseUrl"] : null), "html", null, true);
-        echo "/images/7ecfac4_logoDesarrolloSocial-medium_1.jpg\" 
-                         alt=\"Imagen\" width=\"288\" height=\"83\" border=\"0\"/>
-                    
+                    ";
+        // line 18
+        echo "                    
                 </td>
                 <td>
                     
-                    <span style=\"vertical-align: middle; font-family: serif; font-size: 20px; float: right; margin-left: 20px; \">
-                        <strong><br>                      GESTIÓN DE BECAS - MDS
-                        </strong></span>
-                </td>
+                    ";
+        // line 25
+        echo "                </td>
             </tr>
         </tbody>
     </table>
@@ -171,7 +167,7 @@ class __TwigTemplate_add69890fab2cd7fdb7a866769f4f70c264395f86cf06d5d4327f79b2b3
 
     public function getDebugInfo()
     {
-        return array (  157 => 75,  149 => 72,  145 => 70,  141 => 68,  139 => 67,  129 => 65,  120 => 64,  116 => 63,  112 => 62,  108 => 61,  104 => 59,  100 => 58,  76 => 36,  73 => 35,  51 => 16,  44 => 11,  41 => 10,  37 => 35,  34 => 34,  32 => 10,  21 => 1,);
+        return array (  153 => 75,  145 => 72,  141 => 70,  137 => 68,  135 => 67,  125 => 65,  116 => 64,  112 => 63,  108 => 62,  104 => 61,  100 => 59,  96 => 58,  72 => 36,  69 => 35,  57 => 25,  51 => 18,  44 => 11,  41 => 10,  37 => 35,  34 => 34,  32 => 10,  21 => 1,);
     }
 }
 /* <style>*/
@@ -189,15 +185,15 @@ class __TwigTemplate_add69890fab2cd7fdb7a866769f4f70c264395f86cf06d5d4327f79b2b3
 /*         <tbody>*/
 /*             <tr>*/
 /*                 <td>*/
-/*                     <img src="http://becasmds.chaco.gov.ar:86{{ baseUrl }}/images/7ecfac4_logoDesarrolloSocial-medium_1.jpg" */
-/*                          alt="Imagen" width="288" height="83" border="0"/>*/
+/*                     {#<img src="http://becasmds.chaco.gov.ar:86{{ baseUrl }}/images/7ecfac4_logoDesarrolloSocial-medium_1.jpg" */
+/*                          alt="Imagen" width="288" height="83" border="0"/>#}*/
 /*                     */
 /*                 </td>*/
 /*                 <td>*/
 /*                     */
-/*                     <span style="vertical-align: middle; font-family: serif; font-size: 20px; float: right; margin-left: 20px; ">*/
+/*                     {#<span style="vertical-align: middle; font-family: serif; font-size: 20px; float: right; margin-left: 20px; ">*/
 /*                         <strong><br>                      GESTIÓN DE BECAS - MDS*/
-/*                         </strong></span>*/
+/*                         </strong></span>#}*/
 /*                 </td>*/
 /*             </tr>*/
 /*         </tbody>*/

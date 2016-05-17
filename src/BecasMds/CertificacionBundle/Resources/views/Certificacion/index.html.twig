@@ -5,112 +5,119 @@
 {% endblock %}
 
 {% block page %}
-{% block stylesheets %}
+    {% block stylesheets %}
         <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
       
     {% endblock %}
-
     {% block javascript %}
         {% javascripts
             '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'
             '@PersonaBundle/Resources/public/js/select2.js'
             '@PersonaBundle/Resources/public/js/select2Becado.js'
         %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
-<div class="row">
-
-    <div class="span8">
-        <h2 style="color: #0044cc">{{ 'views.index.list'|trans({'%entity%': 'Certificacion'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
-    </div>
-    <div class="span2">
-        {% if form_errors(filterForm) %}
-        <div class="alert alert-block alert-error fade in form-errors">
-            {{ form_errors(filterForm) }}
+    <div class="row">
+        <div class="span8">
+            <h2 style="color: #0044cc">{{ 'views.index.list'|trans({'%entity%': 'Certificacion'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
         </div>
-        {% endif %}
-        &nbsp;
-    </div>
-    <div class="span2">
-        <div class="filters-right">
-            <a class="btn dropdown-toggle" data-toggle="collapse" data-target="#filters">
-                {{ 'views.index.filters'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-                <span class="caret"></span>
-            </a>
+        <div class="span2">
+            {% if form_errors(filterForm) %}
+                <div class="alert alert-block alert-error fade in form-errors">
+                    {{ form_errors(filterForm) }}
+                </div>
+            {% endif %}
+            &nbsp;
         </div>
-    </div>
-
-    <div class="span12">
-        <div id="filters" class="collapse">
-
-            <form class="well" action="{{ path('certificacion') }}" method="get" {{ form_enctype(filterForm) }}>
-                {{ form_row(filterForm.id) }}               
-                {{ form_row(filterForm.monto) }}
-                {{ form_row(filterForm.descuentoDias) }}
-                {{ form_row(filterForm.totalPagar) }}
-                {{ form_row(filterForm.certificado) }}
-                {{ form_row(filterForm.mesCertificacion) }}
-                {{ form_rest(filterForm) }}
-
-                <p>
-                    <button type="submit" name="filter_action" value="filter">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
-                    <button type="submit" name="filter_action" value="reset">{{ 'views.index.reset'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
-                </p>
-            </form>
+        <div class="span2">
+            <div class="filters-right">
+                <a class="btn dropdown-toggle" data-toggle="collapse" data-target="#filters">
+                    {{ 'views.index.filters'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                    <span class="caret"></span>
+                </a>
+            </div>
         </div>
-    </div>
-
-    <div class="span12">
-
-    <table class="table table-striped table-bordered table-condensed">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Becado</th>
-            <th>Beca</th>
-            <th>Monto</th>
-            <th>Descuentodias</th>
-            <th>Totalpagar</th>
-            <th>Certificado</th>
-            <th>Mescertificacion</th>
-            <th>{{ 'views.index.actions'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('certificacion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>Dni: {{ entity.becadobeca.becado }}</td>
-            <td>{{ entity.becadobeca.beca }}</td>
-            <td>{{ entity.monto }}</td>
-            <td>{{ entity.descuentoDias }}</td>
-            <td>{{ entity.totalPagar }}</td>
-            <td>{% if entity.certificado %}Sí {% else %} No {% endif%}</td>
-            <td>{% if entity.mesCertificacion %}{{ entity.mesCertificacion|date('d-m-Y') }}{% endif %}</td>
-            <td>
-        <a class="btn btn-mini" href="{{ path('certificacion_show', { 'id': entity.id }) }}">
-            {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-        </a>
-        <a class="btn btn-mini" href="{{ path('certificacion_edit', { 'id': entity.id }) }}">
-            {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-        </a>            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-    </div>
-
-    <div class="span4">
-    {{ pagerHtml|raw }}
-    </div>
-
-        {#<div class="span8">
-    <a class="btn btn-primary likepaginator" href="{{ path('certificacion_new') }}">
+        <div class="span12">
+            <div id="filters" class="collapse">
+                <form class="well" action="{{ path('certificacion', { 'toexcel': 'false' }) }}" method="get" {{ form_enctype(filterForm) }}>
+                    {{ form_row(filterForm.id) }}               
+                    {{ form_row(filterForm.monto) }}
+                    {{ form_row(filterForm.descuentoDias) }}
+                    {{ form_row(filterForm.totalPagar) }}
+                    {{ form_row(filterForm.certificado) }}
+                    {{ form_row(filterForm.mesCertificacion) }}
+                    {% for becadobeca in filterForm.becadobeca %}
+                        {{ form_row(becadobeca.becado) }}
+                        {{ form_row(becadobeca.beca) }}                        
+                     {% endfor %}                     
+                    <p>
+                        <button type="submit" name="filter_action" value="filter">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                        <button type="submit" name="filter_action" value="reset">{{ 'views.index.reset'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                    </p>  
+                    {{ form_end(filterForm) }}                    
+                </form>
+            </div>
+        </div>
+        <div class="span12">
+            <table class="table table-striped table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Becado</th>
+                        <th>Beca</th>
+                        <th>Monto</th>
+                        <th>Días Descuento</th>
+                        <th>Total Pagar</th>
+                        <th>Certificado</th>
+                        <th>Mes Certificación</th>
+                        <th>{{ 'views.index.actions'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set entidad=null %}
+                    {% set i=0  %}
+                    {% for entity in entities %}
+                        {% set entidad=entity %}
+                        {% set i=i+1 %}
+                        <tr>
+                            <td><a href="{{ path('certificacion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.becadobeca.becado.apellidos }}, 
+                                {{ entity.becadobeca.becado.nombres }} - 
+                                Dni: {{ entity.becadobeca.becado.dni }}</td>
+                            <td>
+                                {{ entity.becatipo }} - {{ entity.becafuncion }}
+                            </td>
+                            <td>{{ entity.monto }}</td>
+                            <td>{{ entity.descuentoDias }}</td>
+                            <td>{{ entity.totalPagar }}</td>
+                            <td>{% if entity.certificado %}Sí {% else %} No {% endif%}</td>
+                            <td>{% if entity.mesCertificacion %}{{ entity.mesCertificacion|date('m-Y') }}{% endif %}</td>
+                            <td>
+                                <a class="btn btn-mini" href="{{ path('certificacion_show', { 'id': entity.id }) }}">
+                                    {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                                </a>
+                                <a class="btn btn-mini" href="{{ path('certificacion_edit', { 'id': entity.id }) }}">
+                                    {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a class="btn btn-mini btn-warning" href="{{ path('certificacion', { 'toexcel': 'true' }) }}">Exportar a Excel</a>
+        </div>
+        <div class="span4">
+            {{ pagerHtml|raw }}
+        </div>
+            
+        
+        
+    {#<div class="span8">
+        <a class="btn btn-primary likepaginator" href="{{ path('certificacion_new') }}">
             {{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} Certificacion
         </a>
     </div>#}
     </div>
-
 {% endblock %}

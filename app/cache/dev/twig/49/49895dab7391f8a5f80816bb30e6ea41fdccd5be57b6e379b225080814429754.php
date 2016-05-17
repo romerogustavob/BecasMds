@@ -87,7 +87,7 @@ class __TwigTemplate_23e3552e41bd0c575d8fc9f12b3ef53443fc3bd9887995cfbc2809aa552
     <div class=\"float-left\">
         <a class=\"btn\" href=\"";
         // line 35
-        echo $this->env->getExtension('routing')->getPath("certificacion");
+        echo $this->env->getExtension('routing')->getPath("certificacion", array("toexcel" => "false"));
         echo "\">
             ";
         // line 36
@@ -177,7 +177,7 @@ class __TwigTemplate_23e3552e41bd0c575d8fc9f12b3ef53443fc3bd9887995cfbc2809aa552
 /* */
 /* <div>*/
 /*     <div class="float-left">*/
-/*         <a class="btn" href="{{ path('certificacion') }}">*/
+/*         <a class="btn" href="{{ path('certificacion', {'toexcel':'false'}) }}">*/
 /*             {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}*/
 /*         </a>*/
 /*     </div>*/

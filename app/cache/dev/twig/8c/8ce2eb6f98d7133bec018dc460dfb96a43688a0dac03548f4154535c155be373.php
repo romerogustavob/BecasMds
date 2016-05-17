@@ -44,10 +44,10 @@ class __TwigTemplate_1873d756fabd7b051b9e81ef1d57a12d9782a5a0507b2dd7b658d74fc0c
 <div class=\"row\">
 
     <div class=\"span8\">
-        <h2 style=\"color: #0044cc\">";
+        <h1>";
         // line 12
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.index.list", array("%entity%" => "BecadoBeca"), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
-        echo "</h2>
+        echo "</h1>
     </div>
     <div class=\"span2\">
         ";
@@ -130,89 +130,67 @@ class __TwigTemplate_1873d756fabd7b051b9e81ef1d57a12d9782a5a0507b2dd7b658d74fc0c
     <table class=\"table table-striped table-bordered table-condensed\">
     <thead>
         <tr>
-            <th style=\"vertical-align: top\">Id</th>
-            <th style=\"vertical-align: top\">Becado</th>
-            <th style=\"vertical-align: top\">Beca</th>
-            <th style=\"vertical-align: top\">Fecha Alta</th>
-            <th style=\"vertical-align: top\">Fecha Baja</th>
-            <th style=\"vertical-align: top\">Activo</th>
-            <th style=\"vertical-align: top\">Detalles</th>
+            <th>Id</th>
+            <th>Fechaalta</th>
+            <th>Fechabaja</th>
+            <th>Activo</th>
+            <th>Detalles</th>
             <th>";
-        // line 62
+        // line 60
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.index.actions", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</th>
         </tr>
     </thead>
     <tbody>
     ";
-        // line 66
+        // line 64
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 67
+            // line 65
             echo "        <tr>
             <td><a href=\"";
-            // line 68
+            // line 66
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "id", array()), "html", null, true);
             echo "</a></td>
             <td>";
-            // line 69
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["entity"], "becado", array()), "dni", array()), "html", null, true);
-            echo ", ";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["entity"], "becado", array()), "apellidos", array()), "html", null, true);
-            echo " , ";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["entity"], "becado", array()), "nombres", array()), "html", null, true);
-            echo "</td>
-            <td>";
-            // line 70
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["entity"], "beca", array()), "tipobeca", array()), "html", null, true);
-            echo " , ";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["entity"], "beca", array()), "tipoFuncion", array()), "html", null, true);
-            echo ", ";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["entity"], "beca", array()), "monto", array()), "html", null, true);
-            echo "</td>
-            <td>";
-            // line 71
+            // line 67
             if ($this->getAttribute($context["entity"], "fechaAlta", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["entity"], "fechaAlta", array()), "Y-m-d H:i:s"), "html", null, true);
             }
             echo "</td>
             <td>";
-            // line 72
+            // line 68
             if ($this->getAttribute($context["entity"], "fechaBaja", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["entity"], "fechaBaja", array()), "Y-m-d H:i:s"), "html", null, true);
             }
             echo "</td>
             <td>";
-            // line 73
-            if ($this->getAttribute($context["entity"], "activo", array())) {
-                echo " Sí ";
-            } else {
-                echo " No ";
-            }
+            // line 69
+            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "activo", array()), "html", null, true);
             echo "</td>
             <td>";
-            // line 74
+            // line 70
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "detalles", array()), "html", null, true);
             echo "</td>
             <td>
         <a class=\"btn btn-mini\" href=\"";
-            // line 76
+            // line 72
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">
             ";
-            // line 77
+            // line 73
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.actions.show", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
             echo "
         </a>
         <a class=\"btn btn-mini\" href=\"";
-            // line 79
+            // line 75
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">
             ";
-            // line 80
+            // line 76
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.actions.edit", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
             echo "
         </a>            </td>
@@ -222,19 +200,23 @@ class __TwigTemplate_1873d756fabd7b051b9e81ef1d57a12d9782a5a0507b2dd7b658d74fc0c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 84
+        // line 80
         echo "    </tbody>
 </table>
     </div>
 
     <div class=\"span4\">
     ";
-        // line 89
+        // line 85
         echo (isset($context["pagerHtml"]) ? $context["pagerHtml"] : null);
         echo "
-";
-        // line 97
+    </div>
+
+        <div class=\"span8\">
+    ";
+        // line 92
         echo "    </div>
+    </div>
 
 ";
     }
@@ -251,7 +233,7 @@ class __TwigTemplate_1873d756fabd7b051b9e81ef1d57a12d9782a5a0507b2dd7b658d74fc0c
 
     public function getDebugInfo()
     {
-        return array (  237 => 97,  233 => 89,  226 => 84,  216 => 80,  212 => 79,  207 => 77,  203 => 76,  198 => 74,  190 => 73,  184 => 72,  178 => 71,  170 => 70,  162 => 69,  156 => 68,  153 => 67,  149 => 66,  142 => 62,  121 => 44,  117 => 43,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  95 => 36,  91 => 35,  85 => 34,  73 => 25,  66 => 20,  60 => 17,  57 => 16,  55 => 15,  49 => 12,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  218 => 92,  211 => 85,  204 => 80,  194 => 76,  190 => 75,  185 => 73,  181 => 72,  176 => 70,  172 => 69,  166 => 68,  160 => 67,  154 => 66,  151 => 65,  147 => 64,  140 => 60,  121 => 44,  117 => 43,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  95 => 36,  91 => 35,  85 => 34,  73 => 25,  66 => 20,  60 => 17,  57 => 16,  55 => 15,  49 => 12,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -265,7 +247,7 @@ class __TwigTemplate_1873d756fabd7b051b9e81ef1d57a12d9782a5a0507b2dd7b658d74fc0c
 /* <div class="row">*/
 /* */
 /*     <div class="span8">*/
-/*         <h2 style="color: #0044cc">{{ 'views.index.list'|trans({'%entity%': 'BecadoBeca'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>*/
+/*         <h1>{{ 'views.index.list'|trans({'%entity%': 'BecadoBeca'}, 'JordiLlonchCrudGeneratorBundle') }}</h1>*/
 /*     </div>*/
 /*     <div class="span2">*/
 /*         {% if form_errors(filterForm) %}*/
@@ -308,13 +290,11 @@ class __TwigTemplate_1873d756fabd7b051b9e81ef1d57a12d9782a5a0507b2dd7b658d74fc0c
 /*     <table class="table table-striped table-bordered table-condensed">*/
 /*     <thead>*/
 /*         <tr>*/
-/*             <th style="vertical-align: top">Id</th>*/
-/*             <th style="vertical-align: top">Becado</th>*/
-/*             <th style="vertical-align: top">Beca</th>*/
-/*             <th style="vertical-align: top">Fecha Alta</th>*/
-/*             <th style="vertical-align: top">Fecha Baja</th>*/
-/*             <th style="vertical-align: top">Activo</th>*/
-/*             <th style="vertical-align: top">Detalles</th>*/
+/*             <th>Id</th>*/
+/*             <th>Fechaalta</th>*/
+/*             <th>Fechabaja</th>*/
+/*             <th>Activo</th>*/
+/*             <th>Detalles</th>*/
 /*             <th>{{ 'views.index.actions'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</th>*/
 /*         </tr>*/
 /*     </thead>*/
@@ -322,11 +302,9 @@ class __TwigTemplate_1873d756fabd7b051b9e81ef1d57a12d9782a5a0507b2dd7b658d74fc0c
 /*     {% for entity in entities %}*/
 /*         <tr>*/
 /*             <td><a href="{{ path('becadobeca_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>*/
-/*             <td>{{ entity.becado.dni }}, {{ entity.becado.apellidos }} , {{ entity.becado.nombres }}</td>*/
-/*             <td>{{ entity.beca.tipobeca }} , {{ entity.beca.tipoFuncion }}, {{ entity.beca.monto }}</td>*/
 /*             <td>{% if entity.fechaAlta %}{{ entity.fechaAlta|date('Y-m-d H:i:s') }}{% endif %}</td>*/
 /*             <td>{% if entity.fechaBaja %}{{ entity.fechaBaja|date('Y-m-d H:i:s') }}{% endif %}</td>*/
-/*             <td>{% if entity.activo %} Sí {% else %} No {% endif %}</td>*/
+/*             <td>{{ entity.activo }}</td>*/
 /*             <td>{{ entity.detalles }}</td>*/
 /*             <td>*/
 /*         <a class="btn btn-mini" href="{{ path('becadobeca_show', { 'id': entity.id }) }}">*/
@@ -343,13 +321,13 @@ class __TwigTemplate_1873d756fabd7b051b9e81ef1d57a12d9782a5a0507b2dd7b658d74fc0c
 /* */
 /*     <div class="span4">*/
 /*     {{ pagerHtml|raw }}*/
-/* {#    </div>*/
+/*     </div>*/
 /* */
 /*         <div class="span8">*/
-/*     <a class="btn btn-primary likepaginator" href="{{ path('becadobeca_new') }}">*/
+/*     {#<a class="btn btn-primary likepaginator" href="{{ path('becadobeca_new') }}">*/
 /*             {{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} BecadoBeca*/
-/*         </a>*/
-/*     </div>#}*/
+/*         </a>#}*/
+/*     </div>*/
 /*     </div>*/
 /* */
 /* {% endblock %}*/

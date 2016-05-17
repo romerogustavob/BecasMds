@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/UsuarioBundle/Form/UserType.php</file>
-            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/CertificacionBundle/Entity/CertificacionRepository.php</file>
-            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/CertificacionBundle/Resources/views/Certificacion/individualCertificacion.html.twig</file>
-            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/UsuarioBundle/Entity/User.php</file>
-            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/CertificacionBundle/Entity/Certificacion.php</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/PersonaBundle/Resources/public/js/deleteRow.js</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/PersonaBundle/Resources/views/Becado/edit.html.twig</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/BecaBundle/Entity/BecaVulnerable.php</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/PersonaBundle/Resources/public/js/agregarDomicilio.js</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/BecaBundle/Form/BecadoBecaType.php</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/BecaBundle/Resources/views/BecadoBeca/edit.html.twig</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/PersonaBundle/Controller/BecadoController.php</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/PersonaBundle/Resources/views/Becado/new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/PersonaBundle/Resources/views/Becado/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/BecaBundle/Resources/views/BecaVulnerable/new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/BecasMds/src/BecasMds/PersonaBundle/Entity/Becado.php</file>
         </group>
     </open-files>
 </project-private>

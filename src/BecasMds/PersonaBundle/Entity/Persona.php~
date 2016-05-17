@@ -60,7 +60,7 @@ class Persona
     protected $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="\BecasMds\FormacionBundle\Entity\Formacion", mappedBy="persona", cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="\BecasMds\FormacionBundle\Entity\Formacion", mappedBy="persona", cascade={"persist"})
      */
     protected $formacion;
     
@@ -68,6 +68,35 @@ class Persona
      * @ORM\OneToMany(targetEntity="Domicilio", mappedBy="persona", cascade={"all"}, orphanRemoval=true)
      */
     protected $domicilio;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    protected $createdBy;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    protected $updatedBy;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    protected $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    protected $updatedAt;
+
     
     public function __construct() {
         $this->formacion=new \Doctrine\Common\Collections\ArrayCollection();
@@ -232,5 +261,38 @@ class Persona
     public function getFormacion()
     {
         return $this->formacion;
+    }
+
+    /**
+     * Add domicilio
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Domicilio $domicilio
+     * @return Persona
+     */
+    public function addDomicilio(\BecasMds\PersonaBundle\Entity\Domicilio $domicilio)
+    {
+        $this->domicilio[] = $domicilio;
+    
+        return $this;
+    }
+
+    /**
+     * Remove domicilio
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Domicilio $domicilio
+     */
+    public function removeDomicilio(\BecasMds\PersonaBundle\Entity\Domicilio $domicilio)
+    {
+        $this->domicilio->removeElement($domicilio);
+    }
+
+    /**
+     * Get domicilio
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDomicilio()
+    {
+        return $this->domicilio;
     }
 }

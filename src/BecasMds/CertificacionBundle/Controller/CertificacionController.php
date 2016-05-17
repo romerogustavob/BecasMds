@@ -39,6 +39,8 @@ class CertificacionController extends Controller
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         $pdf->setFontSubsetting(true);
         $pdf->SetFont('helvetica', '', 11, '', true);
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+        $pdf->setFooterMargin(15);
         $pdf->AddPage();
 
         $html =  $this->renderView('CertificacionBundle:Certificacion:individualCertificacionPrint.html.twig',
@@ -59,12 +61,18 @@ class CertificacionController extends Controller
      * Lists all Certificacion entities.
      *
      */
-    public function indexAction()
+    public function indexAction($toexcel)
     {
         list($filterForm, $queryBuilder) = $this->filter();
 
         list($entities, $pagerHtml) = $this->paginator($queryBuilder);
-
+        
+        if($toexcel=='true'){
+            $response = $this->forward('CertificacionBundle:Certificacion:excelCertificacionTotal', array(
+            'entities'  => $entities,));
+            return $response;
+        }
+        
         return $this->render('CertificacionBundle:Certificacion:index.html.twig', array(
             'entities' => $entities,
             'pagerHtml' => $pagerHtml,
@@ -75,13 +83,12 @@ class CertificacionController extends Controller
     public function individualCertificacionAction($id){
         $em=  $this->getDoctrine()->getManager();
         $entities=$em->getRepository('CertificacionBundle:Certificacion')->findIndividualCertificacion($id);
-//        if (!$entities) {
-//            throw $this->createNotFoundException('No se encontraron Certificaciones para esta persona');
-//        }
-        
+ 
         return $this->render('CertificacionBundle:Certificacion:individualCertificacion.html.twig',
-                array('entities'=>$entities,
-                    'idBecado'=>$id));
+                array(
+                    'entities'=>$entities,
+                    'idBecado'=>$id
+                ));
     }
 
     /**
@@ -108,6 +115,7 @@ class CertificacionController extends Controller
 
             if ($filterForm->isValid()) {
                 // Build the query from the given form object
+                
                 $this->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filterForm, $queryBuilder);
                 // Save filter to session
                 $filterData = $filterForm->getData();
@@ -165,9 +173,14 @@ class CertificacionController extends Controller
     {
         $entity  = new Certificacion();
         $form = $this->createForm(new CertificacionType(), $entity);
+        $becatipo=$request->request->get('becatipo');
+        $becafuncion=$request->request->get('becafuncion');
+            $entity->setBecatipo($becatipo);
+            $entity->setBecafuncion($becafuncion);
         $form->bind($request);
 
         if ($form->isValid()) {
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -193,8 +206,12 @@ class CertificacionController extends Controller
         if(!$entity->getBecadobeca()->getBecado()->getActivo()){
             throw $this->createNotFoundException('La Persona No se encuentra Activa, No puede ser Certificada');
         }
+        $becatipo=$entity->getBecadobeca()->getBeca()->getTipoBeca()->getDescripcion();
+        $becafuncion=$entity->getBecadobeca()->getBeca()->getTipoFuncion()->getDescripcion();
         $monto=$entity->getBecadobeca()->getBeca()->getMonto();
         $entity->setMonto($monto);
+        $entity->setBecatipo($becatipo);
+        $entity->setBecafuncion($becafuncion);
         $form   = $this->createForm(new CertificacionType(), $entity);
 
         return $this->render('CertificacionBundle:Certificacion:new.html.twig', array(
@@ -537,6 +554,225 @@ class CertificacionController extends Controller
         $response->headers->set('Cache-Control', 'maxage=1');
    
         $filename='certificacion-'.$fechaArchivo.'.xlsx';
+        $excelService->getStreamWriter()->write( $filename );
+        return $response;
+    }
+    
+    public function excelCertificacionTotalAction($entities){
+//        $em = $this->getDoctrine()->getManager();
+//        $entities = $em->getRepository("CertificacionBundle:Certificacion")->findIndividualCertificacion($id);
+        
+        $base_url=$this->getRequest()->getBaseUrl();
+        
+         // ask the service for a Excel5
+        $excelService = $this->get('xls.service_xls2007');
+        // or $this->get('xls.service_pdf');
+        // or create your own is easy just modify services.yml
+
+        $fecha=new \DateTime('now');
+        $fechaArchivo=$fecha->format('Y-m-d');
+        // create the object see http://phpexcel.codeplex.com documentation
+        $excelService->excelObj->getProperties()->setCreator("ministerio de Desarrollo Social")
+                            ->setLastModifiedBy("Ministerio de Desarrollo Social")
+                            ->setTitle("Office 2007 XLSX Document")
+                            ->setSubject("Office 2007 XLSX Document")
+                            ->setDescription("Document for Office 2007 XLSX, generated using PHP classes.")
+                            ->setKeywords("office 2007 openxml php")
+                            ->setCategory("Result file");
+        $columns = array( 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U' );
+        foreach ( $columns as $column ) {
+            $excelService->excelObj->getActiveSheet()->getColumnDimension($column)->setAutoSize(true);
+        }
+        $fila=1;
+        $total=0;
+        $tipoBeca='';
+            foreach ($entities as $certificacion){
+                $excelService->excelObj->setActiveSheetIndex(0)
+                        ->setCellValue('A'.$fila, $fila)
+                        ->setCellValue('B'.$fila,$certificacion->getBecadoBeca()->getBecado()->getDni())
+                        ->setCellValue('C'.$fila,$certificacion->getBecadoBeca()->getBecado()->getApellidos().' '.
+                                $certificacion->getBecadoBeca()->getBecado()->getNombres())
+                        ->setCellValue('D'.$fila,$certificacion->getTotalPagar())                        
+                        ->setCellValue('E'.$fila,'')
+                        ->setCellValue('F'.$fila,'')
+                        ->setCellValue('G'.$fila, 481)
+                        ->setCellValue('H'.$fila,'PH')
+                        ->setCellValue('I'.$fila,0)
+                        ->setCellValue('J'.$fila,0)
+                        ->setCellValue('K'.$fila,0)
+                        ->setCellValue('L'.$fila,0)
+                        ->setCellValue('M'.$fila,0)
+                        ->setCellValue('N'.$fila, $fila)
+                        ->setCellValue('O'.$fila, 201603)
+                        ->setCellValue('P'.$fila, 1)
+                        ->setCellValue('Q'.$fila,$certificacion->getBecadoBeca()->getBecado()->getDni())
+                        ->setCellValue('R'.$fila, 2);
+                
+                /* Paso a formato general para que me quite las , después hago el cálculo y 
+                 * después le doy el formato general al final, previo asignación del monto a pagar original*/    
+                $excelService->excelObj->getActiveSheet()
+                ->getStyle('S'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+                $totalS=$certificacion->getTotalPagar()*100;
+                $excelService->excelObj->setActiveSheetIndex(0)
+                        ->setCellValue('S'.$fila,$totalS);
+                $total=$total+$certificacion->getTotalPagar();
+                
+                /**Formateo las celdas, faltan I y L porque llevan 2 espacios en blanco, 
+                 * los reemplazo en la cadena del string que se carga en la columna U*/
+                $excelService->excelObj->getActiveSheet()
+                ->getStyle('K'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('00000000000');
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('G'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('000000');
+               $G=$excelService->excelObj->getActiveSheet()->getCell('G'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('G'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('General');
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('H'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('00');
+               $H=$excelService->excelObj->getActiveSheet()->getCell('H'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('H'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('J'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('00000');
+               $J=$excelService->excelObj->getActiveSheet()->getCell('J'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('J'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('K'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('00000000000');
+               $K=$excelService->excelObj->getActiveSheet()->getCell('K'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('K'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('M'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('000000');
+               $M=$excelService->excelObj->getActiveSheet()->getCell('M'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('M'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('N'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('0000000');
+               $N=$excelService->excelObj->getActiveSheet()->getCell('N'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('N'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('O'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('000000');
+               $O=$excelService->excelObj->getActiveSheet()->getCell('O'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('O'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('P'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('000');
+               $P=$excelService->excelObj->getActiveSheet()->getCell('P'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('P'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('Q'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('000000000000000');
+               $Q=$excelService->excelObj->getActiveSheet()->getCell('Q'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('Q'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('R'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('000');
+               $R=$excelService->excelObj->getActiveSheet()->getCell('R'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('R'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('S'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode('000000000000000');
+               $S=$excelService->excelObj->getActiveSheet()->getCell('S'.$fila)->getFormattedValue();
+               $excelService->excelObj->getActiveSheet()
+                ->getStyle('S'.$fila)
+                ->getNumberFormat()
+                ->setFormatCode("General");
+               
+               $excelService->excelObj->setActiveSheetIndex(0)
+               ->setCellValue('S'.$fila,$certificacion->getTotalPagar());
+               
+               /*Concateno los valores formateados y defino type string para que me tome los valores con su respectivos formatos*/
+               $excelService->excelObj->setActiveSheetIndex(0)->setCellValueExplicit('U'.$fila, $G.''.$H.
+                       '  '.$J.''.$K.'  '.$M.''.$N.''.$O.''.$P.''.$Q.''.$R.''.$S,\PHPExcel_Cell_DataType::TYPE_STRING);
+
+                $fila+=1;
+                $tipoBeca=$certificacion->getBecaTipo();
+            }
+            $excelService->excelObj->setActiveSheetIndex(0)
+                    ->setCellValue('A'.$fila, 'Total')
+                    ->setCellValue('D'.$fila, $total)
+                    ->setCellValue('S'.$fila, $total);
+            /** 
+             * Esta sería la fórmula general
+                =TEXTO(G1;"000000")&TEXTO(H'.$fila.';"00")&TEXTO(I'.$fila.';"  ")&'
+                  . 'TEXTO(J'.$fila.';"00000")&TEXTO(K'.$fila.';"00000000000")&TEXTO(L'.$fila.';"  ")&'
+                  . 'TEXTO(M'.$fila.';"000000")&TEXTO(N'.$fila.';"0000000")&TEXTO(O'.$fila.';"000000")&'
+                  . 'TEXTO(P'.$fila.';"000")&TEXTO(Q'.$fila.';"000000000000000")&TEXTO(R'.$fila.';"000")&'
+                  . 'TEXTO(S'.$fila.'*100;"000000000000000")
+            */
+         
+        $excelService->excelObj->getActiveSheet()->setTitle('Certificación-'.$tipoBeca);
+        
+        // Set active sheet index to the first sheet, so Excel opens this as the first sheet
+        $excelService->excelObj->setActiveSheetIndex(0);
+
+        //create the response
+        $response = $excelService->getResponse();
+        $response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
+        $response->headers->set('Content-Disposition', 'attachment;filename=certificacionGeneral'.$tipoBeca.'-'.$fechaArchivo.'.xlsx');
+
+        // If you are using a https connection, you have to set those two headers and use sendHeaders() for compatibility with IE <9
+        $response->headers->set('Pragma', 'public');
+        $response->headers->set('Cache-Control', 'maxage=1');
+   
+        $filename='certificacionGeneral'.$tipoBeca.'-'.$fechaArchivo.'.xlsx';
         $excelService->getStreamWriter()->write( $filename );
         return $response;
     }

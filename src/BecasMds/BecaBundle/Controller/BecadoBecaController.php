@@ -118,16 +118,14 @@ class BecadoBecaController extends Controller
         $entity  = new BecadoBeca();
         $form = $this->createForm(new BecadoBecaType(), $entity);
         $form->bind($request);
-        
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
             $this->get('session')->getFlashBag()->add('success', 'flash.create.success');
 
-//            return $this->redirect($this->generateUrl('becadobeca_show', array('id' => $entity->getId())));
-            
-            return $this->redirect($this->generateUrl('becado_show', array('id' => $entity->getBecado()->getId())));
+            return $this->redirect($this->generateUrl('becadobeca_show', array('id' => $entity->getId())));
         }
 
         return $this->render('BecaBundle:BecadoBeca:new.html.twig', array(
@@ -140,10 +138,10 @@ class BecadoBecaController extends Controller
      * Displays a form to create a new BecadoBeca entity.
      *
      */
-    public function newAction(\BecasMds\PersonaBundle\Entity\Becado $idBecado=null)
+    public function newAction($id)
     {
         $entity = new BecadoBeca();
-        $entity->setBecado($idBecado);
+        $entity->setBecado($id);
         $form   = $this->createForm(new BecadoBecaType(), $entity);
 
         return $this->render('BecaBundle:BecadoBeca:new.html.twig', array(

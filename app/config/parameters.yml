@@ -3,7 +3,7 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: becasmds_test
+    database_name: becasmds
     database_user: root
     database_password: null
     mailer_transport: smtp
@@ -11,4 +11,10 @@ parameters:
     mailer_user: null
     mailer_password: null
     locale: es
-    secret: ThisTokenIsNotSoSecretChangeIt
+    secret: ThisTokenIsNotSoSecretChangeIt    
+    database_driver2: pdo_mysql
+    database_host2: 127.0.0.1
+    database_port2: null
+    database_name2: becasmds_test
+    database_user2: root
+    database_password2: null

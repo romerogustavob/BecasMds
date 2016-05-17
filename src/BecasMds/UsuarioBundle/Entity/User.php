@@ -58,8 +58,7 @@ class User extends BaseUser
      * @ORM\Column(type="datetime")
      * @var datetime
      */
-    protected $updated_at;
-    
+    protected $updated_at; 
 
     public function __construct()
     {
@@ -67,7 +66,6 @@ class User extends BaseUser
         // your own logic
     }
     
-
     /**
      * Get id
      *

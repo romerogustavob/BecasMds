@@ -22,8 +22,10 @@ class CertificacionType extends AbstractType
                             'data-provide' => 'datepicker',
                             'data-date-format' => 'dd-mm-yyyy'
                         ]
-                    , 'required' => false,
+                    , 'required' => true,
                 ))
+            ->add('becatipo', null, array('read_only'=>true))
+            ->add('becafuncion', null, array('read_only'=>true))            
             ->add('becadobeca')
         ;
     }

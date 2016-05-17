@@ -5,8 +5,7 @@
     {% endblock %}
 
     {% block javascript %}
-        {% javascripts
-            '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'
+        {% javascripts            
             '@PersonaBundle/Resources/public/js/select2.js'
             '@PersonaBundle/Resources/public/js/select2Becado.js'            
         %}
@@ -41,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="form-horizontal">
                     <td>
                         <div class="span6">
                             {{ form_label(domi.localidad, 'Localidad', {'label_attr': {'class': 'negrita'}}) }}

@@ -427,7 +427,7 @@ class appDevDebugProjectContainer extends Container
 
         $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('config' => new \Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader(), 'twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache((__DIR__.'/assetic/config')), true)));
 
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource(array('font_awesome_ttf' => array(0 => array(0 => 'Web/bundles/jordillonchcrudgenerator/fonts/glyphicons-halflings-regular.ttf'), 1 => array(), 2 => array('output' => 'fonts/glyphicons-halflings-regular.ttf')))), 'config');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource(array('font_awesome_ttf' => array(0 => array(0 => 'Web/bundles/jordillonchcrudgenerator/fonts/glyphicons-halflings.ttf'), 1 => array(), 2 => array('output' => 'fonts/glyphicons-halflings.ttf')), 'images_login' => array(0 => array(0 => 'Web/bundles/beca/images/logoDesarrolloSocial-medium.jpg'), 1 => array(), 2 => array('output' => 'images/logoDesarrolloSocial-medium.jpg')), 'persona_jquery_ui' => array(0 => array(0 => 'Web/bundles/pesona/js/*.js'), 1 => array(), 2 => array('output' => 'js/jquery.ui.js')))), 'config');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'PersonaBundle', ($this->targetDirs[2].'/Resources/PersonaBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'PersonaBundle', ($this->targetDirs[3].'\\src\\BecasMds\\PersonaBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'CertificacionBundle', ($this->targetDirs[2].'/Resources/CertificacionBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'CertificacionBundle', ($this->targetDirs[3].'\\src\\BecasMds\\CertificacionBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'BecaBundle', ($this->targetDirs[2].'/Resources/BecaBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'BecaBundle', ($this->targetDirs[3].'\\src\\BecasMds\\BecaBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
@@ -1477,7 +1477,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosJsRouting_ExtractorService()
     {
-        return $this->services['fos_js_routing.extractor'] = new \FOS\JsRoutingBundle\Extractor\ExposedRoutesExtractor($this->get('router'), array(), __DIR__, array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle', 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle', 'TwigBundle' => 'Symfony\\Bundle\\TwigBundle\\TwigBundle', 'MonologBundle' => 'Symfony\\Bundle\\MonologBundle\\MonologBundle', 'SwiftmailerBundle' => 'Symfony\\Bundle\\SwiftmailerBundle\\SwiftmailerBundle', 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle', 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle', 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle', 'LexikFormFilterBundle' => 'Lexik\\Bundle\\FormFilterBundle\\LexikFormFilterBundle', 'JordiLlonchCrudGeneratorBundle' => 'JordiLlonch\\Bundle\\CrudGeneratorBundle\\JordiLlonchCrudGeneratorBundle', 'PersonaBundle' => 'BecasMds\\PersonaBundle\\PersonaBundle', 'FormacionBundle' => 'BecasMds\\FormacionBundle\\FormacionBundle', 'BecaBundle' => 'BecasMds\\BecaBundle\\BecaBundle', 'CertificacionBundle' => 'BecasMds\\CertificacionBundle\\CertificacionBundle', 'GenemuFormBundle' => 'Genemu\\Bundle\\FormBundle\\GenemuFormBundle', 'AntQaAjaxAutoCompleteBundle' => 'AntQa\\AjaxAutoCompleteBundle\\AntQaAjaxAutoCompleteBundle', 'FOSJsRoutingBundle' => 'FOS\\JsRoutingBundle\\FOSJsRoutingBundle', 'WhiteOctoberTCPDFBundle' => 'WhiteOctober\\TCPDFBundle\\WhiteOctoberTCPDFBundle', 'ShtumiUsefulBundle' => 'Shtumi\\UsefulBundle\\ShtumiUsefulBundle', 'LiuggioExcelBundle' => 'Liuggio\\ExcelBundle\\LiuggioExcelBundle', 'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle', 'UsuarioBundle' => 'BecasMds\\UsuarioBundle\\UsuarioBundle', 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle', 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle', 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle'));
+        return $this->services['fos_js_routing.extractor'] = new \FOS\JsRoutingBundle\Extractor\ExposedRoutesExtractor($this->get('router'), array(0 => 'ajax_dni'), __DIR__, array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle', 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle', 'TwigBundle' => 'Symfony\\Bundle\\TwigBundle\\TwigBundle', 'MonologBundle' => 'Symfony\\Bundle\\MonologBundle\\MonologBundle', 'SwiftmailerBundle' => 'Symfony\\Bundle\\SwiftmailerBundle\\SwiftmailerBundle', 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle', 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle', 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle', 'LexikFormFilterBundle' => 'Lexik\\Bundle\\FormFilterBundle\\LexikFormFilterBundle', 'JordiLlonchCrudGeneratorBundle' => 'JordiLlonch\\Bundle\\CrudGeneratorBundle\\JordiLlonchCrudGeneratorBundle', 'PersonaBundle' => 'BecasMds\\PersonaBundle\\PersonaBundle', 'FormacionBundle' => 'BecasMds\\FormacionBundle\\FormacionBundle', 'BecaBundle' => 'BecasMds\\BecaBundle\\BecaBundle', 'CertificacionBundle' => 'BecasMds\\CertificacionBundle\\CertificacionBundle', 'GenemuFormBundle' => 'Genemu\\Bundle\\FormBundle\\GenemuFormBundle', 'AntQaAjaxAutoCompleteBundle' => 'AntQa\\AjaxAutoCompleteBundle\\AntQaAjaxAutoCompleteBundle', 'FOSJsRoutingBundle' => 'FOS\\JsRoutingBundle\\FOSJsRoutingBundle', 'WhiteOctoberTCPDFBundle' => 'WhiteOctober\\TCPDFBundle\\WhiteOctoberTCPDFBundle', 'ShtumiUsefulBundle' => 'Shtumi\\UsefulBundle\\ShtumiUsefulBundle', 'LiuggioExcelBundle' => 'Liuggio\\ExcelBundle\\LiuggioExcelBundle', 'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle', 'UsuarioBundle' => 'BecasMds\\UsuarioBundle\\UsuarioBundle', 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle', 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle', 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle'));
     }
 
     /**
@@ -3417,7 +3417,7 @@ class appDevDebugProjectContainer extends Container
         $r = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($p, array('login_path' => '/login', 'always_use_default_target_path' => false, 'default_target_path' => '/becado', 'target_path_parameter' => '_target_path', 'use_referer' => false));
         $r->setProviderKey('main');
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($o, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $q, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $p, 'main', $r, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $p, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('use_forward' => false, 'check_path' => '/login_check', 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5725423e6ec72', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $o, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $p, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $p, '/login', false), NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($o, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $q, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $p, 'main', $r, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $p, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('use_forward' => false, 'check_path' => '/login_check', 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '57365b0d786fe', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $o, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $p, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $p, '/login', false), NULL, NULL, $a, false));
     }
 
     /**
@@ -4944,7 +4944,7 @@ class appDevDebugProjectContainer extends Container
     {
         require_once ($this->targetDirs[2].'/../vendor/tecnickcom/tcpdf/tcpdf.php');
 
-        return $this->services['white_october.tcpdf'] = new \WhiteOctober\TCPDFBundle\Controller\TCPDFController('TCPDF');
+        return $this->services['white_october.tcpdf'] = new \WhiteOctober\TCPDFBundle\Controller\TCPDFController('BecasMds\\UsuarioBundle\\Entity\\MyTCPDF');
     }
 
     /**
@@ -5298,7 +5298,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $this->get('security.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5725423e6ec72')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $this->get('security.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('57365b0d786fe')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -5513,7 +5513,7 @@ class appDevDebugProjectContainer extends Container
             'database_driver' => 'pdo_mysql',
             'database_host' => '127.0.0.1',
             'database_port' => NULL,
-            'database_name' => 'becasmds_test',
+            'database_name' => 'becasmds',
             'database_user' => 'root',
             'database_password' => NULL,
             'mailer_transport' => 'smtp',
@@ -5522,6 +5522,12 @@ class appDevDebugProjectContainer extends Container
             'mailer_password' => NULL,
             'locale' => 'es',
             'secret' => 'ThisTokenIsNotSoSecretChangeIt',
+            'database_driver2' => 'pdo_mysql',
+            'database_host2' => '127.0.0.1',
+            'database_port2' => NULL,
+            'database_name2' => 'becasmds_test',
+            'database_user2' => 'root',
+            'database_password2' => NULL,
             'controller_resolver.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
             'controller_name_converter.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
             'response_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener',
@@ -6154,7 +6160,7 @@ class appDevDebugProjectContainer extends Container
                 'enabled' => false,
             ),
             'white_october_tcpdf.file' => ($this->targetDirs[2].'/../vendor/tecnickcom/tcpdf/tcpdf.php'),
-            'white_october_tcpdf.class' => 'TCPDF',
+            'white_october_tcpdf.class' => 'BecasMds\\UsuarioBundle\\Entity\\MyTCPDF',
             'white_october_tcpdf.tcpdf' => array(
                 'k_path_url' => ($this->targetDirs[2].'/../vendor/tecnickcom/tcpdf/'),
                 'k_path_main' => ($this->targetDirs[2].'/../vendor/tecnickcom/tcpdf/'),

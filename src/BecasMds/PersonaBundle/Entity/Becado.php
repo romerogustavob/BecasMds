@@ -3,6 +3,7 @@
 namespace BecasMds\PersonaBundle\Entity;
 
 use BecasMds\PersonaBundle\Entity\Persona;
+use BecasMds\BecaBundle\Entity\BecaVulnerable;
 use Doctrine\ORM\Mapping as ORM;
 use BecasMds\FormacionBundle\Entity\Formacion;
 
@@ -103,7 +104,7 @@ class Becado extends Persona
      * @ORM\Column(name="fechaBaja", type="datetime")
      */
     private $fechaBaja;
-    
+
     /**
      * Get id
      *
@@ -118,7 +119,6 @@ class Becado extends Persona
         $this->id=$id;
         return $this;
     }
-
    
     /**
      * Constructor

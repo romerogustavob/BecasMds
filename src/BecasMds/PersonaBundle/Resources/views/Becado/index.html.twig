@@ -11,41 +11,12 @@
         <link href="{{ asset('bundles/persona/css/jquery-ui.theme.css') }}" rel="stylesheet" />    
     {% endblock %}
     
-    {% block javascript %}
-       
-        {% javascripts
-           
-            '@PersonaBundle/Resources/public/js/jquery-ui.js'
-        %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% block javascript %}       
+        {% javascripts '@persona_jquery_ui' %}
+        <script src="{{ asset_url }}" type="text/javascript" ></script>
         {% endjavascripts %}
-      
-        <script type="text/javascript">
-        {#$(document).ready(function() {
-            $('#page-help').each(function() {
-		var $link = $(this);
-		var $dialog = $('<div style="align:center;"></div>')
-			.load($link.attr('href'))
-			.dialog({
-				autoOpen: false,
-                                modal: true,
-				title: $link.attr('title'),
-				width: 700,
-				height: 300,
-			});
- 
-		$link.click(function() {
-			$dialog.dialog('open'); 
-			return false;
-		});
-            });
-        });#}
-    </script> 
-        
     {% endblock %}
-    
-    
-
+ 
     <div class="row">
         <style>
             .negrita{
@@ -153,7 +124,6 @@
                             {% for referente in filterForm.referente %}
                                 <tr> 
                                     <td>
-
                                         {{ form_label(referente.dni, 'Nº Doc. Referente', 
                                                                 {'label_attr':{'class':'negrita'}}) }}
                                         {{ form_widget(referente.dni)}}</td>
@@ -169,7 +139,6 @@
                                     </td>                                                                                      
                                     {% for movimiento in referente.movimientoSocial %}
                                         <td>
-
                                             {{ form_label(movimiento.nombre, 'Nombre Mov. Social', 
                                                                     {'label_attr':{'class':'negrita colorverde'}}) }}
                                             {{ form_widget(movimiento.nombre)}}</td>
@@ -209,7 +178,7 @@
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-condensed">
                 <thead>
-                    <tr style="color: #FFFFFF; background-color: #0077b3; border-style: solid; ">
+                    <tr style="color: #FFFFFF; background-color: #0077b3; border-style: solid;">
                         {#            <th style="vertical-align: top">Id</th>
                         #}            
                         <th style="vertical-align: top">Nº Doc.</th>
@@ -249,12 +218,21 @@
                             </td>
                             <td>
                                 {% for becadobeca in entity.becadobeca %}
-                                    {% if becadobeca.activo %}                        
+                                    {% if becadobeca.activo %}
+                                        {% if (becadobeca.beca is not null) %}
                                         <b>Tipo Beca:</b>{{ becadobeca.beca.tipoBeca }}
                                         <br/><b>Tipo Función:</b>{{ becadobeca.beca.tipoFuncion }}
                                         <br/><b>Monto:</b>{{ becadobeca.beca.monto }}
                                         <br/>
+                                        {% endif %}
+                                        {% if (becadobeca.becaVulnerable is not null) %}
+                                        <b>Tipo Beca:</b>{{ becadobeca.becaVulnerable.nombre }}
+                                        <br/><b>Tipo Función:</b>{{ becadobeca.becaVulnerable.tipoFuncion }}
+                                        <br/><b>Monto:</b>{{ becadobeca.becaVulnerable.monto }}
+                                        <br/>
+                                        {% endif %}
                                     {% endif %}
+                                    
                                 {% endfor %}
                             </td>
                             <td>
@@ -275,16 +253,15 @@
                             <td>
                                 <a class="btn btn-mini" href="{{ path('becado_show', { 'id': entity.id }) }}">
                                     {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-                                </a>
+                                </a>                                
                                 <a class="btn btn-mini btn-primary" href="{{ path('becado_edit', { 'id': entity.id }) }}">
                                     {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                                </a>                               
+                                <a class="btn btn-mini btn-info" id="page-help-{{ entity.id }}" 
+                                   href="{{ path('certificacion_individual', { 'id': entity.id }) }}" 
+                                   onclick="window.open(this.href, 'popupwindow', 'top=125,left=175,width=900,height=300'); return false;">
+                                    Certificaciones
                                 </a>
-                               
-                                <a class="btn btn-mini btn-info" id="page-help-{{ entity.id }}" href="{{ path('certificacion_individual', { 'id': entity.id }) }}" 
-                                   onclick="window.open(this.href, 'popupwindow', 'top=125,left=175,width=800,height=300'); return false;">
-                                    Certificaciones</a>
-                                
-
                             </td>
                         </tr>
                     {% endfor %}

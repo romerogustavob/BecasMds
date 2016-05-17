@@ -42,20 +42,29 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
     {
         // line 8
         echo "
-    <h3 style=\"color: #0044cc\">Modificar Certificación de: </h3><h4>Dni: ";
-        // line 9
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becadobeca", array()), "html", null, true);
+    <h3 style=\"color: #0044cc\">Modificar Certificación de: </h3><h4>
+        ";
+        // line 10
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becadobeca", array()), "becado", array()), "apellidos", array()), "html", null, true);
+        echo ", 
+        ";
+        // line 11
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becadobeca", array()), "becado", array()), "nombres", array()), "html", null, true);
+        echo " 
+        Dni: ";
+        // line 12
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becadobeca", array()), "becado", array()), "dni", array()), "html", null, true);
         echo "</h4>
 
 <form class=\"well\" action=\"";
-        // line 11
+        // line 14
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("certificacion_update", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'enctype');
         echo ">
     <input type=\"hidden\" name=\"_method\" value=\"PUT\" />
     ";
-        // line 13
+        // line 16
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'form_start');
         echo "
         <table>
@@ -63,39 +72,61 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
             <div class=\"form-row\">
                 <tr>
                     <td>
+                        ";
+        // line 22
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becatipo", array()), 'label', array("label" => "Tipo de Beca"));
+        echo "
+                        ";
+        // line 23
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becatipo", array()), 'widget');
+        echo "
+                    </td>
+                    <td>
+                        ";
+        // line 26
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becafuncion", array()), 'label', array("label" => "Función"));
+        echo "
+                        ";
+        // line 27
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becafuncion", array()), 'widget');
+        echo "
+                        ";
+        // line 29
+        echo "                    </td>
+                    <td>
                         <div style=\"display:none\"
                              ";
-        // line 20
+        // line 32
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becadobeca", array()), 'row');
         echo "
-                    </div>
+                        </div>
                     ";
-        // line 22
+        // line 34
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "mesCertificacion", array()), 'label', array("label" => "Mes Certificación"));
         echo "
                     ";
-        // line 23
+        // line 35
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "mesCertificacion", array()), 'widget');
         echo "
 
                 </td>
                 <td>
                     ";
-        // line 27
+        // line 39
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "monto", array()), 'label', array("label" => "Monto Beca"));
         echo "
                     ";
-        // line 28
+        // line 40
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "monto", array()), 'widget');
         echo "
                 </td>
                 <td>
                     ";
-        // line 31
+        // line 43
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "descuentoDias", array()), 'label', array("label" => "Días de Descuento"));
         echo "
                     ";
-        // line 32
+        // line 44
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "descuentoDias", array()), 'widget');
         echo "
 
@@ -107,17 +138,17 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
 
                 <td>
                     ";
-        // line 41
+        // line 53
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "totalPagar", array()), 'label', array("label" => "Total a Pagar"));
         echo "
                     ";
-        // line 42
+        // line 54
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "totalPagar", array()), 'widget', array("attr" => array("onfocus" => "totalPagar();")));
         echo "
                 </td>
                 <td colspan=\"2\" style=\"alignment-adjust: middle\">
                     ";
-        // line 45
+        // line 57
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "certificado", array()), 'row');
         echo "
 
@@ -131,12 +162,12 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
     
     <p>
         <button type=\"submit\" class=\"btn btn-success\">";
-        // line 56
+        // line 68
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.edit.editbutton", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</button>
     </p>
     ";
-        // line 58
+        // line 70
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'form_end');
         echo "
 </form>
@@ -144,27 +175,27 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
 <div>
     <div class=\"float-left\">
         <a class=\"btn\" href=\"";
-        // line 63
-        echo $this->env->getExtension('routing')->getPath("certificacion");
+        // line 75
+        echo $this->env->getExtension('routing')->getPath("certificacion", array("toexcel" => "false"));
         echo "\">
             ";
-        // line 64
+        // line 76
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
         </a>
     </div>
     <div class=\"float-left\">
         <form action=\"";
-        // line 68
+        // line 80
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("certificacion_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\">
             <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
             ";
-        // line 70
+        // line 82
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : null), 'widget');
         echo "
             <button class=\"btn btn-danger\" type=\"submit\" onclick=\"return confirm('";
-        // line 71
+        // line 83
         echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.confirm", array(), "JordiLlonchCrudGeneratorBundle"), "js"), "html", null, true);
         echo "');\">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.delete", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
@@ -173,7 +204,7 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
     </div>
 </div>
 ";
-        // line 75
+        // line 87
         $this->displayBlock('javascript', $context, $blocks);
     }
 
@@ -181,11 +212,11 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
     {
         echo "                
     ";
-        // line 76
+        // line 88
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "0d77cf1_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_0d77cf1_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/0d77cf1_part_1_funcionescertificacionbundle_1.js");
-            // line 77
+            // line 89
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
@@ -213,7 +244,7 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
 
     public function getDebugInfo()
     {
-        return array (  189 => 77,  185 => 76,  177 => 75,  168 => 71,  164 => 70,  159 => 68,  152 => 64,  148 => 63,  140 => 58,  135 => 56,  121 => 45,  115 => 42,  111 => 41,  99 => 32,  95 => 31,  89 => 28,  85 => 27,  78 => 23,  74 => 22,  69 => 20,  59 => 13,  52 => 11,  47 => 9,  44 => 8,  41 => 7,  33 => 4,  30 => 3,  11 => 1,);
+        return array (  220 => 89,  216 => 88,  208 => 87,  199 => 83,  195 => 82,  190 => 80,  183 => 76,  179 => 75,  171 => 70,  166 => 68,  152 => 57,  146 => 54,  142 => 53,  130 => 44,  126 => 43,  120 => 40,  116 => 39,  109 => 35,  105 => 34,  100 => 32,  95 => 29,  91 => 27,  87 => 26,  81 => 23,  77 => 22,  68 => 16,  61 => 14,  56 => 12,  52 => 11,  48 => 10,  44 => 8,  41 => 7,  33 => 4,  30 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -224,7 +255,10 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
 /* */
 /* {% block page %}*/
 /* */
-/*     <h3 style="color: #0044cc">Modificar Certificación de: </h3><h4>Dni: {{ entity.becadobeca }}</h4>*/
+/*     <h3 style="color: #0044cc">Modificar Certificación de: </h3><h4>*/
+/*         {{ entity.becadobeca.becado.apellidos }}, */
+/*         {{ entity.becadobeca.becado.nombres }} */
+/*         Dni: {{ entity.becadobeca.becado.dni }}</h4>*/
 /* */
 /* <form class="well" action="{{ path('certificacion_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>*/
 /*     <input type="hidden" name="_method" value="PUT" />*/
@@ -234,9 +268,18 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
 /*             <div class="form-row">*/
 /*                 <tr>*/
 /*                     <td>*/
+/*                         {{ form_label(edit_form.becatipo, 'Tipo de Beca') }}*/
+/*                         {{ form_widget(edit_form.becatipo) }}*/
+/*                     </td>*/
+/*                     <td>*/
+/*                         {{ form_label(edit_form.becafuncion, 'Función') }}*/
+/*                         {{ form_widget(edit_form.becafuncion) }}*/
+/*                         {#{{ form_widget(edit_form.becafuncion, { 'attr': {'readonly': 'readonly'} }) }}#}*/
+/*                     </td>*/
+/*                     <td>*/
 /*                         <div style="display:none"*/
 /*                              {{ form_row(edit_form.becadobeca) }}*/
-/*                     </div>*/
+/*                         </div>*/
 /*                     {{ form_label(edit_form.mesCertificacion, 'Mes Certificación') }}*/
 /*                     {{ form_widget(edit_form.mesCertificacion) }}*/
 /* */
@@ -278,7 +321,7 @@ class __TwigTemplate_dafcc8ec9ce02c7a47886e2eb42357930fa8cca2111c8c846e90d8b7b73
 /* */
 /* <div>*/
 /*     <div class="float-left">*/
-/*         <a class="btn" href="{{ path('certificacion') }}">*/
+/*         <a class="btn" href="{{ path('certificacion', {'toexcel':'false'}) }}">*/
 /*             {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}*/
 /*         </a>*/
 /*     </div>*/

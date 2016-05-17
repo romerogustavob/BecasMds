@@ -6,7 +6,9 @@
 
 {% block page %}
 
-    <h3 style="color: #0044cc">Nueva Certificación de: </h3><h4>Dni: {{ entity.becadobeca }}</h4>
+    <h3 style="color: #0044cc">Nueva Certificación de: </h3><h4>{{ entity.becadobeca.becado.apellidos }}, 
+        Nombres: {{ entity.becadobeca.becado.nombres }} - 
+        Dni: {{ entity.becadobeca.becado.dni }}</h4>
 
     <form class="well" action="{{ path('certificacion_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_start(form) }}
@@ -15,57 +17,62 @@
             <div class="form-row">
                 <tr>
                     <td>
+                        {{ form_label(form.becatipo, 'Tipo de Beca') }}
+                        {{ form_widget(form.becatipo) }}
+                    </td>
+                    <td>
+                        {{ form_label(form.becafuncion, 'Función') }}
+                        {{ form_widget(form.becafuncion) }}
+                    </td>
+                    <td>
                         <div style="display:none"
                              {{ form_row(form.becadobeca) }}
-                    </div>
-                    {{ form_label(form.mesCertificacion, 'Mes Certificación') }}
-                    {{ form_widget(form.mesCertificacion) }}
-
-                </td>
-                <td>
-                    {{ form_label(form.monto, 'Monto Beca') }}
-                    {{ form_widget(form.monto) }}
-                </td>
-                <td>
-                    {{ form_label(form.descuentoDias, 'Días de Descuento') }}
-                    {{ form_widget(form.descuentoDias) }}
-
-                </td>
-            </tr>                
-        </div>
-        <div class="form-row">
-            <tr>
-
-                <td>
-                    {{ form_label(form.totalPagar, 'Total a Pagar') }}
-                    {{ form_widget(form.totalPagar, {'attr': {'onfocus':'totalPagar();'}}) }}
-                </td>
-                <td colspan="2" style="alignment-adjust: middle">
-                    {{ form_row(form.certificado) }}
-
-                </td>
-            </tr>
-
-        </div>
-
+                        </div>
+                        {{ form_label(form.mesCertificacion, 'Mes Certificación') }}
+                        {{ form_widget(form.mesCertificacion) }}                        
+                    </td>
+                    <td>
+                        {{ form_label(form.monto, 'Monto Beca') }}
+                        {{ form_widget(form.monto) }}
+                    </td>
+                </tr>                
+            </div>
+            <div class="form-row">
+                <tr>
+                    <td>
+                        {{ form_label(form.descuentoDias, 'Días de Descuento') }}
+                        {{ form_widget(form.descuentoDias) }}                       
+                    </td>
+                    <td>
+                        {{ form_label(form.totalPagar, 'Total a Pagar (Clic Aquí)') }}
+                        {{ form_widget(form.totalPagar, {'attr': {'onfocus':'totalPagar();'}}) }}
+                    </td>
+                    <td></td>
+                    <td style="alignment-adjust: middle">
+                        {{ form_row(form.certificado) }}
+                    </td>
+                </tr>
+            </div>
         </tbody>
     </table>
     <div style="margin-bottom: 10px">
         <p>
-            <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            <button type="submit" class="btn btn-success">
+                {{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            </button>
         </p>
     </div>
     {{ form_end(form) }}
-</form>
+    </form>
 
 <div>
     <div class="float-left">
-        <a class="btn" href="{{ path('certificacion') }}">
+        <a class="btn" href="{{ path('certificacion', {'toexcel':'false'}) }}">
             {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
     </div>
 </div>
-{% block javascript %}                
+    {% block javascript %}                
     {% javascripts '@CertificacionBundle/Resources/public/js/*' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}

@@ -11,26 +11,29 @@
     {% block stylesheets %}
         {{ parent() }}
         <link href="{{ asset('bundles/persona/css/jquery-ui.css') }}" rel="stylesheet" />
-        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" /> 
-
+        <link href="{{ asset('bundles/persona/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
         {{ form_stylesheet(edit_form) }}
-
     {% endblock %}
 
     {% block javascript %}
+        <script src="{{ asset('bundles/jordillonchcrudgenerator/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
         {% javascripts
-            '@PersonaBundle/Resources/public/js/jquery-1.9.0.js'
-            '@PersonaBundle/Resources/public/js/select2.js'
-            '@PersonaBundle/Resources/public/js/select2Becado.js'
-            '@FormacionBundle/Resources/public/js/select2Formacion.js'
+            '@PersonaBundle/Resources/public/js/jquery-ui.js'   
             '@PersonaBundle/Resources/public/js/agregarDomicilio.js'
             '@PersonaBundle/Resources/public/js/agregarFormacion.js'
             '@PersonaBundle/Resources/public/js/addForm.js'  
             '@PersonaBundle/Resources/public/js/deleteRow.js'
-
+            '@PersonaBundle/Resources/public/js/select2.js'
+            '@PersonaBundle/Resources/public/js/select2Becado.js'   
+            '@PersonaBundle/Resources/public/js/dalert.jquery.min.js'
+            '@PersonaBundle/Resources/public/js/ajax-functions.js'
         %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
         {{ form_javascript(edit_form) }}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
     <h2 style="color: #0044cc">{{ 'views.edit.edit'|trans({'%entity%': 'Becado'}, 'JordiLlonchCrudGeneratorBundle') }}</h2>
@@ -38,36 +41,41 @@
     <form class="well" action="{{ path('becado_update', { 'id': entity.id  }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
         {{ form_start(edit_form) }}
-        <fieldset style="border:1px solid; background-color: #3a8104; color: #000;"><h4>Datos Personales</h4></fieldset>
+        <fieldset style="border:1px solid; background-color: #3a8104; color: #D3D3D3; height: 30px;">
+            <h4 style=" line-height: 12px;">Datos Personales</h4>
+        </fieldset>
 
         <table>
             <tbody>
-                <tr>
+                <tr class="form-horizontal">
                     <td>                        
+                        {{ form_label(edit_form.dni,'Dni',{'label_attr':{'style':'font-weight:bold;'}}) }}
+                        {{ form_widget(edit_form.dni, {'attr':{'style':'width:100px'}}) }}
+                        {#{{ form_row(edit_form.dni, {'label':'Dni', 
+                                                     'label_attr':{'style':'font-weight:bold;'},
+                                                     'attr':{'style':'width:100px;'}}) }}#}
+                        <a class="btn btn-primary" onclick="ajaxDniEdicion();" href="#">Buscar</a>
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.apellidos, {'label':null, 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.nombres, {'label':null, 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.telefono, {'label':'Teléfono', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.email, {'label':null, 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                         {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
                         <div style="display: none;">
                             {{ form_row(edit_form.id) }}
                         </div>
-                        {{ form_row(edit_form.dni) }}
                     </td>
-                    <td>
-                        {{ form_row(edit_form.apellidos) }}                        
-                    </td>
-                    <td>
-                        {{ form_label(edit_form.nombres) }}
-                        {{ form_widget(edit_form.nombres) }}
-                    </td>
-                </tr>
-                <tr>
-                    
-                    <td>
-                        {{ form_row(edit_form.email) }}
-                    </td>
-                    
-                    <td>
-                        {{ form_row(edit_form.telefono) }}
-                    </td>
-                    <td></td>
                 </tr>
             </tbody>
         </table>      
@@ -75,10 +83,13 @@
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse">
-                            Domicilio</a>
-                    </h4>
+                    <fieldset style="border:1px solid; background-color: #3a8104; color: #000; height: 30px;">
+                        <h4 style="line-height: 12px;">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse" style="color: #D3D3D3;">
+                                Domicilio
+                            </a>
+                        </h4>
+                    </fieldset>
                 </div>
                 <div id="domicilioCollapse" class="panel-collapse collapse in">
                     <div class="panel-body">
@@ -88,68 +99,64 @@
                             {% for domicilio in edit_form.domicilio %}
                                 <table>
                                     <tbody>
-                                        <tr>
+                                        <tr class="form-horizontal">
                                             <td>
-                                                {#{{ form_label(domicilio.localidad, 'Localidad') }}
-                                                {{ form_widget(domicilio.localidad) }}#}
-                                                {{ form_row(domicilio.localidad) }}
-
+                                                {{ form_row(domicilio.localidad, {'label':null, 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.barrio, 'Barrio') }}
-                                                {{ form_widget(domicilio.barrio) }}
+                                                {{ form_row(domicilio.barrio, {'label':'Barrio', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.calle, 'Calle') }}
-                                                {{ form_widget(domicilio.calle) }}
+                                                {{ form_row(domicilio.calle, {'label':'Calle', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.numero, 'número') }}
-                                                {{ form_widget(domicilio.numero) }}
-
+                                                {{ form_row(domicilio.numero, {'label':'Nº', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="form-horizontal">
                                             <td>
-                                                {{ form_label(domicilio.dpto, 'Departamento') }}
-                                                {{ form_widget(domicilio.dpto) }}
+                                                {{ form_row(domicilio.dpto, {'label':'Dpto', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.piso, 'Piso') }}
-                                                {{ form_widget(domicilio.piso) }}
+                                                {{ form_row(domicilio.piso, {'label':'Piso', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.edificio, 'Edificio') }}
-                                                {{ form_widget(domicilio.edificio) }}
-
+                                                {{ form_row(domicilio.edificio, {'label':'Edificio', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.manzana, 'Manzana') }}
-                                                {{ form_widget(domicilio.manzana) }}
+                                                {{ form_row(domicilio.manzana, {'label':'Mzna', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="form-horizontal">
                                             <td>
-                                                {{ form_label(domicilio.tira, 'Tira') }}
-                                                {{ form_widget(domicilio.tira) }}
+                                                {{ form_row(domicilio.tira, {'label':'Tira', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.parcela, 'Parcela') }}
-                                                {{ form_widget(domicilio.parcela) }}
+                                                {{ form_row(domicilio.parcela, {'label':'Parcela', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.quinta, 'Quinta') }}
-                                                {{ form_widget(domicilio.quinta) }}
+                                                {{ form_row(domicilio.quinta, {'label':'Quinta', 
+                                                     'label_attr':{'style':'font-weight:bold;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_label(domicilio.unidadFuncional, 'UF/Casa') }}
+                                                {{ form_label(domicilio.unidadFuncional, 'UF/Casa', {'label_attr':{'style':'font-weight:bold;'}}) }}
                                                 {{ form_widget(domicilio.unidadFuncional) }}
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="form-horizontal">
                                             <td colspan="3">
 
-                                                {{ form_label(domicilio.referencias, 'Referencias') }}
+                                                {{ form_label(domicilio.referencias, 'Referencias', {'label_attr':{'style':'font-weight:bold;'}}) }}
                                                 {{ form_widget(domicilio.referencias, {'attr':{'class':'span6'}}) }}
                                                 <div style="display: none;">
                                                     {{ form_row(domicilio.departamento) }}
@@ -187,74 +194,116 @@
                 </div>
             </div>
         </div>
-        <h4>Becas Asignadas</h4>
+        <fieldset style="border:1px solid; background-color: #3a8104; color:#D3D3D3; height: 30px;">
+            <h4 style="line-height: 12px;">
+                Becas Asignadas
+            </h4>
+        </fieldset>
+                    
         {% set cont=0 %}
         {% if edit_form.becadobeca is not empty %}
-            {% for becas in edit_form.becadobeca %}
-                {% set cont=cont + 1 %}
-                <span style="color: #387038"><b>Beca Nro: {{ cont }}</b></span><br/>
-                               
-                {{ form_row(becas.beca) }}
-                {{ form_row(becas.fechaAlta) }}
-                {{ form_row(becas.fechaBaja) }}
-                {{ form_row(becas.activo) }}
-                {{ form_row(becas.detalles) }}
+            
+            {% for becas in edit_form.becadobeca %}                
+                {% for choice in becas.beca.vars.choices %}
+                    {% if choice.value == becas.beca.vars.value %}
+                        {% set cont=cont + 1 %}
+                        <br/><span style="color: #387038"><b>Beca Nro: {{ cont }}</b></span>
+                        {{ form_widget(becas.beca, {'attr':{'style':'width:50%;'} }) }}
+                    {% endif %}
+                {% endfor %}   
+                {% for choice in becas.becaVulnerable.vars.choices %}
+                    {% if choice.value== becas.becaVulnerable.vars.value %}
+                        {% set cont=cont + 1 %}
+                        <br/><span style="color: #387038"><b>Beca Nro: {{ cont }}</b></span>
+                        {{ form_widget(becas.becaVulnerable, {'attr':{'style':'width:50%;'} }) }}
+                    {% endif %}
+                {% endfor %}                
+                
                 <div style="display:none">
                     {{ form_row(becas.becado) }}
-                </div> 
+                </div>
+                
             {% endfor %}
         {% else %}
             <span style="color: #cc0000;">(*)La persona no tiene Becas Asignadas, para poder modificar la ficha, agregue una Beca</span>
         {% endif %}
-
-
-        <h4>Movimiento/Afectación/Dependencia</h4>
-
-        {{ form_label(edit_form.referente, 'Mov. Social/Referente') }}
-        {{ form_widget(edit_form.referente | e) }} 
-        {{ form_label(edit_form.lugarAfectacion, 'Lugar de Afectación') }}
-        {{ form_widget(edit_form.lugarAfectacion | e) }}
-        {{ form_label(edit_form.dependencia, 'Dependencia') }}
-        {{ form_widget(edit_form.dependencia | e) }}
-
+        
+        <fieldset style="border:1px solid; background-color: #3a8104; color:#D3D3D3; height: 30px;">
+            <h4 style="line-height: 12px;">
+                Movimiento/Afectación/Dependencia
+            </h4>
+        </fieldset>
+        <table>
+            <tbody>
+                <tr class="form-horizontal">
+                    <td>
+                        {{ form_label(edit_form.referente, 'Mov. Social/Referente', {'label_attr':{'style':'font-weight:bold;'}}) }}
+                        {{ form_widget(edit_form.referente | e, {'attr':{'style':'width:100%;'}}) }} 
+                    </td>
+                    <td>
+                        {{ form_label(edit_form.lugarAfectacion, 'Lugar de Afectación', {'label_attr':{'style':'font-weight:bold;'}}) }}
+                        {{ form_widget(edit_form.lugarAfectacion | e, {'attr':{'style':'width:100%;'}}) }}
+                    </td>
+                    <td>
+                        {{ form_label(edit_form.dependencia, 'Dependencia', {'label_attr':{'style':'font-weight:bold;'}}) }}
+                        {{ form_widget(edit_form.dependencia | e, {'attr':{'style':'width:100%;'}}) }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse">
-                            Formación</a>
-                    </h4>
+                    <fieldset style="border:1px solid; background-color: #3a8104; color:#D3D3D3; height: 30px;">
+                        <h4 class="panel-title" style="line-height: 12px;">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse"  style="color:#D3D3D3;">
+                                Formación
+                            </a>
+                        </h4>
+                    </fieldset>
                 </div>
                 <div id="formacionCollapse" class="panel-collapse collapse in">
                     <div class="panel-body">
                         {{ form_errors(edit_form.formacion) }}
                         {% if edit_form.formacion is not empty %}
                             {% for formacion in edit_form.formacion %}
-
                                 {{ form_stylesheet(formacion) }}
                                 {{ form_javascript(formacion) }}
                                 <table>
                                     <tbody>
-                                        <tr>
+                                        <tr class="form-horizontal">
                                             <td>
-                                                {{ form_row(formacion.institucion) }}
+                                                {{ form_row(formacion.institucion, {'label':'Institución',
+                                                                        'label_attr':{'style':'font-weight:bold;'}})}}
                                             </td>
                                             <td>
-                                                {{ form_row(formacion.nivelEducativo) }}
+                                                {{ form_row(formacion.nivelEducativo, {'label':'Nivel Educativo',
+                                                                        'label_attr':{'style':'font-weight:bold;'},
+                                                                        'attr':{'style':'width:100%;'}}) }}
+                                                                        
                                             </td>
                                             <td>
-                                                {{ form_row(formacion.profesion) }}
+                                                {{ form_row(formacion.profesion, {'label':'Profesión',
+                                                                        'label_attr':{'style':'font-weight:bold;'},
+                                                                        'attr':{'style':'width:100%;'}}) }}
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="form-horizontal">
                                             <td>
-                                                {{ form_row(formacion.oficio) }}
+                                                {{ form_row(formacion.oficio, {'label':'Oficio',
+                                                                        'label_attr':{'style':'font-weight:bold;'},
+                                                                        'attr':{'style':'width:100%;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_row(formacion.perfil) }}
+                                                {{ form_row(formacion.perfil, {'label':'Perfil',
+                                                                        'label_attr':{'style':'font-weight:bold;'},
+                                                                        'attr':{'style':'width:100%;'}}) }}
                                             </td>
                                             <td>
-                                                {{ form_row(formacion.descripcion) }}
+                                                {{ form_row(formacion.descripcion, {'label':'Descripción',
+                                                                        'label_attr':{'style':'font-weight:bold;'},
+                                                                        'attr':{'style':'width:100%;'}}) }}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -278,16 +327,45 @@
                 </div>
             </div>
         </div>
-        <h4>Otros Datos</h4>
-        {{ form_row(edit_form.presentaCertificacion) }} {{ form_row(edit_form.fechaAlta) }}
-        {{ form_row(edit_form.fechaBaja) }} {{ form_row(edit_form.activo) }}
-
+        <fieldset style="border:1px solid; background-color: #3a8104; color:#D3D3D3; height: 30px;">
+            <h4 style="line-height: 12px;">
+                Otros Datos
+            </h4>
+        </fieldset>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        {{ form_row(edit_form.fechaAlta, {'label':'Fecha Alta',
+                                        'label_attr':{'style':'font-weight:bold;'}}) }}
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.fechaBaja, {'label':'Fecha Baja',
+                                        'label_attr':{'style':'font-weight:bold;'}}) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form_row(edit_form.presentaCertificacion, {'label':'¿Presenta Certificación?',
+                                                    'label_attr':{'style':'font-weight:bold;'}}) }}                        
+                    </td>
+                    <td>
+                        {{ form_row(edit_form.activo, {'label':'¿Activo?',
+                                      'label_attr':{'style':'font-weight:bold;'}}) }}
+                    </td>
+                </tr>
+            </tbody>                        
+        </table>
+        
         {#PONGO ESTOS CAMPOS A HIDDEN YA QUE SI USO FORM_REST EN FORM END, BORRA TAMBIÉN LAS ENTITY#}
         <div style="display: none">
             {{ form_widget(edit_form.formacion) }}
         </div>
         <div style="display: none">
             {{ form_widget(edit_form.domicilio) }}
+        </div>
+        <div style="display: none">
+            {{ form_widget(edit_form.becadobeca) }}
         </div>
         <div style="padding-top: 15px;"><span class="divider-vertical">
                 <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
@@ -333,9 +411,5 @@
         </div>
     </div>
     
-    </div>
-
-    
-
-
+ </div>
 {% endblock %}

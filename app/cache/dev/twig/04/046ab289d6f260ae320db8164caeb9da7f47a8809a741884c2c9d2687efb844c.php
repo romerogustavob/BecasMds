@@ -40,11 +40,11 @@ class __TwigTemplate_0f0b0ef1d5fdbba12d1ab41ceeacaa29b11410413df22d921dfe73ae77a
     public function block_page($context, array $blocks = array())
     {
         // line 8
-        $context["becadoId"] = $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becado", array()), "id", array());
+        echo "
+<h1>";
         // line 9
-        echo "<h2 style=\"color: #0044cc\">Editar beca Becado: ";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becado", array()), "html", null, true);
-        echo "</h2>
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.edit.edit", array("%entity%" => "BecadoBeca"), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
+        echo "</h1>
 
 <form class=\"well\" action=\"";
         // line 11
@@ -53,81 +53,80 @@ class __TwigTemplate_0f0b0ef1d5fdbba12d1ab41ceeacaa29b11410413df22d921dfe73ae77a
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'enctype');
         echo ">
     <input type=\"hidden\" name=\"_method\" value=\"PUT\" />
-    ";
-        // line 13
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'form_start');
-        echo "
-    <div style=\"display:none\">
-     ";
-        // line 15
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becado", array()), 'row');
-        echo "
-    </div>
-    ";
+    <table>
+        <tbody>
+            <tr>
+                <td>";
+        // line 16
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becado", array()), 'row', array("attr" => array("style" => "width:100%; cursor: not-allowed; length: 1;", "readonly" => "true")));
+        echo "</td>
+                <td>";
         // line 17
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "beca", array()), 'row');
-        echo "
-    ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "beca", array()), 'row', array("attr" => array("style" => "width:100%;")));
+        echo "</td>
+                <td>";
         // line 18
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "fechaAlta", array()), 'row');
-        echo "
-    ";
-        // line 19
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "fechaBaja", array()), 'row');
-        echo "
-    ";
-        // line 20
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "detalles", array()), 'row');
-        echo "
-    ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "becaVulnerable", array()), 'row', array("attr" => array("style" => "width:100%;")));
+        echo "</td>
+            </tr>
+            <tr>
+                <td>";
         // line 21
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "fechaAlta", array()), 'row');
+        echo "</td>
+                <td>";
+        // line 22
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "fechaBaja", array()), 'row');
+        echo "</td>
+                <td>";
+        // line 23
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "activo", array()), 'row');
+        echo "</td>
+            </tr>
+            <tr>
+                <td colspan='3'>";
+        // line 26
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : null), "detalles", array()), 'row', array("attr" => array("style" => "width:100%;")));
+        echo "</td>
+            </tr>
+        </tbody>
+    </table>
+    ";
+        // line 30
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'widget');
         echo "
-    
     <p>
         <button type=\"submit\" class=\"btn btn-success\">";
-        // line 24
+        // line 32
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.edit.editbutton", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</button>
     </p>
-    ";
-        // line 26
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["edit_form"]) ? $context["edit_form"] : null), 'form_end');
-        echo "
 </form>
 
 <div>
     <div class=\"float-left\">
         <a class=\"btn\" href=\"";
-        // line 31
+        // line 38
         echo $this->env->getExtension('routing')->getPath("becadobeca");
         echo "\">
             ";
-        // line 32
+        // line 39
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
         </a>
     </div>
     <div class=\"float-left\">
-        <a class=\"btn btn-info\" href=\"";
-        // line 36
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_show", array("id" => $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becado", array()), "id", array()))), "html", null, true);
-        echo "\">
-            Ir a Becado
-        </a>
-    </div>
-    <div class=\"float-left\">
         <form action=\"";
-        // line 41
+        // line 43
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\">
             <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
             ";
-        // line 43
+        // line 45
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : null), 'widget');
         echo "
             <button class=\"btn btn-danger\" type=\"submit\" onclick=\"return confirm('";
-        // line 44
+        // line 46
         echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.confirm", array(), "JordiLlonchCrudGeneratorBundle"), "js"), "html", null, true);
         echo "');\">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.delete", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
@@ -150,7 +149,7 @@ class __TwigTemplate_0f0b0ef1d5fdbba12d1ab41ceeacaa29b11410413df22d921dfe73ae77a
 
     public function getDebugInfo()
     {
-        return array (  131 => 44,  127 => 43,  122 => 41,  114 => 36,  107 => 32,  103 => 31,  95 => 26,  90 => 24,  84 => 21,  80 => 20,  76 => 19,  72 => 18,  68 => 17,  63 => 15,  58 => 13,  51 => 11,  45 => 9,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  130 => 46,  126 => 45,  121 => 43,  114 => 39,  110 => 38,  101 => 32,  96 => 30,  89 => 26,  83 => 23,  79 => 22,  75 => 21,  69 => 18,  65 => 17,  61 => 16,  51 => 11,  46 => 9,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -160,36 +159,38 @@ class __TwigTemplate_0f0b0ef1d5fdbba12d1ab41ceeacaa29b11410413df22d921dfe73ae77a
 /* {% endblock %}*/
 /* */
 /* {% block page %}*/
-/* {% set becadoId=entity.becado.id %}*/
-/* <h2 style="color: #0044cc">Editar beca Becado: {{ entity.becado }}{#{{ 'views.edit.edit'|trans({'%entity%': 'BecadoBeca'}, 'JordiLlonchCrudGeneratorBundle') }}#}</h2>*/
+/* */
+/* <h1>{{ 'views.edit.edit'|trans({'%entity%': 'BecadoBeca'}, 'JordiLlonchCrudGeneratorBundle') }}</h1>*/
 /* */
 /* <form class="well" action="{{ path('becadobeca_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>*/
 /*     <input type="hidden" name="_method" value="PUT" />*/
-/*     {{ form_start(edit_form) }}*/
-/*     <div style="display:none">*/
-/*      {{ form_row(edit_form.becado) }}*/
-/*     </div>*/
-/*     {{ form_row(edit_form.beca) }}*/
-/*     {{ form_row(edit_form.fechaAlta) }}*/
-/*     {{ form_row(edit_form.fechaBaja) }}*/
-/*     {{ form_row(edit_form.detalles) }}*/
-/*     {{ form_row(edit_form.activo) }}*/
-/*     */
+/*     <table>*/
+/*         <tbody>*/
+/*             <tr>*/
+/*                 <td>{{ form_row(edit_form.becado, {'attr':{'style':'width:100%; cursor: not-allowed; length: 1;', 'readonly':'true' }} ) }}</td>*/
+/*                 <td>{{ form_row(edit_form.beca, {'attr':{'style':'width:100%;'}}) }}</td>*/
+/*                 <td>{{ form_row(edit_form.becaVulnerable, {'attr':{'style':'width:100%;'}}) }}</td>*/
+/*             </tr>*/
+/*             <tr>*/
+/*                 <td>{{ form_row(edit_form.fechaAlta) }}</td>*/
+/*                 <td>{{ form_row(edit_form.fechaBaja) }}</td>*/
+/*                 <td>{{ form_row(edit_form.activo) }}</td>*/
+/*             </tr>*/
+/*             <tr>*/
+/*                 <td colspan='3'>{{ form_row(edit_form.detalles, {'attr':{'style':'width:100%;'}}) }}</td>*/
+/*             </tr>*/
+/*         </tbody>*/
+/*     </table>*/
+/*     {{ form_widget(edit_form) }}*/
 /*     <p>*/
 /*         <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>*/
 /*     </p>*/
-/*     {{ form_end(edit_form) }}*/
 /* </form>*/
 /* */
 /* <div>*/
 /*     <div class="float-left">*/
 /*         <a class="btn" href="{{ path('becadobeca') }}">*/
 /*             {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}*/
-/*         </a>*/
-/*     </div>*/
-/*     <div class="float-left">*/
-/*         <a class="btn btn-info" href="{{ path('becado_show', {'id': entity.becado.id}) }}">*/
-/*             Ir a Becado*/
 /*         </a>*/
 /*     </div>*/
 /*     <div class="float-left">*/

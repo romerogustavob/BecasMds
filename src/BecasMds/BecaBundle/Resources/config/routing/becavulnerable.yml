@@ -1,0 +1,30 @@
+becavulnerable:
+    pattern:  /
+    defaults: { _controller: "BecaBundle:BecaVulnerable:index" }
+
+becavulnerable_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BecaBundle:BecaVulnerable:show" }
+
+becavulnerable_new:
+    pattern:  /{becado}/new
+    defaults: { _controller: "BecaBundle:BecaVulnerable:new" }
+
+becavulnerable_create:
+    pattern:  /{becado}/create
+    defaults: { _controller: "BecaBundle:BecaVulnerable:create" }
+    requirements: { _method: post }
+
+becavulnerable_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BecaBundle:BecaVulnerable:edit" }
+
+becavulnerable_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BecaBundle:BecaVulnerable:update" }
+    requirements: { _method: post|put }
+
+becavulnerable_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BecaBundle:BecaVulnerable:delete" }
+    requirements: { _method: post|delete }

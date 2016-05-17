@@ -54,7 +54,7 @@ class Formacion
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=255)
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
      */
     private $descripcion;
 
@@ -62,7 +62,36 @@ class Formacion
      * @ORM\ManyToOne(targetEntity="BecasMds\PersonaBundle\Entity\Persona", inversedBy="formacion")
      * @ORM\JoinColumn(name="persona_id", referencedColumnName="id")
      */
-    private $persona;
+    protected $persona;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $createdBy;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updatedBy;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     
     public function __construct() {
     }
@@ -225,6 +254,13 @@ class Formacion
     }
     
 
+    public function addPersona(\BecasMds\PersonaBundle\Entity\Persona $persona=null){
+        if (!$this->persona->contains($persona)){
+            $this->persona->add($persona);
+        }
+    }
+            
+    
     /**
      * Set persona
      *

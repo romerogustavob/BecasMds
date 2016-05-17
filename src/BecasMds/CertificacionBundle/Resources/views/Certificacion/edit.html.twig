@@ -6,7 +6,10 @@
 
 {% block page %}
 
-    <h3 style="color: #0044cc">Modificar Certificación de: </h3><h4>Dni: {{ entity.becadobeca }}</h4>
+    <h3 style="color: #0044cc">Modificar Certificación de: </h3><h4>
+        {{ entity.becadobeca.becado.apellidos }}, 
+        {{ entity.becadobeca.becado.nombres }} 
+        Dni: {{ entity.becadobeca.becado.dni }}</h4>
 
 <form class="well" action="{{ path('certificacion_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     <input type="hidden" name="_method" value="PUT" />
@@ -16,9 +19,18 @@
             <div class="form-row">
                 <tr>
                     <td>
+                        {{ form_label(edit_form.becatipo, 'Tipo de Beca') }}
+                        {{ form_widget(edit_form.becatipo) }}
+                    </td>
+                    <td>
+                        {{ form_label(edit_form.becafuncion, 'Función') }}
+                        {{ form_widget(edit_form.becafuncion) }}
+                        {#{{ form_widget(edit_form.becafuncion, { 'attr': {'readonly': 'readonly'} }) }}#}
+                    </td>
+                    <td>
                         <div style="display:none"
                              {{ form_row(edit_form.becadobeca) }}
-                    </div>
+                        </div>
                     {{ form_label(edit_form.mesCertificacion, 'Mes Certificación') }}
                     {{ form_widget(edit_form.mesCertificacion) }}
 
@@ -60,7 +72,7 @@
 
 <div>
     <div class="float-left">
-        <a class="btn" href="{{ path('certificacion') }}">
+        <a class="btn" href="{{ path('certificacion', {'toexcel':'false'}) }}">
             {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
     </div>

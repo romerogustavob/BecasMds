@@ -48,84 +48,84 @@ class Domicilio
     /**
      * @var string
      *
-     * @ORM\Column(name="numero", type="string", length=255)
+     * @ORM\Column(name="numero", type="string", length=255, nullable=true)
      */
     private $numero;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dpto", type="string", length=255)
+     * @ORM\Column(name="dpto", type="string", length=255, nullable=true)
      */
     private $dpto;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="piso", type="string", length=255)
+     * @ORM\Column(name="piso", type="string", length=255, nullable=true)
      */
     private $piso;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="edificio", type="string", length=255)
+     * @ORM\Column(name="edificio", type="string", length=255, nullable=true)
      */
     private $edificio;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="manzana", type="string", length=255)
+     * @ORM\Column(name="manzana", type="string", length=255, nullable=true)
      */
     private $manzana;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tira", type="string", length=255)
+     * @ORM\Column(name="tira", type="string", length=255, nullable=true)
      */
     private $tira;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="parcela", type="string", length=255)
+     * @ORM\Column(name="parcela", type="string", length=255, nullable=true)
      */
     private $parcela;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="quinta", type="string", length=255)
+     * @ORM\Column(name="quinta", type="string", length=255, nullable=true)
      */
     private $quinta;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="unidad_funcional", type="string", length=255)
+     * @ORM\Column(name="unidad_funcional", type="string", length=255, nullable=true)
      */
     private $unidadFuncional;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="latitude", type="string", length=255)
+     * @ORM\Column(name="latitude", type="string", length=255, nullable=true)
      */
     private $latitude;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="longitude", type="string", length=255)
+     * @ORM\Column(name="longitude", type="string", length=255, nullable=true)
      */
     private $longitude;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="referencias", type="string", length=255)
+     * @ORM\Column(name="referencias", type="string", length=255, nullable=true)
      */
     private $referencias;
 
@@ -134,6 +134,35 @@ class Domicilio
      * @ORM\JoinColumn(name="persona_id", referencedColumnName="id")
      */
     protected $persona;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $createdBy;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updatedBy;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     
     public function __construct() {
 
@@ -545,5 +574,38 @@ class Domicilio
     {
         return $this->calle;
     }
+    
+    public function addPersona(\BecasMds\PersonaBundle\Entity\Persona $persona=null){
+        if (!$this->persona->contains($persona)){
+            $this->persona->add($persona);
+        }
+    }
 
+
+    /**
+     * Set persona
+     *
+     * @param \BecasMds\PersonaBundle\Entity\Persona $persona
+     * @return Domicilio
+     */
+    public function setPersona(\BecasMds\PersonaBundle\Entity\Persona $persona = null)
+    {
+        $this->persona = $persona;
+    
+        return $this;
+    }
+
+    /**
+     * Get persona
+     *
+     * @return \BecasMds\PersonaBundle\Entity\Persona 
+     */
+    public function getPersona()
+    {
+        return $this->persona;
+    }
+    
+    public function __toString() {
+        return $this->getLocalidad().' - '.$this->getBarrio().' - '.$this->getCalle().' - '. $this->getNumero().' - '.$this->getReferencias();
+    }
 }

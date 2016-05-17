@@ -57,9 +57,7 @@ class CertificacionFilterType extends AbstractType
                         $qbe->addOnce($qbe->getAlias() . '.becadobeca', 'bcdbc', $closure);
                     },
                     'required' => false,
-                ))
-                
-       ; 
+                ));
 
         $listener = function(FormEvent $event)
         {

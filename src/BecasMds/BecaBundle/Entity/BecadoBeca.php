@@ -68,6 +68,12 @@ class BecadoBeca {
      * @ORM\Column(name="detalles", type="string", length=255, nullable=true)
      */
     private $detalles;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="BecaVulnerable", inversedBy="becadobeca")
+     * @ORM\JoinColumn(name="becavulnerable_id", referencedColumnName="id")
+     */
+    protected $becaVulnerable;
 
     public function __construct() {
         
@@ -258,5 +264,28 @@ class BecadoBeca {
     
     public function getBecas(){
         return $this->getBeca();
+    }
+
+    /**
+     * Set becaVulnerable
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecaVulnerable $becaVulnerable
+     * @return BecadoBeca
+     */
+    public function setBecaVulnerable(\BecasMds\BecaBundle\Entity\BecaVulnerable $becaVulnerable = null)
+    {
+        $this->becaVulnerable = $becaVulnerable;
+
+        return $this;
+    }
+
+    /**
+     * Get becaVulnerable
+     *
+     * @return \BecasMds\BecaBundle\Entity\BecaVulnerable 
+     */
+    public function getBecaVulnerable()
+    {
+        return $this->becaVulnerable;
     }
 }

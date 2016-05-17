@@ -3,6 +3,7 @@
 namespace BecasMds\PersonaBundle\Entity;
 
 use BecasMds\PersonaBundle\Entity\Persona;
+use BecasMds\BecaBundle\Entity\BecaVulnerable;
 use Doctrine\ORM\Mapping as ORM;
 use BecasMds\FormacionBundle\Entity\Formacion;
 
@@ -35,7 +36,33 @@ class Becado extends Persona
      * @ORM\JoinColumn(name="dependencia_id", referencedColumnName="id")
      */
     protected $dependencia;
+    
+     /**
+     * @var string
+     */
+    protected $dni;
 
+    /**
+     * @var string
+     */
+    protected $apellidos;
+
+    /**
+     * @var string
+     * 
+     */
+    protected $nombres;
+
+    /**
+     * @var string
+     */
+    protected $telefono;
+
+    /**
+     * @var string
+     */
+    protected $email;
+    
     /**
      * @var boolean
      *
@@ -79,6 +106,12 @@ class Becado extends Persona
     private $fechaBaja;
     
     /**
+     * @ORM\OneToOne(targetEntity="BecasMds\BecaBundle\Entity\BecaVulnerable", mappedBy="becado")
+     */
+    protected $becaVulnerable;
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -93,32 +126,16 @@ class Becado extends Persona
         return $this;
     }
 
+   
     /**
-     * @var string
+     * Constructor
      */
-    protected $dni;
-
-    /**
-     * @var string
-     */
-    protected $apellidos;
-
-    /**
-     * @var string
-     */
-    protected $nombres;
-
-    /**
-     * @var string
-     */
-    protected $telefono;
-
-    /**
-     * @var string
-     */
-    protected $email;
-
-
+    public function __construct()
+    {
+        $this->formacion = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->domicilio=new \Doctrine\Common\Collections\ArrayCollection();
+        $this->becadobeca=new \Doctrine\Common\Collections\ArrayCollection();
+    }
     /**
      * Set presentaCertificacion
      *
@@ -247,6 +264,10 @@ class Becado extends Persona
         return $this;
     }
 
+    public function getBecadoLista(){
+        return $this->getDni().' -'.$this->getApellidos().', '.$this->getNombres();
+    }
+    
     /**
      * Get apellidos
      *
@@ -351,7 +372,7 @@ class Becado extends Persona
     }
     
     public function __toString() {
-        return $this->getDni().'-'.$this->getApellidos().'-'.$this->getNombres();
+        return $this->getDni().'-'.$this->getApellidos().','.$this->getNombres();
     }
 
     /**
@@ -414,16 +435,6 @@ class Becado extends Persona
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $formacion;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->formacion = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->domicilio=new \Doctrine\Common\Collections\ArrayCollection();
-        $this->becadobeca=new \Doctrine\Common\Collections\ArrayCollection();
-    }
     
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -488,4 +499,44 @@ class Becado extends Persona
         return $this->referente;
     }
     
+
+    /**
+     * Add becadobeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
+     * @return Becado
+     */
+    public function addBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca)
+    {
+        $this->becadobeca[] = $becadobeca;
+    
+        return $this;
+    }
+    
+    public function setBecadoBeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca){
+        $this->becadobeca[] = $becadobeca;
+    }
+    /**
+     * Remove becadobeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
+     */
+    public function removeBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca)
+    {
+        $this->becadobeca->removeElement($becadobeca);
+    }
+
+    /**
+     * Get becadobeca
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBecadobeca()
+    {
+        return $this->becadobeca;
+    }
+    
+    public function __sleep() {
+        return array($this->getBecadoLista());
+    }
 }

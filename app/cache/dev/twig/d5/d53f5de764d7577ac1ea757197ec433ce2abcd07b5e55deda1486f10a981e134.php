@@ -22,11 +22,14 @@ class __TwigTemplate_559c873cf0a39ebe9f2eee4b6744a4cd94dd8472d2906704553b42ca7d6
         // line 1
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 6
-        $this->displayBlock('menu', $context, $blocks);
-        // line 9
         echo "
 ";
+        // line 7
+        $this->displayBlock('menu', $context, $blocks);
         // line 10
+        echo "
+";
+        // line 11
         $this->displayBlock('content', $context, $blocks);
     }
 
@@ -44,35 +47,35 @@ class __TwigTemplate_559c873cf0a39ebe9f2eee4b6744a4cd94dd8472d2906704553b42ca7d6
         echo "\" rel=\"stylesheet\" type=\"text/css\"/>
     <link href=\"";
         // line 4
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/boostrap-datepicker.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" />
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/persona/css/bootstrap-datepicker.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" type=\"text/css\"/>
 ";
     }
 
-    // line 6
+    // line 7
     public function block_menu($context, array $blocks = array())
     {
-        // line 7
+        // line 8
         echo "    ";
-        $this->loadTemplate("menulogin.html.twig", "::layout.html.twig", 7)->display($context);
+        $this->loadTemplate("menulogin.html.twig", "::layout.html.twig", 8)->display($context);
     }
 
-    // line 10
+    // line 11
     public function block_content($context, array $blocks = array())
     {
         echo "   
     ";
-        // line 11
+        // line 12
         $this->displayBlock('fos_user_content', $context, $blocks);
-        // line 13
+        // line 14
         echo " 
 ";
     }
 
-    // line 11
+    // line 12
     public function block_fos_user_content($context, array $blocks = array())
     {
-        // line 12
+        // line 13
         echo "
     ";
     }
@@ -84,14 +87,15 @@ class __TwigTemplate_559c873cf0a39ebe9f2eee4b6744a4cd94dd8472d2906704553b42ca7d6
 
     public function getDebugInfo()
     {
-        return array (  76 => 12,  73 => 11,  68 => 13,  66 => 11,  61 => 10,  56 => 7,  53 => 6,  47 => 4,  43 => 3,  39 => 2,  34 => 1,  30 => 10,  27 => 9,  25 => 6,  23 => 1,);
+        return array (  79 => 13,  76 => 12,  71 => 14,  69 => 12,  64 => 11,  59 => 8,  56 => 7,  50 => 4,  46 => 3,  42 => 2,  37 => 1,  33 => 11,  30 => 10,  28 => 7,  25 => 6,  23 => 1,);
     }
 }
 /* {% block stylesheets %}    */
 /*     <link href="{{ asset('bundles/jordillonchcrudgenerator/css/bootstrap.css') }}" rel="stylesheet" type="text/css"/>*/
 /*     <link href="{{ asset('bundles/usuario/css/loginUser.css') }}" rel="stylesheet" type="text/css"/>*/
-/*     <link href="{{ asset('bundles/persona/css/boostrap-datepicker.css') }}" rel="stylesheet" />*/
+/*     <link href="{{ asset('bundles/persona/css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css"/>*/
 /* {% endblock %}*/
+/* */
 /* {% block menu %}*/
 /*     {% include 'menulogin.html.twig' %}*/
 /* {% endblock %}*/

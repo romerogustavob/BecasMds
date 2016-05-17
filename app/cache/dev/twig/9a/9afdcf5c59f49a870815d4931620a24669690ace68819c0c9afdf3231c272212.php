@@ -17,8 +17,6 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 96
-        echo "<a href=\"../../../../../../../.gitignore\"></a>";
     }
 
     // line 2
@@ -43,47 +41,47 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "84b4787_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_84b4787_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/84b4787_select2_1.js");
-            // line 12
-            echo "        
+            // line 11
+            echo "  
         <script type=\"text/javascript\" src=\"";
-            // line 13
+            // line 12
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // line 14
+            // line 13
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["formac"]) ? $context["formac"] : null));
             echo "
         ";
             // asset "84b4787_1"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_84b4787_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/84b4787_select2Formacion_2.js");
-            // line 12
-            echo "        
+            // line 11
+            echo "  
         <script type=\"text/javascript\" src=\"";
-            // line 13
+            // line 12
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // line 14
+            // line 13
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["formac"]) ? $context["formac"] : null));
             echo "
         ";
         } else {
             // asset "84b4787"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_84b4787") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/84b4787.js");
-            // line 12
-            echo "        
+            // line 11
+            echo "  
         <script type=\"text/javascript\" src=\"";
-            // line 13
+            // line 12
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
         ";
-            // line 14
+            // line 13
             echo $this->env->getExtension('genemu.twig.extension.form')->renderJavascript((isset($context["formac"]) ? $context["formac"] : null));
             echo "
         ";
         }
         unset($context["asset_url"]);
-        // line 16
+        // line 15
         echo "    ";
     }
 
@@ -107,7 +105,7 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
     ";
             // line 7
             $this->displayBlock('javascript', $context, $blocks);
-            // line 17
+            // line 16
             echo "    <style>
         .negrita{
             font-weight: bold;
@@ -128,23 +126,16 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
     </style>
     <div class=\"row-fluid bordediv\">
         <table class=\"tablafondo\">
-            <thead>
-                <tr>
-                    <th></th><th></th><th></th>
-                    <th></th><th></th><th></th>
-                </tr>
-            </thead>
             <tbody>
-
                 <tr>
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 48
+            // line 40
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "institucion", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Institución"));
             echo "
                             ";
-            // line 49
+            // line 41
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "institucion", array()), 'widget');
             echo "
                         </div>
@@ -152,11 +143,11 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 54
+            // line 46
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "nivelEducativo", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Nivel Educativo"));
             echo "
                             ";
-            // line 55
+            // line 47
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "nivelEducativo", array()), 'widget');
             echo "
                         </div>
@@ -164,26 +155,26 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 60
+            // line 52
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "profesion", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Profesión"));
             echo "
                             ";
-            // line 61
+            // line 53
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "profesion", array()), 'widget');
             echo "
                         </div>                        
                     </td>
                     
                 </tr>
-                <tr>
+                <tr class=\"form-horizontal\">
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 69
+            // line 61
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "oficio", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Oficio"));
             echo "
                             ";
-            // line 70
+            // line 62
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "oficio", array()), 'widget');
             echo "
                         </div>
@@ -191,11 +182,11 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 75
+            // line 67
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "perfil", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Perfil"));
             echo "
                             ";
-            // line 76
+            // line 68
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "perfil", array()), 'widget');
             echo "
                         </div>
@@ -203,21 +194,18 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
                     <td>
                         <div class=\"span7\">
                             ";
-            // line 81
+            // line 73
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "descripcion", array()), 'label', array("label_attr" => array("class" => "negrita"), "label" => "Descripción"));
             echo "
                             ";
-            // line 82
+            // line 74
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["formac"]) ? $context["formac"] : null), "descripcion", array()), 'widget');
             echo "
                         </div>
                     </td>
                 </tr>
-
-        </tbody>
-            
+        </tbody>            
         </table>
-
         <div class=\"span2\">
             <a class='delete-form btn btn-mini btn-danger' href='#'><i class='icon-remove-circle'></i>Quitar Formación </a>
         </div>
@@ -244,7 +232,7 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
 
     public function getDebugInfo()
     {
-        return array (  211 => 82,  207 => 81,  199 => 76,  195 => 75,  187 => 70,  183 => 69,  172 => 61,  168 => 60,  160 => 55,  156 => 54,  148 => 49,  144 => 48,  111 => 17,  109 => 7,  106 => 6,  103 => 2,  91 => 1,  87 => 16,  81 => 14,  77 => 13,  74 => 12,  67 => 14,  63 => 13,  60 => 12,  54 => 14,  50 => 13,  47 => 12,  42 => 8,  39 => 7,  33 => 4,  28 => 3,  25 => 2,  21 => 96,);
+        return array (  202 => 74,  198 => 73,  190 => 68,  186 => 67,  178 => 62,  174 => 61,  163 => 53,  159 => 52,  151 => 47,  147 => 46,  139 => 41,  135 => 40,  109 => 16,  107 => 7,  104 => 6,  101 => 2,  89 => 1,  85 => 15,  79 => 13,  75 => 12,  72 => 11,  65 => 13,  61 => 12,  58 => 11,  52 => 13,  48 => 12,  45 => 11,  40 => 8,  37 => 7,  31 => 4,  26 => 3,  23 => 2,);
     }
 }
 /* {% macro formacion(formac) %}*/
@@ -257,8 +245,7 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
 /*         {% javascripts */
 /*             '@PersonaBundle/Resources/public/js/select2.js'*/
 /*             '@FormacionBundle/Resources/public/js/select2Formacion.js'*/
-/*         %}*/
-/*         */
+/*         %}  */
 /*         <script type="text/javascript" src="{{ asset_url }}"></script>*/
 /*         {{ form_javascript(formac) }}*/
 /*         {% endjavascripts %}*/
@@ -283,14 +270,7 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
 /*     </style>*/
 /*     <div class="row-fluid bordediv">*/
 /*         <table class="tablafondo">*/
-/*             <thead>*/
-/*                 <tr>*/
-/*                     <th></th><th></th><th></th>*/
-/*                     <th></th><th></th><th></th>*/
-/*                 </tr>*/
-/*             </thead>*/
 /*             <tbody>*/
-/* */
 /*                 <tr>*/
 /*                     <td>*/
 /*                         <div class="span7">*/
@@ -312,7 +292,7 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
 /*                     </td>*/
 /*                     */
 /*                 </tr>*/
-/*                 <tr>*/
+/*                 <tr class="form-horizontal">*/
 /*                     <td>*/
 /*                         <div class="span7">*/
 /*                             {{ form_label(formac.oficio, 'Oficio', {'label_attr': {'class': 'negrita'}}) }}*/
@@ -332,14 +312,11 @@ class __TwigTemplate_26ed3376fcbc0d14fc3aab132d963dddb293d806f550a5a7d0c798d5057
 /*                         </div>*/
 /*                     </td>*/
 /*                 </tr>*/
-/* */
-/*         </tbody>*/
-/*             */
+/*         </tbody>            */
 /*         </table>*/
-/* */
 /*         <div class="span2">*/
 /*             <a class='delete-form btn btn-mini btn-danger' href='#'><i class='icon-remove-circle'></i>Quitar Formación </a>*/
 /*         </div>*/
 /*     </div>*/
 /* {% endmacro %}*/
-/* <a href="../../../../../../../.gitignore"></a>*/
+/* */

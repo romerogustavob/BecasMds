@@ -1,7 +1,7 @@
 certificacion:
-    pattern:  /
+    pattern:  /{toexcel}/
     defaults: { _controller: "CertificacionBundle:Certificacion:index" }
-
+    
 certificacion_show:
     pattern:  /{id}/show
     defaults: { _controller: "CertificacionBundle:Certificacion:show" }
@@ -40,3 +40,7 @@ certificacion_individual_imprimir:
 certificacion_individual_excel:
     pattern: /{id}/excel
     defaults: { _controller: "CertificacionBundle:Certificacion:excelCertificacionInd" }
+
+certificacion_total_excel:
+    pattern: /{entities}/excel
+    defaults: { _controller: "CertificacionBundle:Certificacion:excelCertificacionTotal" }

@@ -47,9 +47,7 @@
                             </div>
                         </td>
                         <td colspan="2">
-
                         </td>
-
                     </tr>
                 </tbody>
             </table>   
@@ -80,15 +78,12 @@
                                     <label class="control-label">Calle</label>
                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.calle }}</span>            </div>
                                 </div>
-
                             </td>
                             <td>
                                 <div class="control-group">
                                     <label class="control-label">Nro.</label>
                                     <div class="controls">                <span class="input-xlarge uneditable-input">{{ domicilio.numero }}</span>            </div>
                                 </div>
-
-
                         </tr>
                         <tr>
                             <td>
@@ -158,7 +153,7 @@
                 <tbody style=" border: 1px black solid; ">
                     {% set contBeca=0 %}
                     {% for becadobeca in entity.becadobeca %}
-                        {% if becadobeca.activo %}
+                        {% if becadobeca.activo and becadobeca.beca is not empty %}
                             {% set contBeca=contBeca+1 %}
                             <tr style="background: #46a546; color: #ffffff;" >
                                 <td style=" border: 1px black solid;">
@@ -170,8 +165,7 @@
                             </tr>
                             <tr>
                                 <td style=" border: 1px black solid;">
-                                    <div class="control-group">
-                                        
+                                    <div class="control-group">                                        
                                         <div class="controls">                
                                             <span class="input-xlarge uneditable-input span6">                                               
                                                 <b>{{ becadobeca.beca.tipoBeca }}
@@ -183,7 +177,6 @@
                                     </div>
                                 </td>
                                 <td style=" border: 1px black solid;">
-
                                     <a class="btn btn-mini btn-info" href="{{ path('becadobeca_edit', { 'id': becadobeca.id }) }}">
                                         <b>Editar Beca</b>
                                     </a>
@@ -195,7 +188,47 @@
                                 </td>
                             </tr>
                         {% endif %}
-
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table style=" border-collapse: collapse;">
+                <tbody style=" border: 1px black solid;">
+                    {% for becadobeca in entity.becadobeca %}
+                        {% if becadobeca.activo and becadobeca.becaVulnerable is not empty %}
+                            {% set contBeca=contBeca+1 %}
+                            <tr style="background: #46a546; color: #ffffff;" >
+                                <td style=" border: 1px black solid;">
+                                    <label class="control-label"><b>Beca Nº {{ contBeca }}:</b></label>
+                                </td>
+                                <td style=" border: 1px black solid;" colspan="2" align="center">
+                                    <b>Acciones</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" border: 1px black solid;">
+                                    <div class="control-group">                                        
+                                        <div class="controls">                
+                                            <span class="input-xlarge uneditable-input span6">                                               
+                                                <b>{{ becadobeca.becaVulnerable.nombre }}
+                                                Tipo Función:{{ becadobeca.becaVulnerable.tipoFuncion }}
+                                                Monto:{{ becadobeca.becaVulnerable.monto }}
+                                                </b>
+                                            </span>            
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style=" border: 1px black solid;">
+                                    <a class="btn btn-mini btn-info" href="{{ path('becadobeca_edit', { 'id': becadobeca.id }) }}">
+                                        <b>Editar Beca</b>
+                                    </a>
+                                </td>
+                                <td style=" border: 1px black solid;">
+                                    <a class="btn btn-mini btn-primary" href="{{ path('certificacion_new', { 'id': becadobeca.id }) }}">
+                                        Certificar
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
@@ -203,8 +236,8 @@
             <div class="control-group">
                 <label class="control-label">Mov. Social/Referente</label>
                 <div class="controls">                <span class="input-xlarge uneditable-input span5">
-                        {{ entity.referente.movimientoSocial}} - Referente: 
-                        {{ entity.referente.apellidos }}, {{ entity.referente.nombres}}</span>            </div>
+                    {{ entity.referente.movimientoSocial }} - Referente: 
+                    {{ entity.referente.apellidos }}, {{ entity.referente.nombres}}</span>            </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Lugar Afectación</label>
@@ -323,7 +356,11 @@
 
         <!-- Trigger the modal with a button -->
         <button type="button" class="float-left btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Añadir Beca</button>
-
+        <a class="float-left btn btn-success" id="page-help" 
+            href="{{ path('becavulnerable_new', { 'becado': entity.id }) }}" 
+            onclick="window.open(this.href, 'popupwindow', 'top=125,left=175,width=900,height=300'); return false;">
+                Añadir Beca Vulnerable
+        </a>
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog" style="display: none">
             <div class="modal-dialog">

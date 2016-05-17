@@ -27,34 +27,32 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
         echo "\" style=\"vertical-align: middle !important  ;
                font-family: serif; font-size: 20px;
                float: left;\">
-                ";
+               <img src=\"";
         // line 9
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "7ecfac4_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ecfac4_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/images/7ecfac4_logoDesarrolloSocial-medium_1.jpg");
-            // line 10
-            echo "                <img src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\" alt=\"Example\" />
-                ";
-        } else {
-            // asset "7ecfac4"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ecfac4") : $this->env->getExtension('assets')->getAssetUrl("_controller/images/7ecfac4.jpg");
-            echo "                <img src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\" alt=\"Example\" />
-                ";
-        }
-        unset($context["asset_url"]);
-        // line 12
-        echo "            </a>
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/beca/images/logoDesarrolloSocial-medium.jpg"), "html", null, true);
+        echo "\" alt=\"Mds-Becas\" />
+            </a>
 
             <span style=\"vertical-align: middle; font-family: serif; font-size: 26px; float: right;\">
                 <strong> <br><br><br>GESTIÓN DE BECAS - MDS
-                </strong></span>
+                </strong>
+                <br>
+                ";
+        // line 16
+        if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "request", array()), "getBaseUrl", array()) == "/app_dev.php")) {
+            // line 17
+            echo "                    <span style=\"background-color: red; color: white; font-size: 18px; border: 3px; border-color: #040404;\"><strong>ENTORNO DE PRUEBAS</strong></span>
+                ";
+        }
+        // line 19
+        echo "            </span>
         </div>
     </div><!-- /navbar-inner -->
-    <div class=\"navbar-inner\" >
+    ";
+        // line 22
+        $context["falso"] = false;
+        // line 23
+        echo "    <div class=\"navbar-inner\" >
         <div class=\"nav-collapse collapse navbar-responsive-collapse\">
             <ul class=\"nav\">
                 <li class=\"divider-vertical\"></li>
@@ -65,15 +63,15 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                         Entradas <b class=\"caret\"></b></a>
                     <ul class=\"dropdown-menu\">
                         <li><a href=\"";
-        // line 29
+        // line 33
         echo $this->env->getExtension('routing')->getPath("becado_new");
         echo "\">Agregar Becado</a></li>
                         <li><a href=\"";
-        // line 30
-        echo $this->env->getExtension('routing')->getPath("certificacion");
+        // line 34
+        echo $this->env->getExtension('routing')->getPath("certificacion", array("toexcel" => "false"));
         echo "\">Certifaciones</a></li>           
                         <li><a href=\"";
-        // line 31
+        // line 35
         echo $this->env->getExtension('routing')->getPath("becado");
         echo "\"> Listado de Becados  </a></li>
                         <li><a href=\"/ppa_ved.php/denuncia_espontanea/new\"></a></li>
@@ -94,19 +92,19 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                             <a tabindex=\"-1\" href=\"#\">Administrar Datos</a>
                             <ul class=\"dropdown-menu\">
                                 <li><a href=\"";
-        // line 49
+        // line 53
         echo $this->env->getExtension('routing')->getPath("departamento");
         echo "\"> Departamentos  </a></li>
                                 <li><a href=\"";
-        // line 50
+        // line 54
         echo $this->env->getExtension('routing')->getPath("localidad");
         echo "\"> Localidades  </a></li>
                                 <li><a href=\"";
-        // line 51
+        // line 55
         echo $this->env->getExtension('routing')->getPath("barrio");
         echo "\"> Barrios  </a></li>
                                 <li><a href=\"";
-        // line 52
+        // line 56
         echo $this->env->getExtension('routing')->getPath("calle");
         echo "\"> Calles  </a></li>
                             </ul>
@@ -117,15 +115,15 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                             <a tabindex=\"-1\" href=\"#\">Administrar Becas</a>
                             <ul class=\"dropdown-menu\">
                                 <li><a href=\"";
-        // line 60
+        // line 64
         echo $this->env->getExtension('routing')->getPath("tipobeca");
         echo "\">Tipo Beca</a></li>
                                 <li><a href=\"";
-        // line 61
+        // line 65
         echo $this->env->getExtension('routing')->getPath("tipofuncion");
         echo "\">Tipo Función</a></li>
                                 <li><a href=\"";
-        // line 62
+        // line 66
         echo $this->env->getExtension('routing')->getPath("beca");
         echo "\">Becas</a></li>
                             </ul>
@@ -136,11 +134,11 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                             <a tabindex=\"-1\" href=\"#\">Administrar Movimientos Sociales</a>
                             <ul class=\"dropdown-menu\">
                                 <li><a href=\"";
-        // line 70
+        // line 74
         echo $this->env->getExtension('routing')->getPath("referente");
         echo "\"> Referente</a></li>
                                 <li><a href=\"";
-        // line 71
+        // line 75
         echo $this->env->getExtension('routing')->getPath("movimientosocial");
         echo "\"> Movimiento Social</a></li>
                             </ul>
@@ -152,16 +150,16 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                             <a tabindex=\"-1\" href=\"#\">Administrar Dependencias</a>
                             <ul class=\"dropdown-menu\">
                                 <li><a href=\"";
-        // line 80
+        // line 84
         echo $this->env->getExtension('routing')->getPath("responsable");
         echo "\">Responsable </a></li>
                                 <li><a href=\"";
-        // line 81
+        // line 85
         echo $this->env->getExtension('routing')->getPath("dependencia");
         echo "\">Dependencia</a></li>
 
                                 <li><a href=\"";
-        // line 83
+        // line 87
         echo $this->env->getExtension('routing')->getPath("lugarafectacion");
         echo "\">Lugar Afectación</a></li>
                             </ul>
@@ -172,23 +170,23 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                             <a tabindex=\"-1\" href=\"#\">Administrar datos Formación</a>
                             <ul class=\"dropdown-menu\">
                                 <li><a href=\"";
-        // line 91
+        // line 95
         echo $this->env->getExtension('routing')->getPath("profesion");
         echo "\"> Profesión </a></li>
                                 <li><a href=\"";
-        // line 92
+        // line 96
         echo $this->env->getExtension('routing')->getPath("niveleducativo");
         echo "\">Nivel Educativo</a></li>
                                 <li><a href=\"";
-        // line 93
+        // line 97
         echo $this->env->getExtension('routing')->getPath("institucion");
         echo "\">Institución</a></li>
                                 <li><a href=\"";
-        // line 94
+        // line 98
         echo $this->env->getExtension('routing')->getPath("perfil");
         echo "\">Perfil</a></li>
                                 <li><a href=\"";
-        // line 95
+        // line 99
         echo $this->env->getExtension('routing')->getPath("oficio");
         echo "\">Oficio</a></li>
                             </ul>
@@ -199,9 +197,9 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                     </ul>
                 </li>
                 ";
-        // line 103
+        // line 107
         if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
-            // line 104
+            // line 108
             echo "                <li class=\"dropdown\">
                     <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
                         <i class=\"icon-wrench\"></i>  
@@ -210,21 +208,21 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                         <li class=\"divider\"></li>                                  
                         <li class=\"nav-header\">USUARIOS</li>
                         <li><a href=\"";
-            // line 111
+            // line 115
             echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
             echo "\"> Nuevo Usuario </a></li>
                         <li><a href=\"";
-            // line 112
+            // line 116
             echo $this->env->getExtension('routing')->getPath("user");
             echo "\">Usuarios</a></li>                        
                     </ul>
                 </li>
                 ";
         }
-        // line 116
+        // line 120
         echo "                ";
         if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
-            // line 117
+            // line 121
             echo "                <li class=\"dropdown\">
                     <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
                         <i class=\"icon-signal\"></i>  
@@ -255,7 +253,7 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                 </li>
                 ";
         }
-        // line 146
+        // line 150
         echo "                <li class=\"dropdown\">
                     <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                         <i class=\"icon-user\"></i>
@@ -265,7 +263,7 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                         <li>
                             <a>                          
                                 ";
-        // line 154
+        // line 158
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "nombres", array()), "html", null, true);
         echo ", ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "apellidos", array()), "html", null, true);
@@ -273,12 +271,12 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
                             </a>
                         </li>
                         <li><a href=\"";
-        // line 157
+        // line 161
         echo $this->env->getExtension('routing')->getPath("fos_user_profile_show");
         echo "\"><b>Ver Perfil</b></a></li>              
                         <li class=\"divider\"></li>
                         <li><a href=\"";
-        // line 159
+        // line 163
         echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
         echo "\"><i class=\"icon-off\"></i> Salir</a></li>
                     </ul>
@@ -301,7 +299,7 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
 
     public function getDebugInfo()
     {
-        return array (  282 => 159,  277 => 157,  269 => 154,  259 => 146,  228 => 117,  225 => 116,  218 => 112,  214 => 111,  205 => 104,  203 => 103,  192 => 95,  188 => 94,  184 => 93,  180 => 92,  176 => 91,  165 => 83,  160 => 81,  156 => 80,  144 => 71,  140 => 70,  129 => 62,  125 => 61,  121 => 60,  110 => 52,  106 => 51,  102 => 50,  98 => 49,  77 => 31,  73 => 30,  69 => 29,  50 => 12,  36 => 10,  32 => 9,  26 => 6,  19 => 1,);
+        return array (  280 => 163,  275 => 161,  267 => 158,  257 => 150,  226 => 121,  223 => 120,  216 => 116,  212 => 115,  203 => 108,  201 => 107,  190 => 99,  186 => 98,  182 => 97,  178 => 96,  174 => 95,  163 => 87,  158 => 85,  154 => 84,  142 => 75,  138 => 74,  127 => 66,  123 => 65,  119 => 64,  108 => 56,  104 => 55,  100 => 54,  96 => 53,  75 => 35,  71 => 34,  67 => 33,  55 => 23,  53 => 22,  48 => 19,  44 => 17,  42 => 16,  32 => 9,  26 => 6,  19 => 1,);
     }
 }
 /* <div class="navbar" style="color: #040404;">*/
@@ -312,16 +310,20 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
 /*             <a class="brand" href="{{ path('becado') }}" style="vertical-align: middle !important  ;*/
 /*                font-family: serif; font-size: 20px;*/
 /*                float: left;">*/
-/*                 {% image '@BecaBundle/Resources/public/images/logoDesarrolloSocial-medium.jpg' %}*/
-/*                 <img src="{{ asset_url }}" alt="Example" />*/
-/*                 {% endimage %}*/
+/*                <img src="{{ asset('bundles/beca/images/logoDesarrolloSocial-medium.jpg') }}" alt="Mds-Becas" />*/
 /*             </a>*/
 /* */
 /*             <span style="vertical-align: middle; font-family: serif; font-size: 26px; float: right;">*/
 /*                 <strong> <br><br><br>GESTIÓN DE BECAS - MDS*/
-/*                 </strong></span>*/
+/*                 </strong>*/
+/*                 <br>*/
+/*                 {% if app.request.getBaseUrl == "/app_dev.php" %}*/
+/*                     <span style="background-color: red; color: white; font-size: 18px; border: 3px; border-color: #040404;"><strong>ENTORNO DE PRUEBAS</strong></span>*/
+/*                 {% endif %}*/
+/*             </span>*/
 /*         </div>*/
 /*     </div><!-- /navbar-inner -->*/
+/*     {% set falso=false %}*/
 /*     <div class="navbar-inner" >*/
 /*         <div class="nav-collapse collapse navbar-responsive-collapse">*/
 /*             <ul class="nav">*/
@@ -333,7 +335,7 @@ class __TwigTemplate_8ab22cbf0d21246ec21e86e80c8e3807144fcea2ae0487654f063d3ba1b
 /*                         Entradas <b class="caret"></b></a>*/
 /*                     <ul class="dropdown-menu">*/
 /*                         <li><a href="{{ path('becado_new') }}">Agregar Becado</a></li>*/
-/*                         <li><a href="{{ path('certificacion') }}">Certifaciones</a></li>           */
+/*                         <li><a href="{{ path('certificacion', { 'toexcel': 'false' }) }}">Certifaciones</a></li>           */
 /*                         <li><a href="{{ path('becado') }}"> Listado de Becados  </a></li>*/
 /*                         <li><a href="/ppa_ved.php/denuncia_espontanea/new"></a></li>*/
 /*                         <li class="divider"></li>*/

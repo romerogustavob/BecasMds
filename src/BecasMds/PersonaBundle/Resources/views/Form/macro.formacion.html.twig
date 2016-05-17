@@ -8,8 +8,7 @@
         {% javascripts 
             '@PersonaBundle/Resources/public/js/select2.js'
             '@FormacionBundle/Resources/public/js/select2Formacion.js'
-        %}
-        
+        %}  
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {{ form_javascript(formac) }}
         {% endjavascripts %}
@@ -34,14 +33,7 @@
     </style>
     <div class="row-fluid bordediv">
         <table class="tablafondo">
-            <thead>
-                <tr>
-                    <th></th><th></th><th></th>
-                    <th></th><th></th><th></th>
-                </tr>
-            </thead>
             <tbody>
-
                 <tr>
                     <td>
                         <div class="span7">
@@ -63,7 +55,7 @@
                     </td>
                     
                 </tr>
-                <tr>
+                <tr class="form-horizontal">
                     <td>
                         <div class="span7">
                             {{ form_label(formac.oficio, 'Oficio', {'label_attr': {'class': 'negrita'}}) }}
@@ -83,14 +75,10 @@
                         </div>
                     </td>
                 </tr>
-
-        </tbody>
-            
+        </tbody>            
         </table>
-
         <div class="span2">
             <a class='delete-form btn btn-mini btn-danger' href='#'><i class='icon-remove-circle'></i>Quitar Formación </a>
         </div>
     </div>
 {% endmacro %}
-<a href="../../../../../../../.gitignore"></a>

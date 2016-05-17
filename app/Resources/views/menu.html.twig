@@ -6,9 +6,7 @@
             <a class="brand" href="{{ path('becado') }}" style="vertical-align: middle !important  ;
                font-family: serif; font-size: 20px;
                float: left;">
-                {% image '@BecaBundle/Resources/public/images/logoDesarrolloSocial-medium.jpg' %}
-                <img src="{{ asset_url }}" alt="Example" />
-                {% endimage %}
+               <img src="{{ asset('bundles/beca/images/logoDesarrolloSocial-medium.jpg') }}" alt="Mds-Becas" />
             </a>
 
             <span style="vertical-align: middle; font-family: serif; font-size: 26px; float: right;">
@@ -21,6 +19,7 @@
             </span>
         </div>
     </div><!-- /navbar-inner -->
+    {% set falso=false %}
     <div class="navbar-inner" >
         <div class="nav-collapse collapse navbar-responsive-collapse">
             <ul class="nav">
@@ -32,7 +31,7 @@
                         Entradas <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('becado_new') }}">Agregar Becado</a></li>
-                        <li><a href="{{ path('certificacion') }}">Certifaciones</a></li>           
+                        <li><a href="{{ path('certificacion', { 'toexcel': 'false' }) }}">Certifaciones</a></li>           
                         <li><a href="{{ path('becado') }}"> Listado de Becados  </a></li>
                         <li><a href="/ppa_ved.php/denuncia_espontanea/new"></a></li>
                         <li class="divider"></li>

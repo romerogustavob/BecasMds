@@ -8,20 +8,17 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormError;
-use BecasMds\PersonaBundle\Entity\Becado;
 
 class BecadoBecaFilterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id', 'hidden')    
-            ->add('fechaAlta', 'date', array('widget'=>'single_text','format'=>'yyyy-MM-dd', 'required'=>false, 'label'=>'Fecha de Creación'))
-            ->add('fechaBaja', 'date', array('widget'=>'single_text','format'=>'yyyy-MM-dd', 'required'=>false, 'label'=> 'Fecha de Baja'))
-            ->add('activo', 'choice', array('choices'=>array('n'=>'No','1'=>'Sí'),
-                'required'=>false, 'empty_value'=>'Indiferente', 'empty_data'=>null, 
-                'label'=>'Beca Activa'))
-            ->add('detalles', 'text',array('required'=>false, 'trim'=>true, 'label'=>'Descripción'))
+            ->add('id', 'filter_number_range')
+            ->add('fechaAlta', 'filter_date_range')
+            ->add('fechaBaja', 'filter_date_range')
+            ->add('activo', 'filter_choice')
+            ->add('detalles', 'filter_text')
         ;
 
         $listener = function(FormEvent $event)

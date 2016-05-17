@@ -5,36 +5,38 @@
 {% endblock %}
 
 {% block page %}
-{% set becadoId=entity.becado.id %}
-<h2 style="color: #0044cc">Editar beca Becado: {{ entity.becado }}{#{{ 'views.edit.edit'|trans({'%entity%': 'BecadoBeca'}, 'JordiLlonchCrudGeneratorBundle') }}#}</h2>
+
+<h1>{{ 'views.edit.edit'|trans({'%entity%': 'BecadoBeca'}, 'JordiLlonchCrudGeneratorBundle') }}</h1>
 
 <form class="well" action="{{ path('becadobeca_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     <input type="hidden" name="_method" value="PUT" />
-    {{ form_start(edit_form) }}
-    <div style="display:none">
-     {{ form_row(edit_form.becado) }}
-    </div>
-    {{ form_row(edit_form.beca) }}
-    {{ form_row(edit_form.fechaAlta) }}
-    {{ form_row(edit_form.fechaBaja) }}
-    {{ form_row(edit_form.detalles) }}
-    {{ form_row(edit_form.activo) }}
-    
+    <table>
+        <tbody>
+            <tr>
+                <td>{{ form_row(edit_form.becado, {'attr':{'style':'width:100%; cursor: not-allowed; length: 1;', 'readonly':'true' }} ) }}</td>
+                <td>{{ form_row(edit_form.beca, {'attr':{'style':'width:100%;'}}) }}</td>
+                <td>{{ form_row(edit_form.becaVulnerable, {'attr':{'style':'width:100%;'}}) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_row(edit_form.fechaAlta) }}</td>
+                <td>{{ form_row(edit_form.fechaBaja) }}</td>
+                <td>{{ form_row(edit_form.activo) }}</td>
+            </tr>
+            <tr>
+                <td colspan='3'>{{ form_row(edit_form.detalles, {'attr':{'style':'width:100%;'}}) }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {{ form_widget(edit_form) }}
     <p>
         <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
     </p>
-    {{ form_end(edit_form) }}
 </form>
 
 <div>
     <div class="float-left">
         <a class="btn" href="{{ path('becadobeca') }}">
             {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-        </a>
-    </div>
-    <div class="float-left">
-        <a class="btn btn-info" href="{{ path('becado_show', {'id': entity.becado.id}) }}">
-            Ir a Becado
         </a>
     </div>
     <div class="float-left">

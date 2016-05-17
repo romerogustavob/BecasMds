@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="BecasMds\BecaBundle\Entity\BecaRepository")
  */
-class Beca
-{
+class Beca {
+
     /**
      * @var integer
      *
@@ -24,7 +24,7 @@ class Beca
     /**
      * @var float
      *
-     * @ORM\Column(name="monto", type="float")
+     * @ORM\Column(name="monto", type="float", scale=3)
      */
     private $monto;
 
@@ -38,14 +38,14 @@ class Beca
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaAlta", type="datetime")
+     * @ORM\Column(name="fechaAlta", type="datetime", nullable=true)
      */
     private $fechaAlta;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaBaja", type="datetime")
+     * @ORM\Column(name="fechaBaja", type="datetime", nullable=true)
      */
     private $fechaBaja;
 
@@ -55,31 +55,57 @@ class Beca
      */
     private $tipoBeca;
 
-    
     /**
      * @var string
      *
      * @ORM\OneToMany(targetEntity="BecadoBeca", mappedBy="beca", cascade={"persist"})
      */
     private $becadobeca;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="TipoFuncion", inversedBy="beca")
      * @ORM\JoinColumn(name="tipo_funcion_id", referencedColumnName="id")
      */
     private $tipoFuncion;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $createdBy;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updatedBy;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
     public function __construct() {
-        $this->becadobeca=new \Doctrine\Common\Collections\ArrayCollection();
-        
+        $this->becadobeca = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -89,10 +115,9 @@ class Beca
      * @param float $monto
      * @return Beca
      */
-    public function setMonto($monto)
-    {
+    public function setMonto($monto) {
         $this->monto = $monto;
-    
+
         return $this;
     }
 
@@ -101,8 +126,7 @@ class Beca
      *
      * @return float 
      */
-    public function getMonto()
-    {
+    public function getMonto() {
         return $this->monto;
     }
 
@@ -112,10 +136,9 @@ class Beca
      * @param boolean $activo
      * @return Beca
      */
-    public function setActivo($activo)
-    {
+    public function setActivo($activo) {
         $this->activo = $activo;
-    
+
         return $this;
     }
 
@@ -124,8 +147,7 @@ class Beca
      *
      * @return boolean 
      */
-    public function getActivo()
-    {
+    public function getActivo() {
         return $this->activo;
     }
 
@@ -135,10 +157,9 @@ class Beca
      * @param \DateTime $fechaAlta
      * @return Beca
      */
-    public function setFechaAlta($fechaAlta)
-    {
+    public function setFechaAlta($fechaAlta) {
         $this->fechaAlta = $fechaAlta;
-    
+
         return $this;
     }
 
@@ -147,8 +168,7 @@ class Beca
      *
      * @return \DateTime 
      */
-    public function getFechaAlta()
-    {
+    public function getFechaAlta() {
         return $this->fechaAlta;
     }
 
@@ -158,10 +178,9 @@ class Beca
      * @param \DateTime $fechaBaja
      * @return Beca
      */
-    public function setFechaBaja($fechaBaja)
-    {
+    public function setFechaBaja($fechaBaja) {
         $this->fechaBaja = $fechaBaja;
-    
+
         return $this;
     }
 
@@ -170,8 +189,7 @@ class Beca
      *
      * @return \DateTime 
      */
-    public function getFechaBaja()
-    {
+    public function getFechaBaja() {
         return $this->fechaBaja;
     }
 
@@ -181,10 +199,9 @@ class Beca
      * @param \BecasMds\BecaBundle\Entity\TipoBeca $tipoBeca
      * @return Beca
      */
-    public function setTipoBeca(\BecasMds\BecaBundle\Entity\TipoBeca $tipoBeca = null)
-    {
+    public function setTipoBeca(\BecasMds\BecaBundle\Entity\TipoBeca $tipoBeca = null) {
         $this->tipoBeca = $tipoBeca;
-    
+
         return $this;
     }
 
@@ -193,8 +210,7 @@ class Beca
      *
      * @return \BecasMds\BecaBundle\Entity\TipoBeca 
      */
-    public function getTipoBeca()
-    {
+    public function getTipoBeca() {
         return $this->tipoBeca;
     }
 
@@ -204,10 +220,9 @@ class Beca
      * @param \BecasMds\BecaBundle\Entity\TipoFuncion $tipoFuncion
      * @return Beca
      */
-    public function setTipoFuncion(\BecasMds\BecaBundle\Entity\TipoFuncion $tipoFuncion = null)
-    {
+    public function setTipoFuncion(\BecasMds\BecaBundle\Entity\TipoFuncion $tipoFuncion = null) {
         $this->tipoFuncion = $tipoFuncion;
-    
+
         return $this;
     }
 
@@ -216,15 +231,13 @@ class Beca
      *
      * @return \BecasMds\BecaBundle\Entity\TipoFuncion 
      */
-    public function getTipoFuncion()
-    {
+    public function getTipoFuncion() {
         return $this->tipoFuncion;
     }
-    
-    public function __toString() {
-        return $this->getTipoBeca().' - '.$this->getTipoFuncion().' - '.$this->getMonto();
-    }
 
+    public function __toString() {
+        return $this->getTipoBeca() . ' - ' . $this->getTipoFuncion() . ' - ' . $this->getMonto();
+    }
 
     /**
      * Set becadobeca
@@ -232,10 +245,9 @@ class Beca
      * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
      * @return Beca
      */
-    public function setBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca = null)
-    {
+    public function setBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca = null) {
         $this->becadobeca = $becadobeca;
-    
+
         return $this;
     }
 
@@ -244,8 +256,125 @@ class Beca
      *
      * @return \BecasMds\BecaBundle\Entity\BecadoBeca 
      */
-    public function getBecadobeca()
-    {
+    public function getBecadobeca() {
         return $this->becadobeca;
+    }
+
+    /**
+     * Add becadobeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
+     * @return Beca
+     */
+    public function addBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca) {
+        $this->becadobeca[] = $becadobeca;
+
+        return $this;
+    }
+
+    /**
+     * Remove becadobeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
+     */
+    public function removeBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca) {
+        $this->becadobeca->removeElement($becadobeca);
+    }
+    
+    public function getBecaLista(){
+        return $this->getTipoBeca().' -'.$this->getTipoFuncion().' -'.$this->getMonto();
+    }
+
+
+    /**
+     * Set createdBy
+     *
+     * @param string $createdBy
+     * @return Beca
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return string 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param string $updatedBy
+     * @return Beca
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return string 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Beca
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Beca
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

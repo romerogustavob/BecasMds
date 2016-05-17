@@ -3,6 +3,10 @@
 namespace BecasMds\CertificacionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotBlankValidator;
+
 
 /**
  * Certificacion
@@ -24,7 +28,23 @@ class Certificacion
     /**
      * @var string
      *
-     * @ORM\Column(name="monto", type="decimal")
+     * @ORM\Column(name="becatipo", type="string")
+     * @Assert\NotBlank()
+     */
+    private $becatipo;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="becafuncion", type="string")
+     * @Assert\NotBlank()
+     */
+    private $becafuncion;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="monto", type="decimal", scale=3)
      */
     private $monto;
 
@@ -38,7 +58,7 @@ class Certificacion
     /**
      * @var string
      *
-     * @ORM\Column(name="totalPagar", type="decimal")
+     * @ORM\Column(name="totalPagar", type="decimal", scale=3)
      */
     private $totalPagar;
 
@@ -58,9 +78,38 @@ class Certificacion
     
     /**
      * @ORM\ManyToOne(targetEntity="\BecasMds\BecaBundle\Entity\BecadoBeca", inversedBy="certificacion")
-     * @ORM\JoinColumn(name="certificacion_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="becadobeca_id", referencedColumnName="id")
      */
     protected $becadobeca;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $createdBy;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updatedBy;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
 
     /**
      * Get id
@@ -134,7 +183,7 @@ class Certificacion
     /**
      * Get totalPagar
      *
-     * @return string 
+     * @return decimal 
      */
     public function getTotalPagar()
     {
@@ -187,4 +236,81 @@ class Certificacion
         return $this->mesCertificacion;
     }
 
+
+    /**
+     * Set becadobeca
+     *
+     * @param \BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca
+     * @return Certificacion
+     */
+    public function setBecadobeca(\BecasMds\BecaBundle\Entity\BecadoBeca $becadobeca = null)
+    {
+        $this->becadobeca = $becadobeca;
+    
+        return $this;
+    }
+
+    /**
+     * Get becadobeca
+     *
+     * @return \BecasMds\BecaBundle\Entity\BecadoBeca 
+     */
+    public function getBecadobeca()
+    {
+        return $this->becadobeca;
+    }
+    
+    public function getBecaMonto(){
+        return $this->getBecadobeca()->getBeca()->getMonto();
+    }
+    
+    public function getBecado(){
+        return $this->getBecadobeca()->getBecado();
+    }
+
+    /**
+     * Set becatipo
+     *
+     * @param string $becatipo
+     * @return Certificacion
+     */
+    public function setBecatipo($becatipo)
+    {
+        $this->becatipo = $becatipo;
+
+        return $this;
+    }
+
+    /**
+     * Get becatipo
+     *
+     * @return string 
+     */
+    public function getBecatipo()
+    {
+        return $this->becatipo;
+    }
+
+    /**
+     * Set becafuncion
+     *
+     * @param string $becafuncion
+     * @return Certificacion
+     */
+    public function setBecafuncion($becafuncion)
+    {
+        $this->becafuncion = $becafuncion;
+
+        return $this;
+    }
+
+    /**
+     * Get becafuncion
+     *
+     * @return string 
+     */
+    public function getBecafuncion()
+    {
+        return $this->becafuncion;
+    }
 }

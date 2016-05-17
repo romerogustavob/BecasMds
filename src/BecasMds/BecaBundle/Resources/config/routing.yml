@@ -17,3 +17,7 @@ becaBundle_beca:
 becaBundle_becadobeca:
     resource: "@BecaBundle/Resources/config/routing/becadobeca.yml"
     prefix:   /becadobeca
+    
+becaBundle_becavulnerable:
+    resource: "@BecaBundle/Resources/config/routing/becavulnerable.yml"
+    prefix:   /becavulnerable

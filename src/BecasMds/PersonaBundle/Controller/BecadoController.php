@@ -5,6 +5,11 @@ namespace BecasMds\PersonaBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\View\TwitterBootstrapView;
@@ -303,5 +308,22 @@ class BecadoController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+    
+    public function ajaxDniAction($dni){
+        
+        $respuesta='';
+        
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('PersonaBundle:Becado')->findOneByDni($dni);
+        if(!$entity){
+            $respuesta='no_existe';
+        }
+        else{
+            $respuesta='existe';
+        }
+        
+        return new JsonResponse(array('respuesta' => $respuesta), 200);
     }
 }
