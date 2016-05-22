@@ -70,16 +70,14 @@ class Persona
     protected $domicilio;
     
     /**
-     * @var string
-     *
-     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="BecasMds\UsuarioBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
     protected $createdBy;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="BecasMds\UsuarioBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
     protected $updatedBy;
 
@@ -296,52 +294,7 @@ class Persona
         return $this->domicilio;
     }
 
-    /**
-     * Set createdBy
-     *
-     * @param string $createdBy
-     * @return Persona
-     */
-    public function setCreatedBy($createdBy)
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * Get createdBy
-     *
-     * @return string 
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy;
-    }
-
-    /**
-     * Set updatedBy
-     *
-     * @param string $updatedBy
-     * @return Persona
-     */
-    public function setUpdatedBy($updatedBy)
-    {
-        $this->updatedBy = $updatedBy;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedBy
-     *
-     * @return string 
-     */
-    public function getUpdatedBy()
-    {
-        return $this->updatedBy;
-    }
-
+    
     /**
      * Set createdAt
      *
@@ -350,8 +303,9 @@ class Persona
      */
     public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $createdAt;
-
+        if (is_null($this->getCreatedAt())){
+            $this->createdAt = $createdAt;
+        }
         return $this;
     }
 
@@ -386,5 +340,52 @@ class Persona
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \BecasMds\UsuarioBundle\Entity\User $createdBy
+     * @return Persona
+     */
+    public function setCreatedBy(\BecasMds\UsuarioBundle\Entity\User $createdBy = null)
+    {
+        if (is_null($this->getCreatedBy())){
+            $this->createdBy = $createdBy;
+        }
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \BecasMds\UsuarioBundle\Entity\User 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \BecasMds\UsuarioBundle\Entity\User $updatedBy
+     * @return Persona
+     */
+    public function setUpdatedBy(\BecasMds\UsuarioBundle\Entity\User $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \BecasMds\PersonaBundle\Entity\User 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
     }
 }

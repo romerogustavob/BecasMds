@@ -83,33 +83,30 @@ class Certificacion
     protected $becadobeca;
     
     /**
-     * @var string
-     *
-     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="BecasMds\UsuarioBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
-    private $createdBy;
+    protected $createdBy;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="BecasMds\UsuarioBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
-    private $updatedBy;
+    protected $updatedBy;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
-    private $updatedAt;
-
+    protected $updatedAt;
 
     /**
      * Get id
@@ -315,52 +312,6 @@ class Certificacion
     }
 
     /**
-     * Set createdBy
-     *
-     * @param string $createdBy
-     * @return Certificacion
-     */
-    public function setCreatedBy($createdBy)
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * Get createdBy
-     *
-     * @return string 
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy;
-    }
-
-    /**
-     * Set updatedBy
-     *
-     * @param string $updatedBy
-     * @return Certificacion
-     */
-    public function setUpdatedBy($updatedBy)
-    {
-        $this->updatedBy = $updatedBy;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedBy
-     *
-     * @return string 
-     */
-    public function getUpdatedBy()
-    {
-        return $this->updatedBy;
-    }
-
-    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
@@ -368,8 +319,9 @@ class Certificacion
      */
     public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $createdAt;
-
+        if(is_null($this->getCreatedAt())){
+            $this->createdAt = $createdAt;
+        }
         return $this;
     }
 
@@ -404,5 +356,52 @@ class Certificacion
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \BecasMds\UsuarioBundle\Entity\User $createdBy
+     * @return Certificacion
+     */
+    public function setCreatedBy(\BecasMds\UsuarioBundle\Entity\User $createdBy = null)
+    {
+        if (is_null($this->getCreatedBy())){
+            $this->createdBy = $createdBy;
+        }
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \BecasMds\UsuarioBundle\Entity\User 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \BecasMds\UsuarioBundle\Entity\User $updatedBy
+     * @return Certificacion
+     */
+    public function setUpdatedBy(\BecasMds\UsuarioBundle\Entity\User $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \BecasMds\UsuarioBundle\Entity\User 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
     }
 }

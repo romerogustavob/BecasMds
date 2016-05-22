@@ -58,7 +58,7 @@ class __TwigTemplate_584fdf384921e301dd219eadd5c6fb65d1daee77e015d123c401558248a
 
     <form class=\"well\" action=\"";
         // line 13
-        echo $this->env->getExtension('routing')->getPath("certificacion_create");
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("certificacion_create", array("becadobeca" => $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becadobeca", array()), "id", array()))), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : null), 'enctype');
         echo ">
@@ -151,66 +151,69 @@ class __TwigTemplate_584fdf384921e301dd219eadd5c6fb65d1daee77e015d123c401558248a
             </div>
         </tbody>
     </table>
-    <div style=\"margin-bottom: 10px\">
-        <p>
+                    <p>
             <button type=\"submit\" class=\"btn btn-success\">
                 ";
-        // line 61
+        // line 60
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.new.create", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
             </button>
         </p>
+    <div style=\"margin-bottom: 10px\">
+        
     </div>
     ";
-        // line 65
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : null), 'form_end');
+        // line 66
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : null), 'rest');
         echo "
     </form>
 
 <div>
     <div class=\"float-left\">
         <a class=\"btn\" href=\"";
-        // line 70
+        // line 71
         echo $this->env->getExtension('routing')->getPath("certificacion", array("toexcel" => "false"));
         echo "\">
             ";
-        // line 71
+        // line 72
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
         </a>
     </div>
 </div>
     ";
-        // line 75
+        // line 76
         $this->displayBlock('javascript', $context, $blocks);
-        // line 80
+        // line 81
         echo "
 ";
     }
 
-    // line 75
+    // line 76
     public function block_javascript($context, array $blocks = array())
     {
         echo "                
-    ";
-        // line 76
+        ";
+        // line 77
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "0d77cf1_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_0d77cf1_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/0d77cf1_part_1_funcionescertificacionbundle_1.js");
-            // line 77
-            echo "    <script src=\"";
+            // line 78
+            echo "            <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
-    ";
+        ";
         } else {
             // asset "0d77cf1"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_0d77cf1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/0d77cf1.js");
-            echo "    <script src=\"";
+            echo "            <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
-    ";
+        ";
         }
         unset($context["asset_url"]);
+        // line 80
+        echo "    ";
     }
 
     public function getTemplateName()
@@ -225,7 +228,7 @@ class __TwigTemplate_584fdf384921e301dd219eadd5c6fb65d1daee77e015d123c401558248a
 
     public function getDebugInfo()
     {
-        return array (  201 => 77,  197 => 76,  192 => 75,  187 => 80,  185 => 75,  178 => 71,  174 => 70,  166 => 65,  159 => 61,  147 => 52,  140 => 48,  136 => 47,  130 => 44,  126 => 43,  116 => 36,  112 => 35,  106 => 32,  102 => 31,  97 => 29,  90 => 25,  86 => 24,  80 => 21,  76 => 20,  67 => 14,  61 => 13,  56 => 11,  52 => 10,  48 => 9,  45 => 8,  42 => 7,  33 => 4,  30 => 3,  11 => 1,);
+        return array (  216 => 80,  202 => 78,  198 => 77,  193 => 76,  188 => 81,  186 => 76,  179 => 72,  175 => 71,  167 => 66,  158 => 60,  147 => 52,  140 => 48,  136 => 47,  130 => 44,  126 => 43,  116 => 36,  112 => 35,  106 => 32,  102 => 31,  97 => 29,  90 => 25,  86 => 24,  80 => 21,  76 => 20,  67 => 14,  61 => 13,  56 => 11,  52 => 10,  48 => 9,  45 => 8,  42 => 7,  33 => 4,  30 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -240,7 +243,7 @@ class __TwigTemplate_584fdf384921e301dd219eadd5c6fb65d1daee77e015d123c401558248a
 /*         Nombres: {{ entity.becadobeca.becado.nombres }} - */
 /*         Dni: {{ entity.becadobeca.becado.dni }}</h4>*/
 /* */
-/*     <form class="well" action="{{ path('certificacion_create') }}" method="post" {{ form_enctype(form) }}>*/
+/*     <form class="well" action="{{ path('certificacion_create',{ 'becadobeca': entity.becadobeca.id }) }}" method="post" {{ form_enctype(form) }}>*/
 /*         {{ form_start(form) }}*/
 /*         <table>*/
 /*             <tbody>*/
@@ -285,14 +288,15 @@ class __TwigTemplate_584fdf384921e301dd219eadd5c6fb65d1daee77e015d123c401558248a
 /*             </div>*/
 /*         </tbody>*/
 /*     </table>*/
-/*     <div style="margin-bottom: 10px">*/
-/*         <p>*/
+/*                     <p>*/
 /*             <button type="submit" class="btn btn-success">*/
 /*                 {{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}*/
 /*             </button>*/
 /*         </p>*/
+/*     <div style="margin-bottom: 10px">*/
+/*         */
 /*     </div>*/
-/*     {{ form_end(form) }}*/
+/*     {{ form_rest(form) }}*/
 /*     </form>*/
 /* */
 /* <div>*/
@@ -303,9 +307,9 @@ class __TwigTemplate_584fdf384921e301dd219eadd5c6fb65d1daee77e015d123c401558248a
 /*     </div>*/
 /* </div>*/
 /*     {% block javascript %}                */
-/*     {% javascripts '@CertificacionBundle/Resources/public/js/*' %}*/
-/*     <script src="{{ asset_url }}"></script>*/
-/*     {% endjavascripts %}*/
-/* {% endblock %}*/
+/*         {% javascripts '@CertificacionBundle/Resources/public/js/*' %}*/
+/*             <script src="{{ asset_url }}"></script>*/
+/*         {% endjavascripts %}*/
+/*     {% endblock %}*/
 /* */
 /* {% endblock %}*/

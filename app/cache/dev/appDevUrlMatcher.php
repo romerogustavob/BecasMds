@@ -25,6 +25,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $allow = array();
         $pathinfo = rawurldecode($pathinfo);
 
+        // _assetic_persona_jquery_ui
+        if ($pathinfo === '/js/jquery.ui.js') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'persona_jquery_ui',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_persona_jquery_ui',);
+        }
+
         if (0 === strpos($pathinfo, '/fonts/glyphicons-halflings')) {
             // _assetic_font_awesome_ttf
             if ($pathinfo === '/fonts/glyphicons-halflings.ttf') {
@@ -52,11 +57,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/js')) {
-            // _assetic_persona_jquery_ui
-            if ($pathinfo === '/js/jquery.ui.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => 'persona_jquery_ui',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_persona_jquery_ui',);
-            }
-
             if (0 === strpos($pathinfo, '/js/c2447d5')) {
                 // _assetic_c2447d5
                 if ($pathinfo === '/js/c2447d5.js') {
@@ -190,6 +190,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/js/0d77cf1')) {
+                // _assetic_0d77cf1
+                if ($pathinfo === '/js/0d77cf1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '0d77cf1',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_0d77cf1',);
+                }
+
+                // _assetic_0d77cf1_0
+                if ($pathinfo === '/js/0d77cf1_part_1_funcionescertificacionbundle_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '0d77cf1',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_0d77cf1_0',);
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/js/e604a14')) {
                 // _assetic_e604a14
                 if ($pathinfo === '/js/e604a14.js') {
@@ -215,19 +228,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                     }
 
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/js/0d77cf1')) {
-                // _assetic_0d77cf1
-                if ($pathinfo === '/js/0d77cf1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '0d77cf1',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_0d77cf1',);
-                }
-
-                // _assetic_0d77cf1_0
-                if ($pathinfo === '/js/0d77cf1_part_1_funcionescertificacionbundle_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '0d77cf1',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_0d77cf1_0',);
                 }
 
             }
@@ -457,15 +457,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // certificacion_create
-            if ($pathinfo === '/certificacion/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_certificacion_create;
-                }
-
-                return array (  '_controller' => 'BecasMds\\CertificacionBundle\\Controller\\CertificacionController::createAction',  '_route' => 'certificacion_create',);
+            if (preg_match('#^/certificacion/(?P<becadobeca>[^/]++)/create$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'certificacion_create')), array (  '_controller' => 'BecasMds\\CertificacionBundle\\Controller\\CertificacionController::createAction',));
             }
-            not_certificacion_create:
 
             // certificacion_edit
             if (preg_match('#^/certificacion/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {

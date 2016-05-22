@@ -13,6 +13,7 @@ use BecasMds\CertificacionBundle\Entity\Certificacion;
 use BecasMds\CertificacionBundle\Form\CertificacionType;
 use BecasMds\CertificacionBundle\Form\CertificacionFilterType;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use BecasMds\BecaBundle\Entity\BecadoBeca;
 
 
 /**
@@ -169,31 +170,39 @@ class CertificacionController extends Controller
      * Creates a new Certificacion entity.
      *
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request, BecadoBeca $becadobeca)
     {
         $entity  = new Certificacion();
-        $form = $this->createForm(new CertificacionType(), $entity);
+        
+        $entity->setBecadobeca($idBecadoBeca);
+        
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
+        
         $becatipo=$request->request->get('becatipo');
         $becafuncion=$request->request->get('becafuncion');
-            $entity->setBecatipo($becatipo);
-            $entity->setBecafuncion($becafuncion);
+        $becado=$becadobeca;
+        $entity->setBecadobeca($becado);
+        $entity->setBecatipo($becatipo);
+        $entity->setBecafuncion($becafuncion);
+        $form = $this->createForm(new CertificacionType(), $entity);
         $form->bind($request);
-
         if ($form->isValid()) {
             
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
             $this->get('session')->getFlashBag()->add('success', 'flash.create.success');
-
             return $this->redirect($this->generateUrl('certificacion_show', array('id' => $entity->getId())));
         }
-
         return $this->render('CertificacionBundle:Certificacion:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
+
 
     /**
      * Displays a form to create a new Certificacion entity.
@@ -203,15 +212,34 @@ class CertificacionController extends Controller
     {
         $entity = new Certificacion();
         $entity->setBecadobeca($idBecadoBeca);
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
+        
         if(!$entity->getBecadobeca()->getBecado()->getActivo()){
             throw $this->createNotFoundException('La Persona No se encuentra Activa, No puede ser Certificada');
         }
-        $becatipo=$entity->getBecadobeca()->getBeca()->getTipoBeca()->getDescripcion();
-        $becafuncion=$entity->getBecadobeca()->getBeca()->getTipoFuncion()->getDescripcion();
-        $monto=$entity->getBecadobeca()->getBeca()->getMonto();
-        $entity->setMonto($monto);
-        $entity->setBecatipo($becatipo);
-        $entity->setBecafuncion($becafuncion);
+        
+        if (is_null($entity->getBecadobeca()->getBeca())){
+            
+            $becatipo=$entity->getBecadobeca()->getBecaVulnerable()->getNombre();
+            $becafuncion=$entity->getBecadobeca()->getBecaVulnerable()->getTipoFuncion()->getDescripcion();
+            $monto=$entity->getBecadobeca()->getBecaVulnerable()->getMonto();
+            $entity->setMonto($monto);
+            $entity->setBecatipo($becatipo);
+            $entity->setBecafuncion($becafuncion);
+            $this->get('session')->getFlashBag()->add('error', 'Detecta correctamente la Beca General null');
+          
+        }
+        if(is_null($entity->getBecadobeca()->getBecaVulnerable())){
+            $becatipo=$entity->getBecadobeca()->getBeca()->getTipoBeca()->getDescripcion();
+            $becafuncion=$entity->getBecadobeca()->getBeca()->getTipoFuncion()->getDescripcion();
+            $monto=$entity->getBecadobeca()->getBeca()->getMonto();
+            $entity->setMonto($monto);
+            $entity->setBecatipo($becatipo);
+            $entity->setBecafuncion($becafuncion);
+        }
         $form   = $this->createForm(new CertificacionType(), $entity);
 
         return $this->render('CertificacionBundle:Certificacion:new.html.twig', array(
@@ -278,7 +306,12 @@ class CertificacionController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Certificacion entity.');
         }
-
+        
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
+        
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new CertificacionType(), $entity);
         $editForm->bind($request);

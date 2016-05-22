@@ -145,6 +145,10 @@ class BecaController extends Controller {
      */
     public function createAction(Request $request) {
         $entity = new Beca();
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
         $form = $this->createForm(new BecaType(), $entity);
         $form->bind($request);
 
@@ -232,7 +236,10 @@ class BecaController extends Controller {
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Beca entity.');
         }
-
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new BecaType(), $entity);
         $editForm->bind($request);

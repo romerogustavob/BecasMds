@@ -206,29 +206,31 @@ class __TwigTemplate_e88691503d0839d3f0ac8b944b1eca347d25d7fdc3328943b3b899aa7fa
                                 Dni: ";
             // line 88
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["entity"], "becadobeca", array()), "becado", array()), "dni", array()), "html", null, true);
-            echo "</td>
+            echo "
+                            </td>
+                            
                             <td>
                                 ";
-            // line 90
+            // line 92
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "becatipo", array()), "html", null, true);
             echo " - ";
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "becafuncion", array()), "html", null, true);
             echo "
                             </td>
                             <td>";
-            // line 92
+            // line 94
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "monto", array()), "html", null, true);
             echo "</td>
                             <td>";
-            // line 93
+            // line 95
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "descuentoDias", array()), "html", null, true);
             echo "</td>
                             <td>";
-            // line 94
+            // line 96
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "totalPagar", array()), "html", null, true);
             echo "</td>
                             <td>";
-            // line 95
+            // line 97
             if ($this->getAttribute($context["entity"], "certificado", array())) {
                 echo "Sí ";
             } else {
@@ -236,27 +238,27 @@ class __TwigTemplate_e88691503d0839d3f0ac8b944b1eca347d25d7fdc3328943b3b899aa7fa
             }
             echo "</td>
                             <td>";
-            // line 96
+            // line 98
             if ($this->getAttribute($context["entity"], "mesCertificacion", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["entity"], "mesCertificacion", array()), "m-Y"), "html", null, true);
             }
             echo "</td>
                             <td>
                                 <a class=\"btn btn-mini\" href=\"";
-            // line 98
+            // line 100
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("certificacion_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">
                                     ";
-            // line 99
+            // line 101
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.actions.show", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
             echo "
                                 </a>
                                 <a class=\"btn btn-mini\" href=\"";
-            // line 101
+            // line 103
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("certificacion_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">
                                     ";
-            // line 102
+            // line 104
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.actions.edit", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
             echo "
                                 </a>
@@ -267,17 +269,17 @@ class __TwigTemplate_e88691503d0839d3f0ac8b944b1eca347d25d7fdc3328943b3b899aa7fa
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 107
+        // line 109
         echo "                </tbody>
             </table>
             <a class=\"btn btn-mini btn-warning\" href=\"";
-        // line 109
+        // line 111
         echo $this->env->getExtension('routing')->getPath("certificacion", array("toexcel" => "true"));
         echo "\">Exportar a Excel</a>
         </div>
         <div class=\"span4\">
             ";
-        // line 112
+        // line 114
         echo (isset($context["pagerHtml"]) ? $context["pagerHtml"] : null);
         echo "
         </div>
@@ -285,7 +287,7 @@ class __TwigTemplate_e88691503d0839d3f0ac8b944b1eca347d25d7fdc3328943b3b899aa7fa
         
         
     ";
-        // line 122
+        // line 124
         echo "    </div>
 ";
     }
@@ -355,7 +357,7 @@ class __TwigTemplate_e88691503d0839d3f0ac8b944b1eca347d25d7fdc3328943b3b899aa7fa
 
     public function getDebugInfo()
     {
-        return array (  343 => 21,  317 => 19,  312 => 14,  309 => 13,  302 => 10,  297 => 9,  294 => 8,  289 => 122,  281 => 112,  275 => 109,  271 => 107,  260 => 102,  256 => 101,  251 => 99,  247 => 98,  240 => 96,  232 => 95,  228 => 94,  224 => 93,  220 => 92,  213 => 90,  208 => 88,  204 => 87,  200 => 86,  194 => 85,  191 => 84,  188 => 83,  185 => 82,  180 => 81,  177 => 80,  175 => 79,  168 => 75,  149 => 59,  144 => 57,  140 => 56,  136 => 54,  128 => 53,  123 => 52,  119 => 51,  115 => 50,  111 => 49,  107 => 48,  103 => 47,  99 => 46,  95 => 45,  89 => 44,  79 => 37,  72 => 32,  66 => 29,  63 => 28,  61 => 27,  55 => 24,  51 => 22,  48 => 13,  45 => 8,  42 => 7,  34 => 4,  31 => 3,  11 => 1,);
+        return array (  345 => 21,  319 => 19,  314 => 14,  311 => 13,  304 => 10,  299 => 9,  296 => 8,  291 => 124,  283 => 114,  277 => 111,  273 => 109,  262 => 104,  258 => 103,  253 => 101,  249 => 100,  242 => 98,  234 => 97,  230 => 96,  226 => 95,  222 => 94,  215 => 92,  208 => 88,  204 => 87,  200 => 86,  194 => 85,  191 => 84,  188 => 83,  185 => 82,  180 => 81,  177 => 80,  175 => 79,  168 => 75,  149 => 59,  144 => 57,  140 => 56,  136 => 54,  128 => 53,  123 => 52,  119 => 51,  115 => 50,  111 => 49,  107 => 48,  103 => 47,  99 => 46,  95 => 45,  89 => 44,  79 => 37,  72 => 32,  66 => 29,  63 => 28,  61 => 27,  55 => 24,  51 => 22,  48 => 13,  45 => 8,  42 => 7,  34 => 4,  31 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -445,7 +447,9 @@ class __TwigTemplate_e88691503d0839d3f0ac8b944b1eca347d25d7fdc3328943b3b899aa7fa
 /*                             <td><a href="{{ path('certificacion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>*/
 /*                             <td>{{ entity.becadobeca.becado.apellidos }}, */
 /*                                 {{ entity.becadobeca.becado.nombres }} - */
-/*                                 Dni: {{ entity.becadobeca.becado.dni }}</td>*/
+/*                                 Dni: {{ entity.becadobeca.becado.dni }}*/
+/*                             </td>*/
+/*                             */
 /*                             <td>*/
 /*                                 {{ entity.becatipo }} - {{ entity.becafuncion }}*/
 /*                             </td>*/

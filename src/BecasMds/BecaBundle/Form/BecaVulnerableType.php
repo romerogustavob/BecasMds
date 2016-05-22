@@ -31,6 +31,7 @@ class BecaVulnerableType extends AbstractType
                         ] , 'required' => false,
                     ))
             ->add('activo')
+            ->add('detalles')
         ;
     }
 

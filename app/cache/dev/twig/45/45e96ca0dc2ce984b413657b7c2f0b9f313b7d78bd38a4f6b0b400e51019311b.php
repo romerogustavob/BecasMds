@@ -261,18 +261,9 @@ class __TwigTemplate_5ef8f40e8a15e04f484284c7c25f7099917e67c4a105e023eae748915d3
         echo "
     </div>
 
-        <div class=\"span8\">
-    <a class=\"btn btn-primary likepaginator\" href=\"";
-        // line 104
-        echo $this->env->getExtension('routing')->getPath("becavulnerable_new");
-        echo "\">
-            ";
-        // line 105
-        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.index.createnew", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
-        echo " BecaVulnerable
-        </a>
-    </div>
-    </div>
+        ";
+        // line 108
+        echo "    </div>
 
 ";
     }
@@ -289,7 +280,7 @@ class __TwigTemplate_5ef8f40e8a15e04f484284c7c25f7099917e67c4a105e023eae748915d3
 
     public function getDebugInfo()
     {
-        return array (  271 => 105,  267 => 104,  260 => 100,  253 => 95,  243 => 91,  239 => 90,  234 => 88,  230 => 87,  223 => 85,  217 => 84,  213 => 83,  209 => 82,  205 => 81,  199 => 80,  193 => 79,  189 => 78,  185 => 77,  179 => 76,  176 => 75,  172 => 74,  165 => 70,  141 => 49,  137 => 48,  131 => 45,  127 => 44,  123 => 43,  119 => 42,  115 => 41,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  95 => 36,  91 => 35,  85 => 34,  73 => 25,  66 => 20,  60 => 17,  57 => 16,  55 => 15,  49 => 12,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  266 => 108,  260 => 100,  253 => 95,  243 => 91,  239 => 90,  234 => 88,  230 => 87,  223 => 85,  217 => 84,  213 => 83,  209 => 82,  205 => 81,  199 => 80,  193 => 79,  189 => 78,  185 => 77,  179 => 76,  176 => 75,  172 => 74,  165 => 70,  141 => 49,  137 => 48,  131 => 45,  127 => 44,  123 => 43,  119 => 42,  115 => 41,  111 => 40,  107 => 39,  103 => 38,  99 => 37,  95 => 36,  91 => 35,  85 => 34,  73 => 25,  66 => 20,  60 => 17,  57 => 16,  55 => 15,  49 => 12,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -394,11 +385,11 @@ class __TwigTemplate_5ef8f40e8a15e04f484284c7c25f7099917e67c4a105e023eae748915d3
 /*     {{ pagerHtml|raw }}*/
 /*     </div>*/
 /* */
-/*         <div class="span8">*/
+/*         {#<div class="span8">*/
 /*     <a class="btn btn-primary likepaginator" href="{{ path('becavulnerable_new') }}">*/
 /*             {{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} BecaVulnerable*/
 /*         </a>*/
-/*     </div>*/
+/*     </div>#}*/
 /*     </div>*/
 /* */
 /* {% endblock %}*/

@@ -10,7 +10,7 @@
         Nombres: {{ entity.becadobeca.becado.nombres }} - 
         Dni: {{ entity.becadobeca.becado.dni }}</h4>
 
-    <form class="well" action="{{ path('certificacion_create') }}" method="post" {{ form_enctype(form) }}>
+    <form class="well" action="{{ path('certificacion_create',{ 'becadobeca': entity.becadobeca.id }) }}" method="post" {{ form_enctype(form) }}>
         {{ form_start(form) }}
         <table>
             <tbody>
@@ -55,14 +55,15 @@
             </div>
         </tbody>
     </table>
-    <div style="margin-bottom: 10px">
-        <p>
+                    <p>
             <button type="submit" class="btn btn-success">
                 {{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
             </button>
         </p>
+    <div style="margin-bottom: 10px">
+        
     </div>
-    {{ form_end(form) }}
+    {{ form_rest(form) }}
     </form>
 
 <div>
@@ -73,9 +74,9 @@
     </div>
 </div>
     {% block javascript %}                
-    {% javascripts '@CertificacionBundle/Resources/public/js/*' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% endblock %}
+        {% javascripts '@CertificacionBundle/Resources/public/js/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
 
 {% endblock %}

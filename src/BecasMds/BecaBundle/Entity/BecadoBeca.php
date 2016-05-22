@@ -70,6 +70,32 @@ class BecadoBeca {
     private $detalles;
     
     /**
+     * @ORM\ManyToOne(targetEntity="BecasMds\UsuarioBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
+     */
+    protected $createdBy;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BecasMds\UsuarioBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
+     */
+    protected $updatedBy;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    protected $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    protected $updatedAt;
+    
+    /**
      * @ORM\OneToOne(targetEntity="BecaVulnerable", inversedBy="becadobeca")
      * @ORM\JoinColumn(name="becavulnerable_id", referencedColumnName="id")
      */
@@ -287,5 +313,100 @@ class BecadoBeca {
     public function getBecaVulnerable()
     {
         return $this->becaVulnerable;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param string $createdBy
+     * @return BecadoBeca
+     */
+    public function setCreatedBy($createdBy)
+    {
+        if (is_null($this->getCreatedBy())){
+            $this->createdBy = $createdBy;
+        }
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return string 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param string $updatedBy
+     * @return BecadoBeca
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return BecadoBeca
+     */
+    public function setCreatedAt($createdAt)
+    {
+        if (is_null($this->getUpdatedBy())){
+            $this->createdAt = $createdAt;
+        }
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return BecadoBeca
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \BecasMds\UsuarioBundle\Entity\User 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
     }
 }

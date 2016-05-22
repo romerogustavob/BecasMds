@@ -46,7 +46,7 @@ class User extends BaseUser
      *     groups={"Registration", "Profile"}
      * )
      */
-    protected $nombres;
+    protected $nombres;    
     
     /**
      * @ORM\Column(type="datetime")

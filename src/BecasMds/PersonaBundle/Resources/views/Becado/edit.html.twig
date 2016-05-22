@@ -41,7 +41,7 @@
     <form class="well" action="{{ path('becado_update', { 'id': entity.id  }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
         {{ form_start(edit_form) }}
-        <fieldset style="border:1px solid; background-color: #3a8104; color: #D3D3D3; height: 30px;">
+        <fieldset style="border:1px solid; background-color: #3a8104; color: #000; height: 30px;">
             <h4 style=" line-height: 12px;">Datos Personales</h4>
         </fieldset>
 
@@ -51,9 +51,6 @@
                     <td>                        
                         {{ form_label(edit_form.dni,'Dni',{'label_attr':{'style':'font-weight:bold;'}}) }}
                         {{ form_widget(edit_form.dni, {'attr':{'style':'width:100px'}}) }}
-                        {#{{ form_row(edit_form.dni, {'label':'Dni', 
-                                                     'label_attr':{'style':'font-weight:bold;'},
-                                                     'attr':{'style':'width:100px;'}}) }}#}
                         <a class="btn btn-primary" onclick="ajaxDniEdicion();" href="#">Buscar</a>
                     </td>
                     <td>
@@ -83,9 +80,9 @@
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <fieldset style="border:1px solid; background-color: #3a8104; color: #000; height: 30px;">
+                    <fieldset style="border:1px solid; background-color: #9fda58; color: #000; height: 30px;">
                         <h4 style="line-height: 12px;">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse" style="color: #D3D3D3;">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#domicilioCollapse" style="color: #000;">
                                 Domicilio
                             </a>
                         </h4>
@@ -194,7 +191,7 @@
                 </div>
             </div>
         </div>
-        <fieldset style="border:1px solid; background-color: #3a8104; color:#D3D3D3; height: 30px;">
+        <fieldset style="border:1px solid; background-color: #3a8104; color:#000; height: 30px;">
             <h4 style="line-height: 12px;">
                 Becas Asignadas
             </h4>
@@ -205,6 +202,8 @@
             
             {% for becas in edit_form.becadobeca %}                
                 {% for choice in becas.beca.vars.choices %}
+                   {#  becas.beca.vars.value devuelve el value del option seleccionado, en este caso el que viene cargado 
+                       desde el controller#}
                     {% if choice.value == becas.beca.vars.value %}
                         {% set cont=cont + 1 %}
                         <br/><span style="color: #387038"><b>Beca Nro: {{ cont }}</b></span>
@@ -228,7 +227,7 @@
             <span style="color: #cc0000;">(*)La persona no tiene Becas Asignadas, para poder modificar la ficha, agregue una Beca</span>
         {% endif %}
         
-        <fieldset style="border:1px solid; background-color: #3a8104; color:#D3D3D3; height: 30px;">
+        <fieldset style="border:1px solid; background-color: #9fda58; color:#000; height: 30px;">
             <h4 style="line-height: 12px;">
                 Movimiento/Afectación/Dependencia
             </h4>
@@ -240,10 +239,14 @@
                         {{ form_label(edit_form.referente, 'Mov. Social/Referente', {'label_attr':{'style':'font-weight:bold;'}}) }}
                         {{ form_widget(edit_form.referente | e, {'attr':{'style':'width:100%;'}}) }} 
                     </td>
+                </tr>
+                <tr>
                     <td>
                         {{ form_label(edit_form.lugarAfectacion, 'Lugar de Afectación', {'label_attr':{'style':'font-weight:bold;'}}) }}
                         {{ form_widget(edit_form.lugarAfectacion | e, {'attr':{'style':'width:100%;'}}) }}
                     </td>
+                </tr>
+                <tr>
                     <td>
                         {{ form_label(edit_form.dependencia, 'Dependencia', {'label_attr':{'style':'font-weight:bold;'}}) }}
                         {{ form_widget(edit_form.dependencia | e, {'attr':{'style':'width:100%;'}}) }}
@@ -255,9 +258,9 @@
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <fieldset style="border:1px solid; background-color: #3a8104; color:#D3D3D3; height: 30px;">
+                    <fieldset style="border:1px solid; background-color: #3a8104; color:#000; height: 30px;">
                         <h4 class="panel-title" style="line-height: 12px;">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse"  style="color:#D3D3D3;">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#formacionCollapse"  style="color:#000;">
                                 Formación
                             </a>
                         </h4>
@@ -327,7 +330,7 @@
                 </div>
             </div>
         </div>
-        <fieldset style="border:1px solid; background-color: #3a8104; color:#D3D3D3; height: 30px;">
+        <fieldset style="border:1px solid; background-color: #9fda58; color:#000; height: 30px;">
             <h4 style="line-height: 12px;">
                 Otros Datos
             </h4>

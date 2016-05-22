@@ -116,6 +116,12 @@ class BecadoBecaController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new BecadoBeca();
+        
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
+        
         $form = $this->createForm(new BecadoBecaType(), $entity);
         $form->bind($request);
 
@@ -208,7 +214,12 @@ class BecadoBecaController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find BecadoBeca entity.');
         }
-
+        
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
+        
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new BecadoBecaType(), $entity);
         $editForm->bind($request);

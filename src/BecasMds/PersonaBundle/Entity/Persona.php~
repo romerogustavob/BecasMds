@@ -70,16 +70,14 @@ class Persona
     protected $domicilio;
     
     /**
-     * @var string
-     *
-     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="persona")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
     protected $createdBy;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="persona")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
     protected $updatedBy;
 
@@ -294,5 +292,53 @@ class Persona
     public function getDomicilio()
     {
         return $this->domicilio;
+    }
+
+    
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Persona
+     */
+    public function setCreatedAt($createdAt)
+    {
+        if (is_null($this->getCreatedAt())){
+            $this->createdAt = $createdAt;
+        }
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Persona
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

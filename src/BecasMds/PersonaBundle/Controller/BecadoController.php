@@ -127,6 +127,10 @@ class BecadoController extends Controller
         $formacion->setPersona($entity);
         $entity->addFormacion($formacion);
         $entity->addDomicilio($domicilio);
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
         $form = $this->createForm(new BecadoType(), $entity);
         $form->bind($request);
 
@@ -216,11 +220,7 @@ class BecadoController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Becado entity.');
         }
-//        $formacion=new \BecasMds\FormacionBundle\Entity\Formacion();
-//        $entity->addFormacion($formacion);
-//        $domicilio=new \BecasMds\PersonaBundle\Entity\Domicilio();
-//        $entity->addDomicilio($domicilio);
-//        
+        
         $originalFormacion=new ArrayCollection();
         
         foreach($entity->getFormacion() as $formacion){
@@ -237,28 +237,29 @@ class BecadoController extends Controller
             throw $this->createNotFoundException('No se encuentra la entidad Becado');
         }
         
-
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
+        
         $deleteForm = $this->createDeleteForm($id);
+        
         $editForm = $this->createForm(new BecadoType(), $entity);
         $editForm->bind($request);
-        if(!empty($entity->getBecadoBeca())){
-        if ($editForm->isValid() ) {
-            
-            $em->persist($entity);
-            $em->flush();
-            $this->get('session')->getFlashBag()->add('success', 'flash.update.success');
-
-            return $this->redirect($this->generateUrl('becado_show', array('id' => $id)));
-            
         
+        if(!empty($entity->getBecadoBeca())){
             
-        } else {
-            $this->get('session')->getFlashBag()->add('error', 'flash.update.error');
-        }
+            if ($editForm->isValid() ) {            
+                $em->persist($entity);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('success', 'flash.update.success');
+                return $this->redirect($this->generateUrl('becado_show', array('id' => $id)));            
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'flash.update.error');
+            }
         }
         else{
-            $this->get('session')->getFlashBag()->add('error', 'Agregue una beca para poder modificar los datos de la Ficha');
-            
+            $this->get('session')->getFlashBag()->add('error', 'Agregue una beca para poder modificar los datos de la Ficha');    
         }
 
         return $this->render('PersonaBundle:Becado:edit.html.twig', array(

@@ -120,8 +120,8 @@ class BecaVulnerableController extends Controller
         $user=$this->getUser();
         $entity  = new BecaVulnerable();
         
-        $entity->setCreatedBy($user);
-        $entity->setUpdatedBy($user);
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
         $entity->setCreatedAt(new \DateTime('now'));
         $entity->setUpdatedAt(new \DateTime('now'));
         
@@ -200,7 +200,10 @@ class BecaVulnerableController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BecaBundle:BecaVulnerable')->find($id);
-
+        $entity->setCreatedBy($this->getUser());
+        $entity->setUpdatedBy($this->getUser());
+        $entity->setCreatedAt(new \DateTime('now'));
+        $entity->setUpdatedAt(new \DateTime('now'));
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find BecaVulnerable entity.');
         }

@@ -70,6 +70,32 @@ class BecadoBeca {
     private $detalles;
     
     /**
+     * @ORM\ManyToOne(targetEntity="BecasMds\UsuarioBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
+     */
+    protected $createdBy;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BecasMds\UsuarioBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
+     */
+    protected $updatedBy;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    protected $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    protected $updatedAt;
+    
+    /**
      * @ORM\OneToOne(targetEntity="BecaVulnerable", inversedBy="becadobeca")
      * @ORM\JoinColumn(name="becavulnerable_id", referencedColumnName="id")
      */
@@ -288,4 +314,41 @@ class BecadoBeca {
     {
         return $this->becaVulnerable;
     }
+
+    /**
+     * Set createdBy
+     *
+     * @param string $createdBy
+     * @return BecadoBeca
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return string 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param string $updatedBy
+     * @return BecadoBeca
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
 }

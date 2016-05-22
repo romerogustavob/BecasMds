@@ -41,7 +41,7 @@ class __TwigTemplate_741937b5da56e6aeb21a780daa528112d324d6aa3b5cd4f1b2e92d515fb
     {
         // line 8
         echo "
-<h2 style=\"color: #0044cc\">BecadoBeca</h2>
+<h1>BecadoBeca</h1>
 
 <form class=\"form-horizontal\">
     <fieldset>        <div class=\"control-group\">
@@ -50,43 +50,28 @@ class __TwigTemplate_741937b5da56e6aeb21a780daa528112d324d6aa3b5cd4f1b2e92d515fb
         // line 14
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()), "html", null, true);
         echo "</span>            </div>
-        </div>
-        <div class=\"control-group\">
-            <label class=\"control-label\">Becado</label>
-            <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">Dni: ";
-        // line 18
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becado", array()), "html", null, true);
-        echo "</span>            </div>
-        </div>
-        <div class=\"control-group\">
-            <label class=\"control-label\">Beca</label>
-            <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 22
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "beca", array()), "html", null, true);
-        echo "</span>            </div>
-        </div>
-        <div class=\"control-group\">
+        </div>        <div class=\"control-group\">
             <label class=\"control-label\">Fechaalta</label>
             <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 26
+        // line 17
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "fechaAlta", array()), "Y-m-d H:i:s"), "html", null, true);
         echo "</span>            </div>
         </div>        <div class=\"control-group\">
             <label class=\"control-label\">Fechabaja</label>
             <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 29
+        // line 20
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "fechaBaja", array()), "Y-m-d H:i:s"), "html", null, true);
         echo "</span>            </div>
         </div>        <div class=\"control-group\">
             <label class=\"control-label\">Activo</label>
             <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 32
+        // line 23
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "activo", array()), "html", null, true);
         echo "</span>            </div>
         </div>        <div class=\"control-group\">
             <label class=\"control-label\">Detalles</label>
             <div class=\"controls\">                <span class=\"input-xlarge uneditable-input\">";
-        // line 35
+        // line 26
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "detalles", array()), "html", null, true);
         echo "</span>            </div>
         </div>    </fieldset>
@@ -95,51 +80,43 @@ class __TwigTemplate_741937b5da56e6aeb21a780daa528112d324d6aa3b5cd4f1b2e92d515fb
 <div>
     <div class=\"float-left\">
         <a class=\"btn\" href=\"";
-        // line 41
+        // line 32
         echo $this->env->getExtension('routing')->getPath("becadobeca");
         echo "\">
             ";
-        // line 42
+        // line 33
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.backtothelist", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
         </a>
     </div>
     <div class=\"float-left\">
         <a class=\"btn btn-primary\" href=\"";
-        // line 46
+        // line 37
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\">
             ";
-        // line 47
+        // line 38
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.edit", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "
         </a>
     </div>
     <div class=\"float-left\">
         <form action=\"";
-        // line 51
+        // line 42
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becadobeca_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "id", array()))), "html", null, true);
         echo "\" method=\"post\">
             <input type=\"hidden\" name=\"_method\" value=\"DELETE\" />
             ";
-        // line 53
+        // line 44
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["delete_form"]) ? $context["delete_form"] : null), 'widget');
         echo "
             <button class=\"btn btn-danger\" type=\"submit\" onclick=\"return confirm('";
-        // line 54
+        // line 45
         echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.confirm", array(), "JordiLlonchCrudGeneratorBundle"), "js"), "html", null, true);
         echo "');\">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("views.recordactions.delete", array(), "JordiLlonchCrudGeneratorBundle"), "html", null, true);
         echo "</button>
         </form>
-    </div>
-    <div class=\"float-left\">
-        <a class=\"btn btn-primary\" href=\"";
-        // line 58
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("becado_show", array("id" => $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : null), "becado", array()), "id", array()))), "html", null, true);
-        echo "\">
-            Ir a Becado
-        </a>
     </div>
 </div>
 ";
@@ -157,7 +134,7 @@ class __TwigTemplate_741937b5da56e6aeb21a780daa528112d324d6aa3b5cd4f1b2e92d515fb
 
     public function getDebugInfo()
     {
-        return array (  139 => 58,  130 => 54,  126 => 53,  121 => 51,  114 => 47,  110 => 46,  103 => 42,  99 => 41,  90 => 35,  84 => 32,  78 => 29,  72 => 26,  65 => 22,  58 => 18,  51 => 14,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  115 => 45,  111 => 44,  106 => 42,  99 => 38,  95 => 37,  88 => 33,  84 => 32,  75 => 26,  69 => 23,  63 => 20,  57 => 17,  51 => 14,  43 => 8,  40 => 7,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}*/
@@ -168,22 +145,13 @@ class __TwigTemplate_741937b5da56e6aeb21a780daa528112d324d6aa3b5cd4f1b2e92d515fb
 /* */
 /* {% block page %}*/
 /* */
-/* <h2 style="color: #0044cc">BecadoBeca</h2>*/
+/* <h1>BecadoBeca</h1>*/
 /* */
 /* <form class="form-horizontal">*/
 /*     <fieldset>        <div class="control-group">*/
 /*             <label class="control-label">Id</label>*/
 /*             <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.id }}</span>            </div>*/
-/*         </div>*/
-/*         <div class="control-group">*/
-/*             <label class="control-label">Becado</label>*/
-/*             <div class="controls">                <span class="input-xlarge uneditable-input">Dni: {{ entity.becado }}</span>            </div>*/
-/*         </div>*/
-/*         <div class="control-group">*/
-/*             <label class="control-label">Beca</label>*/
-/*             <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.beca }}</span>            </div>*/
-/*         </div>*/
-/*         <div class="control-group">*/
+/*         </div>        <div class="control-group">*/
 /*             <label class="control-label">Fechaalta</label>*/
 /*             <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.fechaAlta|date('Y-m-d H:i:s') }}</span>            </div>*/
 /*         </div>        <div class="control-group">*/
@@ -215,11 +183,6 @@ class __TwigTemplate_741937b5da56e6aeb21a780daa528112d324d6aa3b5cd4f1b2e92d515fb
 /*             {{ form_widget(delete_form) }}*/
 /*             <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle')|escape('js') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>*/
 /*         </form>*/
-/*     </div>*/
-/*     <div class="float-left">*/
-/*         <a class="btn btn-primary" href="{{ path('becado_show', { 'id': entity.becado.id }) }}">*/
-/*             Ir a Becado*/
-/*         </a>*/
 /*     </div>*/
 /* </div>*/
 /* {% endblock %}*/

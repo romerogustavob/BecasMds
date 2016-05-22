@@ -12,10 +12,31 @@
     <input type="hidden" name="_method" value="PUT" />
     <table>
         <tbody>
-            <tr>
+            <tr class="form-horizontal">
                 <td>{{ form_row(edit_form.becado, {'attr':{'style':'width:100%; cursor: not-allowed; length: 1;', 'readonly':'true' }} ) }}</td>
-                <td>{{ form_row(edit_form.beca, {'attr':{'style':'width:100%;'}}) }}</td>
-                <td>{{ form_row(edit_form.becaVulnerable, {'attr':{'style':'width:100%;'}}) }}</td>
+                {% if edit_form.beca.vars.value is not empty %}
+                    <td>
+                    {{ form_row(edit_form.beca, {'attr':{'style':'width:90%;'}}) }}
+                    
+                    <a class="btn btn-mini" href="{{ path('beca_show', { 'id': edit_form.beca.vars.value  }) }}">
+                        {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                    </a>
+                    {% else %}
+                        <div style="display:none">
+                            {{ form_row(edit_form.beca, {'attr':{'style':'width:90%;'}}) }}
+                        </div>
+                    </td>
+                    {% endif %}
+                        
+                
+                <td>{{ form_row(edit_form.becaVulnerable, {'attr':{'style':'width:100%;'}}) }}
+                    <a class="btn btn-mini" href="{{ path('becavulnerable_show', { 'id': edit_form.becaVulnerable.vars.value  }) }}">
+                        {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                    </a>
+                    {#<a class="btn btn-mini" href="{{ path('becavulnerable_edit', { 'id': entity.id }) }}">
+                        {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                    </a>  #}          
+                </td>
             </tr>
             <tr>
                 <td>{{ form_row(edit_form.fechaAlta) }}</td>
